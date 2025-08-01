@@ -1,0 +1,2 @@
+import{N as n}from"./chunk-2KVDOY2U.js";import{Fb as e,vb as i}from"./chunk-3RR6OKG3.js";var p=(()=>{class r{constructor(t){this.DS=t}transform(t){return t?this.DS.bypassSecurityTrustHtml(t):null}static{this.\u0275fac=function(s){return new(s||r)(i(n,16))}}static{this.\u0275pipe=e({name:"returnHtml",type:r,pure:!0})}}return r})();export{p as a};
+/**i18n:63feba670192799f8d7bdef17e8d193f0425d52a6089ed55065392b1e1b9606a*/
