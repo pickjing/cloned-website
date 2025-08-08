@@ -1,8 +1,12 @@
 <template>
   <div id="app">
     <!-- 左侧固定导航栏 -->
-    <div class="side-nav">
-
+    <div 
+      class="side-nav"
+      :class="{ 'expanded': isExpanded }"
+      @mouseenter="isExpanded = true"
+      @mouseleave="isExpanded = false"
+    >
       <!-- 导航菜单 -->
       <ul class="nav-menu">
         <router-link
@@ -16,9 +20,10 @@
             class="nav-item"
             :class="{ active: isActive }"
             @click="navigate"
+            :title="!isExpanded ? item.label : ''"
           >
             <SvgIcon :name="item.icon" class="icon" />
-            <span class="label">{{ item.label }}</span>
+            <span class="label" v-show="isExpanded">{{ item.label }}</span>
           </li>
         </router-link>
       </ul>
@@ -43,6 +48,7 @@ export default {
   },
   setup() {
     const router = useRouter()
+    const isExpanded = ref(false)
 
     // 导航栏项目
     const navItems = computed(() => {
@@ -56,7 +62,8 @@ export default {
     })
 
     return {
-      navItems
+      navItems,
+      isExpanded
     }
   }
 }
@@ -83,24 +90,19 @@ html, body {
 
 /* 左侧固定导航栏 */
 .side-nav {
-  width: 240px;
+  width: 60px;
   background-color: white;
   border-right: 1px solid #e4e7ed;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
   height: 100vh;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
-.logo-section {
-  padding: 20px;
-  border-bottom: 1px solid #e4e7ed;
-}
-
-.logo {
-  font-size: 14px;
-  color: #333;
-  font-weight: 500;
+.side-nav.expanded {
+  width: 240px;
 }
 
 .nav-menu {
@@ -115,9 +117,10 @@ html, body {
   align-items: center;
   padding: 15px 20px;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: all 0.3s ease;
   position: relative;
   border-bottom: 1px solid #f5f5f5;
+  white-space: nowrap;
 }
 
 .nav-item:hover {
@@ -132,11 +135,31 @@ html, body {
   color: #666;
   width: 20px;
   text-align: center;
+  flex-shrink: 0;
+  transition: margin 0.3s ease;
+}
+
+/* 收缩状态下的图标居中 */
+.side-nav:not(.expanded) .nav-item {
+  justify-content: center;
+  padding: 15px 0;
+}
+
+.side-nav:not(.expanded) .nav-item .icon {
+  margin-right: 0;
 }
 
 .nav-item .label {
   font-size: 14px;
   color: #333;
+  opacity: 0;
+  transition: all 0.3s ease;
+  transform: translateX(-10px);
+}
+
+.side-nav.expanded .nav-item .label {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* 高亮样式 */
@@ -171,6 +194,11 @@ html, body {
   flex-direction: column;
   overflow: hidden;
   height: 100vh;
+  width: calc(100vw - 60px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.side-nav.expanded + .main-content {
   width: calc(100vw - 240px);
 }
 </style>
