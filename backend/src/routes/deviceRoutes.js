@@ -3,16 +3,25 @@ const DeviceController = require('../controllers/deviceController');
 
 const router = express.Router();
 
-// 获取所有设备数据
-router.get('/data', DeviceController.getAllData);
+// DTU设备相关路由
+router.get('/dtu', DeviceController.getAllDTUDevices);
+router.post('/dtu', DeviceController.createDTUDevice);
+router.get('/dtu/:dtuId/sensors', DeviceController.getSensorsByDTUId);
+router.get('/dtu/:dtuId/temperature', DeviceController.getTemperatureDataByDTUId);
 
-// 获取设备列表
-router.get('/devices', DeviceController.getDeviceList);
+// 传感器相关路由
+router.post('/sensors', DeviceController.createSensor);
+router.get('/sensors/:sensorId/temperature', DeviceController.getTemperatureDataBySensorId);
+router.get('/sensors/:sensorId/trend', DeviceController.getTemperatureTrend);
 
-// 根据设备ID获取数据
-router.get('/data/:deviceId', DeviceController.getDataByDevice);
+// 温度数据相关路由
+router.post('/temperature', DeviceController.createTemperatureData);
 
-// 创建新数据
-router.post('/data', DeviceController.createData);
+// DTU设备注册
+router.post('/dtu/register', DeviceController.recordDTURegistration);
+
+// 统计和监控相关路由
+router.get('/statistics', DeviceController.getDeviceStatistics);
+router.get('/temperature/abnormal', DeviceController.getAbnormalTemperatureData);
 
 module.exports = router;
