@@ -24,4 +24,8 @@ router.post('/dtu/register', DeviceController.recordDTURegistration);
 router.get('/statistics', DeviceController.getDeviceStatistics);
 router.get('/temperature/abnormal', DeviceController.getAbnormalTemperatureData);
 
+// 获取设备状态和设备分组选项
+router.get('/options/status', DeviceController.getDeviceStatusOptions);
+router.get('/options/groups', DeviceController.getDeviceGroupOptions);
+
 module.exports = router;

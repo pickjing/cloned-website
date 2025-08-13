@@ -120,6 +120,12 @@ class DeviceData {
     `, [minTemp, maxTemp]);
     return rows;
   }
+
+  // 获取设备分组
+  static async getDeviceGroups() {
+    const [rows] = await db.execute('SELECT group_name FROM device_groups ORDER BY group_name');
+    return rows.map(row => row.group_name);
+  }
 }
 
 module.exports = DeviceData;

@@ -121,6 +121,26 @@ class DeviceController {
       res.status(500).json({ success: false, message: error.message });
     }
   }
+
+  // 获取设备状态选项
+  static async getDeviceStatusOptions(req, res) {
+    try {
+      const statusOptions = ['已连接', '未连接', '已删除', '已禁用'];
+      res.json({ success: true, data: statusOptions });
+    } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+    }
+  }
+
+  // 获取设备分组选项
+  static async getDeviceGroupOptions(req, res) {
+    try {
+      const groups = await DeviceData.getDeviceGroups();
+      res.json({ success: true, data: groups });
+    } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+    }
+  }
 }
 
 module.exports = DeviceController;

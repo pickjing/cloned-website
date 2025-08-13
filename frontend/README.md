@@ -1,5 +1,106 @@
-# Vue 3 + Vite
+# IoT管理系统前端
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 项目概述
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+这是一个基于Vue 3 + Element Plus的IoT设备管理系统前端，提供完整的设备监控、管理和数据分析功能。
+
+## 功能特性
+
+- **设备搜索**: 支持通过设备名、序列号、ID搜索DTU设备
+- **设备分类**: 所有设备、报警设备、离线设备三个分类视图
+- **设备分组**: 现场、现场-3号机组等设备分组管理
+- **实时监控**: 显示设备连接状态和传感器数据
+- **设备操作**: 设置链接协议、编辑设备、编辑传感器
+
+### 传感器管理
+- **状态监控**: 实时显示传感器连接状态
+- **数据展示**: 当前值、更新时间等关键信息
+- **功能操作**: 报警记录、实时曲线、历史查询
+
+## 技术栈
+
+- **Vue 3**: 使用Composition API
+- **Element Plus**: UI组件库
+- **Vue Router**: 路由管理
+- **Vite**: 构建工具
+
+## 项目结构
+
+```
+src/
+├── components/          # 公共组件
+│   ├── DeviceList.vue  # 设备列表组件
+│   ├── PageLayout.vue  # 页面布局组件
+│   └── SvgIcon.vue     # SVG图标组件
+├── views/              # 页面组件
+│   ├── MonitoringCenter.vue  # 监控中心
+│   ├── DeviceManagement.vue  # 设备管理
+│   ├── DeviceMap.vue         # 设备地图
+│   └── ...                   # 其他功能页面
+├── router/             # 路由配置
+├── assets/             # 静态资源
+└── main.js            # 应用入口
+```
+
+## 快速开始
+
+### 安装依赖
+```bash
+npm install
+```
+
+### 启动开发服务器
+```bash
+npm run dev
+```
+
+### 构建生产版本
+```bash
+npm run build
+```
+
+## 使用说明
+
+### 监控中心操作流程
+
+1. **搜索设备**: 在左侧搜索栏输入设备名、序列号或ID
+2. **选择分类**: 点击"所有设备"、"报警"、"离线"标签切换视图
+3. **选择设备**: 在左侧设备列表中点击具体设备
+4. **查看详情**: 右侧显示设备基本信息和传感器列表
+5. **操作设备**: 使用右上角三个图标进行设备操作
+6. **管理传感器**: 为每个传感器执行报警记录、实时曲线、历史查询
+
+### 设备状态说明
+
+- **在线**: 设备正常连接，传感器数据正常
+- **离线**: 设备无法连接，需要检查网络或设备状态
+- **报警**: 传感器连接异常或数据异常
+
+## 开发说明
+
+### 添加新设备类型
+在`MonitoringCenter.vue`的`devices`数组中添加新的设备对象，包含必要的字段：
+- `id`: 设备唯一标识
+- `name`: 设备名称
+- `serialNumber`: 序列号
+- `type`: 设备类型
+- `status`: 设备状态
+- `group`: 设备分组
+- `sensors`: 传感器数组
+
+### 自定义传感器操作
+在`MonitoringCenter.vue`中修改传感器操作函数，实现具体的业务逻辑：
+- `viewAlarmRecord()`: 查看报警记录
+- `viewRealTimeCurve()`: 查看实时曲线
+- `viewHistoryQuery()`: 查看历史查询
+
+## 浏览器支持
+
+- Chrome >= 87
+- Firefox >= 78
+- Safari >= 14
+- Edge >= 88
+
+## 许可证
+
+ISC

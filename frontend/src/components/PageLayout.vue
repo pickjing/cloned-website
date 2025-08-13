@@ -2,7 +2,6 @@
   <div class="page-layout">
     <div class="page-header">
       <h2>{{ title }}</h2>
-      <p v-if="description">{{ description }}</p>
     </div>
     <div class="page-content">
       <slot></slot>
@@ -17,10 +16,6 @@ export default {
     title: {
       type: String,
       required: true
-    },
-    description: {
-      type: String,
-      default: ''
     }
   }
 }
@@ -36,23 +31,18 @@ export default {
 }
 
 .page-header {
-  padding: 20px;
+  padding: 12px 20px;
   background-color: white;
   border-bottom: 1px solid #e4e7ed;
   flex-shrink: 0;
 }
 
 .page-header h2 {
-  margin: 0 0 10px 0;
-  color: #333;
-  font-size: 24px;
-  font-weight: 500;
-}
-
-.page-header p {
   margin: 0;
-  color: #666;
-  font-size: 14px;
+  color: #333;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 .page-content {
