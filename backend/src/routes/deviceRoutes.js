@@ -28,4 +28,8 @@ router.get('/temperature/abnormal', DeviceController.getAbnormalTemperatureData)
 router.get('/options/status', DeviceController.getDeviceStatusOptions);
 router.get('/options/groups', DeviceController.getDeviceGroupOptions);
 
+// 分组相关路由
+router.get('/groups/check', DeviceController.checkGroupNameExists);
+router.post('/groups', DeviceController.createGroup);
+
 module.exports = router;

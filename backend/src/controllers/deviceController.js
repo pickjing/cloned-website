@@ -141,6 +141,51 @@ class DeviceController {
       res.status(500).json({ success: false, message: error.message });
     }
   }
+
+  // 检查分组名是否存在
+  static async checkGroupNameExists(req, res) {
+    try {
+      const { group_name } = req.query;
+      if (!group_name) {
+        return res.status(400).json({ success: false, message: '分组名不能为空' });
+      }
+      
+      const exists = await DeviceData.checkGroupNameExists(group_name);
+      res.json({ success: true, data: { exists } });
+    } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+    }
+  }
+
+  // 创建新分组
+  static async createGroup(req, res) {
+    try {
+      const { group_name, description } = req.body;
+      
+      if (!group_name || group_name.trim() === '') {
+        return res.status(400).json({ success: false, message: '分组名不能为空' });
+      }
+      
+      // 检查分组名是否已存在
+      const exists = await DeviceData.checkGroupNameExists(group_name.trim());
+      if (exists) {
+        return res.status(400).json({ success: false, message: '分组名已存在' });
+      }
+      
+      const result = await DeviceData.createGroup({
+        group_name: group_name.trim(),
+        description: description || ''
+      });
+      
+      res.json({ 
+        success: true, 
+        message: '分组创建成功',
+        data: { id: result.insertId, group_name: group_name.trim() }
+      });
+    } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+    }
+  }
 }
 
 module.exports = DeviceController;

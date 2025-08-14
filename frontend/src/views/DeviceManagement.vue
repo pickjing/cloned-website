@@ -52,7 +52,7 @@
         </div>
         
         <div class="action-section">
-          <button class="action-btn new-group-btn">
+          <button class="action-btn new-group-btn" @click="showCreateGroupModal = true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="btn-icon">
               <path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -222,16 +222,25 @@
         </div>
       </div>
     </div>
+
+    <!-- 新建分组模态对话框 -->
+    <CreateGroupModal
+      :visible="showCreateGroupModal"
+      @close="showCreateGroupModal = false"
+      @group-created="handleGroupCreated"
+    />
   </PageLayout>
 </template>
 
 <script>
 import PageLayout from '../components/PageLayout.vue'
+import CreateGroupModal from '../components/CreateGroupModal.vue'
 
 export default { 
   name: "DeviceManagement",
   components: {
-    PageLayout
+    PageLayout,
+    CreateGroupModal
   },
   data() {
     return {
@@ -251,7 +260,8 @@ export default {
       selectAll: false, // 全选状态
       jumpToPage: '1', // 跳转页码（改为字符串类型）
       showPageSizeDropdown: false, // 每页条数下拉框显示状态
-      pageSizeOptions: [10, 20, 30, 40, 50] // 每页条数选项
+      pageSizeOptions: [10, 20, 30, 40, 50], // 每页条数选项
+      showCreateGroupModal: false // 新建分组模态对话框显示状态
     }
   },
   computed: {
@@ -518,6 +528,10 @@ export default {
         this.showStatusDropdown = false;
         this.showPageSizeDropdown = false;
       }
+    },
+    handleGroupCreated() {
+      this.showCreateGroupModal = false;
+      this.fetchOptions(); // 刷新设备分组选项
     }
   }
 }

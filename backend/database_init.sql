@@ -95,12 +95,16 @@ CREATE TABLE IF NOT EXISTS device_groups (
     id INT AUTO_INCREMENT PRIMARY KEY,
     group_name VARCHAR(100) UNIQUE NOT NULL COMMENT '分组名称',
     description VARCHAR(255) COMMENT '分组描述',
-    parent_group_id INT COMMENT '父分组ID',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    FOREIGN KEY (parent_group_id) REFERENCES device_groups(id) ON DELETE SET NULL,
     INDEX idx_group_name (group_name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='设备分组表';
+
+-- 插入一些示例分组数据
+INSERT IGNORE INTO device_groups (group_name, description) VALUES
+('默认分组', '系统默认分组'),
+('测试分组', '用于测试的设备分组'),
+('生产分组', '生产环境设备分组');
 
 -- DTU注册记录表
 CREATE TABLE IF NOT EXISTS dtu_registrations (

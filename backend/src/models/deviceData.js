@@ -126,6 +126,25 @@ class DeviceData {
     const [rows] = await db.execute('SELECT group_name FROM device_groups ORDER BY group_name');
     return rows.map(row => row.group_name);
   }
+
+  // 检查分组名是否存在
+  static async checkGroupNameExists(groupName) {
+    const [rows] = await db.execute(
+      'SELECT COUNT(*) as count FROM device_groups WHERE group_name = ?',
+      [groupName]
+    );
+    return rows[0].count > 0;
+  }
+
+  // 创建新分组
+  static async createGroup(data) {
+    const { group_name, description } = data;
+    const [result] = await db.execute(
+      'INSERT INTO device_groups (group_name, description) VALUES (?, ?)',
+      [group_name, description]
+    );
+    return result;
+  }
 }
 
 module.exports = DeviceData;
