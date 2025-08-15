@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" class="modal-overlay" @click="handleOverlayClick">
+  <div v-if="visible" class="modal-overlay">
     <div class="modal-content" @click.stop>
       <!-- 模态框头部 -->
       <div class="modal-header">
@@ -213,10 +213,6 @@ export default {
     },
     
     handleClose() {
-      this.$emit('close');
-    },
-    
-    handleOverlayClick() {
       this.$emit('close');
     }
   }

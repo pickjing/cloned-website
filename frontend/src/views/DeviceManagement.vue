@@ -58,7 +58,7 @@
             </svg>
             <span>新建分组</span>
           </button>
-          <button class="action-btn new-device-btn">
+          <button class="action-btn new-device-btn" @click="showCreateDeviceSlide = true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="btn-icon">
               <path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -229,18 +229,27 @@
       @close="showCreateGroupModal = false"
       @group-created="handleGroupCreated"
     />
+
+    <!-- 新建设备滑动页面 -->
+    <CreateDeviceSlide
+      :visible="showCreateDeviceSlide"
+      @close="handleCloseDeviceSlide"
+      @device-created="handleDeviceCreated"
+    />
   </PageLayout>
 </template>
 
 <script>
 import PageLayout from '../components/PageLayout.vue'
 import CreateGroupModal from '../components/CreateGroupModal.vue'
+import CreateDeviceSlide from '../components/CreateDeviceSlide.vue'
 
 export default { 
   name: "DeviceManagement",
   components: {
     PageLayout,
-    CreateGroupModal
+    CreateGroupModal,
+    CreateDeviceSlide
   },
   data() {
     return {
@@ -261,7 +270,8 @@ export default {
       jumpToPage: '1', // 跳转页码（改为字符串类型）
       showPageSizeDropdown: false, // 每页条数下拉框显示状态
       pageSizeOptions: [10, 20, 30, 40, 50], // 每页条数选项
-      showCreateGroupModal: false // 新建分组模态对话框显示状态
+      showCreateGroupModal: false, // 新建分组模态对话框显示状态
+      showCreateDeviceSlide: false // 新建设备滑动页显示状态
     }
   },
   computed: {
@@ -532,6 +542,15 @@ export default {
     handleGroupCreated() {
       this.showCreateGroupModal = false;
       this.fetchOptions(); // 刷新设备分组选项
+    },
+    handleDeviceCreated() {
+      this.showCreateDeviceSlide = false;
+      this.fetchDevices(); // 刷新设备列表
+    },
+    
+    handleCloseDeviceSlide() {
+      // 立即关闭，无延迟
+      this.showCreateDeviceSlide = false;
     }
   }
 }
