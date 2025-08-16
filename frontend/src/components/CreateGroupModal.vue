@@ -202,6 +202,8 @@ export default {
         if (data.success) {
           // 发送成功事件，让父组件处理关闭
           this.$emit('group-created', data.data);
+          // 自动关闭模态框
+          this.$emit('close');
         } else {
           this.showError = true;
           this.errorMessage = data.message || '创建失败';
