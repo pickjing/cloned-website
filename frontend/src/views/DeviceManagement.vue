@@ -350,7 +350,7 @@ export default {
           status: this.selectedStatus || undefined,
           search: this.searchQuery || undefined,
         };
-        const response = await fetch(`http://localhost:3000/api/devices?${new URLSearchParams(params).toString()}`);
+        const response = await fetch(`http://localhost:3000/api/dtu?${new URLSearchParams(params).toString()}`);
         if (response.ok) {
           const data = await response.json();
           this.devices = data.data.devices;
@@ -393,7 +393,7 @@ export default {
     async handleCopy() {
       if (this.selectedDevices.length === 0) return;
       try {
-        const response = await fetch('http://localhost:3000/api/devices/copy', {
+        const response = await fetch('http://localhost:3000/api/dtu/copy', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -421,7 +421,7 @@ export default {
         return;
       }
       try {
-        const response = await fetch('http://localhost:3000/api/devices/delete', {
+        const response = await fetch('http://localhost:3000/api/dtu/delete', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -449,7 +449,7 @@ export default {
         return;
       }
       try {
-        const response = await fetch('http://localhost:3000/api/devices/reset', {
+        const response = await fetch('http://localhost:3000/api/dtu/reset', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -477,7 +477,7 @@ export default {
       if (!group) return;
 
       try {
-        const response = await fetch('http://localhost:3000/api/devices/move', {
+        const response = await fetch('http://localhost:3000/api/dtu/move', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

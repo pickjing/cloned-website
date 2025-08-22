@@ -221,18 +221,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 10000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .modal-content {
@@ -243,6 +244,7 @@ export default {
   max-width: 90vw;
   max-height: 90vh;
   overflow: hidden;
+  position: relative;
 }
 
 .modal-header {
@@ -314,6 +316,7 @@ export default {
   font-size: 14px;
   transition: all 0.2s;
   padding-right: 32px;
+  font-family: inherit;
 }
 
 .form-input:focus {
@@ -405,6 +408,7 @@ export default {
   cursor: pointer;
   transition: all 0.2s;
   min-width: 60px;
+  font-family: inherit;
 }
 
 .btn-secondary {

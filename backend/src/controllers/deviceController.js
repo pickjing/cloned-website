@@ -4,7 +4,9 @@ class DeviceController {
   // 获取所有DTU设备
   static async getAllDTUDevices(req, res) {
     try {
-      const devices = await DeviceData.getAllDTUDevices();
+      const { page, limit, group, status, search } = req.query;
+      const params = { page, limit, group, status, search };
+      const devices = await DeviceData.getAllDTUDevices(params);
       res.json({ success: true, data: devices });
     } catch (error) {
       res.status(500).json({ success: false, message: error.message });
@@ -182,6 +184,70 @@ class DeviceController {
         message: '分组创建成功',
         data: { id: result.insertId, group_name: group_name.trim() }
       });
+    } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+    }
+  }
+
+  // 复制DTU设备
+  static async copyDTUDevices(req, res) {
+    try {
+      const { device_ids } = req.body;
+      if (!device_ids || !Array.isArray(device_ids) || device_ids.length === 0) {
+        return res.status(400).json({ success: false, message: '请选择要复制的设备' });
+      }
+      
+      const result = await DeviceData.copyDTUDevices(device_ids);
+      res.json({ success: true, message: '设备复制成功', data: result });
+    } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+    }
+  }
+
+  // 删除DTU设备
+  static async deleteDTUDevices(req, res) {
+    try {
+      const { device_ids } = req.body;
+      if (!device_ids || !Array.isArray(device_ids) || device_ids.length === 0) {
+        return res.status(400).json({ success: false, message: '请选择要删除的设备' });
+      }
+      
+      const result = await DeviceData.deleteDTUDevices(device_ids);
+      res.json({ success: true, message: '设备删除成功', data: result });
+    } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+    }
+  }
+
+  // 重置DTU设备
+  static async resetDTUDevices(req, res) {
+    try {
+      const { device_ids } = req.body;
+      if (!device_ids || !Array.isArray(device_ids) || device_ids.length === 0) {
+        return res.status(400).json({ success: false, message: '请选择要重置的设备' });
+      }
+      
+      const result = await DeviceData.resetDTUDevices(device_ids);
+      res.json({ success: true, message: '设备重置成功', data: result });
+    } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+    }
+  }
+
+  // 移动DTU设备到指定分组
+  static async moveDTUDevicesToGroup(req, res) {
+    try {
+      const { device_ids, group_name } = req.body;
+      if (!device_ids || !Array.isArray(device_ids) || device_ids.length === 0) {
+        return res.status(400).json({ success: false, message: '请选择要移动的设备' });
+      }
+      
+      if (!group_name || group_name.trim() === '') {
+        return res.status(400).json({ success: false, message: '分组名不能为空' });
+      }
+      
+      const result = await DeviceData.moveDTUDevicesToGroup(device_ids, group_name.trim());
+      res.json({ success: true, message: '设备移动成功', data: result });
     } catch (error) {
       res.status(500).json({ success: false, message: error.message });
     }

@@ -195,7 +195,7 @@
               传感器
             </label>
             <div class="sensor-actions">
-              <button type="button" class="btn btn-primary">+ 添加传感器</button>
+              <button type="button" class="btn btn-primary" @click="openSensorModal">+ 添加传感器</button>
               <div class="sensor-right-actions">
                 <a href="/files/创建传感器模板.xlsx" class="download-link">下载模板</a>
                 <button type="button" class="btn btn-primary">导入Excel</button>
@@ -233,31 +233,51 @@
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">经纬度</label>
-            <div class="location-inputs">
-              <div class="custom-dropdown" @click="toggleLocationTypeDropdown">
-                <span class="dropdown-text">{{ deviceData.locationType === 'manual' ? '手动输入' : '地图选择' }}</span>
-                <svg class="dropdown-arrow" :class="{ 'rotated': showLocationTypeDropdown }" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-                <div v-show="showLocationTypeDropdown" class="dropdown-menu">
-                  <div 
-                    v-for="type in locationTypeOptions" 
-                    :key="type.value" 
-                    class="dropdown-item"
-                    @click.stop="selectLocationType(type.value)"
-                  >
-                    {{ type.label }}
-                  </div>
-                </div>
+            <div class="coordinates-inputs">
+              <div class="coordinate-input-group">
+                <label class="coordinate-label">经度</label>
+                <input 
+                  v-model="deviceData.longitude" 
+                  type="text" 
+                  class="coordinate-input" 
+                  placeholder="请输入经度"
+                  @input="validateLongitude"
+                  @keydown="preventInvalidCoordinateInput"
+                  @paste="preventInvalidCoordinatePaste"
+                />
               </div>
-              <input v-model="deviceData.coordinates" type="text" class="form-input" placeholder="请输入经纬度定位"/>
-              <button type="button" class="locate-btn">点击定位</button>
+              <div class="coordinate-input-group">
+                <label class="coordinate-label">纬度</label>
+                <input 
+                  v-model="deviceData.latitude" 
+                  type="text" 
+                  class="coordinate-input" 
+                  placeholder="请输入纬度"
+                  @input="validateLatitude"
+                  @keydown="preventInvalidCoordinateInput"
+                  @paste="preventInvalidCoordinatePaste"
+                />
+              </div>
+              <button type="button" class="locate-btn" @click="updateMapCenter">点击定位</button>
             </div>
           </div>
         </div>
 
         <div class="map-container">
-          <div class="map-placeholder">地图加载中...</div>
+          <div id="baidu-map" class="baidu-map"></div>
+          <div v-if="!mapLoaded" class="map-loading">
+            <div class="loading-spinner"></div>
+            <span>地图加载中...</span>
+          </div>
+          <!-- 备用地图显示 -->
+          <div v-if="mapLoadFailed" class="map-fallback">
+            <div class="fallback-content">
+              <div class="fallback-icon">🗺️</div>
+              <h4>地图加载失败</h4>
+              <p>请检查网络连接或联系管理员</p>
+              <button @click="retryLoadMap" class="retry-btn">重试</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -269,11 +289,211 @@
     </div>
 
     <!-- 新建分组模态框 -->
-    <CreateGroupModal
-      :visible="showCreateGroupModal"
-      @close="showCreateGroupModal = false"
-      @group-created="handleGroupCreated"
-    />
+    <teleport to="body">
+      <CreateGroupModal
+        :visible="showCreateGroupModal"
+        @close="showCreateGroupModal = false"
+        @group-created="handleGroupCreated"
+      />
+    </teleport>
+
+    <!-- 传感器模态框 -->
+    <teleport to="body">
+      <div v-if="showSensorModal" class="modal-overlay">
+        <div class="modal-content sensor-modal-content" @click.stop>
+          <div class="modal-header">
+            <h3>新建传感器</h3>
+            <button type="button" class="close-btn" @click="closeSensorModal">×</button>
+          </div>
+          
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                名称
+              </label>
+              <input v-model="sensorData.name" type="text" class="form-input" placeholder="请输入传感器名称" required/>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                传感器类型
+              </label>
+              <div class="custom-dropdown sensor-type-dropdown disabled">
+                <span class="dropdown-text">数值型</span>
+                <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                小数位
+              </label>
+              <div class="custom-dropdown decimal-places-dropdown" @click="toggleDecimalPlacesDropdown">
+                <span class="dropdown-text">{{ sensorData.decimalPlaces || '请选择小数位' }}</span>
+                <svg class="dropdown-arrow" :class="{ 'rotated': showDecimalPlacesDropdown }" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div v-show="showDecimalPlacesDropdown" class="dropdown-menu" :class="{ 'dropdown-up': shouldShowDecimalPlacesUp }">
+                  <div 
+                    v-for="decimal in decimalPlacesOptions" 
+                    :key="decimal" 
+                    class="dropdown-item"
+                    @click.stop="selectDecimalPlaces(decimal)"
+                  >
+                    {{ decimal }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                单位
+              </label>
+              <input v-model="sensorData.unit" type="text" class="form-input" placeholder="请输入单位" required/>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">排序</label>
+              <input 
+                v-model="sensorData.sort" 
+                type="text" 
+                class="form-input" 
+                placeholder="为空时自动排序"
+                @input="forcePositiveInteger('sort')"
+                @keydown="preventInvalidInput"
+                @paste="preventInvalidPaste"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                上行映射
+              </label>
+              <div class="mapping-inputs">
+                <input 
+                  v-model="sensorData.uplinkMapping.x1" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="x1"
+                  @input="forceNumericInput('uplinkMapping.x1')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+                <input 
+                  v-model="sensorData.uplinkMapping.x2" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="x2"
+                  @input="forceNumericInput('uplinkMapping.x2')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+                <span class="mapping-arrow">=></span>
+                <input 
+                  v-model="sensorData.uplinkMapping.y1" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="y1"
+                  @input="forceNumericInput('uplinkMapping.y1')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+                <input 
+                  v-model="sensorData.uplinkMapping.y2" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="y2"
+                  @input="forceNumericInput('uplinkMapping.y2')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                下行映射
+              </label>
+              <div class="mapping-inputs">
+                <input 
+                  v-model="sensorData.downlinkMapping.x1" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="x1"
+                  @input="forceNumericInput('downlinkMapping.x1')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+                <input 
+                  v-model="sensorData.downlinkMapping.x2" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="x2"
+                  @input="forceNumericInput('downlinkMapping.x2')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+                <span class="mapping-arrow">=></span>
+                <input 
+                  v-model="sensorData.downlinkMapping.y1" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="y1"
+                  @input="forceNumericInput('downlinkMapping.y1')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+                <input 
+                  v-model="sensorData.downlinkMapping.y2" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="y2"
+                  @input="forceNumericInput('downlinkMapping.y2')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                添加数量
+              </label>
+              <input 
+                v-model="sensorData.quantity" 
+                type="text" 
+                class="form-input" 
+                min="1" 
+                required
+                @input="forcePositiveInteger('quantity')"
+                @keydown="preventInvalidInput"
+                @paste="preventInvalidPaste"
+              />
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" @click="closeSensorModal">关闭</button>
+            <button 
+              type="button" 
+              class="btn btn-primary" 
+              :disabled="!canSubmitSensor"
+              @click="confirmSensorModal"
+            >
+              确定
+            </button>
+          </div>
+        </div>
+      </div>
+    </teleport>
   </div>
 </template>
 
@@ -304,17 +524,16 @@ export default {
         offlineDelay: '60',
         recommendedDelay: '60', // 新增：推荐值模式下的延时值
         customDelay: '60', // 新增：自定义模式下的延时值
-        timezone: '',
-        locationType: 'manual',
-        coordinates: '',
+        timezone: 'UTC+08:00', // 默认选择北京时间
+        longitude: '',
+        latitude: '',
         deviceImage: '/image/设备图片.png' // 使用本地静态图片
       },
-      deviceGroups: ['默认分组', '测试分组', '生产分组'], // 添加默认值
+      deviceGroups: [], // 从API获取设备分组
       sensors: [],
       showGroupDropdown: false,
       showTimezoneDropdown: false,
       showOfflineDelayDropdown: false,
-      showLocationTypeDropdown: false,
       timezoneOptions: [
         { label: 'UTC-12:00', value: 'UTC-12:00' },
         { label: 'UTC-11:00', value: 'UTC-11:00' },
@@ -344,10 +563,47 @@ export default {
         { label: 'UTC+13:00', value: 'UTC+13:00' },
         { label: 'UTC+14:00', value: 'UTC+14:00' }
       ],
-      locationTypeOptions: [
-        { label: '手动输入', value: 'manual' },
-        { label: '地图选择', value: 'map' }
-      ]
+      showSensorModal: false, // 新增：控制传感器模态框显示
+      sensorData: {
+        name: '',
+        type: '数值型', // 固定为数值型
+        decimalPlaces: '0(小数位)',
+        unit: '',
+        sort: '',
+        uplinkMapping: { x1: '', x2: '', y1: '', y2: '' },
+        downlinkMapping: { x1: '', x2: '', y1: '', y2: '' },
+        quantity: '1' // 确保默认值为1
+      },
+      sensorTypeOptions: ['数值型', '布尔型', '字符串型'], // 新增：传感器类型选项
+      showSensorTypeDropdown: false, // 新增：控制传感器类型下拉菜单显示
+      showDecimalPlacesDropdown: false, // 新增：控制小数位下拉菜单显示
+      decimalPlacesOptions: ['0(小数位)', '1(小数位)', '2(小数位)', '3(小数位)', '4(小数位)'], // 新增：小数位选项
+      mapLoaded: false, // 新增：地图加载状态
+      baiduMap: null, // 新增：百度地图实例
+      mapLoadFailed: false // 新增：地图加载失败状态
+    }
+  },
+  mounted() {
+    // 组件挂载后不立即初始化地图，等待组件显示
+    console.log('组件已挂载，等待显示...');
+  },
+  watch: {
+    // 监听visible属性变化，当组件显示时初始化地图
+    visible(newVal) {
+      if (newVal && !this.mapLoaded) {
+        console.log('组件显示，开始初始化地图...');
+        // 延迟初始化地图，确保DOM已完全渲染
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.initBaiduMap();
+          }, 500);
+        });
+      }
+      
+      // 当组件显示时，获取设备分组数据
+      if (newVal) {
+        this.fetchDeviceGroups();
+      }
     }
   },
   computed: {
@@ -408,24 +664,65 @@ export default {
         }
       }
       return false;
-    }
-  },
-  watch: {
-    visible(newVal) {
-      if (newVal) {
-        this.fetchDeviceGroups()
+    },
+    shouldShowSensorTypeUp() {
+      // 检查是否有足够的向下空间显示传感器类型选项
+      if (typeof window !== 'undefined' && this.showSensorTypeDropdown) {
+        const dropdownElement = document.querySelector('.sensor-type-dropdown');
+        if (dropdownElement) {
+          const rect = dropdownElement.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          const spaceBelow = windowHeight - rect.bottom;
+          const neededSpace = 320; // 3个选项需要的空间：3 * 40px = 120px
+          
+          console.log('传感器类型空间检测:', {
+            spaceBelow,
+            neededSpace,
+            shouldShowUp: spaceBelow < neededSpace,
+            dropdownTop: rect.top,
+            dropdownBottom: rect.bottom,
+            windowHeight
+          });
+          
+          // 如果下方空间不够，则向上显示
+          return spaceBelow < neededSpace;
+        }
       }
+      return false;
+    },
+    shouldShowDecimalPlacesUp() {
+      // 检查是否有足够的向下空间显示小数位选项
+      if (typeof window !== 'undefined' && this.showDecimalPlacesDropdown) {
+        const dropdownElement = document.querySelector('.decimal-places-dropdown');
+        if (dropdownElement) {
+          const rect = dropdownElement.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          const spaceBelow = windowHeight - rect.bottom;
+          const neededSpace = 320; // 4个选项需要的空间：4 * 40px = 160px
+          
+          console.log('小数位空间检测:', {
+            spaceBelow,
+            neededSpace,
+            shouldShowUp: spaceBelow < neededSpace,
+            dropdownTop: rect.top,
+            dropdownBottom: rect.bottom,
+            windowHeight
+          });
+          
+          // 如果下方空间不够，则向上显示
+          return spaceBelow < neededSpace;
+        }
+      }
+      return false;
+    },
+    canSubmitSensor() {
+      // 检查必填字段：名称、类型、小数位、单位、数量
+      return this.sensorData.name.trim() && 
+             this.sensorData.type && 
+             this.sensorData.decimalPlaces && 
+             this.sensorData.unit.trim() && 
+             this.sensorData.quantity.trim();
     }
-  },
-  
-  mounted() {
-    // 添加点击外部关闭下拉菜单的监听器
-    document.addEventListener('click', this.handleClickOutside)
-  },
-  
-  beforeUnmount() {
-    // 移除监听器
-    document.removeEventListener('click', this.handleClickOutside)
   },
   methods: {
     async fetchDeviceGroups() {
@@ -434,19 +731,15 @@ export default {
         if (response.ok) {
           const data = await response.json()
           this.deviceGroups = data.data || []
+          console.log('成功获取设备分组:', this.deviceGroups)
         } else {
-          console.warn('获取设备分组失败，使用默认数据')
-          // 如果API失败，使用默认数据
-          this.deviceGroups = ['默认分组', '测试分组', '生产分组']
+          console.warn('获取设备分组失败，状态码:', response.status)
+          this.deviceGroups = []
         }
       } catch (error) {
         console.error('获取设备分组失败:', error)
-        // 网络错误时使用默认数据
-        this.deviceGroups = ['默认分组', '测试分组', '生产分组']
+        this.deviceGroups = []
       }
-      
-      // 调试信息
-      console.log('设备分组数据:', this.deviceGroups)
     },
     
     handleGroupCreated(groupData) {
@@ -520,38 +813,41 @@ export default {
       this.showOfflineDelayDropdown = false;
     },
 
-    toggleLocationTypeDropdown() {
-      this.showLocationTypeDropdown = !this.showLocationTypeDropdown
-    },
-
-    selectLocationType(type) {
-      this.deviceData.locationType = type
-      this.showLocationTypeDropdown = false
-    },
-    
     handleClickOutside(event) {
       // 如果点击的不是下拉菜单相关元素，则关闭所有下拉菜单
       if (!event.target.closest('.custom-dropdown')) {
         this.showGroupDropdown = false
         this.showTimezoneDropdown = false
         this.showOfflineDelayDropdown = false
-        this.showLocationTypeDropdown = false
+        this.showSensorTypeDropdown = false // 新增：关闭传感器类型下拉菜单
+        this.showDecimalPlacesDropdown = false // 新增：关闭小数位下拉菜单
       }
     },
 
-    forceNumericInput(event) {
-      const input = event.target;
-      const value = input.value;
-      const cleanValue = value.replace(/[^0-9]/g, '');
-      
-      // 如果清理后的值与原值不同，更新输入框
-      if (cleanValue !== value) {
-        input.value = cleanValue;
-        this.deviceData.customDelay = cleanValue;
-        // 设置光标位置到末尾
-        this.$nextTick(() => {
-          input.setSelectionRange(cleanValue.length, cleanValue.length);
-        });
+    forceNumericInput(field) {
+      // 处理嵌套对象的字段，如 'uplinkMapping.x1'
+      const fieldParts = field.split('.');
+      if (fieldParts.length === 2) {
+        const obj = fieldParts[0];
+        const prop = fieldParts[1];
+        // 允许数字和小数点，但只允许一个小数点
+        let value = this.sensorData[obj][prop];
+        // 移除除了数字和小数点之外的所有字符
+        value = value.replace(/[^0-9.]/g, '');
+        // 确保只有一个小数点
+        const parts = value.split('.');
+        if (parts.length > 2) {
+          value = parts[0] + '.' + parts.slice(1).join('');
+        }
+        this.sensorData[obj][prop] = value;
+      } else {
+        let value = this.sensorData[field];
+        value = value.replace(/[^0-9.]/g, '');
+        const parts = value.split('.');
+        if (parts.length > 2) {
+          value = parts[0] + '.' + parts.slice(1).join('');
+        }
+        this.sensorData[field] = value;
       }
     },
 
@@ -607,7 +903,360 @@ export default {
       } else {
         this.deviceData.offlineDelay = this.deviceData.customDelay;
       }
-    }
+    },
+
+    openSensorModal() {
+      this.showSensorModal = true;
+      // 确保模态框打开时滚动到顶部
+      this.$nextTick(() => {
+        setTimeout(() => {
+          const modalBody = document.querySelector('.sensor-modal-content .modal-body');
+          if (modalBody) {
+            modalBody.scrollTop = 0;
+            // 强制重新计算布局
+            modalBody.style.scrollTop = '0px';
+          }
+        }, 100); // 延迟100ms确保DOM完全渲染
+      });
+    },
+    closeSensorModal() {
+      this.showSensorModal = false;
+    },
+    confirmSensorModal() {
+      // 模拟添加传感器
+      const newSensor = {
+        id: Date.now(), // 模拟ID
+        name: this.sensorData.name,
+        type: this.sensorData.type,
+        decimalPlaces: this.sensorData.decimalPlaces,
+        unit: this.sensorData.unit,
+        sort: this.sensorData.sort,
+        uplinkMapping: this.sensorData.uplinkMapping,
+        downlinkMapping: this.sensorData.downlinkMapping,
+        quantity: this.sensorData.quantity
+      };
+      this.sensors.push(newSensor);
+      this.showSensorModal = false;
+      this.sensorData = { // 重置传感器数据
+        name: '',
+        type: '数值型', // 固定为数值型
+        decimalPlaces: '0(小数位)',
+        unit: '',
+        sort: '',
+        uplinkMapping: { x1: '', x2: '', y1: '', y2: '' },
+        downlinkMapping: { x1: '', x2: '', y1: '', y2: '' },
+        quantity: '1' // 确保默认值为1
+      };
+    },
+
+    toggleSensorTypeDropdown() {
+      this.showSensorTypeDropdown = !this.showSensorTypeDropdown;
+      
+      // 如果下拉菜单要显示，强制重新计算是否应该向上展开
+      if (this.showSensorTypeDropdown) {
+        this.$nextTick(() => {
+          this.$forceUpdate(); // 强制重新渲染以更新计算属性
+        });
+      }
+    },
+
+    selectSensorType(type) {
+      this.sensorData.type = type;
+      this.showSensorTypeDropdown = false;
+    },
+
+    toggleDecimalPlacesDropdown() {
+      this.showDecimalPlacesDropdown = !this.showDecimalPlacesDropdown;
+      
+      // 如果下拉菜单要显示，强制重新计算是否应该向上展开
+      if (this.showDecimalPlacesDropdown) {
+        this.$nextTick(() => {
+          this.$forceUpdate(); // 强制重新渲染以更新计算属性
+        });
+      }
+    },
+
+    selectDecimalPlaces(decimal) {
+      this.sensorData.decimalPlaces = decimal;
+      this.showDecimalPlacesDropdown = false;
+    },
+
+    forcePositiveInteger(field) {
+      this.sensorData[field] = this.sensorData[field].replace(/[^0-9]/g, '');
+    },
+
+    preventInvalidInput(event) {
+      // 只允许数字键、小数点键和功能键
+      const allowedKeys = [
+        'Backspace', 'Delete', 'Tab', 'Escape', 'Enter',
+        'Home', 'End', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'
+      ];
+      
+      if (!/^[0-9.]$/.test(event.key) && !allowedKeys.includes(event.key)) {
+        event.preventDefault();
+      }
+      
+      // 如果输入的是小数点，检查是否已经存在小数点
+      if (event.key === '.') {
+        const input = event.target;
+        if (input.value.includes('.')) {
+          event.preventDefault();
+        }
+      }
+    },
+
+    preventInvalidPaste(event) {
+      const pastedText = (event.clipboardData || window.clipboardData).getData('text');
+      // 允许数字和小数点，但只允许一个小数点
+      if (!/^[0-9.]*$/.test(pastedText) || (pastedText.split('.').length > 2)) {
+        event.preventDefault();
+      }
+    },
+
+    validateLongitude(event) {
+      // 经度验证：只允许数字、小数点和负号，范围-180到180
+      let value = event.target.value;
+      // 移除除了数字、小数点和负号之外的所有字符
+      value = value.replace(/[^0-9.-]/g, '');
+      // 确保只有一个小数点
+      const parts = value.split('.');
+      if (parts.length > 2) {
+        value = parts[0] + '.' + parts.slice(1).join('');
+      }
+      // 确保负号只能在开头
+      if (value.startsWith('-')) {
+        value = '-' + value.substring(1).replace(/-/g, '');
+      } else {
+        value = value.replace(/-/g, '');
+      }
+      // 验证范围：-180 到 180
+      const numValue = parseFloat(value);
+      if (!isNaN(numValue) && numValue >= -180 && numValue <= 180) {
+        this.deviceData.longitude = value;
+      } else if (value === '' || value === '-' || value === '.') {
+        this.deviceData.longitude = value;
+      } else {
+        // 如果超出范围，保持原值
+        event.target.value = this.deviceData.longitude;
+      }
+    },
+
+    validateLatitude(event) {
+      // 纬度验证：只允许数字、小数点和负号，范围-90到90
+      let value = event.target.value;
+      // 移除除了数字、小数点和负号之外的所有字符
+      value = value.replace(/[^0-9.-]/g, '');
+      // 确保只有一个小数点
+      const parts = value.split('.');
+      if (parts.length > 2) {
+        value = parts[0] + '.' + parts.slice(1).join('');
+      }
+      // 确保负号只能在开头
+      if (value.startsWith('-')) {
+        value = '-' + value.substring(1).replace(/-/g, '');
+      } else {
+        value = value.replace(/-/g, '');
+      }
+      // 验证范围：-90 到 90
+      const numValue = parseFloat(value);
+      if (!isNaN(numValue) && numValue >= -90 && numValue <= 90) {
+        this.deviceData.latitude = value;
+      } else if (value === '' || value === '-' || value === '.') {
+        this.deviceData.latitude = value;
+      } else {
+        // 如果超出范围，保持原值
+        event.target.value = this.deviceData.latitude;
+      }
+    },
+
+    preventInvalidCoordinateInput(event) {
+      // 只允许数字键、小数点键、负号键和功能键
+      const allowedKeys = [
+        'Backspace', 'Delete', 'Tab', 'Escape', 'Enter',
+        'Home', 'End', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'
+      ];
+      
+      if (!/^[0-9.-]$/.test(event.key) && !allowedKeys.includes(event.key)) {
+        event.preventDefault();
+      }
+      
+      // 如果输入的是小数点，检查是否已经存在小数点
+      if (event.key === '.') {
+        const input = event.target;
+        if (input.value.includes('.')) {
+          event.preventDefault();
+        }
+      }
+      
+      // 如果输入的是负号，检查是否已经在开头
+      if (event.key === '-') {
+        const input = event.target;
+        if (input.value.includes('-') || input.selectionStart !== 0) {
+          event.preventDefault();
+        }
+      }
+    },
+
+    preventInvalidCoordinatePaste(event) {
+      const pastedText = (event.clipboardData || window.clipboardData).getData('text');
+      // 允许数字、小数点和负号，但只允许一个小数点和一个负号在开头
+      if (!/^[0-9.-]*$/.test(pastedText) || 
+          pastedText.split('.').length > 2 || 
+          pastedText.split('-').length > 2 ||
+          (pastedText.includes('-') && !pastedText.startsWith('-'))) {
+        event.preventDefault();
+      }
+    },
+
+    // 百度地图相关方法
+    initBaiduMap() {
+      console.log('开始初始化百度地图...');
+      // 检查百度地图API是否已加载
+      if (typeof BMap !== 'undefined') {
+        console.log('BMap已存在，直接创建地图');
+        this.createMap();
+        return;
+      }
+      
+      // 动态加载百度地图脚本
+      this.loadBaiduMapScript();
+    },
+
+    // 动态加载百度地图脚本
+    loadBaiduMapScript() {
+      console.log('开始加载百度地图脚本...');
+      
+      // 创建script标签
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://api.map.baidu.com/api?v=3.0&ak=LXMsmZAC4MIsdrxjpbOKNOPy5JykiQZD&callback=initBaiduMap';
+      
+      // 定义全局回调函数
+      window.initBaiduMap = () => {
+        console.log('百度地图脚本加载成功，开始创建地图...');
+        this.createMap();
+      };
+      
+      script.onerror = () => {
+        console.error('百度地图脚本加载失败');
+        this.mapLoaded = false;
+        this.mapLoadFailed = true;
+      };
+      
+      // 添加到head中
+      document.head.appendChild(script);
+    },
+
+    // 创建地图实例
+    createMap() {
+      try {
+        console.log('开始创建地图实例...');
+        
+        // 检查DOM元素是否存在
+        const mapContainer = document.getElementById('baidu-map');
+        if (!mapContainer) {
+          console.error('地图容器不存在');
+          this.mapLoaded = false;
+          this.mapLoadFailed = true;
+          return;
+        }
+        
+        console.log('地图容器存在，创建BMap实例...');
+        
+        // 创建地图实例
+        this.baiduMap = new BMap.Map('baidu-map');
+        
+        // 设置地图中心点（默认深圳宝安机场附近）
+        const centerPoint = new BMap.Point(113.825, 22.639);
+        this.baiduMap.centerAndZoom(centerPoint, 12);
+        
+        // 启用滚轮缩放
+        this.baiduMap.enableScrollWheelZoom(true);
+        
+        // 添加地图控件
+        this.baiduMap.addControl(new BMap.NavigationControl());
+        this.baiduMap.addControl(new BMap.ScaleControl());
+        this.baiduMap.addControl(new BMap.OverviewMapControl());
+        
+        // 点击地图获取经纬度
+        this.baiduMap.addEventListener("click", (e) => {
+          const lng = e.point.lng;
+          const lat = e.point.lat;
+          
+          console.log('地图点击坐标:', lng, lat);
+          
+          // 更新页面上的经纬度输入框
+          this.deviceData.longitude = lng.toFixed(6);
+          this.deviceData.latitude = lat.toFixed(6);
+          
+          // 清除之前的标记
+          this.baiduMap.clearOverlays();
+          
+          // 添加新标记
+          const marker = new BMap.Marker(e.point);
+          this.baiduMap.addOverlay(marker);
+          
+          // 添加信息窗口
+          const infoWindow = new BMap.InfoWindow(`经度: ${lng.toFixed(6)}<br>纬度: ${lat.toFixed(6)}`);
+          marker.addEventListener('click', () => {
+            this.baiduMap.openInfoWindow(infoWindow, e.point);
+          });
+        });
+        
+        // 标记地图已加载
+        this.mapLoaded = true;
+        this.mapLoadFailed = false;
+        
+        console.log('百度地图初始化成功');
+        
+      } catch (error) {
+        console.error('百度地图初始化失败:', error);
+        this.mapLoaded = false;
+        this.mapLoadFailed = true;
+      }
+    },
+
+    // 根据经纬度更新地图中心点
+    updateMapCenter() {
+      if (!this.baiduMap || !this.mapLoaded) return;
+      
+      const longitude = parseFloat(this.deviceData.longitude);
+      const latitude = parseFloat(this.deviceData.latitude);
+      
+      if (!isNaN(longitude) && !isNaN(latitude)) {
+        console.log('定位到坐标:', longitude, latitude);
+        
+        // 清除之前的标记
+        this.baiduMap.clearOverlays();
+        
+        // 创建坐标点
+        const point = new BMap.Point(longitude, latitude);
+        
+        // 添加标记
+        const marker = new BMap.Marker(point);
+        this.baiduMap.addOverlay(marker);
+        
+        // 定位到该点
+        this.baiduMap.panTo(point);
+        
+        // 添加信息窗口
+        const infoWindow = new BMap.InfoWindow(`经度: ${longitude.toFixed(6)}<br>纬度: ${latitude.toFixed(6)}`);
+        marker.addEventListener('click', () => {
+          this.baiduMap.openInfoWindow(infoWindow, point);
+        });
+        
+        console.log('地图已定位到指定坐标');
+      } else {
+        console.warn('经纬度数据无效，无法定位');
+      }
+    },
+
+    retryLoadMap() {
+      this.mapLoadFailed = false;
+      this.initBaiduMap();
+    },
+
+
   }
 }
 </script>
@@ -936,25 +1585,7 @@ export default {
   color: #999;
 }
 
-.location-inputs {
-  display: flex;
-  gap: 12px;
-  align-items: flex-end;
-}
 
-.location-inputs .form-select {
-  width: 120px;
-  padding: 6px 12px !important; /* 与主要样式保持一致 */
-  border: 1px solid #e0e0e0 !important; /* 与主要样式保持一致 */
-  border-radius: 6px !important;
-  font-size: 14px !important; /* 与主要样式保持一致 */
-  background-color: white !important; /* 与主要样式保持一致 */
-  cursor: pointer !important; /* 与主要样式保持一致 */
-}
-
-.location-inputs .form-input {
-  flex: 1;
-}
 
 .locate-btn {
   padding: 10px 16px;
@@ -973,19 +1604,57 @@ export default {
 }
 
 .map-container {
-  height: 300px;
+  width: 100%;
+  aspect-ratio: 1.79; /* 宽度:高度 = 1:0.56，即高度为宽度的56%（约70%的70%） */
   border: 1px solid #e8e8e8;
   border-radius: 6px;
   overflow: hidden;
+  position: relative;
+  margin-top: 16px;
+  background-color: #f5f5f5;
 }
 
-.map-placeholder {
+.baidu-map {
+  width: 100%;
   height: 100%;
+  background-color: #f5f5f5;
+}
+
+
+
+.map-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #fafafa;
-  color: #999;
+  border-radius: 6px;
+  z-index: 100;
+  gap: 12px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #1890ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.map-loading span {
+  color: #666;
+  font-size: 14px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .slide-footer {
@@ -1139,7 +1808,7 @@ export default {
 .form-input:focus {
   outline: none !important;
   border-color: #1890ff !important;
-  box-shadow: none !important;
+  box-shadow: none !important; /* 去掉阴影效果 */
 }
 
 .form-input:hover {
@@ -1525,4 +2194,455 @@ export default {
   padding-right: 12px; /* 恢复正常的内边距 */
   box-sizing: border-box;
 }
+
+.sensor-modal-footer .btn {
+  min-width: 80px;
+  height: 36px; /* 调整按钮高度 */
+}
+
+/* 传感器模态框样式 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000; /* 确保在最顶层 */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 600px;
+  max-height: 85vh; /* 增加高度，从90vh改为85vh */
+  min-height: 500px; /* 添加最小高度 */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.sensor-modal-content {
+  max-width: 467px; /* 缩减宽度1/3，从700px改为467px */
+  max-height: 95vh; /* 增加最大高度，确保能显示所有字段 */
+  min-height: 800px; /* 增加最小高度，确保能显示所有字段 */
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px; /* 增加头部padding，从12px改为16px */
+  border-bottom: 1px solid #e8e8e8;
+  background-color: #fafafa;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #666;
+}
+
+.modal-body {
+  padding: 16px 24px; /* 减少顶部padding，从24px改为16px */
+  flex-grow: 1;
+  overflow-y: auto;
+  min-height: 600px; /* 增加最小高度，确保能显示所有字段 */
+  scroll-behavior: smooth; /* 添加平滑滚动 */
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 12px 24px; /* 减少尾部padding，从16px改为12px */
+  border-top: 1px solid #e8e8e8;
+  background-color: #fafafa;
+}
+
+.modal-footer .btn {
+  min-width: 80px;
+  height: 36px;
+  padding: 8px 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.modal-footer .btn-secondary {
+  background-color: white;
+  color: #333;
+}
+
+.modal-footer .btn-secondary:hover {
+  border-color: #1890ff;
+  color: #1890ff;
+}
+
+.modal-footer .btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  color: white;
+}
+
+.modal-footer .btn-primary:hover:not(:disabled) {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.modal-footer .btn-primary:disabled {
+  background-color: #d9d9d9;
+  border-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+/* 模态框内的表单样式 */
+.modal-body .form-group {
+  margin-bottom: 16px;
+}
+
+.modal-body .form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.modal-body .required {
+  color: #ff4d4f;
+  margin-right: 4px;
+}
+
+.modal-body .form-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.modal-body .form-input:focus {
+  outline: none;
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.modal-body .form-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s;
+  background-color: white;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.modal-body .form-select:focus {
+  outline: none;
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* 映射输入样式 */
+.mapping-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.mapping-input {
+  flex: 1;
+  min-width: 80px;
+  height: 32px;
+  padding: 6px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+  font-family: inherit;
+}
+
+.mapping-arrow {
+  font-size: 18px;
+  color: #666;
+  font-weight: bold;
+  margin: 0 8px;
+}
+
+.help-icon {
+  font-size: 14px;
+  color: #999;
+  margin-left: 4px;
+  cursor: help;
+}
+
+/* 传感器模态框自定义下拉框样式 */
+.modal-body .custom-dropdown {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.modal-body .custom-dropdown:hover {
+  border-color: #1890ff;
+}
+
+.modal-body .custom-dropdown.disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.modal-body .custom-dropdown.disabled:hover {
+  border-color: #d9d9d9;
+}
+
+.modal-body .custom-dropdown:focus-within {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.modal-body .dropdown-text {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.modal-body .dropdown-arrow {
+  width: 16px;
+  height: 16px;
+  color: #999;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.modal-body .dropdown-arrow.rotated {
+  transform: rotate(180deg);
+}
+
+.modal-body .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 4px;
+}
+
+.modal-body .dropdown-menu.dropdown-up {
+  bottom: 100%;
+  top: auto;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.modal-body .dropdown-item {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-body .dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.modal-body .dropdown-item:first-child {
+  border-radius: 6px 6px 0 0;
+}
+
+.modal-body .dropdown-item:last-child {
+  border-radius: 0 0 6px 6px;
+}
+
+.modal-body .dropdown-menu.dropdown-up .dropdown-item:first-child {
+  border-radius: 0 0 6px 6px;
+}
+
+.modal-body .dropdown-menu.dropdown-up .dropdown-item:last-child {
+  border-radius: 6px 6px 0 0;
+}
+
+/* 传感器表格样式 */
+.sensor-table {
+  margin-top: 16px;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.sensor-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sensor-table th {
+  background-color: #fafafa;
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: 500;
+  color: #333;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 14px;
+}
+
+.sensor-table td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+  color: #666;
+}
+
+.sensor-table .empty-data {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 40px 0;
+}
+
+/* 经纬度输入框样式 */
+.coordinates-inputs {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  width: 50%; /* 缩短为原来的一半 */
+}
+
+.coordinate-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.coordinate-label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.coordinate-input {
+  width: 100%;
+  height: 32px;
+  padding: 6px 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.coordinate-input:focus {
+  outline: none;
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.coordinate-input::placeholder {
+  color: #bfbfbf;
+  font-size: 14px;
+}
+
+.map-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  z-index: 101;
+  gap: 12px;
+}
+
+.fallback-content {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+.fallback-icon {
+  font-size: 48px;
+  color: #ff4d4f;
+}
+
+.retry-btn {
+  padding: 10px 16px;
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.retry-btn:hover {
+  background-color: #40a9ff;
+}
+
+
 </style>
