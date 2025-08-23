@@ -2,9 +2,108 @@ const db = require('../services/database');
 
 class DeviceData {
   // 获取所有DTU设备
-  static async getAllDTUDevices() {
-    const [rows] = await db.execute('SELECT * FROM dtu_devices ORDER BY created_at DESC');
-    return rows;
+  static async getAllDTUDevices(params = {}) {
+    try {
+      // 确保参数是有效的数字
+      const page = Math.max(1, parseInt(params.page) || 1);
+      const limit = Math.max(1, parseInt(params.limit) || 20);
+      const offset = (page - 1) * limit;
+      
+      console.log('getAllDTUDevices 参数:', { page, limit, offset, params });
+      
+      let whereClause = '';
+      let queryParams = [];
+      
+      // 添加分组过滤
+      if (params.group && params.group !== 'undefined' && params.group !== 'null' && params.group.trim() !== '') {
+        whereClause += ' AND device_group = ?';
+        queryParams.push(params.group.trim());
+      }
+      
+      // 添加状态过滤
+      if (params.status && params.status !== 'undefined' && params.status !== 'null' && params.status.trim() !== '') {
+        whereClause += ' AND status = ?';
+        queryParams.push(params.status.trim());
+      }
+      
+      // 添加搜索过滤
+      if (params.search && params.search !== 'undefined' && params.search !== 'null' && params.search.trim() !== '') {
+        whereClause += ' AND (device_name LIKE ? OR device_id LIKE ? OR serial_number LIKE ?)';
+        const searchPattern = `%${params.search.trim()}%`;
+        queryParams.push(searchPattern, searchPattern, searchPattern);
+      }
+      
+      // 构建完整的WHERE子句
+      if (whereClause) {
+        whereClause = 'WHERE ' + whereClause.substring(5); // 移除开头的 ' AND '
+      }
+      
+      // 获取总数量
+      let countQuery = 'SELECT COUNT(*) as total FROM dtu_devices';
+      if (whereClause) {
+        countQuery += ' ' + whereClause;
+      }
+      
+      console.log('Count查询:', countQuery, '参数:', queryParams);
+      
+      let countResult;
+      if (queryParams.length > 0) {
+        [countResult] = await db.execute(countQuery, queryParams);
+      } else {
+        [countResult] = await db.execute(countQuery);
+      }
+      const total = countResult[0].total;
+      
+      // 获取分页数据
+      let dataQuery = 'SELECT * FROM dtu_devices';
+      if (whereClause) {
+        dataQuery += ' ' + whereClause;
+      }
+      // 直接使用数字而不是占位符，避免MySQL2的参数问题
+      dataQuery += ` ORDER BY created_at DESC LIMIT ${limit} OFFSET ${offset}`;
+      
+      console.log('Data查询:', dataQuery, 'LIMIT/OFFSET参数:', [limit, offset]);
+      
+      let devices;
+      // 由于LIMIT和OFFSET已经直接写在SQL中，只需要传递WHERE条件的参数
+      if (queryParams.length > 0) {
+        console.log('执行查询，WHERE参数:', queryParams);
+        [devices] = await db.execute(dataQuery, queryParams);
+      } else {
+        console.log('执行查询，无WHERE参数');
+        [devices] = await db.execute(dataQuery);
+      }
+      
+      const result = {
+        devices: devices || [],
+        total: total || 0,
+        page: page,
+        limit: limit,
+        totalPages: Math.ceil((total || 0) / limit)
+      };
+      
+      console.log('查询结果:', result);
+      return result;
+      
+    } catch (error) {
+      console.error('获取DTU设备失败:', error);
+      console.error('错误详情:', {
+        code: error.code,
+        errno: error.errno,
+        sql: error.sql,
+        sqlState: error.sqlState,
+        sqlMessage: error.sqlMessage
+      });
+      
+      // 返回空结果而不是抛出错误
+      return {
+        devices: [],
+        total: 0,
+        page: parseInt(params.page || 1),
+        limit: parseInt(params.limit || 20),
+        totalPages: 0
+      };
+    }
   }
 
   // 根据DTU设备ID获取传感器列表
@@ -28,7 +127,7 @@ class DeviceData {
   // 根据DTU设备ID获取所有传感器的温度数据
   static async getTemperatureDataByDTUId(dtuId, limit = 100) {
     const [rows] = await db.execute(`
-      SELECT td.*, s.sensor_name, s.location_description, s.installation_depth
+      SELECT td.*, s.sensor_name
       FROM temperature_data td
       JOIN sensors s ON td.sensor_id = s.sensor_id
       WHERE s.dtu_id = ?
@@ -40,20 +139,48 @@ class DeviceData {
 
   // 创建DTU设备
   static async createDTUDevice(data) {
-    const { dtu_id, device_name, location, gps_coordinates, status } = data;
+    const { 
+      device_id, 
+      serial_number, 
+      device_group, 
+      device_name, 
+      device_image, 
+      link_protocol, 
+      offline_delay, 
+      timezone_setting, 
+      longitude, 
+      latitude, 
+      status 
+    } = data;
+    
     const [result] = await db.execute(
-      'INSERT INTO dtu_devices (dtu_id, device_name, location, gps_coordinates, status) VALUES (?, ?, ?, ?, ?)',
-      [dtu_id, device_name, location, gps_coordinates, status]
+      `INSERT INTO dtu_devices (
+        device_id, serial_number, device_group, device_name, device_image, 
+        link_protocol, offline_delay, timezone_setting, longitude, latitude, status
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [device_id, serial_number, device_group, device_name, device_image, 
+       link_protocol, offline_delay, timezone_setting, longitude, latitude, status]
     );
     return result;
   }
 
   // 创建传感器
   static async createSensor(data) {
-    const { sensor_id, dtu_id, sensor_name, sensor_type, location_description, installation_depth, status } = data;
+    const { 
+      sensor_id, dtu_id, icon = '/image/传感器图片.png', sensor_name, sensor_type, decimal_places, unit, sort_order,
+      upper_mapping_x1, upper_mapping_y1, upper_mapping_x2, upper_mapping_y2,
+      lower_mapping_x1, lower_mapping_y1, lower_mapping_x2, lower_mapping_y2
+    } = data;
+    
     const [result] = await db.execute(
-      'INSERT INTO sensors (sensor_id, dtu_id, sensor_name, sensor_type, location_description, installation_depth, status) VALUES (?, ?, ?, ?, ?, ?, ?)',
-      [sensor_id, dtu_id, sensor_name, sensor_type, location_description, installation_depth, status]
+      `INSERT INTO sensors (
+        sensor_id, dtu_id, icon, sensor_name, sensor_type, decimal_places, unit, sort_order,
+        upper_mapping_x1, upper_mapping_y1, upper_mapping_x2, upper_mapping_y2,
+        lower_mapping_x1, lower_mapping_y1, lower_mapping_x2, lower_mapping_y2
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [sensor_id, dtu_id, icon, sensor_name, sensor_type, decimal_places, unit, sort_order,
+       upper_mapping_x1, upper_mapping_y1, upper_mapping_x2, upper_mapping_y2,
+       lower_mapping_x1, lower_mapping_y1, lower_mapping_x2, lower_mapping_y2]
     );
     return result;
   }
@@ -111,7 +238,7 @@ class DeviceData {
   // 获取异常温度数据（超出阈值范围）
   static async getAbnormalTemperatureData(minTemp = -10, maxTemp = 50) {
     const [rows] = await db.execute(`
-      SELECT td.*, s.sensor_name, s.location_description
+      SELECT td.*, s.sensor_name
       FROM temperature_data td
       JOIN sensors s ON td.sensor_id = s.sensor_id
       WHERE td.temperature < ? OR td.temperature > ?
@@ -142,6 +269,36 @@ class DeviceData {
     const [result] = await db.execute(
       'INSERT INTO device_groups (group_name, description) VALUES (?, ?)',
       [group_name, description]
+    );
+    return result;
+  }
+
+  // 创建MB RTU协议配置
+  static async createMBRTUConfig(data) {
+    const { 
+      dtu_id, 
+      sensor_id, 
+      slave_address = 1, 
+      function_code = '04只读', 
+      offset_value = 0, 
+      data_format = '16位有符号数', 
+      data_bits = null, 
+      byte_order_value = null, 
+      collection_cycle = 2 
+    } = data;
+    
+    console.log('创建MB RTU配置，参数:', {
+      dtu_id, sensor_id, slave_address, function_code, offset_value, 
+      data_format, data_bits, byte_order_value, collection_cycle
+    });
+    
+    const [result] = await db.execute(
+      `INSERT INTO mb_rtu_config (
+        dtu_id, sensor_id, slave_address, function_code, offset_value, 
+        data_format, data_bits, byte_order_value, collection_cycle
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [dtu_id, sensor_id, slave_address, function_code, offset_value, 
+       data_format, data_bits, byte_order_value, collection_cycle]
     );
     return result;
   }

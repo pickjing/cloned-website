@@ -20,6 +20,10 @@ router.post('/sensors', DeviceController.createSensor);
 router.get('/sensors/:sensorId/temperature', DeviceController.getTemperatureDataBySensorId);
 router.get('/sensors/:sensorId/trend', DeviceController.getTemperatureTrend);
 
+// MB RTU协议配置相关路由
+router.post('/mb-rtu-config', DeviceController.createMBRTUConfig);
+router.post('/mb-rtu-configs', DeviceController.createMBRTUConfigs);
+
 // 温度数据相关路由
 router.post('/temperature', DeviceController.createTemperatureData);
 

@@ -72,18 +72,24 @@
 | sensor_id | VARCHAR(50) | - | 关联传感器ID | SENS001 |
 | slave_address | INT | 1 | 从站地址 | 1 |
 | function_code | ENUM | '04只读' | 功能码 | 04只读 |
-| register_address | INT | - | 寄存器地址 | 40001 |
-| register_count | INT | 1 | 寄存器数量 | 1 |
-| offset_value | DECIMAL(10,4) | 0 | 偏置 (读取值 + 偏置) | 0.0 |
+| offset_value | DECIMAL(10,4) | 0 | 偏置（按传感器order设置） | 0.0 |
 | data_format | ENUM | '16位有符号数' | 数据格式 | 16位有符号数 |
-| byte_order | ENUM | 'big_endian' | 字节顺序 | big_endian |
-| collection_cycle | INT | 60 | 采集周期（秒） | 60 |
+| data_bits | INT | NULL | 数据位（正整数，默认为空） | 16 |
+| byte_order_value | INT | NULL | 字节顺序（正整数，默认为空） | 1 |
+| collection_cycle | INT | 2 | 采集周期（秒，默认2） | 2 |
 
 **功能码说明**:
 - **01读写**: 可读写的功能码
 - **02只读**: 只读功能码
 - **03读写**: 可读写的功能码
 - **04只读**: 只读功能码（默认）
+
+**字段说明**:
+- **offset_value**: 偏置值，按传感器的sort_order字段设置
+- **data_format**: 数据格式，定义数据的存储和读取方式
+- **data_bits**: 数据位，正整数，如16、32等
+- **byte_order_value**: 字节顺序，正整数，用于定义字节排列方式
+- **collection_cycle**: 采集周期，默认2秒
 
 **数据格式说明**:
 - **16位有符号数**: 16位有符号整数（默认）

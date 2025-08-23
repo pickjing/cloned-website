@@ -48,8 +48,7 @@ CREATE TABLE IF NOT EXISTS sensors (
     lower_mapping_y1 DECIMAL(10,4) COMMENT '下行映射实际值上限',
     lower_mapping_x2 DECIMAL(10,4) COMMENT '下行映射原始值下限',
     lower_mapping_y2 DECIMAL(10,4) COMMENT '下行映射原始值上限',
-    installation_depth DECIMAL(10,2) COMMENT '安装深度（米）',
-    location_description VARCHAR(200) COMMENT '安装位置描述',
+
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     FOREIGN KEY (dtu_id) REFERENCES dtu_devices(device_id) ON DELETE CASCADE,
@@ -65,12 +64,11 @@ CREATE TABLE IF NOT EXISTS mb_rtu_config (
     sensor_id VARCHAR(50) NOT NULL COMMENT '关联传感器ID',
     slave_address INT DEFAULT 1 COMMENT '从站地址',
     function_code ENUM('01读写', '02只读', '03读写', '04只读') DEFAULT '04只读' COMMENT '功能码',
-    register_address INT NOT NULL COMMENT '寄存器地址',
-    register_count INT DEFAULT 1 COMMENT '寄存器数量',
-    offset_value DECIMAL(10,4) DEFAULT 0 COMMENT '偏置',
+    offset_value DECIMAL(10,4) DEFAULT 0 COMMENT '偏置（按传感器order设置）',
     data_format ENUM('16位有符号数', '16位无符号数', '16位按位读写', '32位有符号数', '32位无符号数', '32位浮点型数', '64位浮点型数', '16位BCD码', '32位BCD码') DEFAULT '16位有符号数' COMMENT '数据格式',
-    byte_order ENUM('big_endian', 'little_endian', 'big_endian_swap', 'little_endian_swap') DEFAULT 'big_endian' COMMENT '字节顺序',
-    collection_cycle INT DEFAULT 60 COMMENT '采集周期（秒）',
+    data_bits INT COMMENT '数据位（正整数，默认为空）',
+    byte_order_value INT COMMENT '字节顺序（正整数，默认为空）',
+    collection_cycle INT DEFAULT 2 COMMENT '采集周期（秒，默认2）',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     UNIQUE KEY (dtu_id, sensor_id), -- 确保每个DTU下的传感器只有一条配置
@@ -128,8 +126,7 @@ SELECT
     s.decimal_places,
     s.icon,
     s.sensor_type,
-    s.installation_depth,
-    s.location_description,
+
     CONCAT(s.upper_mapping_x1, ',', s.upper_mapping_y1, '=>', s.upper_mapping_x2, ',', s.upper_mapping_y2) AS upper_mapping_display,
     CONCAT(s.lower_mapping_x1, ',', s.lower_mapping_y1, '=>', s.lower_mapping_x2, ',', s.lower_mapping_y2) AS lower_mapping_display,
     s.sort_order,
@@ -185,11 +182,10 @@ SELECT
     s.sensor_name,
     mb.slave_address,
     mb.function_code,
-    mb.register_address,
-    mb.register_count,
     mb.offset_value,
     mb.data_format,
-    mb.byte_order,
+    mb.data_bits,
+    mb.byte_order_value,
     mb.collection_cycle
 FROM
     mb_rtu_config mb

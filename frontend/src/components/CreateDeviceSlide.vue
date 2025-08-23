@@ -121,11 +121,13 @@
                     <span class="radio-text">自定义</span>
                   </label>
                 </div>
-                <div v-if="deviceData.offlineDelayType === 'recommended'" class="custom-dropdown offline-delay-dropdown" @click="toggleOfflineDelayDropdown">
-                  <span class="dropdown-text">{{ getRecommendedDelayText() }}秒</span>
-                  <svg class="dropdown-arrow" :class="{ 'rotated': showOfflineDelayDropdown }" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+                <div v-if="deviceData.offlineDelayType === 'recommended'" class="custom-dropdown offline-delay-dropdown">
+                  <div class="dropdown-click-area" @click="toggleOfflineDelayDropdown">
+                    <span class="dropdown-text">{{ getRecommendedDelayText() }}秒</span>
+                    <svg class="dropdown-arrow" :class="{ 'rotated': showOfflineDelayDropdown }" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
                   <div v-show="showOfflineDelayDropdown" class="dropdown-menu offline-delay-menu" :class="{ 'dropdown-up': shouldShowUp }">
                     <div 
                       v-for="delay in [60, 120, 180, 240, 300, 600]" 
@@ -147,7 +149,7 @@
                       pattern="[0-9]*"
                       class="form-input time-input" 
                       placeholder="请输入时间" 
-                      @input="forceNumericInput"
+                      @input="forceOfflineDelayInput"
                       @blur="handleTimeInputBlur"
                     />
                     <span class="input-unit">秒</span>
@@ -165,11 +167,13 @@
               时区设置
             </label>
             <div class="timezone-row">
-              <div class="custom-dropdown timezone-dropdown" @click="toggleTimezoneDropdown">
-                <span class="dropdown-text">{{ deviceData.timezone || '请选择时区' }}</span>
-                <svg class="dropdown-arrow" :class="{ 'rotated': showTimezoneDropdown }" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+              <div class="custom-dropdown timezone-dropdown">
+                <div class="dropdown-click-area" @click="toggleTimezoneDropdown">
+                  <span class="dropdown-text">{{ deviceData.timezone || '请选择时区' }}</span>
+                  <svg class="dropdown-arrow" :class="{ 'rotated': showTimezoneDropdown }" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
                 <div v-show="showTimezoneDropdown" class="dropdown-menu timezone-menu" :class="{ 'dropdown-up': shouldShowTimezoneUp }">
                   <div 
                     v-for="timezone in timezoneOptions" 
@@ -187,7 +191,7 @@
       </div>
 
       <!-- 传感器配置 -->
-      <div class="form-section">
+      <div class="form-section sensor-section">
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">
@@ -195,13 +199,15 @@
               传感器
             </label>
             <div class="sensor-actions">
-              <button type="button" class="btn btn-primary" @click="openSensorModal">+ 添加传感器</button>
+              <div class="sensor-left-actions">
+                <button type="button" class="btn btn-primary" @click="openSensorModal">添加传感器</button>
+              </div>
               <div class="sensor-right-actions">
                 <a href="/files/创建传感器模板.xlsx" class="download-link">下载模板</a>
                 <button type="button" class="btn btn-primary">导入Excel</button>
               </div>
             </div>
-
+            
             <div class="sensor-table">
               <table>
                 <thead>
@@ -218,13 +224,75 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td colspan="9" class="empty-data">暂无数据</td>
+                  <tr v-if="sensors.length === 0">
+                    <td colspan="9" class="empty-data">暂无符合条件的设备</td>
+                  </tr>
+                  <tr v-for="sensor in paginatedSensors" :key="sensor.id">
+                    <td>
+                      <img src="/image/传感器图片.png" alt="传感器图标" class="sensor-icon" />
+                    </td>
+                    <td>{{ sensor.name }}</td>
+                    <td>{{ sensor.type }}</td>
+                    <td>{{ sensor.decimalPlaces }}</td>
+                    <td>{{ sensor.unit }}</td>
+                    <td>{{ sensor.sort }}</td>
+                    <td>
+                      <span v-if="sensor.uplinkMapping.x1 && sensor.uplinkMapping.x2 && sensor.uplinkMapping.y1 && sensor.uplinkMapping.y2">
+                        ({{ sensor.uplinkMapping.x1 }},{{ sensor.uplinkMapping.y1 }})→({{ sensor.uplinkMapping.x2 }},{{ sensor.uplinkMapping.y2 }})
+                      </span>
+                      <span v-else class="no-mapping">-</span>
+                    </td>
+                    <td>
+                      <span v-if="sensor.downlinkMapping.x1 && sensor.downlinkMapping.x2 && sensor.downlinkMapping.y1 && sensor.downlinkMapping.y2">
+                        ({{ sensor.downlinkMapping.x1 }},{{ sensor.downlinkMapping.y1 }})→({{ sensor.downlinkMapping.x2 }},{{ sensor.downlinkMapping.y2 }})
+                      </span>
+                      <span v-else class="no-mapping">-</span>
+                    </td>
+                    <td>
+                      <div class="sensor-actions-cell">
+                        <button type="button" class="btn btn-primary btn-sm" @click="editSensor(sensor.id)">编辑</button>
+                        <button type="button" class="btn btn-danger btn-sm" @click="deleteSensor(sensor.id)">删除</button>
+                      </div>
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
+        </div>
+      </div>
+      
+      <!-- 分页控件 -->
+      <div v-if="sensors.length > 0" class="pagination-controls">
+        <div class="pagination-info">
+          <span>第 {{ currentPage }} 页，共 {{ totalPages }} 页，总计 {{ sensors.length }} 条数据</span>
+        </div>
+        <div class="pagination-buttons">
+          <button 
+            class="btn btn-secondary btn-sm" 
+            :disabled="currentPage === 1"
+            @click="goToPreviousPage"
+          >
+            上一页
+          </button>
+          <span class="page-numbers">
+            <button 
+              v-for="page in visiblePageNumbers" 
+              :key="page"
+              class="btn btn-sm"
+              :class="page === currentPage ? 'btn-primary' : 'btn-secondary'"
+              @click="goToPage(page)"
+            >
+              {{ page }}
+            </button>
+          </span>
+          <button 
+            class="btn btn-secondary btn-sm" 
+            :disabled="currentPage === totalPages"
+            @click="goToNextPage"
+          >
+            下一页
+          </button>
         </div>
       </div>
 
@@ -297,15 +365,201 @@
       />
     </teleport>
 
-    <!-- 传感器模态框 -->
+    <!-- 编辑传感器模态框 -->
+    <teleport to="body">
+      <div v-if="showEditSensorModal" class="modal-overlay">
+        <div class="modal-content sensor-modal-content">
+          <div class="modal-header">
+            <h3>编辑传感器</h3>
+            <button class="close-btn" @click="closeEditSensorModal">×</button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                名称
+              </label>
+              <input 
+                v-model="editSensorData.name" 
+                type="text" 
+                class="form-input" 
+                placeholder="请输入传感器名称"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                传感器类型
+              </label>
+              <div class="custom-dropdown edit-sensor-type-dropdown disabled">
+                <span class="dropdown-text">{{ editSensorData.type }}</span>
+                <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                小数位
+              </label>
+              <div class="custom-dropdown edit-decimal-places-dropdown">
+                <div class="dropdown-click-area" @click="toggleEditDecimalPlacesDropdown">
+                  <span class="dropdown-text">{{ editSensorData.decimalPlaces || '请选择小数位' }}</span>
+                  <svg class="dropdown-arrow" :class="{ 'rotated': showEditDecimalPlacesDropdown }" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div v-show="showEditDecimalPlacesDropdown" class="dropdown-menu" :class="{ 'dropdown-up': shouldShowEditDecimalPlacesUp }">
+                  <div 
+                    v-for="decimal in ['0(小数位)', '1(小数位)', '2(小数位)', '3(小数位)']" 
+                    :key="decimal" 
+                    class="dropdown-item"
+                    @click.stop="selectEditDecimalPlaces(decimal)"
+                  >
+                    {{ decimal }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                单位
+              </label>
+              <input 
+                v-model="editSensorData.unit" 
+                type="text" 
+                class="form-input" 
+                placeholder="请输入单位"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">排序</label>
+              <input 
+                v-model="editSensorData.sort" 
+                type="text" 
+                class="form-input" 
+                placeholder="为空时自动排序"
+                data-field="sort"
+                @input="forcePositiveIntegerEdit"
+                @keydown="preventInvalidInput"
+                @paste="preventInvalidPaste"
+              />
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">
+                上行映射
+              </label>
+              <div class="mapping-inputs">
+                <input 
+                  v-model="editSensorData.uplinkMapping.x1" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="x1"
+                  @input="forceNumericInputEdit('uplinkMapping.x1')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+                <input 
+                  v-model="editSensorData.uplinkMapping.y1" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="y1"
+                  @input="forceNumericInputEdit('uplinkMapping.y1')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+                <span class="mapping-arrow">=></span>
+                <input 
+                  v-model="editSensorData.uplinkMapping.x2" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="x2"
+                  @input="forceNumericInputEdit('uplinkMapping.x2')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+                <input 
+                  v-model="editSensorData.uplinkMapping.y2" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="y2"
+                  @input="forceNumericInputEdit('uplinkMapping.y2')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">
+                下行映射
+              </label>
+              <div class="mapping-inputs">
+                <input 
+                  v-model="editSensorData.downlinkMapping.x1" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="x1"
+                  @input="forceNumericInputEdit('downlinkMapping.x1')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+                <input 
+                  v-model="editSensorData.downlinkMapping.y1" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="y1"
+                  @input="forceNumericInputEdit('downlinkMapping.y1')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+                <span class="mapping-arrow">=></span>
+                <input 
+                  v-model="editSensorData.downlinkMapping.x2" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="x2"
+                  @input="forceNumericInputEdit('downlinkMapping.x2')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+                <input 
+                  v-model="editSensorData.downlinkMapping.y2" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="y2"
+                  @input="forceNumericInputEdit('downlinkMapping.y2')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" @click="closeEditSensorModal">取消</button>
+            <button class="btn btn-primary" @click="confirmEditSensor" :disabled="!canSubmitEditSensor">确定</button>
+          </div>
+        </div>
+      </div>
+    </teleport>
+
+    <!-- 新建传感器模态框 -->
     <teleport to="body">
       <div v-if="showSensorModal" class="modal-overlay">
-        <div class="modal-content sensor-modal-content" @click.stop>
+        <div class="modal-content sensor-modal-content">
           <div class="modal-header">
             <h3>新建传感器</h3>
-            <button type="button" class="close-btn" @click="closeSensorModal">×</button>
+            <button class="close-btn" @click="closeSensorModal">×</button>
           </div>
-          
           <div class="modal-body">
             <div class="form-group">
               <label class="form-label">
@@ -333,11 +587,13 @@
                 <span class="required">*</span>
                 小数位
               </label>
-              <div class="custom-dropdown decimal-places-dropdown" @click="toggleDecimalPlacesDropdown">
-                <span class="dropdown-text">{{ sensorData.decimalPlaces || '请选择小数位' }}</span>
-                <svg class="dropdown-arrow" :class="{ 'rotated': showDecimalPlacesDropdown }" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+              <div class="custom-dropdown decimal-places-dropdown">
+                <div class="dropdown-click-area" @click="toggleDecimalPlacesDropdown">
+                  <span class="dropdown-text">{{ sensorData.decimalPlaces || '请选择小数位' }}</span>
+                  <svg class="dropdown-arrow" :class="{ 'rotated': showDecimalPlacesDropdown }" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
                 <div v-show="showDecimalPlacesDropdown" class="dropdown-menu" :class="{ 'dropdown-up': shouldShowDecimalPlacesUp }">
                   <div 
                     v-for="decimal in decimalPlacesOptions" 
@@ -366,7 +622,8 @@
                 type="text" 
                 class="form-input" 
                 placeholder="为空时自动排序"
-                @input="forcePositiveInteger('sort')"
+                data-field="sort"
+                @input="forcePositiveInteger"
                 @keydown="preventInvalidInput"
                 @paste="preventInvalidPaste"
               />
@@ -387,21 +644,21 @@
                   @paste="preventInvalidPaste"
                 />
                 <input 
-                  v-model="sensorData.uplinkMapping.x2" 
-                  type="text" 
-                  class="mapping-input" 
-                  placeholder="x2"
-                  @input="forceNumericInput('uplinkMapping.x2')"
-                  @keydown="preventInvalidInput"
-                  @paste="preventInvalidPaste"
-                />
-                <span class="mapping-arrow">=></span>
-                <input 
                   v-model="sensorData.uplinkMapping.y1" 
                   type="text" 
                   class="mapping-input" 
                   placeholder="y1"
                   @input="forceNumericInput('uplinkMapping.y1')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+                <span class="mapping-arrow">=></span>
+                <input 
+                  v-model="sensorData.uplinkMapping.x2" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="x2"
+                  @input="forceNumericInput('uplinkMapping.x2')"
                   @keydown="preventInvalidInput"
                   @paste="preventInvalidPaste"
                 />
@@ -432,21 +689,21 @@
                   @paste="preventInvalidPaste"
                 />
                 <input 
-                  v-model="sensorData.downlinkMapping.x2" 
-                  type="text" 
-                  class="mapping-input" 
-                  placeholder="x2"
-                  @input="forceNumericInput('downlinkMapping.x2')"
-                  @keydown="preventInvalidInput"
-                  @paste="preventInvalidPaste"
-                />
-                <span class="mapping-arrow">=></span>
-                <input 
                   v-model="sensorData.downlinkMapping.y1" 
                   type="text" 
                   class="mapping-input" 
                   placeholder="y1"
                   @input="forceNumericInput('downlinkMapping.y1')"
+                  @keydown="preventInvalidInput"
+                  @paste="preventInvalidPaste"
+                />
+                <span class="mapping-arrow">=></span>
+                <input 
+                  v-model="sensorData.downlinkMapping.x2" 
+                  type="text" 
+                  class="mapping-input" 
+                  placeholder="x2"
+                  @input="forceNumericInput('downlinkMapping.x2')"
                   @keydown="preventInvalidInput"
                   @paste="preventInvalidPaste"
                 />
@@ -473,13 +730,13 @@
                 class="form-input" 
                 min="1" 
                 required
-                @input="forcePositiveInteger('quantity')"
+                data-field="quantity"
+                @input="forcePositiveInteger"
                 @keydown="preventInvalidInput"
                 @paste="preventInvalidPaste"
               />
             </div>
           </div>
-
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" @click="closeSensorModal">关闭</button>
             <button 
@@ -506,16 +763,37 @@ export default {
     CreateGroupModal
   },
   emits: ['close', 'device-created', 'group-created'],
+  
+  // 添加错误处理
+  errorCaptured(err, instance, info) {
+    console.error('组件错误被捕获:', err, instance, info);
+    return false; // 阻止错误继续传播
+  },
   props: {
     visible: {
       type: Boolean,
       default: false
     }
   },
+  watch: {
+    visible(newVal) {
+      console.log('visible 属性变化:', newVal);
+      console.log('当前组件状态:', this.$el ? '已挂载' : '未挂载');
+      if (newVal) {
+        // 当组件显示时，重置所有数据为默认值
+        console.log('组件显示，开始重置数据...');
+        this.resetDeviceData();
+        console.log('数据重置完成');
+      } else {
+        console.log('组件隐藏');
+      }
+    }
+  },
   data() {
     return {
       showCreateGroupModal: false,
       deviceData: {
+        deviceId: '', // 设备ID，将在组件显示时生成
         group: '',
         serialNumber: '',
         deviceName: '',
@@ -580,12 +858,35 @@ export default {
       decimalPlacesOptions: ['0(小数位)', '1(小数位)', '2(小数位)', '3(小数位)', '4(小数位)'], // 新增：小数位选项
       mapLoaded: false, // 新增：地图加载状态
       baiduMap: null, // 新增：百度地图实例
-      mapLoadFailed: false // 新增：地图加载失败状态
+      mapLoadFailed: false, // 新增：地图加载失败状态
+      showEditSensorModal: false, // 新增：控制编辑传感器模态框显示
+      editSensorData: {
+        name: '',
+        type: '数值型', // 固定为数值型
+        decimalPlaces: '0(小数位)',
+        unit: '',
+        sort: '',
+        uplinkMapping: { x1: '', x2: '', y1: '', y2: '' },
+        downlinkMapping: { x1: '', x2: '', y1: '', y2: '' },
+        quantity: '1' // 确保默认值为1
+      },
+      showEditSensorTypeDropdown: false, // 新增：控制编辑传感器类型下拉菜单显示
+      showEditDecimalPlacesDropdown: false, // 新增：控制编辑小数位下拉菜单显示
+      // 分页相关数据
+      currentPage: 1,
+      pageSize: 10
     }
   },
   mounted() {
     // 组件挂载后不立即初始化地图，等待组件显示
     console.log('组件已挂载，等待显示...');
+    
+    // 添加全局点击事件监听器，用于关闭下拉选择框
+    document.addEventListener('click', this.handleGlobalClick);
+  },
+  beforeUnmount() {
+    // 移除全局点击事件监听器
+    document.removeEventListener('click', this.handleGlobalClick);
   },
   watch: {
     // 监听visible属性变化，当组件显示时初始化地图
@@ -715,6 +1016,38 @@ export default {
       }
       return false;
     },
+    shouldShowEditSensorTypeUp() {
+      // 检查是否有足够的向下空间显示编辑传感器类型选项
+      if (typeof window !== 'undefined' && this.showEditSensorTypeDropdown) {
+        const dropdownElement = document.querySelector('.edit-sensor-type-dropdown');
+        if (dropdownElement) {
+          const rect = dropdownElement.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          const spaceBelow = windowHeight - rect.bottom;
+          const neededSpace = 120; // 3个选项需要的空间：3 * 40px = 120px
+          
+          // 如果下方空间不够，则向上显示
+          return spaceBelow < neededSpace;
+        }
+      }
+      return false;
+    },
+    shouldShowEditDecimalPlacesUp() {
+      // 检查是否有足够的向下空间显示编辑小数位选项
+      if (typeof window !== 'undefined' && this.showEditDecimalPlacesDropdown) {
+        const dropdownElement = document.querySelector('.edit-decimal-places-dropdown');
+        if (dropdownElement) {
+          const rect = dropdownElement.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          const spaceBelow = windowHeight - rect.bottom;
+          const neededSpace = 160; // 4个选项需要的空间：4 * 40px = 160px
+          
+          // 如果下方空间不够，则向上显示
+          return spaceBelow < neededSpace;
+        }
+      }
+      return false;
+    },
     canSubmitSensor() {
       // 检查必填字段：名称、类型、小数位、单位、数量
       return this.sensorData.name.trim() && 
@@ -722,6 +1055,57 @@ export default {
              this.sensorData.decimalPlaces && 
              this.sensorData.unit.trim() && 
              this.sensorData.quantity.trim();
+    },
+    canSubmitEditSensor() {
+      // 检查必填字段：名称、类型、小数位、单位
+      return this.editSensorData.name.trim() && 
+             this.editSensorData.type && 
+             this.editSensorData.decimalPlaces && 
+             this.editSensorData.unit.trim();
+    },
+    
+    // 分页相关计算属性
+    paginatedSensors() {
+      const start = (this.currentPage - 1) * this.pageSize;
+      const end = start + this.pageSize;
+      return this.sensors.slice(start, end);
+    },
+    
+    totalPages() {
+      return Math.ceil(this.sensors.length / this.pageSize);
+    },
+    
+    visiblePageNumbers() {
+      const pages = [];
+      const total = this.totalPages;
+      const current = this.currentPage;
+      
+      if (total <= 5) {
+        // 如果总页数少于等于5，显示所有页数
+        for (let i = 1; i <= total; i++) {
+          pages.push(i);
+        }
+      } else {
+        // 如果总页数大于5，显示当前页附近的页数
+        if (current <= 3) {
+          // 当前页在前3页
+          for (let i = 1; i <= 5; i++) {
+            pages.push(i);
+          }
+        } else if (current >= total - 2) {
+          // 当前页在后3页
+          for (let i = total - 4; i <= total; i++) {
+            pages.push(i);
+          }
+        } else {
+          // 当前页在中间
+          for (let i = current - 2; i <= current + 2; i++) {
+            pages.push(i);
+          }
+        }
+      }
+      
+      return pages;
     }
   },
   methods: {
@@ -751,6 +1135,10 @@ export default {
     },
     
     handleClose() {
+      console.log('点击关闭按钮，开始重置数据...');
+      // 重置所有数据为默认值
+      this.resetDeviceData();
+      console.log('数据重置完成，发送关闭事件');
       // 先触发滑出动画，然后延迟发送关闭事件
       this.$emit('close')
     },
@@ -760,15 +1148,227 @@ export default {
         return
       }
       
+              // 添加全局错误处理
+        this.handleUnhandledRejection = (event) => {
+          console.error('未处理的Promise拒绝:', event.reason);
+          event.preventDefault();
+        };
+        window.addEventListener('unhandledrejection', this.handleUnhandledRejection);
+      
       try {
         console.log('提交设备数据:', this.deviceData)
-        this.$emit('device-created', this.deviceData)
+        console.log('传感器数据:', this.sensors)
+        
+        // 使用前端已生成的设备ID
+        const deviceId = this.deviceData.deviceId;
+        
+        // 验证DTU设备数据完整性
+        if (!deviceId || !this.deviceData.deviceName || !this.deviceData.group) {
+          throw new Error('DTU设备数据不完整，请检查设备名称和分组')
+        }
+        
+        // 准备DTU设备数据
+        const dtuData = {
+          device_id: deviceId,
+          serial_number: this.deviceData.serialNumber,
+          device_group: this.deviceData.group,
+          device_name: this.deviceData.deviceName,
+          device_image: this.deviceData.deviceImage,
+          link_protocol: this.deviceData.protocol,
+          offline_delay: this.deviceData.offlineDelayType === 'recommended' 
+            ? (parseInt(this.deviceData.recommendedDelay) || 60) 
+            : (parseInt(this.deviceData.customDelay) || 60),
+          timezone_setting: this.deviceData.timezone.replace('UTC', ''),
+          longitude: this.deviceData.longitude ? (parseFloat(this.deviceData.longitude) || null) : null,
+          latitude: this.deviceData.latitude ? (parseFloat(this.deviceData.latitude) || null) : null,
+          status: '未连接' // 使用默认状态
+        }
+        
+        console.log('准备插入的DTU数据:', dtuData)
+        
+        // 创建DTU设备
+        const dtuResponse = await fetch('/api/dtu', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dtuData)
+        })
+        
+        if (!dtuResponse.ok) {
+          throw new Error(`创建DTU设备失败: ${dtuResponse.statusText}`)
+        }
+        
+        const dtuResult = await dtuResponse.json()
+        console.log('DTU设备创建成功:', dtuResult)
+        
+        // 创建所有传感器
+        if (this.sensors.length > 0) {
+          for (const sensor of this.sensors) {
+            // 验证传感器数据完整性
+            if (!sensor.id || !sensor.name) {
+              throw new Error(`传感器数据不完整: ID=${sensor.id}, 名称=${sensor.name}`)
+            }
+            
+            // 传感器ID已经在添加时生成，这里只需要关联DTU ID
+            sensor.dtuId = deviceId;
+            
+            // 准备传感器数据
+            const sensorData = {
+              sensor_id: sensor.id, // 使用已生成的传感器ID
+              dtu_id: deviceId,
+              icon: '/image/传感器图片.png', // 添加传感器图标
+              sensor_name: sensor.name,
+              sensor_type: sensor.type,
+              decimal_places: parseInt(sensor.decimalPlaces.match(/\d+/)?.[0] || '0') || 0, // 提取数字部分，添加安全检查
+              unit: sensor.unit || '°C',
+              sort_order: sensor.sort ? (parseInt(sensor.sort) || null) : null,
+              upper_mapping_x1: sensor.uplinkMapping.x1 && sensor.uplinkMapping.x1 !== '' ? (parseFloat(sensor.uplinkMapping.x1) || -32768) : -32768,
+              upper_mapping_y1: sensor.uplinkMapping.y1 && sensor.uplinkMapping.y1 !== '' ? (parseFloat(sensor.uplinkMapping.y1) || 32767) : 32767,
+              upper_mapping_x2: sensor.uplinkMapping.x2 && sensor.uplinkMapping.x2 !== '' ? (parseFloat(sensor.uplinkMapping.x2) || -2048) : -2048,
+              upper_mapping_y2: sensor.uplinkMapping.y2 && sensor.uplinkMapping.y2 !== '' ? (parseFloat(sensor.uplinkMapping.y2) || 2047.9) : 2047.9,
+              lower_mapping_x1: sensor.downlinkMapping.x1 && sensor.downlinkMapping.x1 !== '' ? (parseFloat(sensor.downlinkMapping.x1) || null) : null,
+              lower_mapping_y1: sensor.downlinkMapping.y1 && sensor.downlinkMapping.y1 !== '' ? (parseFloat(sensor.downlinkMapping.y1) || null) : null,
+              lower_mapping_x2: sensor.downlinkMapping.x2 && sensor.downlinkMapping.x2 !== '' ? (parseFloat(sensor.downlinkMapping.x2) || null) : null,
+              lower_mapping_y2: sensor.downlinkMapping.y2 && sensor.downlinkMapping.y2 !== '' ? (parseFloat(sensor.downlinkMapping.y2) || null) : null
+            }
+            
+            console.log('准备插入的传感器数据:', sensorData)
+            
+            // 创建传感器
+            const sensorResponse = await fetch('/api/sensors', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(sensorData)
+            })
+            
+            if (!sensorResponse.ok) {
+              throw new Error(`创建传感器失败: ${sensorResponse.statusText}`)
+            }
+            
+            const sensorResult = await sensorResponse.json()
+            console.log('传感器创建成功:', sensorResult)
+          }
+        }
+        
+        // 为所有传感器创建MB RTU协议配置
+        if (this.sensors.length > 0) {
+          console.log('开始创建MB RTU协议配置...')
+          
+          const mbRtuConfigs = this.sensors.map((sensor, index) => ({
+            dtu_id: deviceId,
+            sensor_id: sensor.id,
+            slave_address: 1, // 默认从站地址
+            function_code: '04只读', // 默认功能码
+            offset_value: sensor.sort ? parseInt(sensor.sort) : (index + 1), // 使用传感器的排序作为偏置值
+            data_format: '16位有符号数', // 默认数据格式
+            data_bits: null, // 数据位默认为空
+            byte_order_value: null, // 字节顺序默认为空
+            collection_cycle: 2 // 采集周期默认2秒
+          }))
+          
+          console.log('准备创建的MB RTU配置:', mbRtuConfigs)
+          
+          // 批量创建MB RTU协议配置
+          const mbRtuResponse = await fetch('/api/mb-rtu-configs', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ configs: mbRtuConfigs })
+          })
+          
+          if (!mbRtuResponse.ok) {
+            throw new Error(`创建MB RTU协议配置失败: ${mbRtuResponse.statusText}`)
+          }
+          
+          const mbRtuResult = await mbRtuResponse.json()
+          console.log('MB RTU协议配置创建成功:', mbRtuResult)
+        }
+        
+        // 发送成功事件
+        this.$emit('device-created', {
+          ...this.deviceData,
+          deviceId: deviceId,
+          sensors: this.sensors
+        })
+        
+        // 重置设备数据，为下次创建做准备
+        this.resetDeviceData();
+        
         this.$emit('close')
+        
       } catch (error) {
         console.error('创建设备失败:', error)
+        console.error('错误详情:', {
+          message: error.message,
+          stack: error.stack,
+          deviceData: this.deviceData,
+          sensors: this.sensors
+        })
+        
+        // 确保错误不会继续传播
+        event?.preventDefault?.();
+        event?.stopPropagation?.();
+        
+        // 这里可以添加用户提示，比如显示错误消息
+        alert(`创建设备失败: ${error.message}`)
+      } finally {
+        // 清理全局事件监听器
+        window.removeEventListener('unhandledrejection', this.handleUnhandledRejection);
       }
+        },
+    
+    generateUniqueId(prefix) {
+      const timestamp = Date.now();
+      const randomStr = Math.random().toString(36).substr(2, 6);
+      return `${prefix}_${timestamp}_${randomStr}`;
     },
-
+    
+    resetDeviceData() {
+      console.log('开始重置设备数据...');
+      console.log('重置前的设备数据:', JSON.stringify(this.deviceData));
+      console.log('重置前的传感器数组:', JSON.stringify(this.sensors));
+      
+      // 重置设备数据为默认值
+      this.deviceData = {
+        deviceId: this.generateUniqueId('DTU'), // 生成新的设备ID
+        group: '',
+        serialNumber: '',
+        deviceName: '',
+        protocol: 'MB-RTU', // 默认选择MB-RTU
+        offlineDelayType: 'recommended',
+        offlineDelay: '60',
+        recommendedDelay: '60', // 推荐值模式下的延时值
+        customDelay: '60', // 自定义模式下的延时值
+        timezone: 'UTC+08:00', // 默认选择北京时间
+        longitude: '',
+        latitude: '',
+        deviceImage: '/image/设备图片.png' // 使用本地静态图片
+      };
+      
+      // 重置传感器数组
+      this.sensors = [];
+      
+      // 重置传感器数据
+      this.sensorData = {
+        name: '',
+        type: '数值型', // 固定为数值型
+        decimalPlaces: '0(小数位)',
+        unit: '',
+        sort: '',
+        uplinkMapping: { x1: '', x2: '', y1: '', y2: '' },
+        downlinkMapping: { x1: '', x2: '', y1: '', y2: '' },
+        quantity: '1' // 确保默认值为1
+      };
+      
+      console.log('重置后的设备数据:', JSON.stringify(this.deviceData));
+      console.log('重置后的传感器数组:', JSON.stringify(this.sensors));
+      console.log('设备数据已重置完成');
+    },
+    
     toggleGroupDropdown() {
       this.showGroupDropdown = !this.showGroupDropdown
     },
@@ -825,30 +1425,24 @@ export default {
     },
 
     forceNumericInput(field) {
-      // 处理嵌套对象的字段，如 'uplinkMapping.x1'
-      const fieldParts = field.split('.');
-      if (fieldParts.length === 2) {
-        const obj = fieldParts[0];
-        const prop = fieldParts[1];
-        // 允许数字和小数点，但只允许一个小数点
-        let value = this.sensorData[obj][prop];
-        // 移除除了数字和小数点之外的所有字符
-        value = value.replace(/[^0-9.]/g, '');
-        // 确保只有一个小数点
-        const parts = value.split('.');
-        if (parts.length > 2) {
-          value = parts[0] + '.' + parts.slice(1).join('');
-        }
-        this.sensorData[obj][prop] = value;
-      } else {
-        let value = this.sensorData[field];
-        value = value.replace(/[^0-9.]/g, '');
-        const parts = value.split('.');
-        if (parts.length > 2) {
-          value = parts[0] + '.' + parts.slice(1).join('');
-        }
-        this.sensorData[field] = value;
+      // 移除除了数字、小数点和负号之外的所有字符
+      let value = this.sensorData[field];
+      value = value.replace(/[^0-9.-]/g, '');
+      
+      // 确保只有一个小数点
+      const parts = value.split('.');
+      if (parts.length > 2) {
+        value = parts[0] + '.' + parts.slice(1).join('');
       }
+      
+      // 确保负号只在开头
+      if (value.startsWith('-')) {
+        value = '-' + value.substring(1).replace(/-/g, '');
+      } else {
+        value = value.replace(/-/g, '');
+      }
+      
+      this.sensorData[field] = value;
     },
 
     handleTimeInputBlur() {
@@ -906,6 +1500,18 @@ export default {
     },
 
     openSensorModal() {
+      // 重置传感器数据为默认值
+      this.sensorData = {
+        name: '',
+        type: '数值型', // 固定为数值型
+        decimalPlaces: '0(小数位)',
+        unit: '',
+        sort: '',
+        uplinkMapping: { x1: '', x2: '', y1: '', y2: '' },
+        downlinkMapping: { x1: '', x2: '', y1: '', y2: '' },
+        quantity: '1' // 确保默认值为1
+      };
+      
       this.showSensorModal = true;
       // 确保模态框打开时滚动到顶部
       this.$nextTick(() => {
@@ -920,24 +1526,8 @@ export default {
       });
     },
     closeSensorModal() {
-      this.showSensorModal = false;
-    },
-    confirmSensorModal() {
-      // 模拟添加传感器
-      const newSensor = {
-        id: Date.now(), // 模拟ID
-        name: this.sensorData.name,
-        type: this.sensorData.type,
-        decimalPlaces: this.sensorData.decimalPlaces,
-        unit: this.sensorData.unit,
-        sort: this.sensorData.sort,
-        uplinkMapping: this.sensorData.uplinkMapping,
-        downlinkMapping: this.sensorData.downlinkMapping,
-        quantity: this.sensorData.quantity
-      };
-      this.sensors.push(newSensor);
-      this.showSensorModal = false;
-      this.sensorData = { // 重置传感器数据
+      // 关闭模态框时也重置数据，确保下次打开时是空白表单
+      this.sensorData = {
         name: '',
         type: '数值型', // 固定为数值型
         decimalPlaces: '0(小数位)',
@@ -947,6 +1537,57 @@ export default {
         downlinkMapping: { x1: '', x2: '', y1: '', y2: '' },
         quantity: '1' // 确保默认值为1
       };
+      
+      this.showSensorModal = false;
+    },
+    
+
+    
+    confirmSensorModal() {
+      // 根据数量创建传感器
+      const quantity = parseInt(this.sensorData.quantity) || 1;
+      
+      // 获取当前最大排序号
+      const maxSort = this.sensors.length > 0 ? Math.max(...this.sensors.map(s => parseInt(s.sort) || 0)) : 0;
+      let nextSort = maxSort + 1;
+      
+      for (let i = 0; i < quantity; i++) {
+        // 如果用户没有输入排序，使用自动递增的排序号
+        const sortValue = this.sensorData.sort.trim() || nextSort.toString();
+        if (!this.sensorData.sort.trim()) {
+          nextSort++;
+        }
+        
+        const newSensor = {
+          id: this.generateUniqueId('SENSOR'), // 生成唯一的传感器ID
+          name: quantity > 1 ? `${this.sensorData.name}_${i + 1}` : this.sensorData.name,
+          type: this.sensorData.type,
+          decimalPlaces: this.sensorData.decimalPlaces,
+          unit: this.sensorData.unit,
+          sort: sortValue,
+          uplinkMapping: this.sensorData.uplinkMapping,
+          downlinkMapping: this.sensorData.downlinkMapping,
+          quantity: '1'
+        };
+        this.sensors.push(newSensor);
+        console.log(`传感器 ${i + 1} 创建成功，ID: ${newSensor.id}`);
+      }
+      
+      this.showSensorModal = false;
+      
+      // 重置传感器数据
+      this.sensorData = {
+        name: '',
+        type: '数值型', // 固定为数值型
+        decimalPlaces: '0(小数位)',
+        unit: '',
+        sort: '',
+        uplinkMapping: { x1: '', x2: '', y1: '', y2: '' },
+        downlinkMapping: { x1: '', x2: '', y1: '', y2: '' },
+        quantity: '1' // 确保默认值为1
+      };
+      
+      console.log('传感器添加成功，当前传感器数量:', this.sensors.length);
     },
 
     toggleSensorTypeDropdown() {
@@ -981,8 +1622,101 @@ export default {
       this.showDecimalPlacesDropdown = false;
     },
 
-    forcePositiveInteger(field) {
-      this.sensorData[field] = this.sensorData[field].replace(/[^0-9]/g, '');
+    forcePositiveInteger(event) {
+      // 直接处理输入框的值，只保留数字
+      const value = event.target.value;
+      if (value && typeof value === 'string') {
+        event.target.value = value.replace(/[^0-9]/g, '');
+        // 更新对应的数据
+        const fieldName = event.target.getAttribute('data-field');
+        if (fieldName && this.sensorData[fieldName] !== undefined) {
+          this.sensorData[fieldName] = event.target.value;
+        }
+      }
+    },
+    
+    forcePositiveIntegerEdit(event) {
+      // 直接处理输入框的值，只保留数字
+      const value = event.target.value;
+      if (value && typeof value === 'string') {
+        event.target.value = value.replace(/[^0-9]/g, '');
+        // 更新对应的数据
+        const fieldName = event.target.getAttribute('data-field');
+        if (fieldName && this.editSensorData[fieldName] !== undefined) {
+          this.editSensorData[fieldName] = event.target.value;
+        }
+      }
+    },
+    
+    forceOfflineDelayInput(event) {
+      // 专门处理掉线延时输入，只允许正整数
+      const value = event.target.value;
+      if (value && typeof value === 'string') {
+        // 只保留数字
+        const numericValue = value.replace(/[^0-9]/g, '');
+        event.target.value = numericValue;
+        // 更新数据
+        this.deviceData.customDelay = numericValue;
+      }
+    },
+
+    forceNumericInput(field) {
+      // 处理嵌套对象的字段，如 'uplinkMapping.x1'
+      if (!field || typeof field !== 'string') {
+        console.warn('forceNumericInput: field参数无效:', field);
+        return;
+      }
+      
+      const fieldParts = field.split('.');
+      if (fieldParts.length === 2) {
+        const obj = fieldParts[0];
+        const prop = fieldParts[1];
+        // 允许数字和小数点，但只允许一个小数点
+        let value = this.sensorData[obj][prop];
+        // 移除除了数字和小数点之外的所有字符
+        value = value.replace(/[^0-9.]/g, '');
+        // 确保只有一个小数点
+        const parts = value.split('.');
+        if (parts.length > 2) {
+          value = parts[0] + '.' + parts.slice(1).join('');
+        }
+        this.sensorData[obj][prop] = value;
+      } else {
+        let value = this.sensorData[field];
+        value = value.replace(/[^0-9.]/g, '');
+        const parts = value.split('.');
+        if (parts.length > 2) {
+          value = parts[0] + '.' + parts.slice(1).join('');
+        }
+        this.sensorData[field] = value;
+      }
+    },
+    
+    forceNumericInputEdit(field) {
+      // 处理嵌套对象的字段，如 'uplinkMapping.x1'
+      const fieldParts = field.split('.');
+      if (fieldParts.length === 2) {
+        const obj = fieldParts[0];
+        const prop = fieldParts[1];
+        // 允许数字和小数点，但只允许一个小数点
+        let value = this.editSensorData[obj][prop];
+        // 移除除了数字和小数点之外的所有字符
+        value = value.replace(/[^0-9.]/g, '');
+        // 确保只有一个小数点
+        const parts = value.split('.');
+        if (parts.length > 2) {
+          value = parts[0] + '.' + parts.slice(1).join('');
+        }
+        this.editSensorData[obj][prop] = value;
+      } else {
+        let value = this.editSensorData[field];
+        value = value.replace(/[^0-9.]/g, '');
+        const parts = value.split('.');
+        if (parts.length > 2) {
+          value = parts[0] + '.' + parts.slice(1).join('');
+        }
+        this.editSensorData[field] = value;
+      }
     },
 
     preventInvalidInput(event) {
@@ -1256,6 +1990,139 @@ export default {
       this.initBaiduMap();
     },
 
+    deleteSensor(id) {
+      this.sensors = this.sensors.filter(sensor => sensor.id !== id);
+    },
+
+    editSensor(id) {
+      // 找到要编辑的传感器
+      const sensor = this.sensors.find(s => s.id === id);
+      if (sensor) {
+        // 复制传感器数据到编辑表单
+        this.editSensorData = {
+          id: sensor.id, // 保存原始ID用于更新
+          name: sensor.name,
+          type: sensor.type,
+          decimalPlaces: sensor.decimalPlaces,
+          unit: sensor.unit,
+          sort: sensor.sort,
+          uplinkMapping: { ...sensor.uplinkMapping },
+          downlinkMapping: { ...sensor.downlinkMapping }
+        };
+        
+        // 打开编辑模态框
+        this.showEditSensorModal = true;
+        
+        console.log('编辑传感器:', this.editSensorData);
+      }
+    },
+
+    toggleEditSensorTypeDropdown() {
+      this.showEditSensorTypeDropdown = !this.showEditSensorTypeDropdown;
+      
+      // 如果下拉菜单要显示，强制重新计算是否应该向上展开
+      if (this.showEditSensorTypeDropdown) {
+        this.$nextTick(() => {
+          this.$forceUpdate(); // 强制重新渲染以更新计算属性
+        });
+      }
+    },
+
+    selectEditSensorType(type) {
+      this.editSensorData.type = type;
+      this.showEditSensorTypeDropdown = false;
+    },
+
+    toggleEditDecimalPlacesDropdown() {
+      this.showEditDecimalPlacesDropdown = !this.showEditDecimalPlacesDropdown;
+      
+      // 如果下拉菜单要显示，强制重新计算是否应该向上展开
+      if (this.showEditDecimalPlacesDropdown) {
+        this.$nextTick(() => {
+          this.$forceUpdate(); // 强制重新渲染以更新计算属性
+        });
+      }
+    },
+
+    selectEditDecimalPlaces(decimal) {
+      this.editSensorData.decimalPlaces = decimal;
+      this.showEditDecimalPlacesDropdown = false;
+    },
+
+    closeEditSensorModal() {
+      this.showEditSensorModal = false;
+    },
+
+    confirmEditSensor() {
+      // 更新现有的传感器
+      const sensorIndex = this.sensors.findIndex(s => s.id === this.editSensorData.id);
+      if (sensorIndex !== -1) {
+        // 更新传感器数据，保持ID不变
+        this.sensors[sensorIndex] = {
+          ...this.sensors[sensorIndex], // 保持其他字段不变，包括ID
+          name: this.editSensorData.name,
+          type: this.editSensorData.type,
+          decimalPlaces: this.editSensorData.decimalPlaces,
+          unit: this.editSensorData.unit,
+          sort: this.editSensorData.sort,
+          uplinkMapping: { ...this.editSensorData.uplinkMapping },
+          downlinkMapping: { ...this.editSensorData.downlinkMapping }
+        };
+        
+        console.log('传感器更新成功:', this.sensors[sensorIndex]);
+      }
+      
+      this.showEditSensorModal = false;
+      
+      // 重置编辑传感器数据
+      this.editSensorData = {
+        name: '',
+        type: '数值型',
+        decimalPlaces: '0(小数位)',
+        unit: '',
+        sort: '',
+        uplinkMapping: { x1: '', x2: '', y1: '', y2: '' },
+        downlinkMapping: { x1: '', x2: '', y1: '', y2: '' }
+      };
+    },
+    
+    // 分页控制方法
+    goToPage(page) {
+      if (page >= 1 && page <= this.totalPages) {
+        this.currentPage = page;
+      }
+    },
+    
+    goToPreviousPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    },
+    
+    goToNextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+      }
+    },
+
+    // 全局点击事件处理，用于关闭下拉选择框
+    handleGlobalClick(event) {
+      // 检查点击的元素是否在下拉选择框内
+      const isClickInsideDropdown = event.target.closest('.custom-dropdown') || 
+                                   event.target.closest('.dropdown-menu') ||
+                                   event.target.closest('.dropdown-item');
+      
+      // 如果点击的不是下拉选择框内的元素，则关闭所有下拉选择框
+      if (!isClickInsideDropdown) {
+        this.showGroupDropdown = false;
+        this.showOfflineDelayDropdown = false;
+        this.showTimezoneDropdown = false;
+        this.showSensorTypeDropdown = false;
+        this.showDecimalPlacesDropdown = false;
+        this.showEditSensorTypeDropdown = false;
+        this.showEditDecimalPlacesDropdown = false;
+      }
+    }
 
   }
 }
@@ -1329,19 +2196,19 @@ export default {
 }
 
 .form-section {
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 .section-title {
   font-size: 16px;
   font-weight: 600;
   color: #333;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   /* 去掉蓝色线条 */
 }
 
 .form-row {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .form-group {
@@ -1481,8 +2348,14 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 12px;
-  margin-bottom: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.sensor-left-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
 .sensor-right-actions {
@@ -1551,8 +2424,20 @@ export default {
 
 .sensor-table {
   border: 1px solid #e8e8e8;
-  border-radius: 6px;
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   overflow: hidden;
+  margin-top: 0;
+}
+
+/* 传感器部分的特殊样式 */
+.sensor-section {
+  margin-bottom: 0;
+}
+
+.sensor-section .form-row {
+  margin-bottom: 0;
 }
 
 .sensor-table table {
@@ -1560,23 +2445,22 @@ export default {
   border-collapse: collapse;
 }
 
-.sensor-table th,
-.sensor-table td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #e8e8e8;
-}
-
 .sensor-table th {
   background-color: #fafafa;
-  font-weight: 600;
+  padding: 12px 8px;
+  text-align: center;
+  font-weight: 500;
   color: #333;
+  border-bottom: 1px solid #e8e8e8;
   font-size: 14px;
 }
 
 .sensor-table td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #f0f0f0;
   font-size: 14px;
   color: #666;
+  text-align: center;
 }
 
 .empty-data {
@@ -1728,7 +2612,30 @@ export default {
   min-width: 120px;
 }
 
-.custom-dropdown:hover {
+.custom-dropdown.disabled {
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.custom-dropdown.disabled .dropdown-text {
+  color: #999;
+}
+
+.custom-dropdown.disabled .dropdown-arrow {
+  color: #999;
+}
+
+.dropdown-click-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.custom-dropdown:hover:not(.disabled) {
   border-color: #1890ff;
 }
 
@@ -2431,7 +3338,7 @@ export default {
   box-sizing: border-box;
 }
 
-.modal-body .custom-dropdown:hover {
+.modal-body .custom-dropdown:hover:not(.disabled) {
   border-color: #1890ff;
 }
 
@@ -2537,7 +3444,7 @@ export default {
 .sensor-table th {
   background-color: #fafafa;
   padding: 12px 8px;
-  text-align: left;
+  text-align: center;
   font-weight: 500;
   color: #333;
   border-bottom: 1px solid #e8e8e8;
@@ -2549,6 +3456,7 @@ export default {
   border-bottom: 1px solid #f0f0f0;
   font-size: 14px;
   color: #666;
+  text-align: center;
 }
 
 .sensor-table .empty-data {
@@ -2556,6 +3464,48 @@ export default {
   color: #999;
   font-style: italic;
   padding: 40px 0;
+}
+
+.sensor-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+}
+
+.sensor-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.btn-sm {
+  padding: 4px 8px;
+  font-size: 12px;
+  height: 24px;
+  min-width: 50px;
+  margin-right: 4px;
+}
+
+.btn-sm:last-child {
+  margin-right: 0;
+}
+
+.btn-danger {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #ff7875;
+}
+
+.no-mapping {
+  color: #ccc;
+  font-style: italic;
 }
 
 /* 经纬度输入框样式 */
@@ -2644,5 +3594,5597 @@ export default {
   background-color: #40a9ff;
 }
 
+.sensor-info {
+  margin: 12px 0;
+  padding: 8px 12px;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  border-left: 3px solid #1890ff;
+}
 
+.sensor-count {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.sensor-actions-cell {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* 分页控件样式 */
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.pagination-info {
+  font-size: 14px;
+  color: #666;
+}
+
+.pagination-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-secondary.btn-sm {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm {
+  background-color: #1890ff;
+  color: white;
+}
+
+.btn-primary.btn-sm:hover {
+  background-color: #40a9ff;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-sm {
+  padding: 4px 8px;
+  font-size: 12px;
+  height: 24px;
+  min-width: 50px;
+  margin-right: 4px;
+}
+
+.btn-sm:last-child {
+  margin-right: 0;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-secondary.btn-sm:hover:disabled {
+  background-color: #e6e6e6;
+}
+
+.btn-primary.btn-sm:disabled {
+  background-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.btn-primary.btn-sm:hover:disabled {
+  background-color: #40a9ff;
+}
+
+.btn-secondary.btn-sm:disabled {
+  border: 1px solid #d9d9d9;
+  background-color: #f0f0f0;
+  color: #bfbfbf;
+}
 </style>

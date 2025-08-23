@@ -350,11 +350,22 @@ export default {
           status: this.selectedStatus || undefined,
           search: this.searchQuery || undefined,
         };
+        console.log('请求参数:', params);
+        
         const response = await fetch(`http://localhost:3000/api/dtu?${new URLSearchParams(params).toString()}`);
         if (response.ok) {
           const data = await response.json();
-          this.devices = data.data.devices;
-          this.totalDevices = data.data.total;
+          console.log('API响应数据:', data);
+          
+          this.devices = data.data.devices || [];
+          this.totalDevices = data.data.total || 0;
+          
+          console.log('设置后的数据:', {
+            devices: this.devices,
+            totalDevices: this.totalDevices,
+            devicesLength: this.devices.length
+          });
+          
           // 同步更新跳转页面输入框
           this.jumpToPage = this.currentPage.toString();
         } else {

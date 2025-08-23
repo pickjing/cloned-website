@@ -6,9 +6,10 @@ class DeviceController {
     try {
       const { page, limit, group, status, search } = req.query;
       const params = { page, limit, group, status, search };
-      const devices = await DeviceData.getAllDTUDevices(params);
-      res.json({ success: true, data: devices });
+      const result = await DeviceData.getAllDTUDevices(params);
+      res.json({ success: true, data: result });
     } catch (error) {
+      console.error('获取DTU设备失败:', error);
       res.status(500).json({ success: false, message: error.message });
     }
   }
@@ -249,6 +250,38 @@ class DeviceController {
       const result = await DeviceData.moveDTUDevicesToGroup(device_ids, group_name.trim());
       res.json({ success: true, message: '设备移动成功', data: result });
     } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+    }
+  }
+
+  // 创建MB RTU协议配置
+  static async createMBRTUConfig(req, res) {
+    try {
+      const result = await DeviceData.createMBRTUConfig(req.body);
+      res.json({ success: true, data: { id: result.insertId } });
+    } catch (error) {
+      console.error('创建MB RTU协议配置失败:', error);
+      res.status(500).json({ success: false, message: error.message });
+    }
+  }
+
+  // 批量创建MB RTU协议配置
+  static async createMBRTUConfigs(req, res) {
+    try {
+      const { configs } = req.body;
+      if (!configs || !Array.isArray(configs) || configs.length === 0) {
+        return res.status(400).json({ success: false, message: '配置数据不能为空' });
+      }
+      
+      const results = [];
+      for (const config of configs) {
+        const result = await DeviceData.createMBRTUConfig(config);
+        results.push({ id: result.insertId });
+      }
+      
+      res.json({ success: true, data: results });
+    } catch (error) {
+      console.error('批量创建MB RTU协议配置失败:', error);
       res.status(500).json({ success: false, message: error.message });
     }
   }
