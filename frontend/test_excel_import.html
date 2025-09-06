@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel导入测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .btn-secondary {
+            background: #6c757d;
+        }
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        .file-input {
+            display: none;
+        }
+        .sensor-list {
+            margin-top: 20px;
+        }
+        .sensor-item {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .sensor-name {
+            font-weight: bold;
+            color: #333;
+        }
+        .sensor-details {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .mapping-info {
+            background: #e9ecef;
+            padding: 8px;
+            border-radius: 3px;
+            margin-top: 5px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Excel导入功能测试</h1>
+        
+        <div class="test-section">
+            <h3>测试说明</h3>
+            <p>这个页面用于测试Excel导入功能。请按照以下步骤操作：</p>
+            <ol>
+                <li>点击"下载Excel模板"按钮下载测试模板</li>
+                <li>点击"选择Excel文件"按钮选择要导入的文件</li>
+                <li>查看导入结果</li>
+            </ol>
+        </div>
+
+        <div class="test-section">
+            <h3>操作按钮</h3>
+            <button class="btn btn-secondary" onclick="downloadTemplate()">下载Excel模板</button>
+            <input type="file" id="excelFileInput" class="file-input" accept=".xlsx,.xls" onchange="handleFileUpload(event)">
+            <button class="btn" onclick="document.getElementById('excelFileInput').click()">选择Excel文件</button>
+        </div>
+
+        <div class="test-section">
+            <h3>导入结果</h3>
+            <div id="importResult">
+                <p>尚未导入任何数据</p>
+            </div>
+            <div id="sensorList" class="sensor-list"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+        let sensors = [];
+
+        function downloadTemplate() {
+            // 创建测试数据
+            const testData = [
+                ['名称', '类型', '小数位', '单位', '排序', '上行映射', '下行映射'],
+                ['温度传感器1', '数值型', '1', '°C', '1', 'field1=-32768,field2=32767,field3=-2048,field4=2047.9', 'field1=0,field2=100,field3=0,field4=100'],
+                ['湿度传感器1', '数值型', '1', '%RH', '2', 'field1=-32768,field2=32767,field3=-2048,field4=2047.9', 'field1=0,field2=100,field3=0,field4=100'],
+                ['压力传感器1', '数值型', '2', 'kPa', '3', 'field1=-32768,field2=32767,field3=-2048,field4=2047.9', 'field1=0,field2=1000,field3=0,field4=1000']
+            ];
+
+            // 创建工作簿
+            const wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.aoa_to_sheet(testData);
+
+            // 设置列宽
+            ws['!cols'] = [
+                { width: 15 }, // 名称
+                { width: 12 }, // 类型
+                { width: 10 }, // 小数位
+                { width: 10 }, // 单位
+                { width: 8 },  // 排序
+                { width: 50 }, // 上行映射
+                { width: 50 }  // 下行映射
+            ];
+
+            // 添加工作表到工作簿
+            XLSX.utils.book_append_sheet(wb, ws, '传感器模板');
+
+            // 下载文件
+            XLSX.writeFile(wb, '传感器导入模板.xlsx');
+        }
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            console.log('开始处理文件:', file.name);
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    
+                    // 获取第一个工作表
+                    const firstSheetName = workbook.SheetNames[0];
+                    const worksheet = workbook.Sheets[firstSheetName];
+                    
+                    // 转换为JSON
+                    const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+                    
+                    if (jsonData.length < 2) {
+                        alert('Excel文件至少需要包含表头和数据行');
+                        return;
+                    }
+
+                    // 验证表头
+                    const headers = jsonData[0];
+                    const requiredFields = ['名称', '类型', '小数位', '单位', '排序', '上行映射', '下行映射'];
+                    const missingFields = requiredFields.filter(field => !headers.includes(field));
+                    
+                    if (missingFields.length > 0) {
+                        alert(`Excel文件缺少必需字段: ${missingFields.join(', ')}`);
+                        return;
+                    }
+
+                    // 解析数据行
+                    sensors = [];
+                    for (let i = 1; i < jsonData.length; i++) {
+                        const row = jsonData[i];
+                        const sensor = parseExcelRow(headers, row);
+                        if (sensor) {
+                            sensors.push(sensor);
+                        }
+                    }
+
+                    // 显示结果
+                    displayImportResult();
+                    
+                    // 清空文件输入
+                    event.target.value = '';
+                    
+                } catch (error) {
+                    console.error('文件处理失败:', error);
+                    alert(`文件处理失败: ${error.message}`);
+                    event.target.value = '';
+                }
+            };
+
+            reader.onerror = function() {
+                alert('文件读取失败');
+                event.target.value = '';
+            };
+
+            reader.readAsArrayBuffer(file);
+        }
+
+        function parseExcelRow(headers, row) {
+            // 获取字段索引
+            const nameIndex = headers.indexOf('名称');
+            const typeIndex = headers.indexOf('类型');
+            const decimalIndex = headers.indexOf('小数位');
+            const unitIndex = headers.indexOf('单位');
+            const sortIndex = headers.indexOf('排序');
+            const uplinkIndex = headers.indexOf('上行映射');
+            const downlinkIndex = headers.indexOf('下行映射');
+
+            // 检查必需字段是否为空
+            const name = row[nameIndex]?.toString().trim();
+            const type = row[typeIndex]?.toString().trim();
+            const decimal = row[decimalIndex]?.toString().trim();
+            const unit = row[unitIndex]?.toString().trim();
+
+            if (!name || !type || !decimal || !unit) {
+                console.log('跳过无效行:', row);
+                return null; // 跳过无效行
+            }
+
+            // 解析映射数据
+            const uplinkMapping = parseMappingString(row[uplinkIndex]?.toString() || '');
+            const downlinkMapping = parseMappingString(row[downlinkIndex]?.toString() || '');
+
+            // 生成传感器数据
+            const sensor = {
+                id: generateUniqueId('SENSOR'),
+                name: name,
+                type: type,
+                decimalPlaces: `${decimal}(小数位)`,
+                unit: unit,
+                sort: row[sortIndex]?.toString().trim() || '',
+                uplinkMapping: uplinkMapping,
+                downlinkMapping: downlinkMapping
+            };
+
+            console.log('解析的传感器数据:', sensor);
+            return sensor;
+        }
+
+        function parseMappingString(mappingStr) {
+            if (!mappingStr || typeof mappingStr !== 'string') {
+                return { x1: '', x2: '', y1: '', y2: '' };
+            }
+
+            try {
+                // 解析格式: "field1=-32768,field2=32767,field3=-2048,field4=2047.9"
+                const parts = mappingStr.split(',');
+                const mapping = { x1: '', x2: '', y1: '', y2: '' };
+
+                parts.forEach(part => {
+                    const [field, value] = part.split('=');
+                    if (field && value) {
+                        const cleanField = field.trim();
+                        const cleanValue = value.trim();
+                        
+                        if (cleanField === 'field1') mapping.x1 = cleanValue;
+                        else if (cleanField === 'field2') mapping.y1 = cleanValue;
+                        else if (cleanField === 'field3') mapping.x2 = cleanValue;
+                        else if (cleanField === 'field4') mapping.y2 = cleanValue;
+                    }
+                });
+
+                return mapping;
+            } catch (error) {
+                console.warn('映射字符串解析失败:', mappingStr, error);
+                return { x1: '', x2: '', y1: '', y2: '' };
+            }
+        }
+
+        function generateUniqueId(prefix) {
+            const timestamp = Date.now();
+            const randomStr = Math.random().toString(36).substr(2, 6);
+            return `${prefix}_${timestamp}_${randomStr}`;
+        }
+
+        function displayImportResult() {
+            const resultDiv = document.getElementById('importResult');
+            const sensorListDiv = document.getElementById('sensorList');
+
+            if (sensors.length === 0) {
+                resultDiv.innerHTML = '<p style="color: red;">Excel文件中没有找到有效的传感器数据</p>';
+                sensorListDiv.innerHTML = '';
+                return;
+            }
+
+            resultDiv.innerHTML = `<p style="color: green;">成功导入 ${sensors.length} 个传感器</p>`;
+            
+            // 显示传感器列表
+            let sensorListHTML = '';
+            sensors.forEach((sensor, index) => {
+                sensorListHTML += `
+                    <div class="sensor-item">
+                        <div class="sensor-name">${sensor.name}</div>
+                        <div class="sensor-details">
+                            <strong>类型:</strong> ${sensor.type} | 
+                            <strong>小数位:</strong> ${sensor.decimalPlaces} | 
+                            <strong>单位:</strong> ${sensor.unit} | 
+                            <strong>排序:</strong> ${sensor.sort || '自动生成'}
+                        </div>
+                        <div class="mapping-info">
+                            <strong>上行映射:</strong> x1=${sensor.uplinkMapping.x1}, y1=${sensor.uplinkMapping.y1}, x2=${sensor.uplinkMapping.x2}, y2=${sensor.uplinkMapping.y2}
+                        </div>
+                        <div class="mapping-info">
+                            <strong>下行映射:</strong> x1=${sensor.downlinkMapping.x1}, y1=${sensor.downlinkMapping.y1}, x2=${sensor.downlinkMapping.x2}, y2=${sensor.downlinkMapping.y2}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            sensorListDiv.innerHTML = sensorListHTML;
+        }
+    </script>
+</body>
+</html>

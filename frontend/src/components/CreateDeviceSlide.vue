@@ -204,7 +204,14 @@
               </div>
               <div class="sensor-right-actions">
                 <a href="/files/创建传感器模板.xlsx" class="download-link">下载模板</a>
-                <button type="button" class="btn btn-primary">导入Excel</button>
+                <input 
+                  type="file" 
+                  ref="excelFileInput" 
+                  accept=".xlsx,.xls" 
+                  style="display: none;"
+                  @change="handleExcelFileUpload"
+                />
+                <button type="button" class="btn btn-primary" @click="triggerExcelFileSelect">导入Excel</button>
               </div>
             </div>
             
@@ -756,6 +763,7 @@
 
 <script>
 import CreateGroupModal from './CreateGroupModal.vue'
+import * as XLSX from 'xlsx'
 
 export default {
   name: 'CreateDeviceSlide',
@@ -2122,6 +2130,206 @@ export default {
         this.showEditSensorTypeDropdown = false;
         this.showEditDecimalPlacesDropdown = false;
       }
+    },
+
+    // Excel导入相关方法
+    triggerExcelFileSelect() {
+      // 触发文件选择
+      this.$refs.excelFileInput.click();
+    },
+
+    async handleExcelFileUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      try {
+        console.log('开始处理Excel文件:', file.name);
+        
+        // 检查文件类型
+        if (!this.isValidExcelFile(file)) {
+          alert('请选择有效的Excel文件（.xlsx或.xls格式）');
+          return;
+        }
+
+        // 读取Excel文件
+        const sensors = await this.parseExcelFile(file);
+        
+        if (sensors.length === 0) {
+          alert('Excel文件中没有找到有效的传感器数据');
+          return;
+        }
+
+        // 导入传感器数据
+        this.importSensorsFromExcel(sensors);
+        
+        // 清空文件输入
+        event.target.value = '';
+        
+        console.log(`成功导入 ${sensors.length} 个传感器`);
+        alert(`成功导入 ${sensors.length} 个传感器`);
+        
+      } catch (error) {
+        console.error('Excel文件处理失败:', error);
+        alert(`Excel文件处理失败: ${error.message}`);
+        event.target.value = '';
+      }
+    },
+
+    isValidExcelFile(file) {
+      const validTypes = [
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', // .xlsx
+        'application/vnd.ms-excel', // .xls
+        'application/octet-stream' // 某些系统可能显示为这个类型
+      ];
+      
+      const validExtensions = ['.xlsx', '.xls'];
+      const fileName = file.name.toLowerCase();
+      
+      return validTypes.includes(file.type) || validExtensions.some(ext => fileName.endsWith(ext));
+    },
+
+    async parseExcelFile(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        
+        reader.onload = (e) => {
+          try {
+            const data = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(data, { type: 'array' });
+            
+            // 获取第一个工作表
+            const firstSheetName = workbook.SheetNames[0];
+            const worksheet = workbook.Sheets[firstSheetName];
+            
+            // 转换为JSON
+            const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+            
+            if (jsonData.length < 2) {
+              reject(new Error('Excel文件至少需要包含表头和数据行'));
+              return;
+            }
+
+            // 验证表头
+            const headers = jsonData[0];
+            const requiredFields = ['名称', '类型', '小数位', '单位', '排序', '上行映射', '下行映射'];
+            const missingFields = requiredFields.filter(field => !headers.includes(field));
+            
+            if (missingFields.length > 0) {
+              reject(new Error(`Excel文件缺少必需字段: ${missingFields.join(', ')}`));
+              return;
+            }
+
+            // 解析数据行
+            const sensors = [];
+            for (let i = 1; i < jsonData.length; i++) {
+              const row = jsonData[i];
+              const sensor = this.parseExcelRow(headers, row);
+              if (sensor) {
+                sensors.push(sensor);
+              }
+            }
+
+            resolve(sensors);
+            
+          } catch (error) {
+            reject(new Error(`Excel文件解析失败: ${error.message}`));
+          }
+        };
+
+        reader.onerror = () => reject(new Error('文件读取失败'));
+        reader.readAsArrayBuffer(file);
+      });
+    },
+
+    parseExcelRow(headers, row) {
+      // 获取字段索引
+      const nameIndex = headers.indexOf('名称');
+      const typeIndex = headers.indexOf('类型');
+      const decimalIndex = headers.indexOf('小数位');
+      const unitIndex = headers.indexOf('单位');
+      const sortIndex = headers.indexOf('排序');
+      const uplinkIndex = headers.indexOf('上行映射');
+      const downlinkIndex = headers.indexOf('下行映射');
+
+      // 检查必需字段是否为空
+      const name = row[nameIndex]?.toString().trim();
+      const type = row[typeIndex]?.toString().trim();
+      const decimal = row[decimalIndex]?.toString().trim();
+      const unit = row[unitIndex]?.toString().trim();
+
+      if (!name || !type || !decimal || !unit) {
+        console.log('跳过无效行:', row);
+        return null; // 跳过无效行
+      }
+
+      // 解析映射数据
+      const uplinkMapping = this.parseMappingString(row[uplinkIndex]?.toString() || '');
+      const downlinkMapping = this.parseMappingString(row[downlinkIndex]?.toString() || '');
+
+      // 生成传感器数据
+      const sensor = {
+        id: this.generateUniqueId('SENSOR'),
+        name: name,
+        type: type,
+        decimalPlaces: `${decimal}(小数位)`,
+        unit: unit,
+        sort: row[sortIndex]?.toString().trim() || '',
+        uplinkMapping: uplinkMapping,
+        downlinkMapping: downlinkMapping,
+        icon: '/image/传感器图片.png'
+      };
+
+      console.log('解析的传感器数据:', sensor);
+      return sensor;
+    },
+
+    parseMappingString(mappingStr) {
+      if (!mappingStr || typeof mappingStr !== 'string') {
+        return { x1: '', x2: '', y1: '', y2: '' };
+      }
+
+      try {
+        // 解析格式: "field1=-32768,field2=32767,field3=-2048,field4=2047.9"
+        const parts = mappingStr.split(',');
+        const mapping = { x1: '', x2: '', y1: '', y2: '' };
+
+        parts.forEach(part => {
+          const [field, value] = part.split('=');
+          if (field && value) {
+            const cleanField = field.trim();
+            const cleanValue = value.trim();
+            
+            if (cleanField === 'field1') mapping.x1 = cleanValue;
+            else if (cleanField === 'field2') mapping.y1 = cleanValue;
+            else if (cleanField === 'field3') mapping.x2 = cleanValue;
+            else if (cleanField === 'field4') mapping.y2 = cleanValue;
+          }
+        });
+
+        return mapping;
+      } catch (error) {
+        console.warn('映射字符串解析失败:', mappingStr, error);
+        return { x1: '', x2: '', y1: '', y2: '' };
+      }
+    },
+
+    importSensorsFromExcel(sensors) {
+      // 获取当前最大排序号
+      const maxSort = this.sensors.length > 0 ? Math.max(...this.sensors.map(s => parseInt(s.sort) || 0)) : 0;
+      let nextSort = maxSort + 1;
+
+      // 为没有排序的传感器分配排序号
+      sensors.forEach(sensor => {
+        if (!sensor.sort || sensor.sort.trim() === '') {
+          sensor.sort = nextSort.toString();
+          nextSort++;
+        }
+      });
+
+      // 添加到传感器列表
+      this.sensors.push(...sensors);
+      
+      console.log('传感器列表更新:', this.sensors);
     }
 
   }
