@@ -12,8 +12,10 @@ router.get('/dtu/:dtuId/temperature', DeviceController.getTemperatureDataByDTUId
 // 设备管理高级功能
 router.post('/dtu/copy', DeviceController.copyDTUDevices);
 router.post('/dtu/delete', DeviceController.deleteDTUDevices);
+router.post('/dtu/restore', DeviceController.restoreDTUDevices);
+router.post('/dtu/permanently-delete', DeviceController.permanentlyDeleteDTUDevices);
 router.post('/dtu/reset', DeviceController.resetDTUDevices);
-router.post('/dtu/move', DeviceController.moveDTUDevicesToGroup);
+router.post('/dtu/move-to-group', DeviceController.moveDevicesToGroup);
 
 // 传感器相关路由
 router.post('/sensors', DeviceController.createSensor);

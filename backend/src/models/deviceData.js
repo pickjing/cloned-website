@@ -250,7 +250,13 @@ class DeviceData {
 
   // 获取设备分组
   static async getDeviceGroups() {
-    const [rows] = await db.execute('SELECT group_name FROM device_groups ORDER BY group_name');
+    // 从设备表中获取所有不重复的分组名
+    const [rows] = await db.execute(`
+      SELECT DISTINCT device_group as group_name 
+      FROM dtu_devices 
+      WHERE device_group IS NOT NULL AND device_group != '' 
+      ORDER BY device_group
+    `);
     return rows.map(row => row.group_name);
   }
 
@@ -301,6 +307,333 @@ class DeviceData {
        data_format, data_bits, byte_order_value, collection_cycle]
     );
     return result;
+  }
+
+  // 智能移动设备到分组（只移动分组不同的设备）
+  static async moveDevicesToGroup(deviceIds, targetGroup) {
+    try {
+      console.log('开始移动设备到分组:', { deviceIds, targetGroup });
+      
+      // 1. 获取所有设备的当前分组信息
+      const placeholders = deviceIds.map(() => '?').join(',');
+      const [devices] = await db.execute(
+        `SELECT device_id, device_name, device_group FROM dtu_devices WHERE device_id IN (${placeholders})`,
+        deviceIds
+      );
+      
+      console.log('查询到的设备信息:', devices);
+      
+      // 2. 筛选需要移动的设备（分组不同的设备）
+      const devicesToMove = devices.filter(device => device.device_group !== targetGroup);
+      const devicesInTargetGroup = devices.filter(device => device.device_group === targetGroup);
+      
+      console.log('需要移动的设备:', devicesToMove);
+      console.log('已在目标分组的设备:', devicesInTargetGroup);
+      
+      // 3. 如果没有需要移动的设备，返回结果
+      if (devicesToMove.length === 0) {
+        return {
+          moved_count: 0,
+          skipped_count: devicesInTargetGroup.length,
+          message: '所有设备已在目标分组中'
+        };
+      }
+      
+      // 4. 批量更新需要移动的设备
+      const deviceIdsToMove = devicesToMove.map(device => device.device_id);
+      const updatePlaceholders = deviceIdsToMove.map(() => '?').join(',');
+      const updateParams = [targetGroup, ...deviceIdsToMove];
+      
+      const [result] = await db.execute(
+        `UPDATE dtu_devices SET device_group = ? WHERE device_id IN (${updatePlaceholders})`,
+        updateParams
+      );
+      
+      console.log('更新结果:', result);
+      
+      return {
+        moved_count: result.affectedRows,
+        skipped_count: devicesInTargetGroup.length,
+        message: `成功移动 ${result.affectedRows} 个设备到"${targetGroup}"分组`
+      };
+      
+    } catch (error) {
+      console.error('移动设备到分组失败:', error);
+      throw error;
+    }
+  }
+
+  // 软删除DTU设备（标记为已删除状态）
+  static async softDeleteDTUDevices(deviceIds) {
+    try {
+      console.log('开始软删除设备:', deviceIds);
+      
+      const placeholders = deviceIds.map(() => '?').join(',');
+      const [result] = await db.execute(
+        `UPDATE dtu_devices SET status = '已删除', updated_at = NOW() WHERE device_id IN (${placeholders})`,
+        deviceIds
+      );
+      
+      console.log('软删除结果:', result);
+      return { affectedRows: result.affectedRows };
+      
+    } catch (error) {
+      console.error('软删除设备失败:', error);
+      throw error;
+    }
+  }
+
+  // 恢复已删除的DTU设备
+  static async restoreDTUDevices(deviceIds) {
+    try {
+      console.log('开始恢复设备:', deviceIds);
+      
+      const placeholders = deviceIds.map(() => '?').join(',');
+      const [result] = await db.execute(
+        `UPDATE dtu_devices SET status = '未连接', updated_at = NOW() WHERE device_id IN (${placeholders}) AND status = '已删除'`,
+        deviceIds
+      );
+      
+      console.log('恢复结果:', result);
+      return { affectedRows: result.affectedRows };
+      
+    } catch (error) {
+      console.error('恢复设备失败:', error);
+      throw error;
+    }
+  }
+
+  // 彻底删除DTU设备（从数据库中永久删除，包括相关传感器和协议）
+  static async permanentlyDeleteDTUDevices(deviceIds) {
+    const connection = await db.getConnection();
+    
+    try {
+      console.log('开始彻底删除设备:', deviceIds);
+      
+      await connection.beginTransaction();
+      
+      const placeholders = deviceIds.map(() => '?').join(',');
+      
+      // 1. 删除MB RTU协议配置
+      console.log('删除MB RTU协议配置...');
+      const [mbRtuResult] = await connection.execute(
+        `DELETE FROM mb_rtu_config WHERE dtu_id IN (${placeholders})`,
+        deviceIds
+      );
+      console.log(`删除了 ${mbRtuResult.affectedRows} 条MB RTU协议配置`);
+      
+      // 2. 删除传感器数据
+      console.log('删除传感器数据...');
+      const [sensorsResult] = await connection.execute(
+        `DELETE FROM sensors WHERE dtu_id IN (${placeholders})`,
+        deviceIds
+      );
+      console.log(`删除了 ${sensorsResult.affectedRows} 条传感器数据`);
+      
+      // 3. 删除DTU设备
+      console.log('删除DTU设备...');
+      const [devicesResult] = await connection.execute(
+        `DELETE FROM dtu_devices WHERE device_id IN (${placeholders}) AND status = '已删除'`,
+        deviceIds
+      );
+      console.log(`删除了 ${devicesResult.affectedRows} 条设备数据`);
+      
+      await connection.commit();
+      
+      const totalAffected = mbRtuResult.affectedRows + sensorsResult.affectedRows + devicesResult.affectedRows;
+      
+      console.log('彻底删除完成:', {
+        devices: devicesResult.affectedRows,
+        sensors: sensorsResult.affectedRows,
+        mbRtuConfig: mbRtuResult.affectedRows,
+        total: totalAffected
+      });
+      
+      return { 
+        affectedRows: devicesResult.affectedRows,
+        deletedSensors: sensorsResult.affectedRows,
+        deletedMbRtuConfig: mbRtuResult.affectedRows,
+        totalDeleted: totalAffected
+      };
+      
+    } catch (error) {
+      console.error('彻底删除设备失败:', error);
+      await connection.rollback();
+      throw error;
+    } finally {
+      connection.release();
+    }
+  }
+
+  // 级联复制DTU设备（包括传感器和协议）
+  static async copyDTUDevices(deviceIds) {
+    const connection = await db.getConnection();
+    const results = {
+      success: [],
+      failed: [],
+      totalSensors: 0,
+      totalConfigs: 0
+    };
+    
+    try {
+      console.log('开始级联复制设备:', deviceIds);
+      
+      for (const deviceId of deviceIds) {
+        try {
+          // 1. 获取原设备信息
+          const [deviceRows] = await connection.execute(
+            'SELECT * FROM dtu_devices WHERE device_id = ? AND status != "已删除"',
+            [deviceId]
+          );
+          
+          if (deviceRows.length === 0) {
+            results.failed.push({ deviceId, reason: '设备不存在或已删除' });
+            continue;
+          }
+          
+          const originalDevice = deviceRows[0];
+          
+          // 2. 生成新设备信息
+          const newDeviceId = this.generateDeviceId();
+          const newDeviceName = originalDevice.device_name + '复制';
+          const newSerialNumber = this.generateSerialNumber();
+          
+          // 3. 复制设备
+          await connection.execute(
+            `INSERT INTO dtu_devices (
+              device_id, serial_number, device_group, device_name, device_image,
+              link_protocol, offline_delay, timezone_setting, longitude, latitude, status
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [
+              newDeviceId,
+              newSerialNumber,
+              originalDevice.device_group,
+              newDeviceName,
+              originalDevice.device_image,
+              originalDevice.link_protocol,
+              originalDevice.offline_delay,
+              originalDevice.timezone_setting,
+              originalDevice.longitude,
+              originalDevice.latitude,
+              '未连接' // 新设备默认为未连接状态
+            ]
+          );
+          
+          // 4. 查询该设备下的所有传感器
+          const [sensorRows] = await connection.execute(
+            'SELECT * FROM sensors WHERE dtu_id = ?',
+            [deviceId]
+          );
+          
+          // 5. 复制每个传感器
+          for (const sensor of sensorRows) {
+            const newSensorId = this.generateSensorId();
+            
+            await connection.execute(
+              `INSERT INTO sensors (
+                sensor_id, dtu_id, icon, sensor_name, sensor_type, decimal_places, unit,
+                sort_order, upper_mapping_x1, upper_mapping_y1, upper_mapping_x2, upper_mapping_y2,
+                lower_mapping_x1, lower_mapping_y1, lower_mapping_x2, lower_mapping_y2
+              ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+              [
+                newSensorId,
+                newDeviceId,
+                sensor.icon,
+                sensor.sensor_name, // 传感器名称保持不变
+                sensor.sensor_type,
+                sensor.decimal_places,
+                sensor.unit,
+                sensor.sort_order,
+                sensor.upper_mapping_x1,
+                sensor.upper_mapping_y1,
+                sensor.upper_mapping_x2,
+                sensor.upper_mapping_y2,
+                sensor.lower_mapping_x1,
+                sensor.lower_mapping_y1,
+                sensor.lower_mapping_x2,
+                sensor.lower_mapping_y2
+              ]
+            );
+            
+            results.totalSensors++;
+            
+            // 6. 复制该传感器对应的MB RTU协议
+            const [configRows] = await connection.execute(
+              'SELECT * FROM mb_rtu_config WHERE dtu_id = ? AND sensor_id = ?',
+              [deviceId, sensor.sensor_id]
+            );
+            
+            if (configRows.length > 0) {
+              const config = configRows[0];
+              
+              await connection.execute(
+                `INSERT INTO mb_rtu_config (
+                  dtu_id, sensor_id, slave_address, function_code, offset_value,
+                  data_format, data_bits, byte_order_value, collection_cycle
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                [
+                  newDeviceId,
+                  newSensorId,
+                  config.slave_address,
+                  config.function_code,
+                  config.offset_value,
+                  config.data_format,
+                  config.data_bits,
+                  config.byte_order_value,
+                  config.collection_cycle
+                ]
+              );
+              
+              results.totalConfigs++;
+            }
+          }
+          
+          results.success.push({
+            originalDeviceId: deviceId,
+            newDeviceId: newDeviceId,
+            newDeviceName: newDeviceName,
+            sensorsCount: sensorRows.length
+          });
+          
+          console.log(`设备 ${deviceId} 复制成功，新设备ID: ${newDeviceId}`);
+          
+        } catch (error) {
+          // 单个设备复制失败，记录错误但继续处理其他设备
+          results.failed.push({
+            deviceId: deviceId,
+            reason: error.message
+          });
+          console.error(`复制设备 ${deviceId} 失败:`, error);
+        }
+      }
+      
+      console.log('级联复制完成:', results);
+      return results;
+      
+    } finally {
+      connection.release();
+    }
+  }
+
+  // 生成设备ID
+  static generateDeviceId() {
+    const timestamp = Date.now();
+    const random = Math.random().toString(36).substr(2, 9);
+    return `DTU_${timestamp}_${random}`;
+  }
+
+  // 生成传感器ID
+  static generateSensorId() {
+    const timestamp = Date.now();
+    const random = Math.random().toString(36).substr(2, 9);
+    return `SENSOR_${timestamp}_${random}`;
+  }
+
+  // 生成序列号
+  static generateSerialNumber() {
+    const timestamp = Date.now();
+    const random = Math.random().toString(36).substr(2, 9);
+    return `COPY_${timestamp}_${random}`;
   }
 }
 

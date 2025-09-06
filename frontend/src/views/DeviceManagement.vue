@@ -71,8 +71,9 @@
       <div class="content-area">
         <!-- 设备列表 -->
         <div class="device-list" v-if="devices.length > 0">
-          <div class="device-item" v-for="device in currentPageDevices" :key="device.device_id">
-            <div class="device-checkbox">
+          <div class="device-item" v-for="device in currentPageDevices" :key="device.device_id" 
+               :class="{ 'deleted-device': device.status === '已删除' }">
+            <div class="device-checkbox" v-if="device.status !== '已删除'">
               <input 
                 type="checkbox" 
                 :id="device.device_id"
@@ -81,6 +82,12 @@
               />
               <label :for="device.device_id" class="checkmark"></label>
             </div>
+            <div class="device-icon" v-if="device.status === '已删除'">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <path d="M9 9h6v6H9z"/>
+              </svg>
+            </div>
             <div class="device-info">
               <div class="device-name">{{ device.device_name }}</div>
               <div class="device-details">
@@ -88,6 +95,15 @@
                 <span class="device-status" :class="device.status">{{ device.status }}</span>
                 <span class="device-group">{{ device.device_group || '未分组' }}</span>
               </div>
+            </div>
+            <div class="device-actions" v-if="device.status === '已删除'">
+              <button class="action-btn restore-btn" @click="handleRestoreSingle(device.device_id)">
+                恢复设备
+              </button>
+              <span class="action-separator">|</span>
+              <button class="action-btn delete-btn" @click="handlePermanentlyDeleteSingle(device.device_id)">
+                彻底删除
+              </button>
             </div>
           </div>
         </div>
@@ -136,19 +152,24 @@
             :disabled="selectedDevices.length === 0"
             @click="handleReset"
           >
-            重置({{ selectedDevices.length }})
+            清除勾选({{ selectedDevices.length }})
           </button>
-          <button 
-            class="bulk-action-btn move-btn" 
-            :class="{ 'disabled': selectedDevices.length === 0, 'active': selectedDevices.length > 0 }"
-            :disabled="selectedDevices.length === 0"
-            @click="handleMoveToGroup"
+          <div 
+            class="move-group-dropdown" 
+            :class="{ 'disabled': selectedDevices.length === 0 }"
+            @click="toggleMoveGroupDropdown"
           >
-            移动至分组
-            <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <span class="dropdown-text">{{ selectedMoveGroup || '移动至分组' }}</span>
+            <svg class="dropdown-arrow" :class="{ 'rotated': showMoveGroupDropdown }" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </button>
+            <!-- 移动分组下拉菜单 -->
+            <div class="dropdown-menu move-group-menu dropdown-up" v-if="showMoveGroupDropdown">
+              <div class="dropdown-item" v-for="group in deviceGroups" :key="group" @click.stop="selectMoveGroup(group)">
+                {{ group }}
+              </div>
+            </div>
+          </div>
         </div>
         
         <div class="pagination-info">
@@ -271,7 +292,9 @@ export default {
       showPageSizeDropdown: false, // 每页条数下拉框显示状态
       pageSizeOptions: [10, 20, 30, 40, 50], // 每页条数选项
       showCreateGroupModal: false, // 新建分组模态对话框显示状态
-      showCreateDeviceSlide: false // 新建设备滑动页显示状态
+      showCreateDeviceSlide: false, // 新建设备滑动页显示状态
+      showMoveGroupDropdown: false, // 移动分组下拉框显示状态
+      selectedMoveGroup: null // 选中的移动目标分组
     }
   },
   computed: {
@@ -308,7 +331,7 @@ export default {
       const start = (this.currentPage - 1) * this.pageSize;
       const end = start + this.pageSize;
       return this.devices.slice(start, end);
-    }
+    },
   },
   async mounted() {
     await this.fetchOptions()
@@ -397,6 +420,18 @@ export default {
       this.showStatusDropdown = false // 关闭下拉框
       this.fetchDevices()
     },
+    toggleMoveGroupDropdown() {
+      if (this.selectedDevices.length === 0) return; // 如果没有选中设备，不显示下拉框
+      this.showMoveGroupDropdown = !this.showMoveGroupDropdown
+      // 关闭其他下拉框
+      this.showGroupDropdown = false
+      this.showStatusDropdown = false
+    },
+    selectMoveGroup(group) {
+      this.selectedMoveGroup = group
+      this.showMoveGroupDropdown = false
+      this.handleMoveToGroup(group)
+    },
     handleSearch() {
       this.currentPage = 1 // 搜索时重置到第一页
       this.fetchDevices()
@@ -411,15 +446,17 @@ export default {
           },
           body: JSON.stringify({ device_ids: this.selectedDevices }),
         });
+        
+        const data = await response.json();
+        
         if (response.ok) {
-          const data = await response.json();
-          alert(data.message || '复制成功');
+          // 复制成功，静默更新界面
           this.selectedDevices = [];
           this.selectAll = false;
           this.fetchDevices();
         } else {
-          const errorData = await response.json();
-          alert(errorData.message || '复制失败');
+          // 复制失败，显示失败信息
+          alert(data.message || '复制失败');
         }
       } catch (error) {
         console.error('复制失败:', error);
@@ -428,7 +465,7 @@ export default {
     },
     async handleDelete() {
       if (this.selectedDevices.length === 0) return;
-      if (!confirm('确定要删除选中的设备吗？')) {
+      if (!confirm('确定要删除选中的设备吗？设备将被标记为已删除状态，可以恢复。')) {
         return;
       }
       try {
@@ -440,8 +477,6 @@ export default {
           body: JSON.stringify({ device_ids: this.selectedDevices }),
         });
         if (response.ok) {
-          const data = await response.json();
-          alert(data.message || '删除成功');
           this.selectedDevices = [];
           this.selectAll = false;
           this.fetchDevices();
@@ -454,13 +489,10 @@ export default {
         alert('删除失败');
       }
     },
-    async handleReset() {
+    async handleRestore() {
       if (this.selectedDevices.length === 0) return;
-      if (!confirm('确定要重置选中的设备吗？')) {
-        return;
-      }
       try {
-        const response = await fetch('http://localhost:3000/api/dtu/reset', {
+        const response = await fetch('http://localhost:3000/api/dtu/restore', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -468,38 +500,165 @@ export default {
           body: JSON.stringify({ device_ids: this.selectedDevices }),
         });
         if (response.ok) {
-          const data = await response.json();
-          alert(data.message || '重置成功');
           this.selectedDevices = [];
           this.selectAll = false;
           this.fetchDevices();
         } else {
           const errorData = await response.json();
-          alert(errorData.message || '重置失败');
+          alert(errorData.message || '恢复失败');
         }
       } catch (error) {
-        console.error('重置失败:', error);
-        alert('重置失败');
+        console.error('恢复失败:', error);
+        alert('恢复失败');
       }
     },
-    async handleMoveToGroup() {
+    async handlePermanentlyDelete() {
       if (this.selectedDevices.length === 0) return;
-      const group = prompt('请输入要移动到的分组名称：');
-      if (!group) return;
-
+      if (!confirm('确定要彻底删除选中的设备吗？此操作不可恢复！')) {
+        return;
+      }
       try {
-        const response = await fetch('http://localhost:3000/api/dtu/move', {
+        const response = await fetch('http://localhost:3000/api/dtu/permanently-delete', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ device_ids: this.selectedDevices, group_name: group }),
+          body: JSON.stringify({ device_ids: this.selectedDevices }),
         });
         if (response.ok) {
-          const data = await response.json();
-          alert(data.message || '移动成功');
           this.selectedDevices = [];
           this.selectAll = false;
+          this.fetchDevices();
+        } else {
+          const errorData = await response.json();
+          alert(errorData.message || '彻底删除失败');
+        }
+      } catch (error) {
+        console.error('彻底删除失败:', error);
+        alert('彻底删除失败');
+      }
+    },
+    async handleRestoreSingle(deviceId) {
+      try {
+        const response = await fetch('http://localhost:3000/api/dtu/restore', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ device_ids: [deviceId] }),
+        });
+        if (response.ok) {
+          this.fetchDevices();
+        } else {
+          const errorData = await response.json();
+          alert(errorData.message || '恢复失败');
+        }
+      } catch (error) {
+        console.error('恢复失败:', error);
+        alert('恢复失败');
+      }
+    },
+    async handlePermanentlyDeleteSingle(deviceId) {
+      if (!confirm('确定要彻底删除这个设备吗？此操作不可恢复！')) {
+        return;
+      }
+      try {
+        const response = await fetch('http://localhost:3000/api/dtu/permanently-delete', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ device_ids: [deviceId] }),
+        });
+        if (response.ok) {
+          this.fetchDevices();
+        } else {
+          const errorData = await response.json();
+          alert(errorData.message || '彻底删除失败');
+        }
+      } catch (error) {
+        console.error('彻底删除失败:', error);
+        alert('彻底删除失败');
+      }
+    },
+    handleReset() {
+      // 清除所有勾选状态
+      this.selectedDevices = [];
+      this.selectAll = false;
+      console.log('已清除所有勾选状态');
+    },
+    async handleMoveToGroup(targetGroup) {
+      if (this.selectedDevices.length === 0) return;
+      if (!targetGroup) return;
+
+      try {
+        // 1. 获取选中设备的当前分组信息，筛选需要移动的设备
+        const devicesToMove = [];
+        const devicesInTargetGroup = [];
+        
+        this.selectedDevices.forEach(deviceId => {
+          const device = this.devices.find(d => d.device_id === deviceId);
+          if (device) {
+            if (device.device_group !== targetGroup) {
+              devicesToMove.push(deviceId);
+            } else {
+              devicesInTargetGroup.push(device.device_name);
+            }
+          }
+        });
+
+        // 2. 如果没有需要移动的设备，提示用户
+        if (devicesToMove.length === 0) {
+          if (devicesInTargetGroup.length > 0) {
+            alert(`所选设备已在"${targetGroup}"分组中，无需移动`);
+          } else {
+            alert('没有找到需要移动的设备');
+          }
+          return;
+        }
+
+        // 3. 确认操作
+        const confirmMessage = `确定要将 ${devicesToMove.length} 个设备移动到"${targetGroup}"分组吗？`;
+        if (!confirm(confirmMessage)) {
+          return;
+        }
+
+        // 4. 调用后端API移动设备
+        const response = await fetch('http://localhost:3000/api/dtu/move-to-group', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            device_ids: devicesToMove,
+            target_group: targetGroup
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          
+          // 5. 更新前端显示
+          devicesToMove.forEach(deviceId => {
+            const device = this.devices.find(d => d.device_id === deviceId);
+            if (device) {
+              device.device_group = targetGroup;
+            }
+          });
+
+          // 6. 清空选择状态
+          this.selectedDevices = [];
+          this.selectAll = false;
+          this.selectedMoveGroup = null;
+
+          // 7. 显示操作结果
+          let message = `成功移动 ${data.moved_count || devicesToMove.length} 个设备到"${targetGroup}"分组`;
+          if (data.skipped_count > 0) {
+            message += `\n跳过 ${data.skipped_count} 个设备（已在目标分组）`;
+          }
+          alert(message);
+
+          // 8. 刷新设备列表
           this.fetchDevices();
         } else {
           const errorData = await response.json();
@@ -507,7 +666,7 @@ export default {
         }
       } catch (error) {
         console.error('移动失败:', error);
-        alert('移动失败');
+        alert('移动失败，请检查网络连接');
       }
     },
     handleSelectAll() {
@@ -544,10 +703,13 @@ export default {
     },
     handleClickOutside(event) {
       // 如果点击的不是下拉框或其子元素，则关闭所有下拉框
-      if (!event.target.closest('.filter-dropdown') && !event.target.closest('.page-size-dropdown')) {
+      if (!event.target.closest('.filter-dropdown') && 
+          !event.target.closest('.page-size-dropdown') && 
+          !event.target.closest('.move-group-dropdown')) {
         this.showGroupDropdown = false;
         this.showStatusDropdown = false;
         this.showPageSizeDropdown = false;
+        this.showMoveGroupDropdown = false;
       }
     },
     handleGroupCreated() {
@@ -781,12 +943,22 @@ export default {
 }
 
 .device-checkbox .checkmark {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border: 2px solid #d9d9d9;
-  border-radius: 3px;
+  border-radius: 4px;
   background-color: white;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.device-checkbox .checkmark:hover {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
 }
 
 .device-checkbox input[type="checkbox"]:checked + .checkmark {
@@ -794,17 +966,7 @@ export default {
   border-color: #1890ff;
 }
 
-.device-checkbox input[type="checkbox"]:checked + .checkmark::after {
-  content: '';
-  position: absolute;
-  left: 5px;
-  top: 2px;
-  width: 4px;
-  height: 8px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
+/* 选中时不需要勾选标记，直接涂满蓝色 */
 
 .device-info {
   flex: 1;
@@ -863,6 +1025,77 @@ export default {
   border-radius: 4px;
 }
 
+/* 已删除设备样式 */
+.deleted-device {
+  background-color: #f5f5f5;
+  opacity: 0.7;
+  border-color: #d9d9d9;
+}
+
+.deleted-device .device-name {
+  color: #999;
+}
+
+.deleted-device .device-details {
+  color: #999;
+}
+
+.deleted-device .device-status.已删除 {
+  background-color: #fde2e2;
+  color: #f56c6c;
+}
+
+.device-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  flex-shrink: 0;
+  color: #999;
+}
+
+.device-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  color: #1890ff;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.restore-btn {
+  color: #52c41a;
+}
+
+.restore-btn:hover {
+  background-color: #f6ffed;
+}
+
+.delete-btn {
+  color: #f56c6c;
+}
+
+.delete-btn:hover {
+  background-color: #fff2f0;
+}
+
+.action-separator {
+  color: #d9d9d9;
+  font-size: 12px;
+}
+
 /* 空状态和加载状态 */
 .empty-state, .loading-state {
   display: flex;
@@ -901,12 +1134,22 @@ export default {
 }
 
 .select-all-checkbox .checkmark {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border: 2px solid #d9d9d9;
-  border-radius: 3px;
+  border-radius: 4px;
   background-color: white;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.select-all-checkbox .checkmark:hover {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
 }
 
 .select-all-checkbox input[type="checkbox"]:checked + .checkmark {
@@ -914,17 +1157,7 @@ export default {
   border-color: #1890ff;
 }
 
-.select-all-checkbox input[type="checkbox"]:checked + .checkmark::after {
-  content: '';
-  position: absolute;
-  left: 5px;
-  top: 2px;
-  width: 4px;
-  height: 8px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
+/* 选中时不需要勾选标记，直接涂满蓝色 */
 
 .bulk-action-btn {
   padding: 6px 12px;
@@ -1000,6 +1233,90 @@ export default {
 .bulk-action-btn.active.move-btn:hover {
   background-color: #40a9ff;
   border-color: #40a9ff;
+}
+
+/* 移动分组下拉框样式 */
+.move-group-dropdown {
+  position: relative;
+  padding: 6px 12px;
+  background: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 120px;
+}
+
+.move-group-dropdown:hover {
+  border-color: #1890ff;
+  color: #1890ff;
+}
+
+.move-group-dropdown.disabled {
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.move-group-dropdown.disabled:hover {
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  color: #bfbfbf;
+}
+
+.move-group-dropdown .dropdown-text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.move-group-dropdown .dropdown-arrow {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.move-group-dropdown .dropdown-arrow.rotated {
+  transform: rotate(180deg);
+}
+
+.move-group-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.move-group-menu.dropdown-up {
+  top: auto;
+  bottom: 100%;
+}
+
+.move-group-menu .dropdown-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.move-group-menu .dropdown-item:hover {
+  background-color: #f5f5f5;
 }
 
 .pagination-info {
