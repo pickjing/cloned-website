@@ -25,7 +25,7 @@ class DeviceController {
     }
   }
 
-  // 根据传感器ID获取温度数据
+  // 根据传感器ID获取传感器数据
   static async getTemperatureDataBySensorId(req, res) {
     try {
       const { sensorId } = req.params;
@@ -37,7 +37,7 @@ class DeviceController {
     }
   }
 
-  // 根据DTU设备ID获取所有传感器的温度数据
+  // 根据DTU设备ID获取所有传感器的数据
   static async getTemperatureDataByDTUId(req, res) {
     try {
       const { dtuId } = req.params;
@@ -69,7 +69,7 @@ class DeviceController {
     }
   }
 
-  // 创建温度数据
+  // 创建传感器数据
   static async createTemperatureData(req, res) {
     try {
       const result = await DeviceData.createTemperatureData(req.body);
@@ -99,7 +99,7 @@ class DeviceController {
     }
   }
 
-  // 获取传感器温度趋势数据
+  // 获取传感器数据趋势
   static async getTemperatureTrend(req, res) {
     try {
       const { sensorId } = req.params;
@@ -111,7 +111,7 @@ class DeviceController {
     }
   }
 
-  // 获取异常温度数据
+  // 获取异常数据
   static async getAbnormalTemperatureData(req, res) {
     try {
       const { minTemp = -10, maxTemp = 50 } = req.query;

@@ -1,5 +1,6 @@
 -- 大坝混凝土温度监测系统数据库初始化脚本
 -- 使用iotuser用户创建数据库和表
+-- 基于实际数据库结构编写
 
 -- 创建数据库（如果不存在）
 CREATE DATABASE IF NOT EXISTS dam_monitoring_system CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -40,15 +41,14 @@ CREATE TABLE IF NOT EXISTS sensors (
     decimal_places INT DEFAULT 1 COMMENT '小数位数',
     unit VARCHAR(20) DEFAULT '°C' COMMENT '单位',
     sort_order INT COMMENT '排序（为空则自动排序）',
-    upper_mapping_x1 DECIMAL(10,4) DEFAULT -32768 COMMENT '上行映射原始值下限',
-    upper_mapping_y1 DECIMAL(10,4) DEFAULT 32767 COMMENT '上行映射原始值上限',
-    upper_mapping_x2 DECIMAL(10,4) DEFAULT -2048 COMMENT '上行映射实际值下限',
-    upper_mapping_y2 DECIMAL(10,4) DEFAULT 2047.9 COMMENT '上行映射实际值上限',
+    upper_mapping_x1 DECIMAL(10,4) DEFAULT -32768.0000 COMMENT '上行映射原始值下限',
+    upper_mapping_y1 DECIMAL(10,4) DEFAULT 32767.0000 COMMENT '上行映射原始值上限',
+    upper_mapping_x2 DECIMAL(10,4) DEFAULT -2048.0000 COMMENT '上行映射实际值下限',
+    upper_mapping_y2 DECIMAL(10,4) DEFAULT 2047.9000 COMMENT '上行映射实际值上限',
     lower_mapping_x1 DECIMAL(10,4) COMMENT '下行映射实际值下限',
     lower_mapping_y1 DECIMAL(10,4) COMMENT '下行映射实际值上限',
     lower_mapping_x2 DECIMAL(10,4) COMMENT '下行映射原始值下限',
     lower_mapping_y2 DECIMAL(10,4) COMMENT '下行映射原始值上限',
-
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     FOREIGN KEY (dtu_id) REFERENCES dtu_devices(device_id) ON DELETE CASCADE,
@@ -56,26 +56,6 @@ CREATE TABLE IF NOT EXISTS sensors (
     INDEX idx_dtu_id (dtu_id),
     INDEX idx_sensor_name (sensor_name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='传感器信息表';
-
--- MB RTU协议配置表
-CREATE TABLE IF NOT EXISTS mb_rtu_config (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    dtu_id VARCHAR(50) NOT NULL COMMENT '所属DTU设备ID',
-    sensor_id VARCHAR(50) NOT NULL COMMENT '关联传感器ID',
-    slave_address INT DEFAULT 1 COMMENT '从站地址',
-    function_code ENUM('01读写', '02只读', '03读写', '04只读') DEFAULT '04只读' COMMENT '功能码',
-    offset_value DECIMAL(10,4) DEFAULT 0 COMMENT '偏置（按传感器order设置）',
-    data_format ENUM('16位有符号数', '16位无符号数', '16位按位读写', '32位有符号数', '32位无符号数', '32位浮点型数', '64位浮点型数', '16位BCD码', '32位BCD码') DEFAULT '16位有符号数' COMMENT '数据格式',
-    data_bits INT COMMENT '数据位（正整数，默认为空）',
-    byte_order_value INT COMMENT '字节顺序（正整数，默认为空）',
-    collection_cycle INT DEFAULT 2 COMMENT '采集周期（秒，默认2）',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    UNIQUE KEY (dtu_id, sensor_id), -- 确保每个DTU下的传感器只有一条配置
-    FOREIGN KEY (dtu_id) REFERENCES dtu_devices(device_id) ON DELETE CASCADE,
-    FOREIGN KEY (sensor_id) REFERENCES sensors(sensor_id) ON DELETE CASCADE,
-    INDEX idx_dtu_sensor (dtu_id, sensor_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Modbus RTU协议配置表';
 
 -- 传感器数据表 (通用数据存储)
 CREATE TABLE IF NOT EXISTS sensor_data (
@@ -88,21 +68,37 @@ CREATE TABLE IF NOT EXISTS sensor_data (
     INDEX idx_sensor_id_timestamp (sensor_id, timestamp)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='传感器数据表';
 
+-- MB RTU协议配置表
+CREATE TABLE IF NOT EXISTS mb_rtu_config (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    dtu_id VARCHAR(50) NOT NULL COMMENT '所属DTU设备ID',
+    sensor_id VARCHAR(50) NOT NULL COMMENT '关联传感器ID',
+    slave_address INT DEFAULT 1 COMMENT '从站地址',
+    function_code ENUM('01读写', '02只读', '03读写', '04只读') DEFAULT '04只读' COMMENT '功能码',
+    offset_value DECIMAL(10,4) DEFAULT 0.0000 COMMENT '偏置（按传感器order设置）',
+    data_format ENUM('16位有符号数', '16位无符号数', '16位按位读写', '32位有符号数', '32位无符号数', '32位浮点型数', '64位浮点型数', '16位BCD码', '32位BCD码') DEFAULT '16位有符号数' COMMENT '数据格式',
+    data_bits INT COMMENT '数据位（正整数，默认为空）',
+    byte_order_value INT COMMENT '字节顺序（正整数，默认为空）',
+    collection_cycle INT DEFAULT 2 COMMENT '采集周期（秒，默认2）',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    UNIQUE KEY (dtu_id, sensor_id), -- 确保每个DTU下的传感器只有一条配置
+    FOREIGN KEY (dtu_id) REFERENCES dtu_devices(device_id) ON DELETE CASCADE,
+    FOREIGN KEY (sensor_id) REFERENCES sensors(sensor_id) ON DELETE CASCADE,
+    INDEX idx_dtu_sensor (dtu_id, sensor_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Modbus RTU协议配置表';
+
 -- 设备分组表
 CREATE TABLE IF NOT EXISTS device_groups (
     id INT AUTO_INCREMENT PRIMARY KEY,
     group_name VARCHAR(100) UNIQUE NOT NULL COMMENT '分组名称',
     description VARCHAR(255) COMMENT '分组描述',
+    parent_group_id INT COMMENT '父分组ID (自引用)',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    INDEX idx_group_name (group_name)
+    INDEX idx_group_name (group_name),
+    INDEX idx_parent_group_id (parent_group_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='设备分组表';
-
--- 插入一些示例分组数据
-INSERT IGNORE INTO device_groups (group_name, description) VALUES
-('默认分组', '系统默认分组'),
-('测试分组', '用于测试的设备分组'),
-('生产分组', '生产环境设备分组');
 
 -- DTU注册记录表
 CREATE TABLE IF NOT EXISTS dtu_registrations (
@@ -117,6 +113,12 @@ CREATE TABLE IF NOT EXISTS dtu_registrations (
     INDEX idx_dtu_id_reg_time (dtu_id, registration_time)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='DTU设备注册记录表';
 
+-- 插入一些示例分组数据
+INSERT IGNORE INTO device_groups (group_name, description) VALUES
+('默认分组', '系统默认分组'),
+('测试分组', '用于测试的设备分组'),
+('生产分组', '生产环境设备分组');
+
 -- 视图：传感器实时状态
 CREATE OR REPLACE VIEW sensor_status_view AS
 SELECT
@@ -126,7 +128,6 @@ SELECT
     s.decimal_places,
     s.icon,
     s.sensor_type,
-
     CONCAT(s.upper_mapping_x1, ',', s.upper_mapping_y1, '=>', s.upper_mapping_x2, ',', s.upper_mapping_y2) AS upper_mapping_display,
     CONCAT(s.lower_mapping_x1, ',', s.lower_mapping_y1, '=>', s.lower_mapping_x2, ',', s.lower_mapping_y2) AS lower_mapping_display,
     s.sort_order,
@@ -193,3 +194,10 @@ JOIN
     dtu_devices dd ON mb.dtu_id = dd.device_id
 JOIN
     sensors s ON mb.sensor_id = s.sensor_id;
+
+-- 显示创建结果
+SELECT '数据库初始化完成！' AS message;
+SELECT '已创建以下表：' AS info;
+SELECT table_name FROM information_schema.tables WHERE table_schema = 'dam_monitoring_system' AND table_type = 'BASE TABLE' ORDER BY table_name;
+SELECT '已创建以下视图：' AS info;
+SELECT table_name FROM information_schema.tables WHERE table_schema = 'dam_monitoring_system' AND table_type = 'VIEW' ORDER BY table_name;

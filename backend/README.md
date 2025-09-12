@@ -11,28 +11,7 @@
 - **透传模式**: DTU设备只发送注册包，不进行数据处理
 - **云平台**: 接收、存储和分析传感器数据
 
-## 数据库设计
-
-### 主要数据表
-
-1. **dtu_devices** - DTU设备信息
-   - 设备ID、名称、位置、GPS坐标、状态等
-
-2. **sensors** - 传感器信息
-   - 传感器ID、类型、安装位置、深度、状态等
-
-3. **temperature_data** - 温度数据
-   - 传感器ID、温度值、时间戳、数据质量等
-
-4. **dtu_registrations** - DTU注册记录
-   - 注册时间、IP地址、信号强度、电池电量等
-
-### 数据库视图
-
-- **sensor_status_view** - 传感器实时状态视图
-- **dtu_statistics_view** - DTU设备统计信息视图
-
-## 安装和配置
+## 快速开始
 
 ### 1. 安装依赖
 
@@ -48,7 +27,7 @@ npm install
 # 数据库配置
 DB_HOST=localhost
 DB_USER=iotuser
-DB_PASSWORD=your_password_here
+DB_PASSWORD=xwbiot123
 DB_NAME=dam_monitoring_system
 DB_PORT=3306
 
@@ -57,16 +36,13 @@ PORT=3000
 NODE_ENV=development
 ```
 
-### 3. 初始化数据库
+### 3. 启动服务
 
 ```bash
-# 使用MySQL客户端执行
-mysql -u iotuser -p < database_init.sql
-```
+# 开发模式
+npm run dev
 
-### 4. 启动服务
-
-```bash
+# 生产模式
 npm start
 ```
 
@@ -87,7 +63,7 @@ npm start
 
 ### 数据管理
 
-- `POST /api/temperature` - 创建温度数据记录
+- `POST /api/sensor-data` - 创建传感器数据记录
 - `POST /api/dtu/register` - 记录DTU设备注册
 
 ### 监控和统计
@@ -95,23 +71,72 @@ npm start
 - `GET /api/statistics` - 获取设备统计信息
 - `GET /api/temperature/abnormal` - 获取异常温度数据
 
-## 数据流程
+### 设备管理高级功能
 
-1. **DTU设备注册**: DTU设备启动后向云平台发送注册包
-2. **传感器数据采集**: 传感器持续采集温度数据
-3. **数据上传**: DTU设备将传感器数据打包上传到云平台
-4. **数据存储**: 云平台接收并存储数据到数据库
-5. **数据分析**: 系统提供数据查询、趋势分析、异常检测等功能
+- `POST /api/dtu/copy` - 复制DTU设备
+- `POST /api/dtu/delete` - 软删除DTU设备
+- `POST /api/dtu/restore` - 恢复已删除的DTU设备
+- `POST /api/dtu/permanently-delete` - 彻底删除DTU设备
+- `POST /api/dtu/reset` - 重置DTU设备
+- `POST /api/dtu/move-to-group` - 移动设备到分组
 
-## 技术特点
+### 分组管理
 
-- **透传模式**: DTU设备不进行数据处理，直接透传传感器数据
-- **实时监控**: 支持实时数据查询和状态监控
-- **数据质量**: 包含数据质量评估机制
-- **异常检测**: 支持温度异常检测和告警
-- **趋势分析**: 提供温度变化趋势分析功能
+- `GET /api/options/groups` - 获取设备分组选项
+- `GET /api/groups/check` - 检查分组名是否存在
+- `POST /api/groups` - 创建新分组
 
-## 部署说明
+### MB RTU协议配置
+
+- `POST /api/mb-rtu-config` - 创建MB RTU协议配置
+- `POST /api/mb-rtu-configs` - 批量创建MB RTU协议配置
+
+## 数据库
+
+- **数据库名**: `dam_monitoring_system`
+- **主要表**: `dtu_devices`, `sensors`, `sensor_data`, `mb_rtu_config`, `device_groups`, `dtu_registrations`
+- **详细结构**: 参见 `DATABASE_STRUCTURE.md`
+
+## 技术栈
+
+- **Node.js** - 运行时环境
+- **Express.js** - Web框架
+- **MySQL2** - 数据库驱动
+- **CORS** - 跨域支持
+- **dotenv** - 环境变量管理
+
+## 开发
+
+### 项目结构
+
+```
+backend/
+├── src/
+│   ├── app.js              # 应用入口
+│   ├── controllers/        # 控制器
+│   │   └── deviceController.js
+│   ├── models/            # 数据模型
+│   │   └── deviceData.js
+│   ├── routes/            # 路由
+│   │   └── deviceRoutes.js
+│   └── services/          # 服务层
+│       └── database.js
+├── database_init.sql      # 数据库初始化脚本
+├── package.json
+└── README.md
+```
+
+### 测试
+
+```bash
+# 测试数据库连接
+node test_db_connection.js
+
+# 测试数据库写入
+node test_db_write.js
+```
+
+## 部署
 
 ### 生产环境
 
@@ -145,3 +170,7 @@ tail -f logs/app.log
 # 查看错误日志
 tail -f logs/error.log
 ```
+
+## 许可证
+
+ISC
