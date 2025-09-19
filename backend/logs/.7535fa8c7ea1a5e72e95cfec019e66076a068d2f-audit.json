@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 7
+    },
+    "auditLog": "/Users/xujing/Workspace/cloned-website/backend/logs/.7535fa8c7ea1a5e72e95cfec019e66076a068d2f-audit.json",
+    "files": [
+        {
+            "date": 1757667070998,
+            "name": "/Users/xujing/Workspace/cloned-website/backend/logs/debug-2025-09-12.log",
+            "hash": "d53ba10ec7055adb14e63daffc0e67e51556e273644d8127cc76d4d61c634406"
+        }
+    ],
+    "hashType": "sha256"
+}

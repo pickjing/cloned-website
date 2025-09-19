@@ -1,4 +1,7 @@
 const db = require('../services/database');
+const logger = require('../utils/logger');
+const cache = require('../services/cache');
+const TransactionService = require('../services/transaction');
 
 class DeviceData {
   // 获取所有DTU设备
@@ -9,7 +12,23 @@ class DeviceData {
       const limit = Math.max(1, parseInt(params.limit) || 20);
       const offset = (page - 1) * limit;
       
-      console.log('getAllDTUDevices 参数:', { page, limit, offset, params });
+      logger.debug('Getting all DTU devices', { page, limit, offset, params });
+      
+      // 生成缓存键
+      const cacheKey = cache.generateKey('dtu_devices', {
+        page,
+        limit,
+        group: params.group || '',
+        status: params.status || '',
+        search: params.search || ''
+      });
+      
+      // 尝试从缓存获取
+      const cached = cache.get(cacheKey, 'short');
+      if (cached) {
+        logger.debug('Cache hit for DTU devices', { cacheKey });
+        return cached;
+      }
       
       let whereClause = '';
       let queryParams = [];
@@ -44,7 +63,7 @@ class DeviceData {
         countQuery += ' ' + whereClause;
       }
       
-      console.log('Count查询:', countQuery, '参数:', queryParams);
+      logger.debug('Count query', { query: countQuery, params: queryParams });
       
       let countResult;
       if (queryParams.length > 0) {
@@ -62,37 +81,47 @@ class DeviceData {
       // 直接使用数字而不是占位符，避免MySQL2的参数问题
       dataQuery += ` ORDER BY created_at DESC LIMIT ${limit} OFFSET ${offset}`;
       
-      console.log('Data查询:', dataQuery, 'LIMIT/OFFSET参数:', [limit, offset]);
+      logger.debug('Data query', { query: dataQuery, limit, offset });
       
       let devices;
       // 由于LIMIT和OFFSET已经直接写在SQL中，只需要传递WHERE条件的参数
       if (queryParams.length > 0) {
-        console.log('执行查询，WHERE参数:', queryParams);
+        logger.debug('Executing query with WHERE params', { params: queryParams });
         [devices] = await db.execute(dataQuery, queryParams);
       } else {
-        console.log('执行查询，无WHERE参数');
+        logger.debug('Executing query without WHERE params');
         [devices] = await db.execute(dataQuery);
       }
       
+      const cleanDevices = devices || [];
+      
       const result = {
-        devices: devices || [],
+        devices: cleanDevices,
         total: total || 0,
         page: page,
         limit: limit,
         totalPages: Math.ceil((total || 0) / limit)
       };
       
-      console.log('查询结果:', result);
+      // 缓存结果（1分钟）
+      cache.set(cacheKey, result, 60, 'short');
+      
+      logger.debug('Query result', { 
+        deviceCount: result.devices.length, 
+        total: result.total, 
+        page: result.page 
+      });
       return result;
       
     } catch (error) {
-      console.error('获取DTU设备失败:', error);
-      console.error('错误详情:', {
+      logger.error('Failed to get DTU devices', {
+        error: error.message,
         code: error.code,
         errno: error.errno,
         sql: error.sql,
         sqlState: error.sqlState,
-        sqlMessage: error.sqlMessage
+        sqlMessage: error.sqlMessage,
+        stack: error.stack
       });
       
       // 返回空结果而不是抛出错误
@@ -108,20 +137,28 @@ class DeviceData {
 
   // 根据DTU设备ID获取传感器列表
   static async getSensorsByDTUId(dtuId) {
-    const [rows] = await db.execute(
-      'SELECT * FROM sensors WHERE dtu_id = ? ORDER BY sensor_id',
-      [dtuId]
-    );
-    return rows;
+    const cacheKey = cache.generateKey('sensors_by_dtu', { dtuId });
+    
+    return await cache.cacheQuery(cacheKey, async () => {
+      const [rows] = await db.execute(
+        'SELECT * FROM sensors WHERE dtu_id = ? ORDER BY sensor_id',
+        [dtuId]
+      );
+      return rows;
+    }, 300, 'default'); // 5分钟缓存
   }
 
   // 根据传感器ID获取传感器数据
   static async getTemperatureDataBySensorId(sensorId, limit = 100) {
-    const [rows] = await db.execute(
-      'SELECT * FROM sensor_data WHERE sensor_id = ? ORDER BY timestamp DESC LIMIT ?',
-      [sensorId, limit]
-    );
-    return rows;
+    const cacheKey = cache.generateKey('sensor_data', { sensorId, limit });
+    
+    return await cache.cacheQuery(cacheKey, async () => {
+      const [rows] = await db.execute(
+        'SELECT * FROM sensor_data WHERE sensor_id = ? ORDER BY timestamp DESC LIMIT ?',
+        [sensorId, limit]
+      );
+      return rows;
+    }, 60, 'short'); // 1分钟缓存，因为传感器数据变化频繁
   }
 
   // 根据DTU设备ID获取所有传感器的数据
@@ -248,16 +285,142 @@ class DeviceData {
     return rows;
   }
 
-  // 获取设备分组
-  static async getDeviceGroups() {
-    // 从设备表中获取所有不重复的分组名
+  // 获取设备分组名称列表
+  static async getDeviceGroupsNames() {
+    const cacheKey = cache.generateKey('device_groups_names');
+    return await cache.cacheQuery(cacheKey, async () => {
+      // 从device_groups表中获取所有分组名称
+      const [rows] = await db.execute(`
+        SELECT group_name 
+        FROM device_groups 
+        ORDER BY group_name
+      `);
+      return rows.map(row => row.group_name);
+    }, 3600, 'long'); // 缓存1小时
+  }
+
+  // 获取所有分组详细信息
+  static async getAllGroups() {
+    const cacheKey = cache.generateKey('all_groups');
+    return await cache.cacheQuery(cacheKey, async () => {
+      const [rows] = await db.execute(`
+        SELECT id, group_name, description, is_default, created_at, updated_at
+        FROM device_groups 
+        ORDER BY is_default DESC, group_name
+      `);
+      return rows;
+    }, 3600, 'long');
+  }
+
+  // 获取默认分组
+  static async getDefaultGroup() {
+    const cacheKey = cache.generateKey('default_group');
+    return await cache.cacheQuery(cacheKey, async () => {
+      const [rows] = await db.execute(`
+        SELECT id, group_name, description, is_default, created_at, updated_at
+        FROM device_groups 
+        WHERE is_default = TRUE
+        LIMIT 1
+      `);
+      return rows[0] || null;
+    }, 3600, 'long');
+  }
+
+  // 根据ID获取分组
+  static async getGroupById(id) {
     const [rows] = await db.execute(`
-      SELECT DISTINCT device_group as group_name 
-      FROM dtu_devices 
-      WHERE device_group IS NOT NULL AND device_group != '' 
-      ORDER BY device_group
-    `);
-    return rows.map(row => row.group_name);
+      SELECT id, group_name, description, is_default, created_at, updated_at
+      FROM device_groups 
+      WHERE id = ?
+    `, [id]);
+    return rows[0] || null;
+  }
+
+  // 更新分组
+  static async updateGroup(id, data) {
+    const { group_name, description } = data;
+    const [result] = await db.execute(`
+      UPDATE device_groups 
+      SET group_name = ?, description = ?, updated_at = NOW()
+      WHERE id = ? AND is_default = FALSE
+    `, [group_name, description, id]);
+    
+    if (result.affectedRows === 0) {
+      throw new Error('分组不存在或为默认分组，无法修改');
+    }
+    
+    cache.deletePattern('device_groups_names:.*', 'long');
+    cache.deletePattern('all_groups:.*', 'long');
+    cache.deletePattern('default_group:.*', 'long');
+    
+    return result;
+  }
+
+  // 删除分组
+  static async deleteGroup(id) {
+    return await TransactionService.execute(async (connection) => {
+      // 1. 检查分组是否存在且不是默认分组
+      const [groupRows] = await connection.execute(`
+        SELECT id, group_name, is_default 
+        FROM device_groups 
+        WHERE id = ?
+      `, [id]);
+      
+      if (groupRows.length === 0) {
+        throw new Error('分组不存在');
+      }
+      
+      const group = groupRows[0];
+      if (group.is_default) {
+        throw new Error('默认分组不能删除');
+      }
+      
+      // 2. 获取默认分组
+      const [defaultGroupRows] = await connection.execute(`
+        SELECT id, group_name 
+        FROM device_groups 
+        WHERE is_default = TRUE
+        LIMIT 1
+      `);
+      
+      if (defaultGroupRows.length === 0) {
+        throw new Error('默认分组不存在，无法删除分组');
+      }
+      
+      const defaultGroup = defaultGroupRows[0];
+      
+      // 3. 将该分组下的所有设备移到默认分组
+      const [moveResult] = await connection.execute(`
+        UPDATE dtu_devices 
+        SET device_group = ?, updated_at = NOW()
+        WHERE device_group = ?
+      `, [defaultGroup.group_name, group.group_name]);
+      
+      // 4. 删除分组
+      const [deleteResult] = await connection.execute(`
+        DELETE FROM device_groups 
+        WHERE id = ?
+      `, [id]);
+      
+      logger.info('Group deleted successfully', {
+        deletedGroupId: id,
+        deletedGroupName: group.group_name,
+        movedDevicesCount: moveResult.affectedRows,
+        defaultGroupName: defaultGroup.group_name
+      });
+      
+      // 清除相关缓存
+      cache.deletePattern('device_groups_names:.*', 'long');
+      cache.deletePattern('all_groups:.*', 'long');
+      cache.deletePattern('default_group:.*', 'long');
+      
+      return {
+        deletedGroupId: id,
+        deletedGroupName: group.group_name,
+        movedDevicesCount: moveResult.affectedRows,
+        defaultGroupName: defaultGroup.group_name
+      };
+    });
   }
 
   // 检查分组名是否存在
@@ -276,6 +439,10 @@ class DeviceData {
       'INSERT INTO device_groups (group_name, description) VALUES (?, ?)',
       [group_name, description]
     );
+    
+    // 清除设备分组缓存，确保前端能立即看到新分组
+    cache.deletePattern('device_groups_names:.*', 'long');
+    
     return result;
   }
 
@@ -293,10 +460,7 @@ class DeviceData {
       collection_cycle = 2 
     } = data;
     
-    console.log('创建MB RTU配置，参数:', {
-      dtu_id, sensor_id, slave_address, function_code, offset_value, 
-      data_format, data_bits, byte_order_value, collection_cycle
-    });
+    logger.debug('Creating MB RTU config', { params: $1 });
     
     const [result] = await db.execute(
       `INSERT INTO mb_rtu_config (
@@ -312,7 +476,7 @@ class DeviceData {
   // 智能移动设备到分组（只移动分组不同的设备）
   static async moveDevicesToGroup(deviceIds, targetGroup) {
     try {
-      console.log('开始移动设备到分组:', { deviceIds, targetGroup });
+      logger.info('Starting device group move', { deviceIds, targetGroup });
       
       // 1. 获取所有设备的当前分组信息
       const placeholders = deviceIds.map(() => '?').join(',');
@@ -321,14 +485,14 @@ class DeviceData {
         deviceIds
       );
       
-      console.log('查询到的设备信息:', devices);
+      logger.debug('Found devices for group move', { deviceCount: devices.length });
       
       // 2. 筛选需要移动的设备（分组不同的设备）
       const devicesToMove = devices.filter(device => device.device_group !== targetGroup);
       const devicesInTargetGroup = devices.filter(device => device.device_group === targetGroup);
       
-      console.log('需要移动的设备:', devicesToMove);
-      console.log('已在目标分组的设备:', devicesInTargetGroup);
+      logger.debug('Devices to move', { count: devicesToMove.length });
+      logger.debug('Devices already in target group', { count: devicesInTargetGroup.length });
       
       // 3. 如果没有需要移动的设备，返回结果
       if (devicesToMove.length === 0) {
@@ -349,7 +513,11 @@ class DeviceData {
         updateParams
       );
       
-      console.log('更新结果:', result);
+      logger.info('Group move completed', { affectedRows: result.affectedRows });
+      
+      // 清除相关缓存，确保前端能立即看到更新
+      cache.deletePattern('dtu_devices:.*', 'short');
+      cache.deletePattern('device_groups_names:.*', 'long');
       
       return {
         moved_count: result.affectedRows,
@@ -366,7 +534,7 @@ class DeviceData {
   // 软删除DTU设备（标记为已删除状态）
   static async softDeleteDTUDevices(deviceIds) {
     try {
-      console.log('开始软删除设备:', deviceIds);
+      logger.info('Starting soft delete', { deviceIds });
       
       const placeholders = deviceIds.map(() => '?').join(',');
       const [result] = await db.execute(
@@ -374,7 +542,7 @@ class DeviceData {
         deviceIds
       );
       
-      console.log('软删除结果:', result);
+      logger.info('Soft delete completed', { affectedRows: result.affectedRows });
       return { affectedRows: result.affectedRows };
       
     } catch (error) {
@@ -386,7 +554,7 @@ class DeviceData {
   // 恢复已删除的DTU设备
   static async restoreDTUDevices(deviceIds) {
     try {
-      console.log('开始恢复设备:', deviceIds);
+      logger.info('Starting device restore', { deviceIds });
       
       const placeholders = deviceIds.map(() => '?').join(',');
       const [result] = await db.execute(
@@ -394,7 +562,7 @@ class DeviceData {
         deviceIds
       );
       
-      console.log('恢复结果:', result);
+      logger.info('Device restore completed', { affectedRows: result.affectedRows });
       return { affectedRows: result.affectedRows };
       
     } catch (error) {
@@ -405,64 +573,22 @@ class DeviceData {
 
   // 彻底删除DTU设备（从数据库中永久删除，包括相关传感器和协议）
   static async permanentlyDeleteDTUDevices(deviceIds) {
-    const connection = await db.getConnection();
-    
-    try {
-      console.log('开始彻底删除设备:', deviceIds);
-      
-      await connection.beginTransaction();
-      
-      const placeholders = deviceIds.map(() => '?').join(',');
-      
-      // 1. 删除MB RTU协议配置
-      console.log('删除MB RTU协议配置...');
-      const [mbRtuResult] = await connection.execute(
-        `DELETE FROM mb_rtu_config WHERE dtu_id IN (${placeholders})`,
-        deviceIds
-      );
-      console.log(`删除了 ${mbRtuResult.affectedRows} 条MB RTU协议配置`);
-      
-      // 2. 删除传感器数据
-      console.log('删除传感器数据...');
-      const [sensorsResult] = await connection.execute(
-        `DELETE FROM sensors WHERE dtu_id IN (${placeholders})`,
-        deviceIds
-      );
-      console.log(`删除了 ${sensorsResult.affectedRows} 条传感器数据`);
-      
-      // 3. 删除DTU设备
-      console.log('删除DTU设备...');
-      const [devicesResult] = await connection.execute(
-        `DELETE FROM dtu_devices WHERE device_id IN (${placeholders}) AND status = '已删除'`,
-        deviceIds
-      );
-      console.log(`删除了 ${devicesResult.affectedRows} 条设备数据`);
-      
-      await connection.commit();
-      
-      const totalAffected = mbRtuResult.affectedRows + sensorsResult.affectedRows + devicesResult.affectedRows;
-      
-      console.log('彻底删除完成:', {
-        devices: devicesResult.affectedRows,
-        sensors: sensorsResult.affectedRows,
-        mbRtuConfig: mbRtuResult.affectedRows,
-        total: totalAffected
-      });
-      
-      return { 
-        affectedRows: devicesResult.affectedRows,
-        deletedSensors: sensorsResult.affectedRows,
-        deletedMbRtuConfig: mbRtuResult.affectedRows,
-        totalDeleted: totalAffected
-      };
-      
-    } catch (error) {
-      console.error('彻底删除设备失败:', error);
-      await connection.rollback();
-      throw error;
-    } finally {
-      connection.release();
-    }
+    const cascadeTables = [
+      { table: 'mb_rtu_config', field: 'dtu_id' },
+      { table: 'sensors', field: 'dtu_id' }
+    ];
+
+    return await TransactionService.cascadeDelete(
+      'dtu_devices',
+      'device_id',
+      deviceIds,
+      cascadeTables,
+      {
+        isolationLevel: 'READ COMMITTED',
+        timeout: 30000,
+        retries: 3
+      }
+    );
   }
 
   // 级联复制DTU设备（包括传感器和协议）
@@ -476,7 +602,7 @@ class DeviceData {
     };
     
     try {
-      console.log('开始级联复制设备:', deviceIds);
+      logger.info('Starting cascade copy', { deviceIds });
       
       for (const deviceId of deviceIds) {
         try {
@@ -595,7 +721,7 @@ class DeviceData {
             sensorsCount: sensorRows.length
           });
           
-          console.log(`设备 ${deviceId} 复制成功，新设备ID: ${newDeviceId}`);
+          logger.info('Device copied successfully', { originalId: deviceId, newId: newDeviceId });
           
         } catch (error) {
           // 单个设备复制失败，记录错误但继续处理其他设备
@@ -607,7 +733,7 @@ class DeviceData {
         }
       }
       
-      console.log('级联复制完成:', results);
+      logger.info('Cascade copy completed', { results });
       return results;
       
     } finally {
@@ -634,6 +760,94 @@ class DeviceData {
     const timestamp = Date.now();
     const random = Math.random().toString(36).substr(2, 9);
     return `COPY_${timestamp}_${random}`;
+  }
+
+  // 批量创建设备（包含传感器和MB-RTU配置）- 使用事务
+  static async createDeviceWithSensors(deviceData, sensors, mbRtuConfigs) {
+    return await TransactionService.execute(async (connection) => {
+      logger.info('Starting device creation with sensors', {
+        deviceId: deviceData.device_id,
+        sensorsCount: sensors.length,
+        mbRtuConfigsCount: mbRtuConfigs.length
+      });
+
+      // 1. 创建设备
+      const [deviceResult] = await connection.execute(
+        `INSERT INTO dtu_devices (
+          device_id, serial_number, device_group, device_name, device_image, 
+          link_protocol, offline_delay, timezone_setting, longitude, latitude, status
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          deviceData.device_id, deviceData.serial_number, deviceData.device_group, 
+          deviceData.device_name, deviceData.device_image, deviceData.link_protocol, 
+          deviceData.offline_delay, deviceData.timezone_setting, deviceData.longitude, 
+          deviceData.latitude, deviceData.status
+        ]
+      );
+
+      logger.debug('Device created', { deviceId: deviceData.device_id, insertId: deviceResult.insertId });
+
+      // 2. 创建传感器
+      const sensorResults = [];
+      for (const sensor of sensors) {
+        const [sensorResult] = await connection.execute(
+          `INSERT INTO sensors (
+            sensor_id, dtu_id, icon, sensor_name, sensor_type, decimal_places, unit,
+            sort_order, upper_mapping_x1, upper_mapping_y1, upper_mapping_x2, upper_mapping_y2,
+            lower_mapping_x1, lower_mapping_y1, lower_mapping_x2, lower_mapping_y2
+          ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            sensor.sensor_id, sensor.dtu_id, sensor.icon, sensor.sensor_name, sensor.sensor_type,
+            sensor.decimal_places, sensor.unit, sensor.sort_order, sensor.upper_mapping_x1,
+            sensor.upper_mapping_y1, sensor.upper_mapping_x2, sensor.upper_mapping_y2,
+            sensor.lower_mapping_x1, sensor.lower_mapping_y1, sensor.lower_mapping_x2, sensor.lower_mapping_y2
+          ]
+        );
+        sensorResults.push({ sensorId: sensor.sensor_id, insertId: sensorResult.insertId });
+      }
+
+      logger.debug('Sensors created', { count: sensorResults.length });
+
+      // 3. 创建MB-RTU协议配置
+      const mbRtuResults = [];
+      for (const config of mbRtuConfigs) {
+        const [mbRtuResult] = await connection.execute(
+          `INSERT INTO mb_rtu_config (
+            dtu_id, sensor_id, slave_address, function_code, offset_value,
+            data_format, data_bits, byte_order_value, collection_cycle
+          ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            config.dtu_id, config.sensor_id, config.slave_address, config.function_code,
+            config.offset_value, config.data_format, config.data_bits, config.byte_order_value, config.collection_cycle
+          ]
+        );
+        mbRtuResults.push({ configId: `${config.dtu_id}_${config.sensor_id}`, insertId: mbRtuResult.insertId });
+      }
+
+      logger.debug('MB-RTU configs created', { count: mbRtuResults.length });
+
+      // 清除相关缓存
+      cache.deletePattern('dtu_devices:.*', 'short');
+      cache.deletePattern('sensors:.*', 'short');
+      cache.deletePattern('mb_rtu_config:.*', 'short');
+
+      const result = {
+        device: {
+          deviceId: deviceData.device_id,
+          insertId: deviceResult.insertId
+        },
+        sensors: sensorResults,
+        mbRtuConfigs: mbRtuResults,
+        summary: {
+          deviceCreated: 1,
+          sensorsCreated: sensorResults.length,
+          mbRtuConfigsCreated: mbRtuResults.length
+        }
+      };
+
+      logger.info('Device creation completed successfully', result.summary);
+      return result;
+    });
   }
 }
 

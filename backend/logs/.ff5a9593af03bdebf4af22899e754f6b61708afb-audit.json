@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 7
+    },
+    "auditLog": "/Users/xujing/Workspace/cloned-website/backend/logs/.ff5a9593af03bdebf4af22899e754f6b61708afb-audit.json",
+    "files": [
+        {
+            "date": 1758270493465,
+            "name": "/Users/xujing/Workspace/cloned-website/backend/logs/debug-2025-09-19.log",
+            "hash": "c1ee81ef077bac0bc601c394f388adc3f8b49a121e5584cf0760a773cc7850d9"
+        },
+        {
+            "date": 1758301545617,
+            "name": "/Users/xujing/Workspace/cloned-website/backend/logs/debug-2025-09-20.log",
+            "hash": "d91e7c8c76c453c397e32b2d9c0cb68042f6bb42ec7abd55edbb74a763c147ea"
+        }
+    ],
+    "hashType": "sha256"
+}

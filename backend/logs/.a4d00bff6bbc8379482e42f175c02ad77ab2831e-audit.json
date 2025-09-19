@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/xujing/Workspace/cloned-website/backend/logs/.a4d00bff6bbc8379482e42f175c02ad77ab2831e-audit.json",
+    "files": [
+        {
+            "date": 1757667357935,
+            "name": "/Users/xujing/Workspace/cloned-website/backend/logs/app-2025-09-12.log",
+            "hash": "e008d3731e871b8625c04bc4c2ad33345717cc2fe4d13aed1439f14912bb1b29"
+        },
+        {
+            "date": 1758270493460,
+            "name": "/Users/xujing/Workspace/cloned-website/backend/logs/app-2025-09-19.log",
+            "hash": "24f2f2a5ba49c1f960a73a31b662db188cb58a8996ffef806bffa6018766a936"
+        },
+        {
+            "date": 1758301545616,
+            "name": "/Users/xujing/Workspace/cloned-website/backend/logs/app-2025-09-20.log",
+            "hash": "72a1ae35d8d40ae1ae38d3f69cca21a13377dbdd2bed57665b668bfca5b752c1"
+        }
+    ],
+    "hashType": "sha256"
+}

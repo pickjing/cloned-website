@@ -1,0 +1,3057 @@
+2025-09-19 16:28:13.459 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "ac13b135-c172-45e5-b17b-0daf05916c2b"
+}
+2025-09-19 16:28:13.486 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 200,
+  "responseTime": 29,
+  "requestId": "ac13b135-c172-45e5-b17b-0daf05916c2b"
+}
+2025-09-19 16:28:13.490 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "3d95dc25-951e-4d3f-bb90-ba83423b7e5d"
+}
+2025-09-19 16:28:13.491 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "statusCode": 304,
+  "responseTime": 1,
+  "requestId": "3d95dc25-951e-4d3f-bb90-ba83423b7e5d"
+}
+2025-09-19 16:28:13.494 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "2b4690d5-0c55-4413-802e-1b876bcd4c04"
+}
+2025-09-19 16:28:13.503 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 9,
+  "requestId": "2b4690d5-0c55-4413-802e-1b876bcd4c04"
+}
+2025-09-19 16:31:13.030 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/delete",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "53606f4b-3d65-42b3-8afb-ca1332469c41"
+}
+2025-09-19 16:31:13.032 [ERROR] Application error JSON.stringify(...).some is not a function
+TypeError: JSON.stringify(...).some is not a function
+    at securityLogger (/Users/xujing/Workspace/cloned-website/backend/src/middleware/logging.js:105:53)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at databaseLogger (/Users/xujing/Workspace/cloned-website/backend/src/middleware/logging.js:69:3)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu/delete",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "53606f4b-3d65-42b3-8afb-ca1332469c41",
+  "body": {
+    "device_ids": [
+      "DTU_1757664695341_add1uy1pd"
+    ]
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-19 16:31:13.032 [WARN] Type error JSON.stringify(...).some is not a function
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "name": "TypeError",
+  "requestId": "53606f4b-3d65-42b3-8afb-ca1332469c41"
+}
+2025-09-19 16:31:13.033 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/delete",
+  "statusCode": 400,
+  "responseTime": 3,
+  "requestId": "53606f4b-3d65-42b3-8afb-ca1332469c41"
+}
+2025-09-19 16:32:42.594 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-19 16:32:42.607 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 183
+}
+2025-09-19 16:35:49.945 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-19 16:35:49.963 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 184
+}
+2025-09-19 16:36:22.453 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-19 16:36:22.466 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 185
+}
+2025-09-19 16:36:31.375 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/health",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "7aa18a05-e0be-42c3-87a2-1f4bd6493bb2"
+}
+2025-09-19 16:36:31.377 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/health",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "7aa18a05-e0be-42c3-87a2-1f4bd6493bb2"
+}
+2025-09-19 16:36:37.782 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=5",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "feb1223b-7afc-43cc-8bcc-73bcfc21f332"
+}
+2025-09-19 16:36:37.795 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=5",
+  "statusCode": 200,
+  "responseTime": 13,
+  "requestId": "feb1223b-7afc-43cc-8bcc-73bcfc21f332"
+}
+2025-09-19 16:36:57.504 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "06b38fab-f935-41ff-9cd5-f5233c8104d5"
+}
+2025-09-19 16:36:57.506 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 304,
+  "responseTime": 2,
+  "requestId": "06b38fab-f935-41ff-9cd5-f5233c8104d5"
+}
+2025-09-19 16:36:57.508 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "7329fcbb-0b1c-4275-bd59-1f910e173104"
+}
+2025-09-19 16:36:57.509 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "statusCode": 304,
+  "responseTime": 1,
+  "requestId": "7329fcbb-0b1c-4275-bd59-1f910e173104"
+}
+2025-09-19 16:36:57.511 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "df792eae-a412-42b6-ae8e-637071ab8707"
+}
+2025-09-19 16:36:57.515 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 4,
+  "requestId": "df792eae-a412-42b6-ae8e-637071ab8707"
+}
+2025-09-19 16:36:59.303 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "a30f34d5-bb81-43a9-8588-b957e18b2194"
+}
+2025-09-19 16:36:59.306 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 304,
+  "responseTime": 4,
+  "requestId": "a30f34d5-bb81-43a9-8588-b957e18b2194"
+}
+2025-09-19 16:36:59.307 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "b7c28f9d-f4c1-4970-ad99-0005dc7ccaab"
+}
+2025-09-19 16:36:59.309 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "statusCode": 304,
+  "responseTime": 1,
+  "requestId": "b7c28f9d-f4c1-4970-ad99-0005dc7ccaab"
+}
+2025-09-19 16:36:59.310 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "43ea5fb1-d42d-4f4b-9de8-f4cd1e24b90f"
+}
+2025-09-19 16:36:59.313 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 3,
+  "requestId": "43ea5fb1-d42d-4f4b-9de8-f4cd1e24b90f"
+}
+2025-09-19 16:37:13.600 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84001",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "d05ef65a-947a-4c20-9db7-84a821d1fec2"
+}
+2025-09-19 16:37:13.605 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84001",
+  "statusCode": 200,
+  "responseTime": 6,
+  "requestId": "d05ef65a-947a-4c20-9db7-84a821d1fec2"
+}
+2025-09-19 16:37:14.067 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84001",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "790b550a-a5d2-4e99-915d-2053bf14bb99"
+}
+2025-09-19 16:37:14.070 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84001",
+  "statusCode": 304,
+  "responseTime": 3,
+  "requestId": "790b550a-a5d2-4e99-915d-2053bf14bb99"
+}
+2025-09-19 16:37:15.918 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84002",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "990feb82-7d00-4d75-980e-d37a68bb624a"
+}
+2025-09-19 16:37:15.921 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84002",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "990feb82-7d00-4d75-980e-d37a68bb624a"
+}
+2025-09-19 16:37:17.786 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84003",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "aaa40a54-51d1-4308-b45a-f1bba1008ed9"
+}
+2025-09-19 16:37:17.789 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84003",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "aaa40a54-51d1-4308-b45a-f1bba1008ed9"
+}
+2025-09-19 16:37:21.022 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84004",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "9591b7ca-066a-44be-9263-8e0b4a71d08b"
+}
+2025-09-19 16:37:21.025 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84004",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "9591b7ca-066a-44be-9263-8e0b4a71d08b"
+}
+2025-09-19 16:37:25.051 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84004",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "9e907aad-dfd2-422b-a4c7-49ec39288675"
+}
+2025-09-19 16:37:25.053 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84004",
+  "statusCode": 304,
+  "responseTime": 3,
+  "requestId": "9e907aad-dfd2-422b-a4c7-49ec39288675"
+}
+2025-09-19 16:37:26.272 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "eb43478d-8121-462d-a4d7-ed7b2fa7538a"
+}
+2025-09-19 16:37:26.273 [ERROR] Application error JSON.stringify(...).some is not a function
+TypeError: JSON.stringify(...).some is not a function
+    at securityLogger (/Users/xujing/Workspace/cloned-website/backend/src/middleware/logging.js:105:53)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at databaseLogger (/Users/xujing/Workspace/cloned-website/backend/src/middleware/logging.js:69:3)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "eb43478d-8121-462d-a4d7-ed7b2fa7538a",
+  "body": {
+    "group_name": "测试分组004",
+    "description": ""
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-19 16:37:26.273 [WARN] Type error JSON.stringify(...).some is not a function
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "name": "TypeError",
+  "requestId": "eb43478d-8121-462d-a4d7-ed7b2fa7538a"
+}
+2025-09-19 16:37:26.274 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "statusCode": 400,
+  "responseTime": 3,
+  "requestId": "eb43478d-8121-462d-a4d7-ed7b2fa7538a"
+}
+2025-09-19 16:38:37.548 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-19 16:38:37.563 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 186
+}
+2025-09-19 16:39:17.916 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "4f89fa6d-9e38-492d-a3d1-a4bb7ebe57eb"
+}
+2025-09-19 16:39:17.926 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 304,
+  "responseTime": 11,
+  "requestId": "4f89fa6d-9e38-492d-a3d1-a4bb7ebe57eb"
+}
+2025-09-19 16:39:17.928 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "987d0225-456c-4739-acab-afa692a8b78d"
+}
+2025-09-19 16:39:17.929 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "statusCode": 304,
+  "responseTime": 1,
+  "requestId": "987d0225-456c-4739-acab-afa692a8b78d"
+}
+2025-09-19 16:39:17.931 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "a2763582-1abd-4a52-af5a-7fbb0bbf563b"
+}
+2025-09-19 16:39:17.939 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 8,
+  "requestId": "a2763582-1abd-4a52-af5a-7fbb0bbf563b"
+}
+2025-09-19 16:39:24.033 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84003",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "a641a0ed-0a11-448d-8a05-5583cf30ca1f"
+}
+2025-09-19 16:39:24.035 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84003",
+  "statusCode": 304,
+  "responseTime": 2,
+  "requestId": "a641a0ed-0a11-448d-8a05-5583cf30ca1f"
+}
+2025-09-19 16:39:25.559 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84004",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "7ae2d5c4-3028-4a2d-a5ee-4df680e35519"
+}
+2025-09-19 16:39:25.562 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84004",
+  "statusCode": 304,
+  "responseTime": 3,
+  "requestId": "7ae2d5c4-3028-4a2d-a5ee-4df680e35519"
+}
+2025-09-19 16:39:26.719 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84004",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "211727cc-43bb-4149-887e-28902e88cba9"
+}
+2025-09-19 16:39:26.721 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84004",
+  "statusCode": 304,
+  "responseTime": 2,
+  "requestId": "211727cc-43bb-4149-887e-28902e88cba9"
+}
+2025-09-19 16:39:26.737 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "426f70cb-42ce-49fa-986c-7c9e005bc21a"
+}
+2025-09-19 16:39:26.745 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "426f70cb-42ce-49fa-986c-7c9e005bc21a"
+}
+2025-09-19 16:39:26.747 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "7b1d3473-ea43-4de2-a2b1-c78ba202d482"
+}
+2025-09-19 16:39:26.750 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 304,
+  "responseTime": 3,
+  "requestId": "7b1d3473-ea43-4de2-a2b1-c78ba202d482"
+}
+2025-09-19 16:39:26.752 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "3947bb8c-04c5-49dc-a324-a30f201cc339"
+}
+2025-09-19 16:39:26.753 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "statusCode": 304,
+  "responseTime": 2,
+  "requestId": "3947bb8c-04c5-49dc-a324-a30f201cc339"
+}
+2025-09-19 16:39:57.036 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "688ab1f8-88eb-4c22-a83d-166fbdda6c1f"
+}
+2025-09-19 16:39:57.039 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 4,
+  "requestId": "688ab1f8-88eb-4c22-a83d-166fbdda6c1f"
+}
+2025-09-19 16:39:58.217 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84001&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "a750a028-1eee-4b71-a3d6-a4ab5d48144a"
+}
+2025-09-19 16:39:58.224 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84001&status=undefined&search=undefined",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "a750a028-1eee-4b71-a3d6-a4ab5d48144a"
+}
+2025-09-19 16:39:59.752 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84002&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "678b0137-fe06-46ed-ac1e-4ec31f19016f"
+}
+2025-09-19 16:39:59.757 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84002&status=undefined&search=undefined",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "678b0137-fe06-46ed-ac1e-4ec31f19016f"
+}
+2025-09-19 16:40:01.101 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "a06b75e0-66e1-4692-b741-4a0e8bd5756a"
+}
+2025-09-19 16:40:01.103 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 3,
+  "requestId": "a06b75e0-66e1-4692-b741-4a0e8bd5756a"
+}
+2025-09-19 16:41:10.584 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-19 16:41:10.602 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 187
+}
+2025-09-19 16:41:18.261 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "43cd4278-afa2-4dc4-bdaf-1aed4ac82997"
+}
+2025-09-19 16:41:18.273 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 200,
+  "responseTime": 13,
+  "requestId": "43cd4278-afa2-4dc4-bdaf-1aed4ac82997"
+}
+2025-09-19 16:41:34.485 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/health",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d89a2468-1a63-496b-bc42-0d4fe48b8878"
+}
+2025-09-19 16:41:34.486 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/health",
+  "statusCode": 200,
+  "responseTime": 1,
+  "requestId": "d89a2468-1a63-496b-bc42-0d4fe48b8878"
+}
+2025-09-19 16:41:50.669 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "1098e66e-5213-4319-aa77-ecf263b959b7"
+}
+2025-09-19 16:41:50.672 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "1098e66e-5213-4319-aa77-ecf263b959b7"
+}
+2025-09-19 16:41:50.674 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "bcbf2ee5-1557-4dd8-b887-884590ee2a50"
+}
+2025-09-19 16:41:50.676 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "statusCode": 304,
+  "responseTime": 2,
+  "requestId": "bcbf2ee5-1557-4dd8-b887-884590ee2a50"
+}
+2025-09-19 16:41:50.677 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "76151bf6-8491-4091-a294-16c51ab37f4c"
+}
+2025-09-19 16:41:50.688 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 11,
+  "requestId": "76151bf6-8491-4091-a294-16c51ab37f4c"
+}
+2025-09-19 16:41:53.269 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84003&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "98bd554f-a314-44a3-ac60-99070dd5f414"
+}
+2025-09-19 16:41:53.275 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84003&status=undefined&search=undefined",
+  "statusCode": 200,
+  "responseTime": 6,
+  "requestId": "98bd554f-a314-44a3-ac60-99070dd5f414"
+}
+2025-09-19 16:41:55.136 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84004&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "5bc8574e-95d9-4537-a5e9-77678cb1740c"
+}
+2025-09-19 16:41:55.139 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84004&status=undefined&search=undefined",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "5bc8574e-95d9-4537-a5e9-77678cb1740c"
+}
+2025-09-19 16:41:57.735 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84002&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "1410054f-0284-4e87-b77b-090634c6cfc5"
+}
+2025-09-19 16:41:57.742 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84002&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 6,
+  "requestId": "1410054f-0284-4e87-b77b-090634c6cfc5"
+}
+2025-09-19 16:41:59.136 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84001&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "f734213f-9832-40b5-ba94-0a620a3fd726"
+}
+2025-09-19 16:41:59.143 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84001&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 7,
+  "requestId": "f734213f-9832-40b5-ba94-0a620a3fd726"
+}
+2025-09-19 16:42:01.435 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "018b50d3-b7ee-43d2-a8c2-2d0270b7bbd3"
+}
+2025-09-19 16:42:01.438 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 3,
+  "requestId": "018b50d3-b7ee-43d2-a8c2-2d0270b7bbd3"
+}
+2025-09-19 16:42:06.095 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84004",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "5e4f7ae8-afcc-4e1e-8dcf-e97f9b0e50da"
+}
+2025-09-19 16:42:06.099 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84004",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "5e4f7ae8-afcc-4e1e-8dcf-e97f9b0e50da"
+}
+2025-09-19 16:42:07.432 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84005",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "07c882f0-3a92-45e9-949b-14153503f037"
+}
+2025-09-19 16:42:07.434 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84005",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "07c882f0-3a92-45e9-949b-14153503f037"
+}
+2025-09-19 16:42:08.287 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84005",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "a9271146-c72e-4899-90df-0eec539c1f0a"
+}
+2025-09-19 16:42:08.289 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84005",
+  "statusCode": 304,
+  "responseTime": 2,
+  "requestId": "a9271146-c72e-4899-90df-0eec539c1f0a"
+}
+2025-09-19 16:42:08.305 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "15d65a57-4734-4ee2-a210-638ff347eca3"
+}
+2025-09-19 16:42:08.320 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "statusCode": 200,
+  "responseTime": 15,
+  "requestId": "15d65a57-4734-4ee2-a210-638ff347eca3"
+}
+2025-09-19 16:42:08.322 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "7feb3178-ab2d-4bdf-bdcf-f6849c7cadf0"
+}
+2025-09-19 16:42:08.323 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 304,
+  "responseTime": 1,
+  "requestId": "7feb3178-ab2d-4bdf-bdcf-f6849c7cadf0"
+}
+2025-09-19 16:42:08.324 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "465ae758-e587-45e2-b07f-df4d7df055d9"
+}
+2025-09-19 16:42:08.325 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "statusCode": 304,
+  "responseTime": "unknown",
+  "requestId": "465ae758-e587-45e2-b07f-df4d7df055d9"
+}
+2025-09-19 16:44:06.436 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-19 16:44:06.510 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 190
+}
+2025-09-19 16:44:21.499 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "904fb649-2d26-4f84-a646-a161ba1f9a7c"
+}
+2025-09-19 16:44:21.509 [ERROR] Application error cache.invalidatePattern is not a function
+TypeError: cache.invalidatePattern is not a function
+    at DeviceData.createGroup (/Users/xujing/Workspace/cloned-website/backend/src/models/deviceData.js:320:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/deviceController.js:162:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "904fb649-2d26-4f84-a646-a161ba1f9a7c",
+  "body": {
+    "group_name": "测试分组006",
+    "description": "测试缓存清除"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-19 16:44:21.509 [WARN] Type error cache.invalidatePattern is not a function
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "name": "TypeError",
+  "requestId": "904fb649-2d26-4f84-a646-a161ba1f9a7c"
+}
+2025-09-19 16:44:21.511 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "statusCode": 400,
+  "responseTime": 12,
+  "requestId": "904fb649-2d26-4f84-a646-a161ba1f9a7c"
+}
+2025-09-19 16:45:05.009 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-19 16:45:05.022 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 191
+}
+2025-09-19 16:45:16.280 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "cb3fed8c-3e5e-42e7-8c4a-50091c49b321"
+}
+2025-09-19 16:45:16.289 [ERROR] Application error 分组名已存在
+Error: 分组名已存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/deviceController.js:159:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "cb3fed8c-3e5e-42e7-8c4a-50091c49b321",
+  "body": {
+    "group_name": "测试分组006",
+    "description": "测试缓存清除"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-19 16:45:16.292 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "statusCode": 409,
+  "responseTime": 13,
+  "requestId": "cb3fed8c-3e5e-42e7-8c4a-50091c49b321"
+}
+2025-09-19 16:45:22.936 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "3ad1a32d-4579-408e-b5bc-7bf218ac2a75"
+}
+2025-09-19 16:45:22.941 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "3ad1a32d-4579-408e-b5bc-7bf218ac2a75"
+}
+2025-09-19 16:45:29.169 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a4ad3cf9-9c23-442c-a83d-ab5db9ee09fc"
+}
+2025-09-19 16:45:29.172 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "a4ad3cf9-9c23-442c-a83d-ab5db9ee09fc"
+}
+2025-09-19 16:46:20.195 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "0388f8b9-dcf4-43e4-9013-53dc6e6e3c43"
+}
+2025-09-19 16:46:20.197 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 200,
+  "responseTime": 1,
+  "requestId": "0388f8b9-dcf4-43e4-9013-53dc6e6e3c43"
+}
+2025-09-19 16:46:20.198 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "f77fed9a-3d45-4722-a723-c192357224f3"
+}
+2025-09-19 16:46:20.200 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "statusCode": 304,
+  "responseTime": 1,
+  "requestId": "f77fed9a-3d45-4722-a723-c192357224f3"
+}
+2025-09-19 16:46:20.201 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "f547a740-6b35-4d9e-95d2-cdc6e9d1c9f6"
+}
+2025-09-19 16:46:20.211 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 10,
+  "requestId": "f547a740-6b35-4d9e-95d2-cdc6e9d1c9f6"
+}
+2025-09-19 16:46:22.772 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84005&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "5de6d821-8c5c-4758-bb2a-973390feb07b"
+}
+2025-09-19 16:46:22.779 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84005&status=undefined&search=undefined",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "5de6d821-8c5c-4758-bb2a-973390feb07b"
+}
+2025-09-19 16:46:25.305 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84004&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "49511bd2-9847-45bb-ab91-8cb376a97707"
+}
+2025-09-19 16:46:25.310 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84004&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 6,
+  "requestId": "49511bd2-9847-45bb-ab91-8cb376a97707"
+}
+2025-09-19 16:46:26.957 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84003&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "f292bffe-768f-4bc4-8f29-8d52752344ff"
+}
+2025-09-19 16:46:26.964 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84003&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 7,
+  "requestId": "f292bffe-768f-4bc4-8f29-8d52752344ff"
+}
+2025-09-19 16:46:28.588 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "67c635bb-723a-4e1d-90ee-515f7b48985b"
+}
+2025-09-19 16:46:28.591 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 2,
+  "requestId": "67c635bb-723a-4e1d-90ee-515f7b48985b"
+}
+2025-09-19 16:46:31.488 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84005&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "c1e71f55-7e0b-4ebd-884d-6fdcea818221"
+}
+2025-09-19 16:46:31.490 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84005&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 2,
+  "requestId": "c1e71f55-7e0b-4ebd-884d-6fdcea818221"
+}
+2025-09-19 16:46:51.055 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84006",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "948c0254-c216-4159-88a0-c5eee2180571"
+}
+2025-09-19 16:46:51.058 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84006",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "948c0254-c216-4159-88a0-c5eee2180571"
+}
+2025-09-19 16:46:53.707 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84006",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "9cab3e61-2b55-48d9-a85d-594b73c76329"
+}
+2025-09-19 16:46:53.709 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84006",
+  "statusCode": 304,
+  "responseTime": 2,
+  "requestId": "9cab3e61-2b55-48d9-a85d-594b73c76329"
+}
+2025-09-19 16:47:12.990 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84007&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "f4b9df52-5f91-4282-b358-6be2d488d265"
+}
+2025-09-19 16:47:12.995 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84007&status=undefined&search=undefined",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "f4b9df52-5f91-4282-b358-6be2d488d265"
+}
+2025-09-19 16:47:15.405 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "ff20694b-763d-427a-ab35-ef439163c459"
+}
+2025-09-19 16:47:15.408 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 3,
+  "requestId": "ff20694b-763d-427a-ab35-ef439163c459"
+}
+2025-09-19 16:47:18.759 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/copy",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "807c8379-9f0d-42a8-84f4-adb9431b2c26"
+}
+2025-09-19 16:47:18.762 [INFO] Starting cascade copy
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "deviceIds": [
+    "DTU_1757664695341_add1uy1pd"
+  ]
+}
+2025-09-19 16:47:18.849 [INFO] Device copied successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "originalId": "DTU_1757664695341_add1uy1pd",
+  "newId": "DTU_1758271638763_he5qle0o3"
+}
+2025-09-19 16:47:18.849 [INFO] Cascade copy completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "results": {
+    "success": [
+      {
+        "originalDeviceId": "DTU_1757664695341_add1uy1pd",
+        "newDeviceId": "DTU_1758271638763_he5qle0o3",
+        "newDeviceName": "测试设备003复制复制",
+        "sensorsCount": 72
+      }
+    ],
+    "failed": [],
+    "totalSensors": 72,
+    "totalConfigs": 72
+  }
+}
+2025-09-19 16:47:18.850 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/copy",
+  "statusCode": 200,
+  "responseTime": 91,
+  "requestId": "807c8379-9f0d-42a8-84f4-adb9431b2c26"
+}
+2025-09-19 16:47:18.851 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "0e0e77eb-2b39-41ec-96dd-9da23379708f"
+}
+2025-09-19 16:47:18.853 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 1,
+  "requestId": "0e0e77eb-2b39-41ec-96dd-9da23379708f"
+}
+2025-09-19 16:47:23.089 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/copy",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "e499adf8-f0e0-43ed-b29f-36d66467e425"
+}
+2025-09-19 16:47:23.090 [INFO] Starting cascade copy
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "deviceIds": [
+    "DTU_1757664695341_add1uy1pd"
+  ]
+}
+2025-09-19 16:47:23.174 [INFO] Device copied successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "originalId": "DTU_1757664695341_add1uy1pd",
+  "newId": "DTU_1758271643091_t4z1oyyt9"
+}
+2025-09-19 16:47:23.174 [INFO] Cascade copy completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "results": {
+    "success": [
+      {
+        "originalDeviceId": "DTU_1757664695341_add1uy1pd",
+        "newDeviceId": "DTU_1758271643091_t4z1oyyt9",
+        "newDeviceName": "测试设备003复制复制",
+        "sensorsCount": 72
+      }
+    ],
+    "failed": [],
+    "totalSensors": 72,
+    "totalConfigs": 72
+  }
+}
+2025-09-19 16:47:23.175 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/copy",
+  "statusCode": 200,
+  "responseTime": 86,
+  "requestId": "e499adf8-f0e0-43ed-b29f-36d66467e425"
+}
+2025-09-19 16:47:23.177 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "c4b81671-7470-4da2-b2cd-abfdcc4d9ff3"
+}
+2025-09-19 16:47:23.179 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "c4b81671-7470-4da2-b2cd-abfdcc4d9ff3"
+}
+2025-09-19 16:47:30.540 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/move-to-group",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "52dc20e7-521b-4bf3-bf1e-5f3512004e3b"
+}
+2025-09-19 16:47:30.542 [INFO] Starting device group move
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "deviceIds": [
+    "DTU_1758271638763_he5qle0o3"
+  ],
+  "targetGroup": "测试分组007"
+}
+2025-09-19 16:47:30.546 [INFO] Group move completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "affectedRows": 1
+}
+2025-09-19 16:47:30.547 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/move-to-group",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "52dc20e7-521b-4bf3-bf1e-5f3512004e3b"
+}
+2025-09-19 16:47:32.307 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "855af029-7c26-4525-b8c4-84758673f24e"
+}
+2025-09-19 16:47:32.312 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "855af029-7c26-4525-b8c4-84758673f24e"
+}
+2025-09-19 16:47:37.942 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/move-to-group",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "121fd802-a8ba-481a-972e-fa0908e13fdf"
+}
+2025-09-19 16:47:37.943 [INFO] Starting device group move
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "deviceIds": [
+    "DTU_1758271643091_t4z1oyyt9"
+  ],
+  "targetGroup": "测试分组005"
+}
+2025-09-19 16:47:37.946 [INFO] Group move completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "affectedRows": 1
+}
+2025-09-19 16:47:37.947 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/move-to-group",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "121fd802-a8ba-481a-972e-fa0908e13fdf"
+}
+2025-09-19 16:47:38.687 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "2cef696f-970a-4db3-a454-a96faba1ba4b"
+}
+2025-09-19 16:47:38.692 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "2cef696f-970a-4db3-a454-a96faba1ba4b"
+}
+2025-09-19 16:47:44.624 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "b8e3035a-acb3-4f61-bab5-bb1f5686cb55"
+}
+2025-09-19 16:47:44.626 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "b8e3035a-acb3-4f61-bab5-bb1f5686cb55"
+}
+2025-09-19 16:47:47.679 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84007",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "0163f121-b484-4fc3-84ad-bebdc9f6f4e2"
+}
+2025-09-19 16:47:47.682 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84007",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "0163f121-b484-4fc3-84ad-bebdc9f6f4e2"
+}
+2025-09-19 16:47:49.022 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84007",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "28632ba3-61d8-4fee-b54d-65ac99e3a564"
+}
+2025-09-19 16:47:49.024 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84007",
+  "statusCode": 304,
+  "responseTime": 2,
+  "requestId": "28632ba3-61d8-4fee-b54d-65ac99e3a564"
+}
+2025-09-19 16:47:50.156 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "6db6af11-bef3-42e9-ad30-9cb8a60e18dc"
+}
+2025-09-19 16:47:50.159 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 304,
+  "responseTime": 2,
+  "requestId": "6db6af11-bef3-42e9-ad30-9cb8a60e18dc"
+}
+2025-09-19 16:47:57.369 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84008",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "57315068-4d5f-4f95-8929-ec538ad87d82"
+}
+2025-09-19 16:47:57.371 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84008",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "57315068-4d5f-4f95-8929-ec538ad87d82"
+}
+2025-09-19 16:47:58.288 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84008",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "d074a1b2-9c9c-4df9-813b-b94217c16c94"
+}
+2025-09-19 16:47:58.289 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84008",
+  "statusCode": 304,
+  "responseTime": 2,
+  "requestId": "d074a1b2-9c9c-4df9-813b-b94217c16c94"
+}
+2025-09-19 16:47:58.304 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "924bbcae-dbf3-44e3-909d-597459ecdd9f"
+}
+2025-09-19 16:47:58.307 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "924bbcae-dbf3-44e3-909d-597459ecdd9f"
+}
+2025-09-19 16:52:18.636 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "78e601d1-0b7c-4330-aa22-6879c3810a54"
+}
+2025-09-19 16:52:18.637 [ERROR] Application error 分组名已存在
+Error: 分组名已存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/deviceController.js:159:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "78e601d1-0b7c-4330-aa22-6879c3810a54",
+  "body": {
+    "group_name": "测试分组008",
+    "description": "测试分组"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-19 16:52:18.637 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "statusCode": 409,
+  "responseTime": 2,
+  "requestId": "78e601d1-0b7c-4330-aa22-6879c3810a54"
+}
+2025-09-19 16:52:26.402 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "bf6c0457-bd51-43bd-b2e5-6086d6b7db56"
+}
+2025-09-19 16:52:26.406 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "bf6c0457-bd51-43bd-b2e5-6086d6b7db56"
+}
+2025-09-19 16:52:34.158 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a3a60d3d-9914-4b2a-894c-c5e09b62a688"
+}
+2025-09-19 16:52:34.160 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "a3a60d3d-9914-4b2a-894c-c5e09b62a688"
+}
+2025-09-19 16:53:51.407 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "e37e4fd3-d63d-443f-8d73-3bbe5c0c30c3"
+}
+2025-09-19 16:53:51.408 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 200,
+  "responseTime": 1,
+  "requestId": "e37e4fd3-d63d-443f-8d73-3bbe5c0c30c3"
+}
+2025-09-19 16:53:51.410 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "2243e922-a77d-40bc-a931-0c3f450ccd55"
+}
+2025-09-19 16:53:51.411 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/status",
+  "statusCode": 304,
+  "responseTime": "unknown",
+  "requestId": "2243e922-a77d-40bc-a931-0c3f450ccd55"
+}
+2025-09-19 16:53:51.412 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "131afa5a-28ea-4423-9e12-aac2a1056921"
+}
+2025-09-19 16:53:51.416 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu?page=1&limit=20&group=undefined&status=undefined&search=undefined",
+  "statusCode": 304,
+  "responseTime": 4,
+  "requestId": "131afa5a-28ea-4423-9e12-aac2a1056921"
+}
+2025-09-19 16:53:52.957 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "29122fad-98f3-46ac-a06c-e9923d169927"
+}
+2025-09-19 16:53:52.958 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 304,
+  "responseTime": 1,
+  "requestId": "29122fad-98f3-46ac-a06c-e9923d169927"
+}
+2025-09-19 16:53:58.557 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "7028b906-e9d9-49dd-9257-0154d9cdd17a"
+}
+2025-09-19 16:53:58.558 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "7028b906-e9d9-49dd-9257-0154d9cdd17a"
+}
+2025-09-19 16:54:00.334 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84010",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "959aff16-3329-4ad4-a797-f5570767ee11"
+}
+2025-09-19 16:54:00.336 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84010",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "959aff16-3329-4ad4-a797-f5570767ee11"
+}
+2025-09-19 16:54:01.374 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84010",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "f1dc9b18-b9af-46bf-b990-d7c25a9afff5"
+}
+2025-09-19 16:54:01.376 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84010",
+  "statusCode": 304,
+  "responseTime": 3,
+  "requestId": "f1dc9b18-b9af-46bf-b990-d7c25a9afff5"
+}
+2025-09-19 16:54:01.390 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "ff1390f8-193e-496a-b191-315039c23502"
+}
+2025-09-19 16:54:01.396 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "statusCode": 200,
+  "responseTime": 6,
+  "requestId": "ff1390f8-193e-496a-b191-315039c23502"
+}
+2025-09-19 16:56:25.659 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "20aa18da-59a8-4bd2-845b-6675602ff47e"
+}
+2025-09-19 16:56:25.661 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/options/groups",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "20aa18da-59a8-4bd2-845b-6675602ff47e"
+}
+2025-09-19 16:56:34.187 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84011",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "dd8e4507-db3c-4828-8a7e-9ba27349aecf"
+}
+2025-09-19 16:56:34.189 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84011",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "dd8e4507-db3c-4828-8a7e-9ba27349aecf"
+}
+2025-09-19 16:56:34.675 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84011",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "0271470e-b2c3-4c11-bb86-a27e5f4b97e7"
+}
+2025-09-19 16:56:34.677 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84011",
+  "statusCode": 304,
+  "responseTime": 2,
+  "requestId": "0271470e-b2c3-4c11-bb86-a27e5f4b97e7"
+}
+2025-09-19 16:56:34.692 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "ae9370be-9637-4d41-a9f7-5684370d363b"
+}
+2025-09-19 16:56:34.697 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "statusCode": 200,
+  "responseTime": 6,
+  "requestId": "ae9370be-9637-4d41-a9f7-5684370d363b"
+}
+2025-09-19 16:57:01.101 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "11d567a0-0b39-4035-84d1-eeaf8e0073ed"
+}
+2025-09-19 16:57:01.104 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "11d567a0-0b39-4035-84d1-eeaf8e0073ed"
+}
+2025-09-19 16:57:01.109 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "74e94c5e-0d1f-4f51-8c70-8dbe22e6b231"
+}
+2025-09-19 16:57:01.111 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "74e94c5e-0d1f-4f51-8c70-8dbe22e6b231"
+}
+2025-09-19 16:57:01.114 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "6c4efee4-2723-4add-a87d-62200874c465"
+}
+2025-09-19 16:57:01.116 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "6c4efee4-2723-4add-a87d-62200874c465"
+}
+2025-09-19 16:57:01.118 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "f7904afc-72d2-4f69-8079-873c15787bc5"
+}
+2025-09-19 16:57:01.125 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "f7904afc-72d2-4f69-8079-873c15787bc5"
+}
+2025-09-19 16:57:01.128 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "d61260d8-1146-47f8-9230-d947c98c675c"
+}
+2025-09-19 16:57:01.130 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "d61260d8-1146-47f8-9230-d947c98c675c"
+}
+2025-09-19 16:57:01.132 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "27e8fa65-8f0c-43e8-8e70-52d49b6caf34"
+}
+2025-09-19 16:57:01.134 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "27e8fa65-8f0c-43e8-8e70-52d49b6caf34"
+}
+2025-09-19 16:57:01.137 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "acd594dc-5aa2-41b8-91b6-5e0bf3bb4e84"
+}
+2025-09-19 16:57:01.138 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "acd594dc-5aa2-41b8-91b6-5e0bf3bb4e84"
+}
+2025-09-19 16:57:01.141 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "e5b5bb1b-d97f-4ba0-9eba-591acf8459b6"
+}
+2025-09-19 16:57:01.142 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "e5b5bb1b-d97f-4ba0-9eba-591acf8459b6"
+}
+2025-09-19 16:57:01.145 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/mb-rtu-configs",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "ac7e51b6-7a80-437b-ba3e-5869729914c0"
+}
+2025-09-19 16:57:01.146 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/mb-rtu-configs",
+  "statusCode": 500,
+  "responseTime": 1,
+  "requestId": "ac7e51b6-7a80-437b-ba3e-5869729914c0"
+}
+2025-09-19 16:57:56.110 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=ce",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "00153d0a-a2e7-4248-8b99-5564e7bb9bb5"
+}
+2025-09-19 16:57:56.112 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=ce",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "00153d0a-a2e7-4248-8b99-5564e7bb9bb5"
+}
+2025-09-19 16:57:58.659 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84012",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "a2c708e3-d3c9-4029-b005-56086b7e2ae5"
+}
+2025-09-19 16:57:58.661 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84012",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "a2c708e3-d3c9-4029-b005-56086b7e2ae5"
+}
+2025-09-19 16:57:59.176 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84012",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "96166abc-2fc9-4d01-8146-17b8482d1ed4"
+}
+2025-09-19 16:57:59.177 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/check?group_name=%E6%B5%8B%E8%AF%95%E5%88%86%E7%BB%84012",
+  "statusCode": 304,
+  "responseTime": 2,
+  "requestId": "96166abc-2fc9-4d01-8146-17b8482d1ed4"
+}
+2025-09-19 16:57:59.193 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "21ec56d1-3418-42d0-a1fc-0890f2229f91"
+}
+2025-09-19 16:57:59.198 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "21ec56d1-3418-42d0-a1fc-0890f2229f91"
+}
+2025-09-19 16:58:01.045 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "6afbf9cb-b683-41db-98ff-9bf7a2f08fe9"
+}
+2025-09-19 16:58:01.047 [ERROR] Query error recorded
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Duplicate entry 'DTU_1758272183572_k6gcpy' for key 'dtu_devices.device_id'",
+  "code": "ER_DUP_ENTRY",
+  "query": "INSERT INTO dtu_devices (\n        device_id, serial_number, device_group, device_name, device_image, \n        link_protocol, offline_delay, timezone_setting, longitude, latitude, status\n      ) VALUES"
+}
+2025-09-19 16:58:01.048 [ERROR] Application error Duplicate entry 'DTU_1758272183572_k6gcpy' for key 'dtu_devices.device_id'
+Error: Duplicate entry 'DTU_1758272183572_k6gcpy' for key 'dtu_devices.device_id'
+    at PromisePool.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at pool.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/database.js:65:26)
+    at DeviceData.createDTUDevice (/Users/xujing/Workspace/cloned-website/backend/src/models/deviceData.js:193:31)
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/deviceController.js:47:37
+    at /Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:144:19
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at handleValidationErrors (/Users/xujing/Workspace/cloned-website/backend/src/middleware/validation.js:20:3)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "6afbf9cb-b683-41db-98ff-9bf7a2f08fe9",
+  "body": {
+    "device_id": "DTU_1758272183572_k6gcpy",
+    "serial_number": "凡事多考虑激发树林看风景",
+    "device_group": "测试分组012",
+    "device_name": "为我几分趣味哦",
+    "device_image": "/image/设备图片.png",
+    "link_protocol": "MB-RTU",
+    "offline_delay": 240,
+    "timezone_setting": "-10:00",
+    "longitude": 113.818963,
+    "latitude": 22.71183,
+    "status": "未连接"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-19 16:58:01.048 [WARN] Duplicate entry error Duplicate entry 'DTU_1758272183572_k6gcpy' for key 'dtu_devices.device_id'
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "code": "ER_DUP_ENTRY",
+  "requestId": "6afbf9cb-b683-41db-98ff-9bf7a2f08fe9"
+}
+2025-09-19 16:58:01.049 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu",
+  "statusCode": 400,
+  "responseTime": 4,
+  "requestId": "6afbf9cb-b683-41db-98ff-9bf7a2f08fe9"
+}
+2025-09-19 17:02:18.063 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-19 17:02:18.080 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 192
+}
+2025-09-19 17:02:42.709 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/device-with-sensors",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "001f8150-ab7e-4d7d-b534-038b83d00695"
+}
+2025-09-19 17:02:42.718 [INFO] Starting device creation with sensors
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "deviceId": "TEST_DEVICE_001",
+  "sensorsCount": 1,
+  "mbRtuConfigsCount": 1
+}
+2025-09-19 17:02:42.722 [INFO] Device creation completed successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "deviceCreated": 1,
+  "sensorsCreated": 1,
+  "mbRtuConfigsCreated": 1
+}
+2025-09-19 17:02:42.731 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/device-with-sensors",
+  "statusCode": 200,
+  "responseTime": 22,
+  "requestId": "001f8150-ab7e-4d7d-b534-038b83d00695"
+}
+2025-09-19 17:02:56.626 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/device-with-sensors",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "77bbb7d4-e7f6-460d-b749-c03a21f6dbb3"
+}
+2025-09-19 17:02:56.628 [INFO] Starting device creation with sensors
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "deviceId": "TEST_DEVICE_002",
+  "sensorsCount": 1,
+  "mbRtuConfigsCount": 1
+}
+2025-09-19 17:02:56.632 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`mb_rtu_config`, CONSTRAINT `mb_rtu_config_ibfk_2` FOREIGN KEY (`sensor_id`) REFERENCES `sensors` (`sensor_id`) ON DELETE CASCADE)",
+  "code": "ER_NO_REFERENCED_ROW_2",
+  "errno": 1452,
+  "sqlState": "23000",
+  "attempt": 1,
+  "threadId": 192
+}
+2025-09-19 17:02:56.633 [ERROR] Application error logger is not defined
+ReferenceError: logger is not defined
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/deviceController.js:361:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/device-with-sensors",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "77bbb7d4-e7f6-460d-b749-c03a21f6dbb3",
+  "body": {
+    "deviceData": {
+      "device_id": "TEST_DEVICE_002",
+      "serial_number": "TEST_SERIAL_002",
+      "device_group": "测试分组009",
+      "device_name": "测试设备002",
+      "device_image": "/image/设备图片.png",
+      "link_protocol": "MB-RTU",
+      "offline_delay": 60,
+      "timezone_setting": "+08:00",
+      "longitude": null,
+      "latitude": null,
+      "status": "未连接"
+    },
+    "sensors": [
+      {
+        "sensor_id": "SENSOR_002",
+        "dtu_id": "TEST_DEVICE_002",
+        "icon": "/image/传感器图片.png",
+        "sensor_name": "温度传感器2",
+        "sensor_type": "数值型",
+        "decimal_places": 1,
+        "unit": "°C",
+        "sort_order": 1,
+        "upper_mapping_x1": -32768,
+        "upper_mapping_y1": 32767,
+        "upper_mapping_x2": -2048,
+        "upper_mapping_y2": 2047.9,
+        "lower_mapping_x1": null,
+        "lower_mapping_y1": null,
+        "lower_mapping_x2": null,
+        "lower_mapping_y2": null
+      }
+    ],
+    "mbRtuConfigs": [
+      {
+        "dtu_id": "TEST_DEVICE_002",
+        "sensor_id": "INVALID_SENSOR_ID",
+        "slave_address": 1,
+        "function_code": "04只读",
+        "offset_value": 1,
+        "data_format": "16位有符号数",
+        "data_bits": null,
+        "byte_order_value": null,
+        "collection_cycle": 2
+      }
+    ]
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-19 17:02:56.634 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/device-with-sensors",
+  "statusCode": 500,
+  "responseTime": 9,
+  "requestId": "77bbb7d4-e7f6-460d-b749-c03a21f6dbb3"
+}
+2025-09-19 17:03:17.513 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-19 17:03:17.524 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 193
+}
+2025-09-19 17:03:35.039 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/device-with-sensors",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f499f1ce-7305-4e90-987e-0446de75dd2e"
+}
+2025-09-19 17:03:35.042 [INFO] Starting device creation with sensors
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "deviceId": "TEST_DEVICE_003",
+  "sensorsCount": 1,
+  "mbRtuConfigsCount": 1
+}
+2025-09-19 17:03:35.046 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`mb_rtu_config`, CONSTRAINT `mb_rtu_config_ibfk_2` FOREIGN KEY (`sensor_id`) REFERENCES `sensors` (`sensor_id`) ON DELETE CASCADE)",
+  "code": "ER_NO_REFERENCED_ROW_2",
+  "errno": 1452,
+  "sqlState": "23000",
+  "attempt": 1,
+  "threadId": 193
+}
+2025-09-19 17:03:35.046 [ERROR] 批量创建设备失败
+Error: Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`mb_rtu_config`, CONSTRAINT `mb_rtu_config_ibfk_2` FOREIGN KEY (`sensor_id`) REFERENCES `sensors` (`sensor_id`) ON DELETE CASCADE)
+    at PromisePoolConnection.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/connection.js:47:22)
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/deviceData.js:690:48
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async DeviceData.createDeviceWithSensors (/Users/xujing/Workspace/cloned-website/backend/src/models/deviceData.js:643:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/deviceController.js:354:22
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`mb_rtu_config`, CONSTRAINT `mb_rtu_config_ibfk_2` FOREIGN KEY (`sensor_id`) REFERENCES `sensors` (`sensor_id`) ON DELETE CASCADE)",
+  "deviceData": {
+    "device_id": "TEST_DEVICE_003",
+    "serial_number": "TEST_SERIAL_003",
+    "device_group": "测试分组009",
+    "device_name": "测试设备003",
+    "device_image": "/image/设备图片.png",
+    "link_protocol": "MB-RTU",
+    "offline_delay": 60,
+    "timezone_setting": "+08:00",
+    "longitude": null,
+    "latitude": null,
+    "status": "未连接"
+  },
+  "sensorsCount": 1,
+  "mbRtuConfigsCount": 1
+}
+2025-09-19 17:03:35.048 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/device-with-sensors",
+  "statusCode": 500,
+  "responseTime": 10,
+  "requestId": "f499f1ce-7305-4e90-987e-0446de75dd2e"
+}
+2025-09-19 17:38:10.483 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-19 17:38:10.499 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 205
+}
+2025-09-19 17:38:17.236 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/names",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "c7b9fc46-6d95-43e8-8c7b-ecedde1d5a0a"
+}
+2025-09-19 17:38:17.244 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/names",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "c7b9fc46-6d95-43e8-8c7b-ecedde1d5a0a"
+}
+2025-09-19 17:38:23.835 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "5fbb64b0-8954-4577-ade5-b8dd7cf4782d"
+}
+2025-09-19 17:38:23.841 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups",
+  "statusCode": 200,
+  "responseTime": 6,
+  "requestId": "5fbb64b0-8954-4577-ade5-b8dd7cf4782d"
+}
+2025-09-19 17:38:27.949 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/default",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "17f80d8f-d94f-41ae-bda2-74779385299a"
+}
+2025-09-19 17:38:27.951 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/default",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "17f80d8f-d94f-41ae-bda2-74779385299a"
+}
+2025-09-19 17:38:33.937 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/groups/12",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "bfe7e61e-0758-4460-86b4-097ac79d9cc8"
+}
+2025-09-19 17:38:33.944 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/groups/12",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "bfe7e61e-0758-4460-86b4-097ac79d9cc8"
+}
+2025-09-19 17:38:40.277 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/13",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "02bc64f7-a121-4f5e-b1f8-345b3cd381ee"
+}
+2025-09-19 17:38:40.283 [INFO] Group deleted successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "deletedGroupId": "13",
+  "deletedGroupName": "测试分组002",
+  "movedDevicesCount": 2,
+  "defaultGroupName": "默认分组"
+}
+2025-09-19 17:38:40.284 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/13",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "02bc64f7-a121-4f5e-b1f8-345b3cd381ee"
+}
+2025-09-19 17:38:49.920 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/24",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "141d8506-1a31-426f-9d50-307fe58e289b"
+}
+2025-09-19 17:38:49.924 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "默认分组不能删除",
+  "attempt": 1,
+  "threadId": 205
+}
+2025-09-19 17:38:49.924 [ERROR] Application error 默认分组不能删除
+Error: 默认分组不能删除
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/deviceData.js:375:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async DeviceData.deleteGroup (/Users/xujing/Workspace/cloned-website/backend/src/models/deviceData.js:361:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/deviceController.js:441:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/24",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "141d8506-1a31-426f-9d50-307fe58e289b",
+  "query": {},
+  "params": {}
+}
+2025-09-19 17:38:49.925 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/24",
+  "statusCode": 500,
+  "responseTime": 6,
+  "requestId": "141d8506-1a31-426f-9d50-307fe58e289b"
+}
+2025-09-19 17:40:48.267 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-19 17:40:48.281 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 206
+}
+2025-09-19 17:40:55.205 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/names",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "811279d3-4277-4075-90d2-654c9b86b63c"
+}
+2025-09-19 17:40:55.212 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/names",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "811279d3-4277-4075-90d2-654c9b86b63c"
+}
+2025-09-19 17:41:03.313 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "50c1506b-0861-436e-b06a-176894806721"
+}
+2025-09-19 17:41:03.319 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups",
+  "statusCode": 200,
+  "responseTime": 6,
+  "requestId": "50c1506b-0861-436e-b06a-176894806721"
+}
+2025-09-19 17:41:25.788 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/names",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "ae1d6688-b3e8-4d7f-8c4f-8e9a0928e181"
+}
+2025-09-19 17:41:25.791 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/names",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "ae1d6688-b3e8-4d7f-8c4f-8e9a0928e181"
+}
+2025-09-19 17:41:25.800 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/names",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a97881a7-c8e8-4152-bc23-cb35e36e0363"
+}
+2025-09-19 17:41:25.801 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/names",
+  "statusCode": 200,
+  "responseTime": 1,
+  "requestId": "a97881a7-c8e8-4152-bc23-cb35e36e0363"
+}

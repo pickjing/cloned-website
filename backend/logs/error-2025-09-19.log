@@ -1,0 +1,296 @@
+2025-09-19 16:31:13.031 [ERROR] Application error JSON.stringify(...).some is not a function
+TypeError: JSON.stringify(...).some is not a function
+    at securityLogger (/Users/xujing/Workspace/cloned-website/backend/src/middleware/logging.js:105:53)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at databaseLogger (/Users/xujing/Workspace/cloned-website/backend/src/middleware/logging.js:69:3)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu/delete",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "53606f4b-3d65-42b3-8afb-ca1332469c41",
+  "body": {
+    "device_ids": [
+      "DTU_1757664695341_add1uy1pd"
+    ]
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-19 16:37:26.273 [ERROR] Application error JSON.stringify(...).some is not a function
+TypeError: JSON.stringify(...).some is not a function
+    at securityLogger (/Users/xujing/Workspace/cloned-website/backend/src/middleware/logging.js:105:53)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at databaseLogger (/Users/xujing/Workspace/cloned-website/backend/src/middleware/logging.js:69:3)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "eb43478d-8121-462d-a4d7-ed7b2fa7538a",
+  "body": {
+    "group_name": "测试分组004",
+    "description": ""
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-19 16:44:21.508 [ERROR] Application error cache.invalidatePattern is not a function
+TypeError: cache.invalidatePattern is not a function
+    at DeviceData.createGroup (/Users/xujing/Workspace/cloned-website/backend/src/models/deviceData.js:320:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/deviceController.js:162:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "904fb649-2d26-4f84-a646-a161ba1f9a7c",
+  "body": {
+    "group_name": "测试分组006",
+    "description": "测试缓存清除"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-19 16:45:16.289 [ERROR] Application error 分组名已存在
+Error: 分组名已存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/deviceController.js:159:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "cb3fed8c-3e5e-42e7-8c4a-50091c49b321",
+  "body": {
+    "group_name": "测试分组006",
+    "description": "测试缓存清除"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-19 16:52:18.637 [ERROR] Application error 分组名已存在
+Error: 分组名已存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/deviceController.js:159:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "78e601d1-0b7c-4330-aa22-6879c3810a54",
+  "body": {
+    "group_name": "测试分组008",
+    "description": "测试分组"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-19 16:58:01.047 [ERROR] Query error recorded
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Duplicate entry 'DTU_1758272183572_k6gcpy' for key 'dtu_devices.device_id'",
+  "code": "ER_DUP_ENTRY",
+  "query": "INSERT INTO dtu_devices (\n        device_id, serial_number, device_group, device_name, device_image, \n        link_protocol, offline_delay, timezone_setting, longitude, latitude, status\n      ) VALUES"
+}
+2025-09-19 16:58:01.048 [ERROR] Application error Duplicate entry 'DTU_1758272183572_k6gcpy' for key 'dtu_devices.device_id'
+Error: Duplicate entry 'DTU_1758272183572_k6gcpy' for key 'dtu_devices.device_id'
+    at PromisePool.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at pool.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/database.js:65:26)
+    at DeviceData.createDTUDevice (/Users/xujing/Workspace/cloned-website/backend/src/models/deviceData.js:193:31)
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/deviceController.js:47:37
+    at /Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:144:19
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at handleValidationErrors (/Users/xujing/Workspace/cloned-website/backend/src/middleware/validation.js:20:3)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "requestId": "6afbf9cb-b683-41db-98ff-9bf7a2f08fe9",
+  "body": {
+    "device_id": "DTU_1758272183572_k6gcpy",
+    "serial_number": "凡事多考虑激发树林看风景",
+    "device_group": "测试分组012",
+    "device_name": "为我几分趣味哦",
+    "device_image": "/image/设备图片.png",
+    "link_protocol": "MB-RTU",
+    "offline_delay": 240,
+    "timezone_setting": "-10:00",
+    "longitude": 113.818963,
+    "latitude": 22.71183,
+    "status": "未连接"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-19 17:02:56.632 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`mb_rtu_config`, CONSTRAINT `mb_rtu_config_ibfk_2` FOREIGN KEY (`sensor_id`) REFERENCES `sensors` (`sensor_id`) ON DELETE CASCADE)",
+  "code": "ER_NO_REFERENCED_ROW_2",
+  "errno": 1452,
+  "sqlState": "23000",
+  "attempt": 1,
+  "threadId": 192
+}
+2025-09-19 17:02:56.633 [ERROR] Application error logger is not defined
+ReferenceError: logger is not defined
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/deviceController.js:361:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/device-with-sensors",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "77bbb7d4-e7f6-460d-b749-c03a21f6dbb3",
+  "body": {
+    "deviceData": {
+      "device_id": "TEST_DEVICE_002",
+      "serial_number": "TEST_SERIAL_002",
+      "device_group": "测试分组009",
+      "device_name": "测试设备002",
+      "device_image": "/image/设备图片.png",
+      "link_protocol": "MB-RTU",
+      "offline_delay": 60,
+      "timezone_setting": "+08:00",
+      "longitude": null,
+      "latitude": null,
+      "status": "未连接"
+    },
+    "sensors": [
+      {
+        "sensor_id": "SENSOR_002",
+        "dtu_id": "TEST_DEVICE_002",
+        "icon": "/image/传感器图片.png",
+        "sensor_name": "温度传感器2",
+        "sensor_type": "数值型",
+        "decimal_places": 1,
+        "unit": "°C",
+        "sort_order": 1,
+        "upper_mapping_x1": -32768,
+        "upper_mapping_y1": 32767,
+        "upper_mapping_x2": -2048,
+        "upper_mapping_y2": 2047.9,
+        "lower_mapping_x1": null,
+        "lower_mapping_y1": null,
+        "lower_mapping_x2": null,
+        "lower_mapping_y2": null
+      }
+    ],
+    "mbRtuConfigs": [
+      {
+        "dtu_id": "TEST_DEVICE_002",
+        "sensor_id": "INVALID_SENSOR_ID",
+        "slave_address": 1,
+        "function_code": "04只读",
+        "offset_value": 1,
+        "data_format": "16位有符号数",
+        "data_bits": null,
+        "byte_order_value": null,
+        "collection_cycle": 2
+      }
+    ]
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-19 17:03:35.046 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`mb_rtu_config`, CONSTRAINT `mb_rtu_config_ibfk_2` FOREIGN KEY (`sensor_id`) REFERENCES `sensors` (`sensor_id`) ON DELETE CASCADE)",
+  "code": "ER_NO_REFERENCED_ROW_2",
+  "errno": 1452,
+  "sqlState": "23000",
+  "attempt": 1,
+  "threadId": 193
+}
+2025-09-19 17:03:35.046 [ERROR] 批量创建设备失败
+Error: Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`mb_rtu_config`, CONSTRAINT `mb_rtu_config_ibfk_2` FOREIGN KEY (`sensor_id`) REFERENCES `sensors` (`sensor_id`) ON DELETE CASCADE)
+    at PromisePoolConnection.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/connection.js:47:22)
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/deviceData.js:690:48
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async DeviceData.createDeviceWithSensors (/Users/xujing/Workspace/cloned-website/backend/src/models/deviceData.js:643:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/deviceController.js:354:22
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`mb_rtu_config`, CONSTRAINT `mb_rtu_config_ibfk_2` FOREIGN KEY (`sensor_id`) REFERENCES `sensors` (`sensor_id`) ON DELETE CASCADE)",
+  "deviceData": {
+    "device_id": "TEST_DEVICE_003",
+    "serial_number": "TEST_SERIAL_003",
+    "device_group": "测试分组009",
+    "device_name": "测试设备003",
+    "device_image": "/image/设备图片.png",
+    "link_protocol": "MB-RTU",
+    "offline_delay": 60,
+    "timezone_setting": "+08:00",
+    "longitude": null,
+    "latitude": null,
+    "status": "未连接"
+  },
+  "sensorsCount": 1,
+  "mbRtuConfigsCount": 1
+}
+2025-09-19 17:38:49.924 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "默认分组不能删除",
+  "attempt": 1,
+  "threadId": 205
+}
+2025-09-19 17:38:49.924 [ERROR] Application error 默认分组不能删除
+Error: 默认分组不能删除
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/deviceData.js:375:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async DeviceData.deleteGroup (/Users/xujing/Workspace/cloned-website/backend/src/models/deviceData.js:361:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/deviceController.js:441:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/24",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "141d8506-1a31-426f-9d50-307fe58e289b",
+  "query": {},
+  "params": {}
+}

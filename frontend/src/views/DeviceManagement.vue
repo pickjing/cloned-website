@@ -347,7 +347,7 @@ export default {
     async fetchOptions() {
       try {
         // 获取设备分组选项
-        const groupsResponse = await fetch('http://localhost:3000/api/options/groups')
+        const groupsResponse = await fetch('http://localhost:3000/api/groups/names')
         if (groupsResponse.ok) {
           const groupsData = await groupsResponse.json()
           this.deviceGroups = groupsData.data || []

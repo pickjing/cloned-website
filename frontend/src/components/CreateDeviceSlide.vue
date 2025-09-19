@@ -1119,7 +1119,7 @@ export default {
   methods: {
     async fetchDeviceGroups() {
       try {
-        const response = await fetch('http://localhost:3000/api/options/groups')
+        const response = await fetch('http://localhost:3000/api/groups/names')
         if (response.ok) {
           const data = await response.json()
           this.deviceGroups = data.data || []
@@ -1137,8 +1137,18 @@ export default {
     handleGroupCreated(groupData) {
       // 确保数据结构正确
       const groupName = groupData.group_name || groupData
-      this.deviceGroups.push(groupName)
+      console.log('处理分组创建成功:', groupName)
+      
+      // 添加到分组列表
+      if (!this.deviceGroups.includes(groupName)) {
+        this.deviceGroups.push(groupName)
+      }
+      
+      // 设置当前选中的分组
       this.deviceData.group = groupName
+      console.log('设置设备分组:', this.deviceData.group)
+      
+      // 关闭模态框
       this.showCreateGroupModal = false
     },
     
@@ -1171,8 +1181,8 @@ export default {
         const deviceId = this.deviceData.deviceId;
         
         // 验证DTU设备数据完整性
-        if (!deviceId || !this.deviceData.deviceName || !this.deviceData.group) {
-          throw new Error('DTU设备数据不完整，请检查设备名称和分组')
+        if (!deviceId || !this.deviceData.deviceName || !this.deviceData.group || this.deviceData.group.trim() === '') {
+          throw new Error('id是'+deviceId+'名字是'+this.deviceData.deviceName+'分组是'+this.deviceData.group+'，DTU设备数据不完整，请检查设备名称和分组')
         }
         
         // 准备DTU设备数据
@@ -1194,23 +1204,8 @@ export default {
         
         console.log('准备插入的DTU数据:', dtuData)
         
-        // 创建DTU设备
-        const dtuResponse = await fetch('/api/dtu', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(dtuData)
-        })
-        
-        if (!dtuResponse.ok) {
-          throw new Error(`创建DTU设备失败: ${dtuResponse.statusText}`)
-        }
-        
-        const dtuResult = await dtuResponse.json()
-        console.log('DTU设备创建成功:', dtuResult)
-        
-        // 创建所有传感器
+        // 准备传感器数据
+        const sensorsData = [];
         if (this.sensors.length > 0) {
           for (const sensor of this.sensors) {
             // 验证传感器数据完整性
@@ -1241,30 +1236,13 @@ export default {
               lower_mapping_y2: sensor.downlinkMapping.y2 && sensor.downlinkMapping.y2 !== '' ? (parseFloat(sensor.downlinkMapping.y2) || null) : null
             }
             
-            console.log('准备插入的传感器数据:', sensorData)
-            
-            // 创建传感器
-            const sensorResponse = await fetch('/api/sensors', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(sensorData)
-            })
-            
-            if (!sensorResponse.ok) {
-              throw new Error(`创建传感器失败: ${sensorResponse.statusText}`)
-            }
-            
-            const sensorResult = await sensorResponse.json()
-            console.log('传感器创建成功:', sensorResult)
+            sensorsData.push(sensorData);
           }
         }
         
-        // 为所有传感器创建MB RTU协议配置
+        // 准备MB-RTU协议配置数据
+        const mbRtuConfigsData = [];
         if (this.sensors.length > 0) {
-          console.log('开始创建MB RTU协议配置...')
-          
           const mbRtuConfigs = this.sensors.map((sensor, index) => ({
             dtu_id: deviceId,
             sensor_id: sensor.id,
@@ -1277,24 +1255,35 @@ export default {
             collection_cycle: 2 // 采集周期默认2秒
           }))
           
-          console.log('准备创建的MB RTU配置:', mbRtuConfigs)
-          
-          // 批量创建MB RTU协议配置
-          const mbRtuResponse = await fetch('/api/mb-rtu-configs', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ configs: mbRtuConfigs })
-          })
-          
-          if (!mbRtuResponse.ok) {
-            throw new Error(`创建MB RTU协议配置失败: ${mbRtuResponse.statusText}`)
-          }
-          
-          const mbRtuResult = await mbRtuResponse.json()
-          console.log('MB RTU协议配置创建成功:', mbRtuResult)
+          mbRtuConfigsData.push(...mbRtuConfigs);
         }
+        
+        console.log('准备批量创建数据:', {
+          device: dtuData,
+          sensors: sensorsData,
+          mbRtuConfigs: mbRtuConfigsData
+        })
+        
+        // 使用事务批量创建设备、传感器和MB-RTU配置
+        const response = await fetch('/api/device-with-sensors', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            deviceData: dtuData,
+            sensors: sensorsData,
+            mbRtuConfigs: mbRtuConfigsData
+          })
+        })
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(`创建设备失败: ${errorData.message || response.statusText}`)
+        }
+        
+        const result = await response.json()
+        console.log('设备创建成功:', result)
         
         // 发送成功事件
         this.$emit('device-created', {
@@ -1382,8 +1371,10 @@ export default {
     },
 
     selectGroup(group) {
+      console.log('选择分组:', group)
       this.deviceData.group = group
       this.showGroupDropdown = false
+      console.log('设置后的设备分组:', this.deviceData.group)
     },
 
     toggleTimezoneDropdown() {

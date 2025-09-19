@@ -1,29 +1,23 @@
 const DeviceData = require('../models/deviceData');
+const { asyncHandler } = require('../middleware/errorHandler');
+const { NotFoundError, ConflictError, DatabaseError } = require('../utils/errors');
+const logger = require('../utils/logger');
 
 class DeviceController {
   // 获取所有DTU设备
-  static async getAllDTUDevices(req, res) {
-    try {
-      const { page, limit, group, status, search } = req.query;
-      const params = { page, limit, group, status, search };
-      const result = await DeviceData.getAllDTUDevices(params);
-      res.json({ success: true, data: result });
-    } catch (error) {
-      console.error('获取DTU设备失败:', error);
-      res.status(500).json({ success: false, message: error.message });
-    }
-  }
+  static getAllDTUDevices = asyncHandler(async (req, res) => {
+    const { page, limit, group, status, search } = req.query;
+    const params = { page, limit, group, status, search };
+    const result = await DeviceData.getAllDTUDevices(params);
+    res.json({ success: true, data: result });
+  });
 
   // 根据DTU设备ID获取传感器列表
-  static async getSensorsByDTUId(req, res) {
-    try {
-      const { dtuId } = req.params;
-      const sensors = await DeviceData.getSensorsByDTUId(dtuId);
-      res.json({ success: true, data: sensors });
-    } catch (error) {
-      res.status(500).json({ success: false, message: error.message });
-    }
-  }
+  static getSensorsByDTUId = asyncHandler(async (req, res) => {
+    const { dtuId } = req.params;
+    const sensors = await DeviceData.getSensorsByDTUId(dtuId);
+    res.json({ success: true, data: sensors });
+  });
 
   // 根据传感器ID获取传感器数据
   static async getTemperatureDataBySensorId(req, res) {
@@ -50,14 +44,10 @@ class DeviceController {
   }
 
   // 创建DTU设备
-  static async createDTUDevice(req, res) {
-    try {
-      const result = await DeviceData.createDTUDevice(req.body);
-      res.json({ success: true, data: { id: result.insertId } });
-    } catch (error) {
-      res.status(500).json({ success: false, message: error.message });
-    }
-  }
+  static createDTUDevice = asyncHandler(async (req, res) => {
+    const result = await DeviceData.createDTUDevice(req.body);
+    res.json({ success: true, data: { id: result.insertId } });
+  });
 
   // 创建传感器
   static async createSensor(req, res) {
@@ -135,10 +125,10 @@ class DeviceController {
     }
   }
 
-  // 获取设备分组选项
-  static async getDeviceGroupOptions(req, res) {
+  // 获取设备分组名称列表
+  static async getDeviceGroupNames(req, res) {
     try {
-      const groups = await DeviceData.getDeviceGroups();
+      const groups = await DeviceData.getDeviceGroupsNames();
       res.json({ success: true, data: groups });
     } catch (error) {
       res.status(500).json({ success: false, message: error.message });
@@ -161,34 +151,26 @@ class DeviceController {
   }
 
   // 创建新分组
-  static async createGroup(req, res) {
-    try {
-      const { group_name, description } = req.body;
-      
-      if (!group_name || group_name.trim() === '') {
-        return res.status(400).json({ success: false, message: '分组名不能为空' });
-      }
-      
-      // 检查分组名是否已存在
-      const exists = await DeviceData.checkGroupNameExists(group_name.trim());
-      if (exists) {
-        return res.status(400).json({ success: false, message: '分组名已存在' });
-      }
-      
-      const result = await DeviceData.createGroup({
-        group_name: group_name.trim(),
-        description: description || ''
-      });
-      
-      res.json({ 
-        success: true, 
-        message: '分组创建成功',
-        data: { id: result.insertId, group_name: group_name.trim() }
-      });
-    } catch (error) {
-      res.status(500).json({ success: false, message: error.message });
+  static createGroup = asyncHandler(async (req, res) => {
+    const { group_name, description } = req.body;
+    
+    // 检查分组名是否已存在
+    const exists = await DeviceData.checkGroupNameExists(group_name.trim());
+    if (exists) {
+      throw new ConflictError('分组名已存在');
     }
-  }
+    
+    const result = await DeviceData.createGroup({
+      group_name: group_name.trim(),
+      description: description || ''
+    });
+    
+    res.json({ 
+      success: true, 
+      message: '分组创建成功',
+      data: { id: result.insertId, group_name: group_name.trim() }
+    });
+  });
 
   // 复制DTU设备
   static async copyDTUDevices(req, res) {
@@ -341,6 +323,129 @@ class DeviceController {
       res.status(500).json({ success: false, message: error.message });
     }
   }
+
+  // 批量创建设备（包含传感器和MB-RTU配置）- 使用事务
+  static createDeviceWithSensors = asyncHandler(async (req, res) => {
+    const { deviceData, sensors, mbRtuConfigs } = req.body;
+    
+    // 验证必需数据
+    if (!deviceData || !deviceData.device_id || !deviceData.device_name) {
+      return res.status(400).json({ 
+        success: false, 
+        message: '设备数据不完整，请检查设备ID和设备名称' 
+      });
+    }
+
+    if (!sensors || !Array.isArray(sensors)) {
+      return res.status(400).json({ 
+        success: false, 
+        message: '传感器数据格式错误' 
+      });
+    }
+
+    if (!mbRtuConfigs || !Array.isArray(mbRtuConfigs)) {
+      return res.status(400).json({ 
+        success: false, 
+        message: 'MB-RTU配置数据格式错误' 
+      });
+    }
+
+    try {
+      const result = await DeviceData.createDeviceWithSensors(deviceData, sensors, mbRtuConfigs);
+      
+      res.json({ 
+        success: true, 
+        message: '设备创建成功',
+        data: result
+      });
+    } catch (error) {
+      logger.error('批量创建设备失败', {
+        error: error.message,
+        stack: error.stack,
+        deviceData,
+        sensorsCount: sensors.length,
+        mbRtuConfigsCount: mbRtuConfigs.length
+      });
+      
+      res.status(500).json({ 
+        success: false, 
+        message: `设备创建失败: ${error.message}` 
+      });
+    }
+  });
+
+  // 获取所有分组详细信息
+  static getAllGroups = asyncHandler(async (req, res) => {
+    const groups = await DeviceData.getAllGroups();
+    res.json({ success: true, data: groups });
+  });
+
+  // 获取默认分组
+  static getDefaultGroup = asyncHandler(async (req, res) => {
+    const defaultGroup = await DeviceData.getDefaultGroup();
+    if (!defaultGroup) {
+      return res.status(404).json({ 
+        success: false, 
+        message: '默认分组不存在' 
+      });
+    }
+    res.json({ success: true, data: defaultGroup });
+  });
+
+  // 根据ID获取分组
+  static getGroupById = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const group = await DeviceData.getGroupById(id);
+    if (!group) {
+      return res.status(404).json({ 
+        success: false, 
+        message: '分组不存在' 
+      });
+    }
+    res.json({ success: true, data: group });
+  });
+
+  // 更新分组
+  static updateGroup = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const { group_name, description } = req.body;
+    
+    // 检查新名称是否与其他分组重复
+    const exists = await DeviceData.checkGroupNameExists(group_name.trim());
+    if (exists) {
+      // 检查是否是当前分组自己的名称
+      const currentGroup = await DeviceData.getGroupById(id);
+      if (!currentGroup || currentGroup.group_name !== group_name.trim()) {
+        return res.status(400).json({ 
+          success: false, 
+          message: '分组名已存在' 
+        });
+      }
+    }
+    
+    const result = await DeviceData.updateGroup(id, {
+      group_name: group_name.trim(),
+      description: description || ''
+    });
+    
+    res.json({ 
+      success: true, 
+      message: '分组更新成功',
+      data: { id: parseInt(id), group_name: group_name.trim() }
+    });
+  });
+
+  // 删除分组
+  static deleteGroup = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const result = await DeviceData.deleteGroup(id);
+    
+    res.json({ 
+      success: true, 
+      message: `分组"${result.deletedGroupName}"删除成功，${result.movedDevicesCount}个设备已移至"${result.defaultGroupName}"分组`,
+      data: result
+    });
+  });
 }
 
 module.exports = DeviceController;

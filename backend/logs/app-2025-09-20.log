@@ -1,0 +1,36 @@
+2025-09-20 01:05:45.663 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-20 01:05:45.691 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 9
+}
+2025-09-20 01:05:55.851 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/names",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2ef1b5d6-971f-4c1b-a72d-0aa2acbde523"
+}
+2025-09-20 01:05:55.876 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/names",
+  "statusCode": 200,
+  "responseTime": 26,
+  "requestId": "2ef1b5d6-971f-4c1b-a72d-0aa2acbde523"
+}
