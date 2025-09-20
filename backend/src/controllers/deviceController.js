@@ -12,12 +12,6 @@ class DeviceController {
     res.json({ success: true, data: result });
   });
 
-  // 根据DTU设备ID获取传感器列表
-  static getSensorsByDTUId = asyncHandler(async (req, res) => {
-    const { dtuId } = req.params;
-    const sensors = await DeviceData.getSensorsByDTUId(dtuId);
-    res.json({ success: true, data: sensors });
-  });
 
   // 根据传感器ID获取传感器数据
   static async getTemperatureDataBySensorId(req, res) {
@@ -49,15 +43,6 @@ class DeviceController {
     res.json({ success: true, data: { id: result.insertId } });
   });
 
-  // 创建传感器
-  static async createSensor(req, res) {
-    try {
-      const result = await DeviceData.createSensor(req.body);
-      res.json({ success: true, data: { id: result.insertId } });
-    } catch (error) {
-      res.status(500).json({ success: false, message: error.message });
-    }
-  }
 
   // 创建传感器数据
   static async createTemperatureData(req, res) {

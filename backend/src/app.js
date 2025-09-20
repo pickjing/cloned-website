@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const deviceRoutes = require('./routes/deviceRoutes');
 const groupRoutes = require('./routes/groupRoutes');
 const mbRtuRoutes = require('./routes/mbRtuRoutes');
+const sensorRoutes = require('./routes/sensorRoutes');
 const { errorHandler, notFoundHandler } = require('./middleware/errorHandler');
 const { requestLogger, databaseLogger, securityLogger, healthCheckLogger } = require('./middleware/logging');
 const logger = require('./utils/logger');
@@ -71,6 +72,9 @@ app.use('/api/groups', groupRoutes);
 
 // MB-RTU协议路由
 app.use('/api/mb-rtu', mbRtuRoutes);
+
+// 传感器路由
+app.use('/api/sensors', sensorRoutes);
 
 // 404 处理
 app.use(notFoundHandler);

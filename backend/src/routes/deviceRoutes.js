@@ -2,21 +2,20 @@ const express = require('express');
 const DeviceController = require('../controllers/deviceController');
 const {
   validateDTUDevice,
-  validateSensor,
   validateSensorData,
   validatePagination,
   validateDeviceId,
-  validateSensorId,
   validateBatchOperation,
   validateMoveToGroup
-} = require('../middleware/validation');
-
+} = require('../middleware/commonValidation');
+const {
+  validateSensorId
+} = require('../middleware/sensorValidation');
 const router = express.Router();
 
 // DTU设备相关路由
 router.get('/dtu', validatePagination, DeviceController.getAllDTUDevices);
 router.post('/dtu', validateDTUDevice, DeviceController.createDTUDevice);
-router.get('/dtu/:dtuId/sensors', validateDeviceId, DeviceController.getSensorsByDTUId);
 router.get('/dtu/:dtuId/temperature', validateDeviceId, DeviceController.getTemperatureDataByDTUId);
 
 // 设备管理高级功能
@@ -27,8 +26,6 @@ router.post('/dtu/permanently-delete', validateBatchOperation, DeviceController.
 router.post('/dtu/reset', validateBatchOperation, DeviceController.resetDTUDevices);
 router.post('/dtu/move-to-group', validateMoveToGroup, DeviceController.moveDevicesToGroup);
 
-// 传感器相关路由
-router.post('/sensors', validateSensor, DeviceController.createSensor);
 router.get('/sensors/:sensorId/temperature', validateSensorId, DeviceController.getTemperatureDataBySensorId);
 router.get('/sensors/:sensorId/trend', validateSensorId, DeviceController.getTemperatureTrend);
 

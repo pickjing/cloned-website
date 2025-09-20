@@ -34,24 +34,6 @@ const validateGroup = [
 ];
 
 /**
- * 分组重命名验证规则
- */
-const validateGroupUpdate = [
-  body('group_name')
-    .notEmpty()
-    .withMessage('分组名不能为空')
-    .isLength({ min: 1, max: 100 })
-    .withMessage('分组名长度必须在1-100个字符之间'),
-  
-  body('description')
-    .optional()
-    .isLength({ max: 255 })
-    .withMessage('分组描述长度不能超过255个字符'),
-  
-  handleValidationErrors
-];
-
-/**
  * 分组ID参数验证
  */
 const validateGroupId = [
@@ -62,26 +44,7 @@ const validateGroupId = [
   handleValidationErrors
 ];
 
-/**
- * 移动设备到分组验证规则
- */
-const validateMoveToGroup = [
-  body('device_ids')
-    .isArray({ min: 1 })
-    .withMessage('设备ID列表不能为空'),
-  
-  body('target_group')
-    .notEmpty()
-    .withMessage('目标分组不能为空')
-    .isLength({ min: 1, max: 100 })
-    .withMessage('目标分组长度必须在1-100个字符之间'),
-  
-  handleValidationErrors
-];
-
 module.exports = {
   validateGroup,
-  validateGroupUpdate,
-  validateGroupId,
-  validateMoveToGroup
+  validateGroupId
 };

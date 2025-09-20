@@ -5,11 +5,12 @@ const TransactionService = require('../services/transaction');
 
 class GroupData {
   // 获取分组名称列表
-  static async getGroupNames() {
+  static async getGroupNames(connection = null) {
+    const dbConnection = connection || db;
     const cacheKey = cache.generateKey('device_groups_names');
     return await cache.cacheQuery(cacheKey, async () => {
       // 从device_groups表中获取所有分组名称
-      const [rows] = await db.execute(`
+      const [rows] = await dbConnection.execute(`
         SELECT group_name 
         FROM device_groups 
         ORDER BY group_name
@@ -19,10 +20,11 @@ class GroupData {
   }
 
   // 获取所有分组详细信息
-  static async getGroups() {
+  static async getGroups(connection = null) {
+    const dbConnection = connection || db;
     const cacheKey = cache.generateKey('all_groups');
     return await cache.cacheQuery(cacheKey, async () => {
-      const [rows] = await db.execute(`
+      const [rows] = await dbConnection.execute(`
         SELECT id, group_name, description, is_default, created_at, updated_at
         FROM device_groups 
         ORDER BY is_default DESC, group_name
@@ -32,10 +34,11 @@ class GroupData {
   }
 
   // 获取默认分组
-  static async getDefaultGroup() {
+  static async getDefaultGroup(connection = null) {
+    const dbConnection = connection || db;
     const cacheKey = cache.generateKey('default_group');
     return await cache.cacheQuery(cacheKey, async () => {
-      const [rows] = await db.execute(`
+      const [rows] = await dbConnection.execute(`
         SELECT id, group_name, description, is_default, created_at, updated_at
         FROM device_groups 
         WHERE is_default = TRUE
@@ -46,8 +49,9 @@ class GroupData {
   }
 
   // 根据ID获取分组
-  static async getGroupById(id) {
-    const [rows] = await db.execute(`
+  static async getGroupById(id, connection = null) {
+    const dbConnection = connection || db;
+    const [rows] = await dbConnection.execute(`
       SELECT id, group_name, description, is_default, created_at, updated_at
       FROM device_groups 
       WHERE id = ?
@@ -56,9 +60,10 @@ class GroupData {
   }
 
   // 更新分组
-  static async updateGroup(id, data) {
+  static async updateGroup(id, data, connection = null) {
+    const dbConnection = connection || db;
     const { group_name, description } = data;
-    const [result] = await db.execute(`
+    const [result] = await dbConnection.execute(`
       UPDATE device_groups 
       SET group_name = ?, description = ?, updated_at = NOW()
       WHERE id = ? AND is_default = FALSE
@@ -68,9 +73,12 @@ class GroupData {
       throw new Error('分组不存在或为默认分组，无法修改');
     }
     
-    cache.deletePattern('device_groups_names:.*', 'long');
-    cache.deletePattern('all_groups:.*', 'long');
-    cache.deletePattern('default_group:.*', 'long');
+    // 只有在非事务模式下才清除缓存
+    if (!connection) {
+      cache.deletePattern('device_groups_names:.*', 'long');
+      cache.deletePattern('all_groups:.*', 'long');
+      cache.deletePattern('default_group:.*', 'long');
+    }
     
     return result;
   }
@@ -143,8 +151,9 @@ class GroupData {
   }
 
   // 检查分组名是否存在
-  static async checkGroupNameExists(groupName) {
-    const [rows] = await db.execute(
+  static async checkGroupNameExists(groupName, connection = null) {
+    const dbConnection = connection || db;
+    const [rows] = await dbConnection.execute(
       'SELECT COUNT(*) as count FROM device_groups WHERE group_name = ?',
       [groupName]
     );
@@ -152,15 +161,18 @@ class GroupData {
   }
 
   // 创建新分组
-  static async createGroup(data) {
+  static async createGroup(data, connection = null) {
+    const dbConnection = connection || db;
     const { group_name, description } = data;
-    const [result] = await db.execute(
+    const [result] = await dbConnection.execute(
       'INSERT INTO device_groups (group_name, description) VALUES (?, ?)',
       [group_name, description]
     );
     
-    // 清除设备分组缓存，确保前端能立即看到新分组
-    cache.deletePattern('device_groups_names:.*', 'long');
+    // 只有在非事务模式下才清除缓存
+    if (!connection) {
+      cache.deletePattern('device_groups_names:.*', 'long');
+    }
     
     return result;
   }

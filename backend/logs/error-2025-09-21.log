@@ -1,0 +1,213 @@
+2025-09-21 00:46:19.823 [ERROR] Application error 路径 /api/health 不存在
+Error: 路径 /api/health 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:688:15
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:276:14)
+    at Function.handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:186:3)
+    at router (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:60:12)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/health",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "5938bfc4-29d0-4237-a7c1-d0809ae169e4",
+  "query": {},
+  "params": {}
+}
+2025-09-21 00:46:26.954 [ERROR] Application error 路径 /api/sensors/dtu/TEST_DEVICE_001 不存在
+Error: 路径 /api/sensors/dtu/TEST_DEVICE_001 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:688:15
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:276:14)
+    at Function.handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:186:3)
+    at router (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:60:12)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/dtu/TEST_DEVICE_001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "91655654-d005-43e2-bf2c-43fcc7bd75c0",
+  "query": {},
+  "params": {}
+}
+2025-09-21 01:13:55.070 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Bind parameters must not contain undefined. To pass SQL NULL specify JS null",
+  "attempt": 1,
+  "threadId": 237
+}
+2025-09-21 01:13:55.071 [ERROR] Application error Bind parameters must not contain undefined. To pass SQL NULL specify JS null
+TypeError: Bind parameters must not contain undefined. To pass SQL NULL specify JS null
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/base/connection.js:660:17
+    at Array.forEach (<anonymous>)
+    at PoolConnection.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/base/connection.js:652:22)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/connection.js:56:11
+    at new Promise (<anonymous>)
+    at PromisePoolConnection.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/connection.js:53:12)
+    at SensorData.createSensor (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:59:41)
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:40:45
+    at TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "e4699cd1-1552-45be-9acd-4d8b5828590a",
+  "body": {
+    "sensor_id": "TEST_SENSOR_001",
+    "dtu_id": "TEST_DEVICE_001",
+    "sensor_name": "测试温度传感器",
+    "sensor_type": "数值型",
+    "decimal_places": 2,
+    "unit": "°C"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-21 01:15:43.924 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Data truncated for column 'function_code' at row 1",
+  "code": "WARN_DATA_TRUNCATED",
+  "errno": 1265,
+  "sqlState": "01000",
+  "attempt": 1,
+  "threadId": 240
+}
+2025-09-21 01:15:43.925 [ERROR] Application error Data truncated for column 'function_code' at row 1
+Error: Data truncated for column 'function_code' at row 1
+    at PromisePoolConnection.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/connection.js:47:22)
+    at MbRtuData.createMBRTU (/Users/xujing/Workspace/cloned-website/backend/src/models/mbRtuData.js:22:41)
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:49:23
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:38:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "34240991-21fe-4986-ae29-5231ef3d0466",
+  "body": {
+    "sensor_id": "TEST_SENSOR_002",
+    "dtu_id": "TEST_DEVICE_001",
+    "sensor_name": "测试压力传感器",
+    "sensor_type": "数值型",
+    "decimal_places": 1,
+    "unit": "MPa",
+    "mbRtuConfig": {
+      "slave_address": 2,
+      "function_code": "03读保持寄存器",
+      "offset_value": 100,
+      "data_format": "32位浮点数",
+      "collection_cycle": 5
+    }
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-21 01:16:02.973 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Data truncated for column 'data_format' at row 1",
+  "code": "WARN_DATA_TRUNCATED",
+  "errno": 1265,
+  "sqlState": "01000",
+  "attempt": 1,
+  "threadId": 240
+}
+2025-09-21 01:16:02.973 [ERROR] Application error Data truncated for column 'data_format' at row 1
+Error: Data truncated for column 'data_format' at row 1
+    at PromisePoolConnection.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/connection.js:47:22)
+    at MbRtuData.createMBRTU (/Users/xujing/Workspace/cloned-website/backend/src/models/mbRtuData.js:22:41)
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:49:23
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:38:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "34ff3569-312f-497e-8ff7-a1874912e6ad",
+  "body": {
+    "sensor_id": "TEST_SENSOR_002",
+    "dtu_id": "TEST_DEVICE_001",
+    "sensor_name": "测试压力传感器",
+    "sensor_type": "数值型",
+    "decimal_places": 1,
+    "unit": "MPa",
+    "mbRtuConfig": {
+      "slave_address": 2,
+      "function_code": "03读写",
+      "offset_value": 100,
+      "data_format": "32位浮点数",
+      "collection_cycle": 5
+    }
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-21 01:16:53.714 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`sensors`, CONSTRAINT `sensors_ibfk_1` FOREIGN KEY (`dtu_id`) REFERENCES `dtu_devices` (`device_id`) ON DELETE CASCADE)",
+  "code": "ER_NO_REFERENCED_ROW_2",
+  "errno": 1452,
+  "sqlState": "23000",
+  "attempt": 1,
+  "threadId": 240
+}
+2025-09-21 01:16:53.714 [ERROR] Application error Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`sensors`, CONSTRAINT `sensors_ibfk_1` FOREIGN KEY (`dtu_id`) REFERENCES `dtu_devices` (`device_id`) ON DELETE CASCADE)
+Error: Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`sensors`, CONSTRAINT `sensors_ibfk_1` FOREIGN KEY (`dtu_id`) REFERENCES `dtu_devices` (`device_id`) ON DELETE CASCADE)
+    at PromisePoolConnection.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/connection.js:47:22)
+    at SensorData.createSensor (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:60:41)
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:40:45
+    at TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:38:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "4ea859c0-bcd1-47fa-a1b8-3d8551dcebcd",
+  "body": {
+    "sensor_id": "TEST_SENSOR_003",
+    "dtu_id": "INVALID_DTU",
+    "sensor_name": "测试无效传感器",
+    "mbRtuConfig": {
+      "function_code": "INVALID_CODE"
+    }
+  },
+  "query": {},
+  "params": {}
+}

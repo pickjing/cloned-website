@@ -2,7 +2,6 @@ const express = require('express');
 const GroupController = require('../controllers/groupController');
 const {
   validateGroup,
-  validateGroupUpdate,
   validateGroupId
 } = require('../middleware/groupValidation');
 
@@ -28,7 +27,7 @@ router.get('/check', GroupController.checkGroupNameExists);
 router.post('/', validateGroup, GroupController.createGroup);
 
 // 更新分组
-router.put('/:id', validateGroupId, validateGroupUpdate, GroupController.updateGroup);
+router.put('/:id', validateGroupId, validateGroup, GroupController.updateGroup);
 
 // 删除分组
 router.delete('/:id', validateGroupId, GroupController.deleteGroup);

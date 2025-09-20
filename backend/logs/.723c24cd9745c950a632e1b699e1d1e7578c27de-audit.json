@@ -19,6 +19,11 @@
             "date": 1758301545618,
             "name": "/Users/xujing/Workspace/cloned-website/backend/logs/rejections-2025-09-20.log",
             "hash": "7325a5d40961d36226ea2dcc3462a779b1ee452cbc6a407361f6d56171b5ec80"
+        },
+        {
+            "date": 1758384851090,
+            "name": "/Users/xujing/Workspace/cloned-website/backend/logs/rejections-2025-09-21.log",
+            "hash": "1d4f986a3bc1212bda87b38a94c55182359067f5d6909aa4f0f0e628b925ed37"
         }
     ],
     "hashType": "sha256"

@@ -1,0 +1,2339 @@
+2025-09-21 00:14:11.151 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 127
+}
+2025-09-21 00:14:22.322 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 128
+}
+2025-09-21 00:14:24.402 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 129
+}
+2025-09-21 00:19:25.766 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:19:25.776 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 130
+}
+2025-09-21 00:19:26.335 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:19:26.342 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 131
+}
+2025-09-21 00:19:51.846 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:19:51.853 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 132
+}
+2025-09-21 00:21:04.050 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:21:04.057 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 133
+}
+2025-09-21 00:21:28.027 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:21:28.034 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 134
+}
+2025-09-21 00:21:29.108 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:21:29.115 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 135
+}
+2025-09-21 00:21:36.973 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 136
+}
+2025-09-21 00:21:49.393 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 137
+}
+2025-09-21 00:23:18.507 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 138
+}
+2025-09-21 00:23:26.098 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 139
+}
+2025-09-21 00:23:54.360 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 140
+}
+2025-09-21 00:24:08.798 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 141
+}
+2025-09-21 00:24:17.975 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:24:17.982 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 142
+}
+2025-09-21 00:24:39.895 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:24:39.952 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 143
+}
+2025-09-21 00:26:01.849 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:26:01.856 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 144
+}
+2025-09-21 00:27:29.856 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:27:29.862 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 145
+}
+2025-09-21 00:27:56.553 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:27:56.560 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 146
+}
+2025-09-21 00:28:44.518 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:28:44.524 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 147
+}
+2025-09-21 00:28:55.022 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:28:55.029 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 148
+}
+2025-09-21 00:28:58.731 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:28:58.738 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 149
+}
+2025-09-21 00:29:03.279 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:29:03.286 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 150
+}
+2025-09-21 00:29:31.476 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:29:31.483 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 151
+}
+2025-09-21 00:29:39.054 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:29:39.061 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 152
+}
+2025-09-21 00:30:54.540 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 153
+}
+2025-09-21 00:31:05.676 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 154
+}
+2025-09-21 00:31:31.486 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 155
+}
+2025-09-21 00:31:39.582 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:31:39.588 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 156
+}
+2025-09-21 00:31:48.359 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:31:48.366 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 157
+}
+2025-09-21 00:32:19.037 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:32:19.044 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 158
+}
+2025-09-21 00:32:38.039 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:32:38.046 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 159
+}
+2025-09-21 00:33:35.199 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 160
+}
+2025-09-21 00:33:39.754 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 161
+}
+2025-09-21 00:33:43.430 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 162
+}
+2025-09-21 00:33:45.655 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:33:45.662 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 163
+}
+2025-09-21 00:33:56.770 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:33:56.829 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 164
+}
+2025-09-21 00:34:07.105 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:34:07.112 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 165
+}
+2025-09-21 00:34:50.887 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 166
+}
+2025-09-21 00:35:02.369 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 167
+}
+2025-09-21 00:35:42.982 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:35:42.990 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 168
+}
+2025-09-21 00:36:02.839 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:36:02.846 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 169
+}
+2025-09-21 00:37:11.312 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:37:11.319 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 170
+}
+2025-09-21 00:37:49.601 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:37:49.609 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 171
+}
+2025-09-21 00:38:21.806 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 172
+}
+2025-09-21 00:38:24.010 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:38:24.017 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 173
+}
+2025-09-21 00:38:31.057 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:38:31.064 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 174
+}
+2025-09-21 00:38:32.346 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:38:32.353 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 175
+}
+2025-09-21 00:39:00.845 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:39:00.852 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 176
+}
+2025-09-21 00:40:25.370 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 177
+}
+2025-09-21 00:41:13.715 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 178
+}
+2025-09-21 00:43:08.191 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 179
+}
+2025-09-21 00:43:16.396 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 180
+}
+2025-09-21 00:43:42.876 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 181
+}
+2025-09-21 00:44:13.415 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 182
+}
+2025-09-21 00:46:10.191 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 183
+}
+2025-09-21 00:46:19.820 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/health",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "5938bfc4-29d0-4237-a7c1-d0809ae169e4"
+}
+2025-09-21 00:46:19.824 [ERROR] Application error 路径 /api/health 不存在
+Error: 路径 /api/health 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:688:15
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:276:14)
+    at Function.handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:186:3)
+    at router (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:60:12)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/health",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "5938bfc4-29d0-4237-a7c1-d0809ae169e4",
+  "query": {},
+  "params": {}
+}
+2025-09-21 00:46:19.825 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/health",
+  "statusCode": 404,
+  "responseTime": 6,
+  "requestId": "5938bfc4-29d0-4237-a7c1-d0809ae169e4"
+}
+2025-09-21 00:46:26.953 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/dtu/TEST_DEVICE_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "91655654-d005-43e2-bf2c-43fcc7bd75c0"
+}
+2025-09-21 00:46:26.954 [ERROR] Application error 路径 /api/sensors/dtu/TEST_DEVICE_001 不存在
+Error: 路径 /api/sensors/dtu/TEST_DEVICE_001 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:688:15
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:276:14)
+    at Function.handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:186:3)
+    at router (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:60:12)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/dtu/TEST_DEVICE_001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "91655654-d005-43e2-bf2c-43fcc7bd75c0",
+  "query": {},
+  "params": {}
+}
+2025-09-21 00:46:26.954 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/dtu/TEST_DEVICE_001",
+  "statusCode": 404,
+  "responseTime": 1,
+  "requestId": "91655654-d005-43e2-bf2c-43fcc7bd75c0"
+}
+2025-09-21 00:46:33.378 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "b9719b09-2420-402e-bc7e-633306d65c32"
+}
+2025-09-21 00:46:33.384 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu",
+  "statusCode": 200,
+  "responseTime": 6,
+  "requestId": "b9719b09-2420-402e-bc7e-633306d65c32"
+}
+2025-09-21 00:46:39.176 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 184
+}
+2025-09-21 00:48:00.255 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 185
+}
+2025-09-21 00:48:07.781 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 186
+}
+2025-09-21 00:49:54.703 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:49:54.710 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 187
+}
+2025-09-21 00:54:01.992 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:54:01.999 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 188
+}
+2025-09-21 00:54:20.124 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:54:20.131 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 189
+}
+2025-09-21 00:54:29.663 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:54:29.671 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 190
+}
+2025-09-21 00:54:38.499 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:54:38.508 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 191
+}
+2025-09-21 00:54:43.955 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:54:43.962 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 192
+}
+2025-09-21 00:54:46.504 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:54:46.511 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 193
+}
+2025-09-21 00:58:10.609 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:58:10.616 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 194
+}
+2025-09-21 00:58:15.397 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:58:15.404 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 195
+}
+2025-09-21 00:58:22.201 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:58:22.209 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 196
+}
+2025-09-21 00:58:26.672 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:58:26.680 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 197
+}
+2025-09-21 00:58:34.415 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:58:34.422 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 198
+}
+2025-09-21 00:58:39.506 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:58:39.514 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 199
+}
+2025-09-21 00:58:47.673 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:58:47.680 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 200
+}
+2025-09-21 00:59:01.974 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:59:01.981 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 201
+}
+2025-09-21 00:59:19.191 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:59:19.197 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 202
+}
+2025-09-21 00:59:25.223 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 00:59:25.230 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 203
+}
+2025-09-21 01:01:40.664 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:01:40.679 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 204
+}
+2025-09-21 01:01:53.771 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:01:53.779 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 205
+}
+2025-09-21 01:02:00.288 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:02:00.296 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 206
+}
+2025-09-21 01:02:10.781 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:02:10.788 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 207
+}
+2025-09-21 01:02:17.076 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:02:17.084 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 208
+}
+2025-09-21 01:02:22.013 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:02:22.021 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 209
+}
+2025-09-21 01:02:23.811 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:02:23.818 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 210
+}
+2025-09-21 01:02:26.809 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:02:26.823 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 211
+}
+2025-09-21 01:02:35.990 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:02:36.000 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 212
+}
+2025-09-21 01:02:40.764 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:02:40.771 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 213
+}
+2025-09-21 01:02:53.617 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:02:53.624 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 214
+}
+2025-09-21 01:04:05.156 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:04:05.163 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 215
+}
+2025-09-21 01:04:12.861 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:04:12.869 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 216
+}
+2025-09-21 01:04:21.797 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:04:21.804 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 217
+}
+2025-09-21 01:04:26.739 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:04:26.746 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 218
+}
+2025-09-21 01:04:28.599 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:04:28.606 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 219
+}
+2025-09-21 01:04:38.128 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:04:38.136 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 220
+}
+2025-09-21 01:04:49.053 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:04:49.062 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 221
+}
+2025-09-21 01:05:01.283 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:05:01.290 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 222
+}
+2025-09-21 01:05:07.661 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:05:07.669 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 223
+}
+2025-09-21 01:05:19.885 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:05:19.892 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 224
+}
+2025-09-21 01:05:30.606 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:05:30.614 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 225
+}
+2025-09-21 01:05:44.342 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:05:44.351 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 226
+}
+2025-09-21 01:07:46.040 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:07:46.047 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 227
+}
+2025-09-21 01:08:48.093 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:08:48.100 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 228
+}
+2025-09-21 01:09:00.702 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:09:00.709 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 229
+}
+2025-09-21 01:09:03.960 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:09:03.968 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 230
+}
+2025-09-21 01:10:02.604 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:10:02.612 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 231
+}
+2025-09-21 01:10:08.690 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:10:08.698 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 232
+}
+2025-09-21 01:10:12.642 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:10:12.649 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 233
+}
+2025-09-21 01:11:36.718 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:11:36.726 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 234
+}
+2025-09-21 01:11:45.388 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:11:45.395 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 235
+}
+2025-09-21 01:13:07.480 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:13:07.488 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 236
+}
+2025-09-21 01:13:12.709 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:13:12.716 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 237
+}
+2025-09-21 01:13:34.517 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:13:34.524 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 238
+}
+2025-09-21 01:13:42.108 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/names",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "9fb61df8-7eed-4d44-86da-f546980123c6"
+}
+2025-09-21 01:13:42.118 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/names",
+  "statusCode": 200,
+  "responseTime": 10,
+  "requestId": "9fb61df8-7eed-4d44-86da-f546980123c6"
+}
+2025-09-21 01:13:47.698 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups/",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d8c2daaf-84f5-481d-b124-51cef3ef7dd8"
+}
+2025-09-21 01:13:47.705 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups/",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "d8c2daaf-84f5-481d-b124-51cef3ef7dd8"
+}
+2025-09-21 01:13:55.065 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "e4699cd1-1552-45be-9acd-4d8b5828590a"
+}
+2025-09-21 01:13:55.070 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Bind parameters must not contain undefined. To pass SQL NULL specify JS null",
+  "attempt": 1,
+  "threadId": 237
+}
+2025-09-21 01:13:55.071 [ERROR] Application error Bind parameters must not contain undefined. To pass SQL NULL specify JS null
+TypeError: Bind parameters must not contain undefined. To pass SQL NULL specify JS null
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/base/connection.js:660:17
+    at Array.forEach (<anonymous>)
+    at PoolConnection.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/base/connection.js:652:22)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/connection.js:56:11
+    at new Promise (<anonymous>)
+    at PromisePoolConnection.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/connection.js:53:12)
+    at SensorData.createSensor (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:59:41)
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:40:45
+    at TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "e4699cd1-1552-45be-9acd-4d8b5828590a",
+  "body": {
+    "sensor_id": "TEST_SENSOR_001",
+    "dtu_id": "TEST_DEVICE_001",
+    "sensor_name": "测试温度传感器",
+    "sensor_type": "数值型",
+    "decimal_places": 2,
+    "unit": "°C"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-21 01:13:55.071 [WARN] Type error Bind parameters must not contain undefined. To pass SQL NULL specify JS null
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "name": "TypeError",
+  "requestId": "e4699cd1-1552-45be-9acd-4d8b5828590a"
+}
+2025-09-21 01:13:55.071 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/",
+  "statusCode": 400,
+  "responseTime": 6,
+  "requestId": "e4699cd1-1552-45be-9acd-4d8b5828590a"
+}
+2025-09-21 01:14:06.200 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:14:06.207 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 239
+}
+2025-09-21 01:15:32.579 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:15:32.586 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 240
+}
+2025-09-21 01:15:34.743 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d5114772-77e6-402c-8efa-6b459bd40615"
+}
+2025-09-21 01:15:34.755 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/",
+  "statusCode": 200,
+  "responseTime": 12,
+  "requestId": "d5114772-77e6-402c-8efa-6b459bd40615"
+}
+2025-09-21 01:15:43.920 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "34240991-21fe-4986-ae29-5231ef3d0466"
+}
+2025-09-21 01:15:43.924 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Data truncated for column 'function_code' at row 1",
+  "code": "WARN_DATA_TRUNCATED",
+  "errno": 1265,
+  "sqlState": "01000",
+  "attempt": 1,
+  "threadId": 240
+}
+2025-09-21 01:15:43.925 [ERROR] Application error Data truncated for column 'function_code' at row 1
+Error: Data truncated for column 'function_code' at row 1
+    at PromisePoolConnection.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/connection.js:47:22)
+    at MbRtuData.createMBRTU (/Users/xujing/Workspace/cloned-website/backend/src/models/mbRtuData.js:22:41)
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:49:23
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:38:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "34240991-21fe-4986-ae29-5231ef3d0466",
+  "body": {
+    "sensor_id": "TEST_SENSOR_002",
+    "dtu_id": "TEST_DEVICE_001",
+    "sensor_name": "测试压力传感器",
+    "sensor_type": "数值型",
+    "decimal_places": 1,
+    "unit": "MPa",
+    "mbRtuConfig": {
+      "slave_address": 2,
+      "function_code": "03读保持寄存器",
+      "offset_value": 100,
+      "data_format": "32位浮点数",
+      "collection_cycle": 5
+    }
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-21 01:15:43.925 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/",
+  "statusCode": 500,
+  "responseTime": 5,
+  "requestId": "34240991-21fe-4986-ae29-5231ef3d0466"
+}
+2025-09-21 01:16:02.969 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "34ff3569-312f-497e-8ff7-a1874912e6ad"
+}
+2025-09-21 01:16:02.973 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Data truncated for column 'data_format' at row 1",
+  "code": "WARN_DATA_TRUNCATED",
+  "errno": 1265,
+  "sqlState": "01000",
+  "attempt": 1,
+  "threadId": 240
+}
+2025-09-21 01:16:02.973 [ERROR] Application error Data truncated for column 'data_format' at row 1
+Error: Data truncated for column 'data_format' at row 1
+    at PromisePoolConnection.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/connection.js:47:22)
+    at MbRtuData.createMBRTU (/Users/xujing/Workspace/cloned-website/backend/src/models/mbRtuData.js:22:41)
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:49:23
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:38:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "34ff3569-312f-497e-8ff7-a1874912e6ad",
+  "body": {
+    "sensor_id": "TEST_SENSOR_002",
+    "dtu_id": "TEST_DEVICE_001",
+    "sensor_name": "测试压力传感器",
+    "sensor_type": "数值型",
+    "decimal_places": 1,
+    "unit": "MPa",
+    "mbRtuConfig": {
+      "slave_address": 2,
+      "function_code": "03读写",
+      "offset_value": 100,
+      "data_format": "32位浮点数",
+      "collection_cycle": 5
+    }
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-21 01:16:02.973 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/",
+  "statusCode": 500,
+  "responseTime": 5,
+  "requestId": "34ff3569-312f-497e-8ff7-a1874912e6ad"
+}
+2025-09-21 01:16:12.940 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "ff32fe4a-46a6-436c-96b2-0ab806401739"
+}
+2025-09-21 01:16:12.943 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "ff32fe4a-46a6-436c-96b2-0ab806401739"
+}
+2025-09-21 01:16:20.043 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/dtu/TEST_DEVICE_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "aff6b242-523d-4ec4-b25f-d00f9efad9f8"
+}
+2025-09-21 01:16:20.048 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/dtu/TEST_DEVICE_001",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "aff6b242-523d-4ec4-b25f-d00f9efad9f8"
+}
+2025-09-21 01:16:30.281 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/TEST_DEVICE_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "20e68f47-dc88-4eb4-88cf-2615d0ad5fb1"
+}
+2025-09-21 01:16:30.284 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/TEST_DEVICE_001",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "20e68f47-dc88-4eb4-88cf-2615d0ad5fb1"
+}
+2025-09-21 01:16:36.883 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/TEST_SENSOR_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d9f6605f-8520-4fc6-a097-22b2bd38efc4"
+}
+2025-09-21 01:16:36.889 [WARN] MB-RTU协议不存在或已删除
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "dtuId": "TEST_DEVICE_001",
+  "sensorId": "TEST_SENSOR_001",
+  "error": "传感器不存在或不属于该DTU设备"
+}
+2025-09-21 01:16:36.891 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/TEST_SENSOR_001",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "d9f6605f-8520-4fc6-a097-22b2bd38efc4"
+}
+2025-09-21 01:16:42.184 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/TEST_DEVICE_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "c846a9a2-e454-465d-ad91-68736327f804"
+}
+2025-09-21 01:16:42.186 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/TEST_DEVICE_001",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "c846a9a2-e454-465d-ad91-68736327f804"
+}
+2025-09-21 01:16:53.710 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "4ea859c0-bcd1-47fa-a1b8-3d8551dcebcd"
+}
+2025-09-21 01:16:53.714 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`sensors`, CONSTRAINT `sensors_ibfk_1` FOREIGN KEY (`dtu_id`) REFERENCES `dtu_devices` (`device_id`) ON DELETE CASCADE)",
+  "code": "ER_NO_REFERENCED_ROW_2",
+  "errno": 1452,
+  "sqlState": "23000",
+  "attempt": 1,
+  "threadId": 240
+}
+2025-09-21 01:16:53.714 [ERROR] Application error Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`sensors`, CONSTRAINT `sensors_ibfk_1` FOREIGN KEY (`dtu_id`) REFERENCES `dtu_devices` (`device_id`) ON DELETE CASCADE)
+Error: Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`sensors`, CONSTRAINT `sensors_ibfk_1` FOREIGN KEY (`dtu_id`) REFERENCES `dtu_devices` (`device_id`) ON DELETE CASCADE)
+    at PromisePoolConnection.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/connection.js:47:22)
+    at SensorData.createSensor (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:60:41)
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:40:45
+    at TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:38:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "4ea859c0-bcd1-47fa-a1b8-3d8551dcebcd",
+  "body": {
+    "sensor_id": "TEST_SENSOR_003",
+    "dtu_id": "INVALID_DTU",
+    "sensor_name": "测试无效传感器",
+    "mbRtuConfig": {
+      "function_code": "INVALID_CODE"
+    }
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-21 01:16:53.714 [WARN] Foreign key constraint error Cannot add or update a child row: a foreign key constraint fails (`dam_monitoring_system`.`sensors`, CONSTRAINT `sensors_ibfk_1` FOREIGN KEY (`dtu_id`) REFERENCES `dtu_devices` (`device_id`) ON DELETE CASCADE)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "code": "ER_NO_REFERENCED_ROW_2",
+  "requestId": "4ea859c0-bcd1-47fa-a1b8-3d8551dcebcd"
+}
+2025-09-21 01:16:53.715 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/",
+  "statusCode": 400,
+  "responseTime": 5,
+  "requestId": "4ea859c0-bcd1-47fa-a1b8-3d8551dcebcd"
+}
+2025-09-21 01:16:59.328 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/dtu/TEST_DEVICE_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f0687841-d5a5-45cf-b21e-de0f901d4864"
+}
+2025-09-21 01:16:59.330 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/dtu/TEST_DEVICE_001",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "f0687841-d5a5-45cf-b21e-de0f901d4864"
+}
+2025-09-21 01:17:11.130 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-21 01:17:11.136 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 242
+}
+2025-09-21 01:19:00.340 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "008a977e-dfe6-4ecd-9970-8dd826f709fc"
+}
+2025-09-21 01:19:00.350 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/",
+  "statusCode": 200,
+  "responseTime": 11,
+  "requestId": "008a977e-dfe6-4ecd-9970-8dd826f709fc"
+}
+2025-09-21 01:19:23.461 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/dtu/TEST_DEVICE_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "c1d936f0-c46b-42e4-9fe8-ebc975c5172b"
+}
+2025-09-21 01:19:23.466 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/dtu/TEST_DEVICE_001",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "c1d936f0-c46b-42e4-9fe8-ebc975c5172b"
+}
+2025-09-21 01:19:43.455 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/TEST_DEVICE_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "8014ae49-56c8-484f-b290-5feda60bf774"
+}
+2025-09-21 01:19:43.458 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/TEST_DEVICE_001",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "8014ae49-56c8-484f-b290-5feda60bf774"
+}
+2025-09-21 01:19:47.234 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/API_TEST_SENSOR",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "41c1d9a8-4d68-4780-8d10-07d1cb2ff811"
+}
+2025-09-21 01:19:47.240 [WARN] MB-RTU协议不存在或已删除
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "dtuId": "TEST_DEVICE_001",
+  "sensorId": "API_TEST_SENSOR",
+  "error": "传感器不存在或不属于该DTU设备"
+}
+2025-09-21 01:19:47.242 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/API_TEST_SENSOR",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "41c1d9a8-4d68-4780-8d10-07d1cb2ff811"
+}
+2025-09-21 01:19:51.173 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/dtu/TEST_DEVICE_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "ffb84b01-029d-49af-a2ef-86ea70c2a15d"
+}
+2025-09-21 01:19:51.175 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/dtu/TEST_DEVICE_001",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "ffb84b01-029d-49af-a2ef-86ea70c2a15d"
+}
+2025-09-21 01:19:55.229 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/TEST_DEVICE_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "9916cde7-0414-4650-88d7-4b08c2952070"
+}
+2025-09-21 01:19:55.231 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/TEST_DEVICE_001",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "9916cde7-0414-4650-88d7-4b08c2952070"
+}
+2025-09-21 01:19:59.693 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/dtu/TEST_DEVICE_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "77456deb-1c1d-4e2d-a3ee-ce45e2eca7a7"
+}
+2025-09-21 01:19:59.693 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/dtu/TEST_DEVICE_001",
+  "statusCode": 200,
+  "responseTime": "unknown",
+  "requestId": "77456deb-1c1d-4e2d-a3ee-ce45e2eca7a7"
+}
+2025-09-21 01:19:59.701 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/TEST_DEVICE_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "555d170c-6eb6-4919-942e-a944517f0b64"
+}
+2025-09-21 01:19:59.703 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/TEST_DEVICE_001",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "555d170c-6eb6-4919-942e-a944517f0b64"
+}

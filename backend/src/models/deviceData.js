@@ -135,18 +135,6 @@ class DeviceData {
     }
   }
 
-  // 根据DTU设备ID获取传感器列表
-  static async getSensorsByDTUId(dtuId) {
-    const cacheKey = cache.generateKey('sensors_by_dtu', { dtuId });
-    
-    return await cache.cacheQuery(cacheKey, async () => {
-      const [rows] = await db.execute(
-        'SELECT * FROM sensors WHERE dtu_id = ? ORDER BY sensor_id',
-        [dtuId]
-      );
-      return rows;
-    }, 300, 'default'); // 5分钟缓存
-  }
 
   // 根据传感器ID获取传感器数据
   static async getTemperatureDataBySensorId(sensorId, limit = 100) {
@@ -201,26 +189,6 @@ class DeviceData {
     return result;
   }
 
-  // 创建传感器
-  static async createSensor(data) {
-    const { 
-      sensor_id, dtu_id, icon = '/image/传感器图片.png', sensor_name, sensor_type, decimal_places, unit, sort_order,
-      upper_mapping_x1, upper_mapping_y1, upper_mapping_x2, upper_mapping_y2,
-      lower_mapping_x1, lower_mapping_y1, lower_mapping_x2, lower_mapping_y2
-    } = data;
-    
-    const [result] = await db.execute(
-      `INSERT INTO sensors (
-        sensor_id, dtu_id, icon, sensor_name, sensor_type, decimal_places, unit, sort_order,
-        upper_mapping_x1, upper_mapping_y1, upper_mapping_x2, upper_mapping_y2,
-        lower_mapping_x1, lower_mapping_y1, lower_mapping_x2, lower_mapping_y2
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [sensor_id, dtu_id, icon, sensor_name, sensor_type, decimal_places, unit, sort_order,
-       upper_mapping_x1, upper_mapping_y1, upper_mapping_x2, upper_mapping_y2,
-       lower_mapping_x1, lower_mapping_y1, lower_mapping_x2, lower_mapping_y2]
-    );
-    return result;
-  }
 
   // 创建传感器数据
   static async createTemperatureData(data) {
