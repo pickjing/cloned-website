@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const deviceRoutes = require('./routes/deviceRoutes');
+const groupRoutes = require('./routes/groupRoutes');
+const mbRtuRoutes = require('./routes/mbRtuRoutes');
 const { errorHandler, notFoundHandler } = require('./middleware/errorHandler');
 const { requestLogger, databaseLogger, securityLogger, healthCheckLogger } = require('./middleware/logging');
 const logger = require('./utils/logger');
@@ -63,6 +65,12 @@ app.get('/performance/report', (req, res) => {
 
 // 设备路由
 app.use('/api', deviceRoutes);
+
+// 分组路由
+app.use('/api/groups', groupRoutes);
+
+// MB-RTU协议路由
+app.use('/api/mb-rtu', mbRtuRoutes);
 
 // 404 处理
 app.use(notFoundHandler);

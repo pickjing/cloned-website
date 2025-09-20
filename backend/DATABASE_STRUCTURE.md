@@ -100,7 +100,7 @@
 **索引**:
 - `idx_sensor_id_timestamp` (sensor_id, timestamp)
 
-### 4. MB RTU协议配置表 (mb_rtu_config)
+### 4. MB RTU协议配置表 (mb_rtu)
 
 存储Modbus RTU协议的详细配置，以DTU设备为入口，配置每个传感器的通信参数。
 
@@ -180,7 +180,7 @@
 
 提供DTU设备的汇总信息，包括关联传感器数量和最新数据接收时间。
 
-### 3. MB RTU配置概览视图 (mb_rtu_config_overview)
+### 3. MB RTU配置概览视图 (mb_rtu_overview)
 
 提供Modbus RTU配置的简化视图，方便查看每个DTU下传感器的协议配置。
 

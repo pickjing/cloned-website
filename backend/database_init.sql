@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS sensor_data (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='传感器数据表';
 
 -- MB RTU协议配置表
-CREATE TABLE IF NOT EXISTS mb_rtu_config (
+CREATE TABLE IF NOT EXISTS mb_rtu (
     id INT AUTO_INCREMENT PRIMARY KEY,
     dtu_id VARCHAR(50) NOT NULL COMMENT '所属DTU设备ID',
     sensor_id VARCHAR(50) NOT NULL COMMENT '关联传感器ID',
@@ -175,7 +175,7 @@ GROUP BY
     dd.device_id, dd.device_name, dd.status, dd.device_group, dd.longitude, dd.latitude;
 
 -- 视图：Modbus RTU配置概览
-CREATE OR REPLACE VIEW mb_rtu_config_overview AS
+CREATE OR REPLACE VIEW mb_rtu_overview AS
 SELECT
     mb.dtu_id,
     dd.device_name AS dtu_name,
@@ -189,7 +189,7 @@ SELECT
     mb.byte_order_value,
     mb.collection_cycle
 FROM
-    mb_rtu_config mb
+    mb_rtu mb
 JOIN
     dtu_devices dd ON mb.dtu_id = dd.device_id
 JOIN

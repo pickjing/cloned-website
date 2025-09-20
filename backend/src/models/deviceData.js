@@ -285,193 +285,8 @@ class DeviceData {
     return rows;
   }
 
-  // 获取设备分组名称列表
-  static async getDeviceGroupsNames() {
-    const cacheKey = cache.generateKey('device_groups_names');
-    return await cache.cacheQuery(cacheKey, async () => {
-      // 从device_groups表中获取所有分组名称
-      const [rows] = await db.execute(`
-        SELECT group_name 
-        FROM device_groups 
-        ORDER BY group_name
-      `);
-      return rows.map(row => row.group_name);
-    }, 3600, 'long'); // 缓存1小时
-  }
 
-  // 获取所有分组详细信息
-  static async getAllGroups() {
-    const cacheKey = cache.generateKey('all_groups');
-    return await cache.cacheQuery(cacheKey, async () => {
-      const [rows] = await db.execute(`
-        SELECT id, group_name, description, is_default, created_at, updated_at
-        FROM device_groups 
-        ORDER BY is_default DESC, group_name
-      `);
-      return rows;
-    }, 3600, 'long');
-  }
 
-  // 获取默认分组
-  static async getDefaultGroup() {
-    const cacheKey = cache.generateKey('default_group');
-    return await cache.cacheQuery(cacheKey, async () => {
-      const [rows] = await db.execute(`
-        SELECT id, group_name, description, is_default, created_at, updated_at
-        FROM device_groups 
-        WHERE is_default = TRUE
-        LIMIT 1
-      `);
-      return rows[0] || null;
-    }, 3600, 'long');
-  }
-
-  // 根据ID获取分组
-  static async getGroupById(id) {
-    const [rows] = await db.execute(`
-      SELECT id, group_name, description, is_default, created_at, updated_at
-      FROM device_groups 
-      WHERE id = ?
-    `, [id]);
-    return rows[0] || null;
-  }
-
-  // 更新分组
-  static async updateGroup(id, data) {
-    const { group_name, description } = data;
-    const [result] = await db.execute(`
-      UPDATE device_groups 
-      SET group_name = ?, description = ?, updated_at = NOW()
-      WHERE id = ? AND is_default = FALSE
-    `, [group_name, description, id]);
-    
-    if (result.affectedRows === 0) {
-      throw new Error('分组不存在或为默认分组，无法修改');
-    }
-    
-    cache.deletePattern('device_groups_names:.*', 'long');
-    cache.deletePattern('all_groups:.*', 'long');
-    cache.deletePattern('default_group:.*', 'long');
-    
-    return result;
-  }
-
-  // 删除分组
-  static async deleteGroup(id) {
-    return await TransactionService.execute(async (connection) => {
-      // 1. 检查分组是否存在且不是默认分组
-      const [groupRows] = await connection.execute(`
-        SELECT id, group_name, is_default 
-        FROM device_groups 
-        WHERE id = ?
-      `, [id]);
-      
-      if (groupRows.length === 0) {
-        throw new Error('分组不存在');
-      }
-      
-      const group = groupRows[0];
-      if (group.is_default) {
-        throw new Error('默认分组不能删除');
-      }
-      
-      // 2. 获取默认分组
-      const [defaultGroupRows] = await connection.execute(`
-        SELECT id, group_name 
-        FROM device_groups 
-        WHERE is_default = TRUE
-        LIMIT 1
-      `);
-      
-      if (defaultGroupRows.length === 0) {
-        throw new Error('默认分组不存在，无法删除分组');
-      }
-      
-      const defaultGroup = defaultGroupRows[0];
-      
-      // 3. 将该分组下的所有设备移到默认分组
-      const [moveResult] = await connection.execute(`
-        UPDATE dtu_devices 
-        SET device_group = ?, updated_at = NOW()
-        WHERE device_group = ?
-      `, [defaultGroup.group_name, group.group_name]);
-      
-      // 4. 删除分组
-      const [deleteResult] = await connection.execute(`
-        DELETE FROM device_groups 
-        WHERE id = ?
-      `, [id]);
-      
-      logger.info('Group deleted successfully', {
-        deletedGroupId: id,
-        deletedGroupName: group.group_name,
-        movedDevicesCount: moveResult.affectedRows,
-        defaultGroupName: defaultGroup.group_name
-      });
-      
-      // 清除相关缓存
-      cache.deletePattern('device_groups_names:.*', 'long');
-      cache.deletePattern('all_groups:.*', 'long');
-      cache.deletePattern('default_group:.*', 'long');
-      
-      return {
-        deletedGroupId: id,
-        deletedGroupName: group.group_name,
-        movedDevicesCount: moveResult.affectedRows,
-        defaultGroupName: defaultGroup.group_name
-      };
-    });
-  }
-
-  // 检查分组名是否存在
-  static async checkGroupNameExists(groupName) {
-    const [rows] = await db.execute(
-      'SELECT COUNT(*) as count FROM device_groups WHERE group_name = ?',
-      [groupName]
-    );
-    return rows[0].count > 0;
-  }
-
-  // 创建新分组
-  static async createGroup(data) {
-    const { group_name, description } = data;
-    const [result] = await db.execute(
-      'INSERT INTO device_groups (group_name, description) VALUES (?, ?)',
-      [group_name, description]
-    );
-    
-    // 清除设备分组缓存，确保前端能立即看到新分组
-    cache.deletePattern('device_groups_names:.*', 'long');
-    
-    return result;
-  }
-
-  // 创建MB RTU协议配置
-  static async createMBRTUConfig(data) {
-    const { 
-      dtu_id, 
-      sensor_id, 
-      slave_address = 1, 
-      function_code = '04只读', 
-      offset_value = 0, 
-      data_format = '16位有符号数', 
-      data_bits = null, 
-      byte_order_value = null, 
-      collection_cycle = 2 
-    } = data;
-    
-    logger.debug('Creating MB RTU config', { params: $1 });
-    
-    const [result] = await db.execute(
-      `INSERT INTO mb_rtu_config (
-        dtu_id, sensor_id, slave_address, function_code, offset_value, 
-        data_format, data_bits, byte_order_value, collection_cycle
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [dtu_id, sensor_id, slave_address, function_code, offset_value, 
-       data_format, data_bits, byte_order_value, collection_cycle]
-    );
-    return result;
-  }
 
   // 智能移动设备到分组（只移动分组不同的设备）
   static async moveDevicesToGroup(deviceIds, targetGroup) {
@@ -480,10 +295,11 @@ class DeviceData {
       
       // 1. 获取所有设备的当前分组信息
       const placeholders = deviceIds.map(() => '?').join(',');
-      const [devices] = await db.execute(
-        `SELECT device_id, device_name, device_group FROM dtu_devices WHERE device_id IN (${placeholders})`,
-        deviceIds
-      );
+      const [devices] = await db.execute(`
+        SELECT device_id, device_name, device_group 
+        FROM dtu_devices 
+        WHERE device_id IN (${placeholders})
+      `, deviceIds);
       
       logger.debug('Found devices for group move', { deviceCount: devices.length });
       
@@ -574,7 +390,7 @@ class DeviceData {
   // 彻底删除DTU设备（从数据库中永久删除，包括相关传感器和协议）
   static async permanentlyDeleteDTUDevices(deviceIds) {
     const cascadeTables = [
-      { table: 'mb_rtu_config', field: 'dtu_id' },
+      { table: 'mb_rtu', field: 'dtu_id' },
       { table: 'sensors', field: 'dtu_id' }
     ];
 
@@ -685,7 +501,7 @@ class DeviceData {
             
             // 6. 复制该传感器对应的MB RTU协议
             const [configRows] = await connection.execute(
-              'SELECT * FROM mb_rtu_config WHERE dtu_id = ? AND sensor_id = ?',
+              'SELECT * FROM mb_rtu WHERE dtu_id = ? AND sensor_id = ?',
               [deviceId, sensor.sensor_id]
             );
             
@@ -693,7 +509,7 @@ class DeviceData {
               const config = configRows[0];
               
               await connection.execute(
-                `INSERT INTO mb_rtu_config (
+                `INSERT INTO mb_rtu (
                   dtu_id, sensor_id, slave_address, function_code, offset_value,
                   data_format, data_bits, byte_order_value, collection_cycle
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
@@ -812,7 +628,7 @@ class DeviceData {
       const mbRtuResults = [];
       for (const config of mbRtuConfigs) {
         const [mbRtuResult] = await connection.execute(
-          `INSERT INTO mb_rtu_config (
+          `INSERT INTO mb_rtu (
             dtu_id, sensor_id, slave_address, function_code, offset_value,
             data_format, data_bits, byte_order_value, collection_cycle
           ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
@@ -829,7 +645,7 @@ class DeviceData {
       // 清除相关缓存
       cache.deletePattern('dtu_devices:.*', 'short');
       cache.deletePattern('sensors:.*', 'short');
-      cache.deletePattern('mb_rtu_config:.*', 'short');
+      cache.deletePattern('mb_rtu:.*', 'short');
 
       const result = {
         device: {

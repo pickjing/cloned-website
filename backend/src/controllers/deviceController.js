@@ -125,53 +125,6 @@ class DeviceController {
     }
   }
 
-  // 获取设备分组名称列表
-  static async getDeviceGroupNames(req, res) {
-    try {
-      const groups = await DeviceData.getDeviceGroupsNames();
-      res.json({ success: true, data: groups });
-    } catch (error) {
-      res.status(500).json({ success: false, message: error.message });
-    }
-  }
-
-  // 检查分组名是否存在
-  static async checkGroupNameExists(req, res) {
-    try {
-      const { group_name } = req.query;
-      if (!group_name) {
-        return res.status(400).json({ success: false, message: '分组名不能为空' });
-      }
-      
-      const exists = await DeviceData.checkGroupNameExists(group_name);
-      res.json({ success: true, data: { exists } });
-    } catch (error) {
-      res.status(500).json({ success: false, message: error.message });
-    }
-  }
-
-  // 创建新分组
-  static createGroup = asyncHandler(async (req, res) => {
-    const { group_name, description } = req.body;
-    
-    // 检查分组名是否已存在
-    const exists = await DeviceData.checkGroupNameExists(group_name.trim());
-    if (exists) {
-      throw new ConflictError('分组名已存在');
-    }
-    
-    const result = await DeviceData.createGroup({
-      group_name: group_name.trim(),
-      description: description || ''
-    });
-    
-    res.json({ 
-      success: true, 
-      message: '分组创建成功',
-      data: { id: result.insertId, group_name: group_name.trim() }
-    });
-  });
-
   // 复制DTU设备
   static async copyDTUDevices(req, res) {
     try {
@@ -292,37 +245,6 @@ class DeviceController {
     }
   }
 
-  // 创建MB RTU协议配置
-  static async createMBRTUConfig(req, res) {
-    try {
-      const result = await DeviceData.createMBRTUConfig(req.body);
-      res.json({ success: true, data: { id: result.insertId } });
-    } catch (error) {
-      console.error('创建MB RTU协议配置失败:', error);
-      res.status(500).json({ success: false, message: error.message });
-    }
-  }
-
-  // 批量创建MB RTU协议配置
-  static async createMBRTUConfigs(req, res) {
-    try {
-      const { configs } = req.body;
-      if (!configs || !Array.isArray(configs) || configs.length === 0) {
-        return res.status(400).json({ success: false, message: '配置数据不能为空' });
-      }
-      
-      const results = [];
-      for (const config of configs) {
-        const result = await DeviceData.createMBRTUConfig(config);
-        results.push({ id: result.insertId });
-      }
-      
-      res.json({ success: true, data: results });
-    } catch (error) {
-      console.error('批量创建MB RTU协议配置失败:', error);
-      res.status(500).json({ success: false, message: error.message });
-    }
-  }
 
   // 批量创建设备（包含传感器和MB-RTU配置）- 使用事务
   static createDeviceWithSensors = asyncHandler(async (req, res) => {
@@ -374,78 +296,6 @@ class DeviceController {
     }
   });
 
-  // 获取所有分组详细信息
-  static getAllGroups = asyncHandler(async (req, res) => {
-    const groups = await DeviceData.getAllGroups();
-    res.json({ success: true, data: groups });
-  });
-
-  // 获取默认分组
-  static getDefaultGroup = asyncHandler(async (req, res) => {
-    const defaultGroup = await DeviceData.getDefaultGroup();
-    if (!defaultGroup) {
-      return res.status(404).json({ 
-        success: false, 
-        message: '默认分组不存在' 
-      });
-    }
-    res.json({ success: true, data: defaultGroup });
-  });
-
-  // 根据ID获取分组
-  static getGroupById = asyncHandler(async (req, res) => {
-    const { id } = req.params;
-    const group = await DeviceData.getGroupById(id);
-    if (!group) {
-      return res.status(404).json({ 
-        success: false, 
-        message: '分组不存在' 
-      });
-    }
-    res.json({ success: true, data: group });
-  });
-
-  // 更新分组
-  static updateGroup = asyncHandler(async (req, res) => {
-    const { id } = req.params;
-    const { group_name, description } = req.body;
-    
-    // 检查新名称是否与其他分组重复
-    const exists = await DeviceData.checkGroupNameExists(group_name.trim());
-    if (exists) {
-      // 检查是否是当前分组自己的名称
-      const currentGroup = await DeviceData.getGroupById(id);
-      if (!currentGroup || currentGroup.group_name !== group_name.trim()) {
-        return res.status(400).json({ 
-          success: false, 
-          message: '分组名已存在' 
-        });
-      }
-    }
-    
-    const result = await DeviceData.updateGroup(id, {
-      group_name: group_name.trim(),
-      description: description || ''
-    });
-    
-    res.json({ 
-      success: true, 
-      message: '分组更新成功',
-      data: { id: parseInt(id), group_name: group_name.trim() }
-    });
-  });
-
-  // 删除分组
-  static deleteGroup = asyncHandler(async (req, res) => {
-    const { id } = req.params;
-    const result = await DeviceData.deleteGroup(id);
-    
-    res.json({ 
-      success: true, 
-      message: `分组"${result.deletedGroupName}"删除成功，${result.movedDevicesCount}个设备已移至"${result.defaultGroupName}"分组`,
-      data: result
-    });
-  });
 }
 
 module.exports = DeviceController;
