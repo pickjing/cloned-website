@@ -1,0 +1,1340 @@
+2025-09-26 20:50:38.666 [ERROR] uncaughtException: dtuRoutes is not defined
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:71:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:71:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+{
+  "error": {},
+  "exception": true,
+  "date": "Fri Sep 26 2025 20:50:38 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 30977,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 83804160,
+      "heapTotal": 36388864,
+      "heapUsed": 16872656,
+      "external": 2364595,
+      "arrayBuffers": 27263
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.45703125,
+      2.31298828125,
+      2.88232421875
+    ],
+    "uptime": 2764
+  },
+  "trace": [
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 71,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/modules/run_main",
+      "function": "Function.executeUserEntryPoint [as runMain]",
+      "line": 171,
+      "method": "executeUserEntryPoint [as runMain]",
+      "native": false
+    },
+    {
+      "column": 49,
+      "file": "node:internal/main/run_main_module",
+      "function": null,
+      "line": 36,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-26 20:50:51.822 [ERROR] uncaughtException: dtuRoutes is not defined
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:71:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:71:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+{
+  "error": {},
+  "exception": true,
+  "date": "Fri Sep 26 2025 20:50:51 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 31124,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 83787776,
+      "heapTotal": 36388864,
+      "heapUsed": 16771488,
+      "external": 2364595,
+      "arrayBuffers": 27263
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.4228515625,
+      2.31298828125,
+      2.8720703125
+    ],
+    "uptime": 2777
+  },
+  "trace": [
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 71,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/modules/run_main",
+      "function": "Function.executeUserEntryPoint [as runMain]",
+      "line": 171,
+      "method": "executeUserEntryPoint [as runMain]",
+      "native": false
+    },
+    {
+      "column": 49,
+      "file": "node:internal/main/run_main_module",
+      "function": null,
+      "line": 36,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-26 20:51:20.249 [ERROR] uncaughtException: dtuRoutes is not defined
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:71:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:71:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+{
+  "error": {},
+  "exception": true,
+  "date": "Fri Sep 26 2025 20:51:20 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 31440,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 84197376,
+      "heapTotal": 36388864,
+      "heapUsed": 16916728,
+      "external": 2364595,
+      "arrayBuffers": 27263
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.0673828125,
+      2.23876953125,
+      2.82763671875
+    ],
+    "uptime": 2806
+  },
+  "trace": [
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 71,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/modules/run_main",
+      "function": "Function.executeUserEntryPoint [as runMain]",
+      "line": 171,
+      "method": "executeUserEntryPoint [as runMain]",
+      "native": false
+    },
+    {
+      "column": 49,
+      "file": "node:internal/main/run_main_module",
+      "function": null,
+      "line": 36,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-26 20:51:33.061 [ERROR] uncaughtException: dtuRoutes is not defined
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:71:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:71:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+{
+  "error": {},
+  "exception": true,
+  "date": "Fri Sep 26 2025 20:51:33 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 31582,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 83918848,
+      "heapTotal": 36126720,
+      "heapUsed": 16741768,
+      "external": 2364595,
+      "arrayBuffers": 27263
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.2177734375,
+      2.259765625,
+      2.82470703125
+    ],
+    "uptime": 2819
+  },
+  "trace": [
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 71,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/modules/run_main",
+      "function": "Function.executeUserEntryPoint [as runMain]",
+      "line": 171,
+      "method": "executeUserEntryPoint [as runMain]",
+      "native": false
+    },
+    {
+      "column": 49,
+      "file": "node:internal/main/run_main_module",
+      "function": null,
+      "line": 36,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-26 20:51:35.596 [ERROR] uncaughtException: dtuRoutes is not defined
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:71:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:71:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+{
+  "error": {},
+  "exception": true,
+  "date": "Fri Sep 26 2025 20:51:35 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 31650,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 83787776,
+      "heapTotal": 35864576,
+      "heapUsed": 16815968,
+      "external": 2364595,
+      "arrayBuffers": 27263
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.2177734375,
+      2.259765625,
+      2.82470703125
+    ],
+    "uptime": 2821
+  },
+  "trace": [
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 71,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/modules/run_main",
+      "function": "Function.executeUserEntryPoint [as runMain]",
+      "line": 171,
+      "method": "executeUserEntryPoint [as runMain]",
+      "native": false
+    },
+    {
+      "column": 49,
+      "file": "node:internal/main/run_main_module",
+      "function": null,
+      "line": 36,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-26 20:52:02.614 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:392:13)
+    at Function.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:219:7)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:72:5)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+TypeError: argument handler must be a function
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:392:13)
+    at Function.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:219:7)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:72:5)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Fri Sep 26 2025 20:52:02 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 31942,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 83804160,
+      "heapTotal": 36126720,
+      "heapUsed": 16726520,
+      "external": 2364595,
+      "arrayBuffers": 27263
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.07080078125,
+      2.21826171875,
+      2.78955078125
+    ],
+    "uptime": 2848
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js",
+      "function": "Function.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js",
+      "function": "Function.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 72,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-26 20:52:51.131 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:392:13)
+    at Function.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:219:7)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:72:5)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+TypeError: argument handler must be a function
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:392:13)
+    at Function.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:219:7)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:72:5)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Fri Sep 26 2025 20:52:51 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 32461,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 83591168,
+      "heapTotal": 35864576,
+      "heapUsed": 16879304,
+      "external": 2364595,
+      "arrayBuffers": 27263
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.9716796875,
+      2.1708984375,
+      2.740234375
+    ],
+    "uptime": 2897
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js",
+      "function": "Function.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js",
+      "function": "Function.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 72,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-26 20:53:16.036 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:392:13)
+    at Function.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:219:7)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:72:5)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+TypeError: argument handler must be a function
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:392:13)
+    at Function.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:219:7)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:72:5)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Fri Sep 26 2025 20:53:16 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 32734,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 84246528,
+      "heapTotal": 36388864,
+      "heapUsed": 16905424,
+      "external": 2364595,
+      "arrayBuffers": 27263
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.80419921875,
+      2.1220703125,
+      2.70654296875
+    ],
+    "uptime": 2922
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js",
+      "function": "Function.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js",
+      "function": "Function.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 72,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-26 20:53:21.875 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:392:13)
+    at Function.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:219:7)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:72:5)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+TypeError: argument handler must be a function
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:392:13)
+    at Function.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:219:7)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:72:5)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Fri Sep 26 2025 20:53:21 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 32798,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 84131840,
+      "heapTotal": 36388864,
+      "heapUsed": 16868168,
+      "external": 2364595,
+      "arrayBuffers": 27263
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.833984375,
+      2.1171875,
+      2.69775390625
+    ],
+    "uptime": 2927
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js",
+      "function": "Function.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js",
+      "function": "Function.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 72,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-26 20:53:23.961 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:392:13)
+    at Function.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:219:7)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:72:5)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+TypeError: argument handler must be a function
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:392:13)
+    at Function.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js:219:7)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:72:5)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Fri Sep 26 2025 20:53:23 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 32859,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 83968000,
+      "heapTotal": 36126720,
+      "heapUsed": 16853280,
+      "external": 2364595,
+      "arrayBuffers": 27263
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.833984375,
+      2.1171875,
+      2.69775390625
+    ],
+    "uptime": 2929
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js",
+      "function": "Function.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/express/lib/application.js",
+      "function": "Function.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 72,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}

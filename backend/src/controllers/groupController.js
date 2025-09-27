@@ -7,33 +7,33 @@ class GroupController {
   // ========================================
   // 设备分组相关操作
   // ========================================
-  // 1. 获取分组名称列表
-  // 2. 获取所有分组详细信息
-  // 3. 获取默认分组
+  // 1. 查询所有分组的名称
+  // 2. 查询所有分组
+  // 3. 查询默认分组
   // 4. 检查分组名是否存在
-  // 5. 创建新分组
+  // 5. 创建分组
   // 6. 更新分组
   // 7. 删除分组
 
-  // 1. 获取分组名称列表
-  static async getGroupNames(req, res) {
+  // 1. 查询所有分组的名称
+  static async getNames(req, res) {
     try {
-      const groups = await GroupData.getGroupNames();
+      const groups = await GroupData.getNames();
       res.json({ success: true, data: groups });
     } catch (error) {
       res.status(500).json({ success: false, message: error.message });
     }
   }
 
-  // 2. 获取所有分组详细信息
-  static getGroups = asyncHandler(async (req, res) => {
-    const groups = await GroupData.getGroups();
+  // 2. 查询所有分组
+  static getAll = asyncHandler(async (req, res) => {
+    const groups = await GroupData.getAll();
     res.json({ success: true, data: groups });
   });
 
-  // 3. 获取默认分组
-  static getDefaultGroup = asyncHandler(async (req, res) => {
-    const defaultGroup = await GroupData.getDefaultGroup();
+  // 3. 查询默认分组
+  static getDefault = asyncHandler(async (req, res) => {
+    const defaultGroup = await GroupData.getDefault();
     if (!defaultGroup) {
       return res.status(404).json({ 
         success: false, 
@@ -44,22 +44,26 @@ class GroupController {
   });
 
   // 4. 检查分组名是否存在
-  static async checkGroupNameExists(req, res) {
-    try {
-      const { group_name } = req.query;
-      if (!group_name) {
-        return res.status(400).json({ success: false, message: '分组名不能为空' });
-      }
-      
-      const exists = await GroupData.checkGroupNameExists(group_name);
-      res.json({ success: true, data: { exists } });
-    } catch (error) {
-      res.status(500).json({ success: false, message: error.message });
+  static checkGroupNameExists = asyncHandler(async (req, res) => {
+    const { group_name } = req.query;
+    if (!group_name) {
+      return res.status(400).json({ success: false, message: '分组名不能为空' });
     }
-  }
+    
+    // 解码URL编码的分组名，如果解码失败则使用原始值
+    let decodedGroupName;
+    try {
+      decodedGroupName = decodeURIComponent(group_name);
+    } catch (decodeError) {
+      decodedGroupName = group_name;
+    }
+    
+    const exists = await GroupData.checkGroupNameExists(decodedGroupName);
+    res.json({ success: true, data: { exists } });
+  });
 
   // 5. 创建新分组
-  static createGroup = asyncHandler(async (req, res) => {
+  static create = asyncHandler(async (req, res) => {
     const { group_name, description } = req.body;
     
     // 检查分组名是否已存在
@@ -68,7 +72,7 @@ class GroupController {
       throw new ConflictError('分组名已存在');
     }
     
-    const result = await GroupData.createGroup({
+    const result = await GroupData.create({
       group_name: group_name.trim(),
       description: description || ''
     });
@@ -81,7 +85,7 @@ class GroupController {
   });
 
   // 6. 更新分组
-  static updateGroup = asyncHandler(async (req, res) => {
+  static update = asyncHandler(async (req, res) => {
     const { id } = req.params;
     const { group_name, description } = req.body;
     
@@ -89,7 +93,7 @@ class GroupController {
     const exists = await GroupData.checkGroupNameExists(group_name.trim());
     if (exists) {
       // 检查是否是当前分组自己的名称
-      const currentGroup = await GroupData.getGroupById(id);
+      const currentGroup = await GroupData.getById(id);
       if (!currentGroup || currentGroup.group_name !== group_name.trim()) {
         return res.status(400).json({ 
           success: false, 
@@ -98,7 +102,7 @@ class GroupController {
       }
     }
     
-    const result = await GroupData.updateGroup(id, {
+    const result = await GroupData.update(id, {
       group_name: group_name.trim(),
       description: description || ''
     });
@@ -111,9 +115,9 @@ class GroupController {
   });
 
   // 7. 删除分组
-  static deleteGroup = asyncHandler(async (req, res) => {
+  static delete = asyncHandler(async (req, res) => {
     const { id } = req.params;
-    const result = await GroupData.deleteGroup(id);
+    const result = await GroupData.delete(id);
     
     res.json({ 
       success: true, 

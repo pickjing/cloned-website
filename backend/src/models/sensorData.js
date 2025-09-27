@@ -4,49 +4,106 @@ const logger = require('../utils/logger');
 
 class SensorData {
   // ========================================
-  // 传感器管理相关操作
+  // 传感器管理相关数据库操作
   // ========================================
-  // 1. 根据DTU设备ID获取连接的传感器详情
-  // 2. 根据传感器ID获取传感器详情
-  // 3. 创建传感器
-  // 4. 更新传感器
-  // 5. 删除传感器
+  // 1. 查询传感器
+  // 2. 创建传感器
+  // 3. 更新传感器
+  // 4. 删除传感器
 
-  // 1. 根据DTU设备ID获取连接的传感器详情
-  static async getSensorsByDTUId(dtuId, connection = null) {
+  // 1. 查询传感器
+  static async get(params = {}, connection = null) {
     const dbConnection = connection || db;
-    const cacheKey = cache.generateKey('sensors_by_dtu', { dtuId });
+    const { dtuId, sensorId } = params;
+    
+    // 生成缓存键
+    const cacheKey = cache.generateKey('sensors', {
+      dtuId: dtuId || '',
+      sensorId: sensorId || ''
+    });
     
     return await cache.cacheQuery(cacheKey, async () => {
-      const [rows] = await dbConnection.execute(
-        'SELECT * FROM sensors WHERE dtu_id = ? ORDER BY sensor_id',
-        [dtuId]
-      );
-      return rows;
-    }, 300, 'default'); // 5分钟缓存
-  }
-
-  // 2. 根据传感器ID获取传感器详情
-  static async getSensorById(sensorId, connection = null) {
-    const dbConnection = connection || db;
-    const cacheKey = cache.generateKey('sensor', { sensorId });
-    
-    return await cache.cacheQuery(cacheKey, async () => {
-      const [rows] = await dbConnection.execute(
-        'SELECT * FROM sensors WHERE sensor_id = ?',
-        [sensorId]
-      );
-      
-      if (rows.length === 0) {
-        throw new Error('传感器不存在');
+      // 如果传递了sensorId，查询指定传感器
+      if (sensorId) {
+        const [rows] = await dbConnection.execute(
+          'SELECT * FROM sensors WHERE sensor_id = ?',
+          [sensorId]
+        );
+        
+        if (rows.length === 0) {
+          throw new Error('传感器不存在');
+        }
+        
+        return rows[0];
       }
       
-      return rows[0];
+      // 如果传递了dtuId，查询该DTU下的所有传感器
+      if (dtuId) {
+        const [rows] = await dbConnection.execute(
+          'SELECT * FROM sensors WHERE dtu_id = ? ORDER BY sensor_id',
+          [dtuId]
+        );
+        return rows;
+      }
+      
+      // 如果都没传递，返回空数组
+      return [];
     }, 300, 'default'); // 5分钟缓存
   }
 
-  // 3. 创建传感器
-  static async createSensor(data, connection = null) {
+  // 2. 创建传感器
+  static async create(data, connection = null) {
+    const dbConnection = connection || db;
+    
+    logger.debug('Creating sensor(s)', { data });
+    
+    // 统一处理：将单个对象转换为数组
+    const sensors = Array.isArray(data) ? data : [data];
+    const results = [];
+    
+    for (const sensorData of sensors) {
+      try {
+        const { mbRtuConfig, ...sensorInfo } = sensorData;
+        
+        // 1. 创建传感器
+        const sensorResult = await this.createOne(sensorInfo, dbConnection);
+        
+        // 2. 创建MB-RTU协议（总是创建，使用提供的参数或默认参数）
+        const MbRtuData = require('./mbRtuData');
+        const mbRtuData = {
+          dtu_id: sensorInfo.dtu_id,
+          sensor_id: sensorInfo.sensor_id,
+          ...mbRtuConfig  // 如果提供了配置就使用，否则使用 createMBRTU 中的默认值
+        };
+        
+        await MbRtuData.create(mbRtuData, dbConnection);
+        
+        results.push({
+          success: true,
+          sensor_id: sensorInfo.sensor_id,
+          dtu_id: sensorInfo.dtu_id,
+          data: sensorResult
+        });
+      } catch (error) {
+        results.push({
+          success: false,
+          sensor_id: sensorData.sensor_id,
+          dtu_id: sensorData.dtu_id,
+          error: error.message
+        });
+      }
+    }
+    
+    // 只有在非事务模式下才清除缓存
+    if (!connection) {
+      cache.deletePattern('sensors_by_dtu:.*', 'default');
+    }
+    
+    return results;
+  }
+
+  // 创建单个传感器
+  static async createOne(data, connection = null) {
     const dbConnection = connection || db;
     const { 
       sensor_id, dtu_id, icon = '/image/传感器图片.png', sensor_name, 
@@ -54,8 +111,6 @@ class SensorData {
       upper_mapping_x1 = null, upper_mapping_y1 = null, upper_mapping_x2 = null, upper_mapping_y2 = null,
       lower_mapping_x1 = null, lower_mapping_y1 = null, lower_mapping_x2 = null, lower_mapping_y2 = null
     } = data;
-    
-    logger.debug('Creating sensor', { params: data });
     
     const [result] = await dbConnection.execute(
       `INSERT INTO sensors (
@@ -68,29 +123,58 @@ class SensorData {
        lower_mapping_x1, lower_mapping_y1, lower_mapping_x2, lower_mapping_y2]
     );
     
-    // 只有在非事务模式下才清除缓存
-    if (!connection) {
-      cache.deletePattern('sensors_by_dtu:.*', 'default');
-    }
-    
     return result;
   }
 
-  // 4. 更新传感器
-  static async updateSensor(sensorId, data, connection = null) {
+  // 3. 更新传感器
+  static async update(data, connection = null) {
+    const dbConnection = connection || db;
+    
+    logger.debug('Updating sensor(s)', { data });
+    
+    // 统一处理：将单个对象转换为数组
+    const sensors = Array.isArray(data) ? data : [data];
+    const results = [];
+    
+    for (const sensorData of sensors) {
+      try {
+        const result = await this.updateOne(sensorData, dbConnection);
+        results.push({
+          success: true,
+          sensor_id: sensorData.sensor_id,
+          data: result
+        });
+      } catch (error) {
+        results.push({
+          success: false,
+          sensor_id: sensorData.sensor_id,
+          error: error.message
+        });
+      }
+    }
+    
+    // 只有在非事务模式下才清除缓存
+    if (!connection) {
+      cache.deletePattern('sensor:.*', 'default');
+      cache.deletePattern('sensors_by_dtu:.*', 'default');
+    }
+    
+    return results;
+  }
+
+  // 更新单个传感器
+  static async updateOne(sensorData, connection = null) {
     const dbConnection = connection || db;
     const { 
-      sensor_name, sensor_type, decimal_places, unit, sort_order,
+      sensor_id, sensor_name, sensor_type, decimal_places, unit, sort_order,
       upper_mapping_x1, upper_mapping_y1, upper_mapping_x2, upper_mapping_y2,
       lower_mapping_x1, lower_mapping_y1, lower_mapping_x2, lower_mapping_y2
-    } = data;
-    
-    logger.debug('Updating sensor', { sensorId, data });
+    } = sensorData;
     
     // 检查传感器是否存在
     const [existingRows] = await dbConnection.execute(
       'SELECT id FROM sensors WHERE sensor_id = ?',
-      [sensorId]
+      [sensor_id]
     );
     
     if (existingRows.length === 0) {
@@ -159,48 +243,87 @@ class SensorData {
     }
     
     updateFields.push('updated_at = NOW()');
-    updateValues.push(sensorId);
+    updateValues.push(sensor_id);
     
     const [result] = await dbConnection.execute(
       `UPDATE sensors SET ${updateFields.join(', ')} WHERE sensor_id = ?`,
       updateValues
     );
     
+    return { action: 'updated', affectedRows: result.affectedRows };
+  }
+
+  // 4. 删除传感器
+  static async delete(data, connection = null) {
+    const dbConnection = connection || db;
+    
+    logger.debug('Deleting sensor(s)', { data });
+    
+    // 统一处理：将单个对象转换为数组
+    const sensors = Array.isArray(data) ? data : [data];
+    const results = [];
+    
+    for (const sensorData of sensors) {
+      try {
+        const result = await this.deleteOne(sensorData, dbConnection);
+        results.push({
+          success: true,
+          sensor_id: sensorData.sensor_id,
+          data: result
+        });
+      } catch (error) {
+        results.push({
+          success: false,
+          sensor_id: sensorData.sensor_id,
+          error: error.message
+        });
+      }
+    }
+    
     // 只有在非事务模式下才清除缓存
     if (!connection) {
       cache.deletePattern('sensor:.*', 'default');
       cache.deletePattern('sensors_by_dtu:.*', 'default');
     }
     
-    return { action: 'updated', affectedRows: result.affectedRows };
+    return results;
   }
 
-  // 5. 删除传感器
-  static async deleteSensor(sensorId, connection = null) {
+  // 删除单个传感器
+  static async deleteOne(sensorData, connection = null) {
     const dbConnection = connection || db;
-    logger.debug('Deleting sensor', { sensorId });
+    const { sensor_id } = sensorData;
+    
+    logger.debug('Deleting sensor', { sensor_id });
     
     // 检查传感器是否存在
     const [existingRows] = await dbConnection.execute(
       'SELECT id, dtu_id FROM sensors WHERE sensor_id = ?',
-      [sensorId]
+      [sensor_id]
     );
     
     if (existingRows.length === 0) {
       throw new Error('传感器不存在');
     }
     
+    // 删除对应的MB-RTU协议
+    try {
+      const MbRtuData = require('./mbRtuData');
+      await MbRtuData.delete(existingRows[0].dtu_id, sensor_id, dbConnection);
+    } catch (error) {
+      // 如果MB-RTU协议不存在，记录日志但不影响删除流程
+      logger.warn('MB-RTU协议不存在或已删除', { 
+        dtu_id: existingRows[0].dtu_id, 
+        sensor_id, 
+        error: error.message 
+      });
+    }
+    
     // 删除传感器
     const [result] = await dbConnection.execute(
       'DELETE FROM sensors WHERE sensor_id = ?',
-      [sensorId]
+      [sensor_id]
     );
-    
-    // 只有在非事务模式下才清除缓存
-    if (!connection) {
-      cache.deletePattern('sensor:.*', 'default');
-      cache.deletePattern('sensors_by_dtu:.*', 'default');
-    }
     
     return { action: 'deleted', affectedRows: result.affectedRows };
   }

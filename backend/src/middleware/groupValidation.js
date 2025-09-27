@@ -1,15 +1,15 @@
-const { body, param } = require('express-validator');
+const { body, param, validationResult } = require('express-validator');
 
 /**
  * 处理验证错误
  */
 const handleValidationErrors = (req, res, next) => {
-  const errors = req.validationErrors ? req.validationErrors() : [];
-  if (errors && errors.length > 0) {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
     return res.status(400).json({
       success: false,
       message: '输入验证失败',
-      errors: errors.map(err => err.msg)
+      errors: errors.array().map(err => err.msg)
     });
   }
   next();
@@ -18,7 +18,7 @@ const handleValidationErrors = (req, res, next) => {
 /**
  * 设备分组验证规则
  */
-const validateGroup = [
+const validateData = [
   body('group_name')
     .notEmpty()
     .withMessage('分组名不能为空')
@@ -36,7 +36,7 @@ const validateGroup = [
 /**
  * 分组ID参数验证
  */
-const validateGroupId = [
+const validateId = [
   param('id')
     .isInt({ min: 1 })
     .withMessage('分组ID必须是正整数'),
@@ -45,6 +45,6 @@ const validateGroupId = [
 ];
 
 module.exports = {
-  validateGroup,
-  validateGroupId
+  validateData,
+  validateId
 };

@@ -27,12 +27,12 @@
 | 字段名 | 类型 | 默认值 | 说明 | 示例 |
 |--------|------|--------|------|------|
 | id | INT | AUTO_INCREMENT | 主键ID | 1 |
-| device_id | VARCHAR(50) | - | 设备唯一标识 | DTU001 |
+| dtu_id | VARCHAR(50) | - | DTU设备唯一标识 | DTU001 |
 | serial_number | VARCHAR(100) | NULL | 设备序列号 | SN2024001 |
 | created_date | TIMESTAMP | CURRENT_TIMESTAMP | 创建日期 | 2024-01-01 00:00:00 |
-| device_group | VARCHAR(100) | NULL | 设备分组 | 大坝上游面 |
-| device_name | VARCHAR(100) | - | 设备名称 | 上游面DTU-01 |
-| device_image | VARCHAR(255) | 默认DTU图片 | 设备图片路径 | 阿里云OSS链接 |
+| dtu_group | VARCHAR(100) | NULL | DTU设备分组 | 大坝上游面 |
+| dtu_name | VARCHAR(100) | - | DTU设备名称 | 上游面DTU-01 |
+| dtu_image | VARCHAR(255) | 默认DTU图片 | DTU设备图片路径 | 阿里云OSS链接 |
 | link_protocol | VARCHAR(50) | 'MB RTU' | 链接协议 | MB RTU |
 | offline_delay | INT | 300 | 掉线延时（秒） | 300 |
 | timezone_setting | VARCHAR(50) | '+08:00' | 时区设置 | +08:00 |
@@ -43,9 +43,9 @@
 | updated_at | TIMESTAMP | CURRENT_TIMESTAMP | 更新时间 | 2024-01-01 00:00:00 |
 
 **索引**:
-- `idx_device_id` (device_id)
-- `idx_device_name` (device_name)
-- `idx_device_group` (device_group)
+- `idx_dtu_id` (dtu_id)
+- `idx_dtu_name` (dtu_name)
+- `idx_dtu_group` (dtu_group)
 - `idx_status` (status)
 
 ### 2. 传感器表 (sensors)
@@ -75,7 +75,7 @@
 | updated_at | TIMESTAMP | CURRENT_TIMESTAMP | 更新时间 | 2024-01-01 00:00:00 |
 
 **外键约束**:
-- `dtu_id` → `dtu_devices(device_id)` ON DELETE CASCADE
+- `dtu_id` → `dtu_devices(dtu_id)` ON DELETE CASCADE
 
 **索引**:
 - `idx_sensor_id` (sensor_id)
@@ -123,13 +123,13 @@
 - `(dtu_id, sensor_id)` - 确保每个DTU下的传感器只有一条配置
 
 **外键约束**:
-- `dtu_id` → `dtu_devices(device_id)` ON DELETE CASCADE
+- `dtu_id` → `dtu_devices(dtu_id)` ON DELETE CASCADE
 - `sensor_id` → `sensors(sensor_id)` ON DELETE CASCADE
 
 **索引**:
 - `idx_dtu_sensor` (dtu_id, sensor_id)
 
-### 5. 设备分组表 (device_groups)
+### 5. DTU设备分组表 (dtu_groups)
 
 用于对DTU设备进行分组管理，支持多级分组。
 
@@ -139,11 +139,14 @@
 | group_name | VARCHAR(100) | - | 分组名称 | 1号大坝 |
 | description | VARCHAR(255) | NULL | 分组描述 | 位于上游区域 |
 | parent_group_id | INT | NULL | 父分组ID (自引用) | 1 |
+| is_default | BOOLEAN | FALSE | 是否为默认分组 | TRUE/FALSE |
 | created_at | TIMESTAMP | CURRENT_TIMESTAMP | 创建时间 | 2024-01-01 00:00:00 |
 | updated_at | TIMESTAMP | CURRENT_TIMESTAMP | 更新时间 | 2024-01-01 00:00:00 |
 
 **索引**:
 - `idx_group_name` (group_name)
+- `idx_parent_group_id` (parent_group_id)
+- `idx_is_default` (is_default)
 
 ### 6. DTU注册记录表 (dtu_registrations)
 
@@ -160,7 +163,7 @@
 | software_version | VARCHAR(50) | NULL | 软件版本 | S1.0.0 |
 
 **外键约束**:
-- `dtu_id` → `dtu_devices(device_id)` ON DELETE CASCADE
+- `dtu_id` → `dtu_devices(dtu_id)` ON DELETE CASCADE
 
 **索引**:
 - `idx_dtu_id_reg_time` (dtu_id, registration_time)

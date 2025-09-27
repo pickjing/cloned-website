@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const deviceRoutes = require('./routes/deviceRoutes');
+// const deviceRoutes = require('./routes/deviceRoutes');
+// const dtuRoutes = require('./routes/dtuRoutes');
 const groupRoutes = require('./routes/groupRoutes');
 const mbRtuRoutes = require('./routes/mbRtuRoutes');
 const sensorRoutes = require('./routes/sensorRoutes');
@@ -65,16 +66,19 @@ app.get('/performance/report', (req, res) => {
 });
 
 // 设备路由
-app.use('/api', deviceRoutes);
+// app.use('/api', deviceRoutes);
+
+// dtu路由
+//app.use('/api/dtu', dtuRoutes);
 
 // 分组路由
 app.use('/api/groups', groupRoutes);
 
-// MB-RTU协议路由
-app.use('/api/mb-rtu', mbRtuRoutes);
-
 // 传感器路由
 app.use('/api/sensors', sensorRoutes);
+
+// MB-RTU协议路由
+app.use('/api/mb-rtu', mbRtuRoutes);
 
 // 404 处理
 app.use(notFoundHandler);

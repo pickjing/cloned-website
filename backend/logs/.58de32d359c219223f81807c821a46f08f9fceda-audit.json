@@ -24,6 +24,16 @@
             "date": 1758386779823,
             "name": "/Users/xujing/Workspace/cloned-website/backend/logs/error-2025-09-21.log",
             "hash": "5a31b8f246a251bbf0e1b4746d9fe0fd84078aa1dbeb324207aa6a034d92d43a"
+        },
+        {
+            "date": 1758889009202,
+            "name": "/Users/xujing/Workspace/cloned-website/backend/logs/error-2025-09-26.log",
+            "hash": "bbdfd8bdd83c16ec1015c2a34b0517e17f7a56523413eb2d82ccca5d55cca41c"
+        },
+        {
+            "date": 1758945310602,
+            "name": "/Users/xujing/Workspace/cloned-website/backend/logs/error-2025-09-27.log",
+            "hash": "76ebb13678c4d97a90d82f352a1db4cf52a2110de6087750a0c09878871ef2d7"
         }
     ],
     "hashType": "sha256"

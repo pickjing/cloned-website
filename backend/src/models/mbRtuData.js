@@ -2,8 +2,16 @@ const db = require('../services/database');
 const logger = require('../utils/logger');
 
 class MbRtuData {
-  // 创建MB-RTU协议
-  static async createMBRTU(data, connection = null) {
+  // ========================================
+  // MB-RTU协议相关数据库操作
+  // ========================================
+  // 1. 创建MB-RTU协议
+  // 2. 更新MB-RTU协议
+  // 3. 查询MB-RTU协议
+  // 4. 删除MB-RTU协议
+
+  // 1. 创建MB-RTU协议
+  static async create(data, connection = null) {
     const dbConnection = connection || db;
     const { 
       dtu_id, 
@@ -30,10 +38,44 @@ class MbRtuData {
     return result;
   }
 
-  // 更新MB-RTU协议
-  static async updateMBRTU(dtuId, sensorId, data, connection = null) {
+  // 2. 更新MB-RTU协议
+  static async update(data, connection = null) {
+    const dbConnection = connection || db;
+    
+    logger.debug('Updating MB RTU', { data });
+    
+    // 统一处理：将单个对象转换为数组
+    const configs = Array.isArray(data) ? data : [data];
+    const results = [];
+    
+    for (const config of configs) {
+      try {
+        const result = await this.updateOne(config, dbConnection);
+        results.push({
+          success: true,
+          dtu_id: config.dtu_id,
+          sensor_id: config.sensor_id,
+          data: result
+        });
+      } catch (error) {
+        results.push({
+          success: false,
+          dtu_id: config.dtu_id,
+          sensor_id: config.sensor_id,
+          error: error.message
+        });
+      }
+    }
+    
+    return results;
+  }
+
+  // 更新单个MB-RTU协议
+  static async updateOne(config, connection = null) {
     const dbConnection = connection || db;
     const { 
+      dtu_id,
+      sensor_id,
       slave_address, 
       function_code, 
       offset_value, 
@@ -41,17 +83,17 @@ class MbRtuData {
       data_bits, 
       byte_order_value, 
       collection_cycle 
-    } = data;
+    } = config;
     
-    logger.debug('Updating MB RTU', { dtuId, sensorId, data });
+    logger.debug('Updating one MB RTU', { config });
     
     // 检查DTU和传感器是否存在
-    const [dtuRows] = await dbConnection.execute('SELECT id FROM dtu_devices WHERE device_id = ?', [dtuId]);
+    const [dtuRows] = await dbConnection.execute('SELECT id FROM dtu_devices WHERE dtu_id = ?', [dtu_id]);
     if (dtuRows.length === 0) {
       throw new Error('DTU设备不存在');
     }
     
-    const [sensorRows] = await dbConnection.execute('SELECT id FROM sensors WHERE sensor_id = ? AND dtu_id = ?', [sensorId, dtuId]);
+    const [sensorRows] = await dbConnection.execute('SELECT id FROM sensors WHERE sensor_id = ? AND dtu_id = ?', [sensor_id, dtu_id]);
     if (sensorRows.length === 0) {
       throw new Error('传感器不存在或不属于该DTU设备');
     }
@@ -59,7 +101,7 @@ class MbRtuData {
     // 检查协议是否存在
     const [existingRows] = await dbConnection.execute(
       'SELECT id FROM mb_rtu WHERE dtu_id = ? AND sensor_id = ?',
-      [dtuId, sensorId]
+      [dtu_id, sensor_id]
     );
     
     if (existingRows.length === 0) {
@@ -103,88 +145,58 @@ class MbRtuData {
       throw new Error('没有提供要更新的字段');
     }
     
-    updateFields.push('updated_at = NOW()');
-    updateValues.push(dtuId, sensorId);
+    updateFields.push('updated_at = CURRENT_TIMESTAMP');
+    updateValues.push(dtu_id, sensor_id);
     
     const [result] = await dbConnection.execute(
       `UPDATE mb_rtu SET ${updateFields.join(', ')} WHERE dtu_id = ? AND sensor_id = ?`,
-      updateValues
+      [...updateValues]
     );
     
-    return { action: 'updated', affectedRows: result.affectedRows };
+    return result;
   }
 
-  // 批量更新DTU下多个传感器的MB-RTU协议
-  static async updateMBRTUs(dtuId, configs, connection = null) {
+  // 3. 查询MB-RTU协议
+  static async get(params = {}, connection = null) {
     const dbConnection = connection || db;
-    logger.debug('Updating MB RTUs', { dtuId, configCount: configs.length });
+    const { dtuId, sensorId } = params;
     
-    // 检查DTU是否存在
-    const [dtuRows] = await dbConnection.execute('SELECT id FROM dtu_devices WHERE device_id = ?', [dtuId]);
-    if (dtuRows.length === 0) {
-      throw new Error('DTU设备不存在');
-    }
+    logger.debug('Getting MB RTU configs', { dtuId, sensorId });
     
-    const results = [];
-    
-    for (const config of configs) {
-      try {
-        const result = await this.updateMBRTU(dtuId, config.sensor_id, config, dbConnection);
-        results.push({
-          sensor_id: config.sensor_id,
-          success: true,
-          action: result.action,
-          ...result
-        });
-      } catch (error) {
-        results.push({
-          sensor_id: config.sensor_id,
-          success: false,
-          error: error.message
-        });
+    // 如果传递了dtuId和sensorId，查询指定传感器的MB-RTU协议
+    if (dtuId && sensorId) {
+      const [rows] = await dbConnection.execute(
+        `SELECT * FROM mb_rtu WHERE dtu_id = ? AND sensor_id = ?`,
+        [dtuId, sensorId]
+      );
+      
+      if (rows.length === 0) {
+        throw new Error('MB-RTU协议不存在');
       }
+      
+      return rows[0];
     }
     
-    return results;
-  }
-
-  // 查询单个传感器的MB-RTU协议
-  static async getMBRTU(dtuId, sensorId, connection = null) {
-    const dbConnection = connection || db;
-    logger.debug('Getting MB RTU config', { dtuId, sensorId });
-    
-    const [rows] = await dbConnection.execute(
-      `SELECT * FROM mb_rtu WHERE dtu_id = ? AND sensor_id = ?`,
-      [dtuId, sensorId]
-    );
-    
-    if (rows.length === 0) {
-      throw new Error('MB-RTU协议不存在');
+    // 如果只传递了dtuId，查询该DTU下的所有MB-RTU协议
+    if (dtuId && !sensorId) {
+      const [rows] = await dbConnection.execute(
+        `SELECT * FROM mb_rtu WHERE dtu_id = ? ORDER BY sensor_id`,
+        [dtuId]
+      );
+      return rows;
     }
     
-    return rows[0];
+    // 如果都没传递，返回空数组
+    return [];
   }
 
-  // 查询DTU下所有传感器的MB-RTU协议
-  static async getMBRTUs(dtuId, connection = null) {
-    const dbConnection = connection || db;
-    logger.debug('Getting MB RTUs by DTU', { dtuId });
-    
-    const [rows] = await dbConnection.execute(
-      `SELECT * FROM mb_rtu WHERE dtu_id = ? ORDER BY sensor_id`,
-      [dtuId]
-    );
-    
-    return rows;
-  }
-
-  // 删除MB-RTU协议
-  static async deleteMBRTU(dtuId, sensorId, connection = null) {
+  // 4. 删除MB-RTU协议
+  static async delete(dtuId, sensorId, connection = null) {
     const dbConnection = connection || db;
     logger.debug('Deleting MB RTU', { dtuId, sensorId });
     
     // 检查DTU和传感器是否存在
-    const [dtuRows] = await dbConnection.execute('SELECT id FROM dtu_devices WHERE device_id = ?', [dtuId]);
+    const [dtuRows] = await dbConnection.execute('SELECT id FROM dtu_devices WHERE dtu_id = ?', [dtuId]);
     if (dtuRows.length === 0) {
       throw new Error('DTU设备不存在');
     }

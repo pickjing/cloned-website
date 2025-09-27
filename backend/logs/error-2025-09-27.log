@@ -1,0 +1,491 @@
+2025-09-27 11:57:14.861 [ERROR] Query error recorded
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Incorrect arguments to mysqld_stmt_execute",
+  "code": "ER_WRONG_ARGUMENTS",
+  "query": "SELECT * FROM sensors  ORDER BY sensor_id ASC LIMIT ? OFFSET ?"
+}
+2025-09-27 11:57:14.861 [ERROR] Cache query failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "key": "sensors:dtuId:|limit:5|order:ASC|page:1|search:|sensorId:|sensorType:|sort:sensor_id",
+  "error": "Incorrect arguments to mysqld_stmt_execute",
+  "cacheType": "default"
+}
+2025-09-27 11:57:14.862 [ERROR] Application error Incorrect arguments to mysqld_stmt_execute
+Error: Incorrect arguments to mysqld_stmt_execute
+    at PromisePool.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at pool.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/database.js:65:26)
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:110:41
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async CacheService.cacheQuery (/Users/xujing/Workspace/cloned-website/backend/src/services/cache.js:175:22)
+    at async SensorData.getSensors (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:84:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:40:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors?dtuId=TEST_DEVICE_001&page=1&limit=5",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1dc609b2-cf87-40a5-9683-bef53494f5d2",
+  "query": {
+    "dtuId": "TEST_DEVICE_001",
+    "page": "1",
+    "limit": "5"
+  },
+  "params": {}
+}
+2025-09-27 12:12:02.892 [ERROR] Cache query failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "key": "sensors:dtuId:|sensorId:SENSOR001",
+  "error": "传感器不存在",
+  "cacheType": "default"
+}
+2025-09-27 12:12:02.893 [ERROR] Application error 传感器不存在
+Error: 传感器不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:34:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async CacheService.cacheQuery (/Users/xujing/Workspace/cloned-website/backend/src/services/cache.js:175:22)
+    at async SensorData.getSensors (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:25:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:25:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/SENSOR001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d7d171d1-ddad-47c8-b466-58863939a9cb",
+  "query": {},
+  "params": {}
+}
+2025-09-27 12:14:03.769 [ERROR] Cache query failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "key": "sensors:dtuId:|sensorId:SENSOR001",
+  "error": "传感器不存在",
+  "cacheType": "default"
+}
+2025-09-27 12:14:03.769 [ERROR] Application error 传感器不存在
+Error: 传感器不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:34:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async CacheService.cacheQuery (/Users/xujing/Workspace/cloned-website/backend/src/services/cache.js:175:22)
+    at async SensorData.getSensors (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:25:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:25:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors?sensorId=SENSOR001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "fdaa607f-98cf-4dc5-937e-29e9a76dd816",
+  "query": {
+    "sensorId": "SENSOR001"
+  },
+  "params": {}
+}
+2025-09-27 12:17:24.818 [ERROR] Cache query failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "key": "sensors:dtuId:|sensorId:SENSOR001",
+  "error": "传感器不存在",
+  "cacheType": "default"
+}
+2025-09-27 12:17:24.819 [ERROR] Application error 传感器不存在
+Error: 传感器不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:34:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async CacheService.cacheQuery (/Users/xujing/Workspace/cloned-website/backend/src/services/cache.js:175:22)
+    at async SensorData.getSensors (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:25:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:25:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors?sensorId=SENSOR001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "43bf4336-26a1-4003-84de-7bb43d03df8b",
+  "query": {
+    "sensorId": "SENSOR001"
+  },
+  "params": {}
+}
+2025-09-27 12:17:28.458 [ERROR] Cache query failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "key": "sensors:dtuId:|sensorId:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "error": "传感器不存在",
+  "cacheType": "default"
+}
+2025-09-27 12:17:28.458 [ERROR] Application error 传感器不存在
+Error: 传感器不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:34:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async CacheService.cacheQuery (/Users/xujing/Workspace/cloned-website/backend/src/services/cache.js:175:22)
+    at async SensorData.getSensors (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:25:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:25:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors?sensorId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "90214b5c-facb-4946-b955-a6a6c47cbf5c",
+  "query": {
+    "sensorId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "params": {}
+}
+2025-09-27 12:17:47.900 [ERROR] Cache query failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "key": "sensors:dtuId:DTU001|sensorId:SENSOR001",
+  "error": "传感器不存在",
+  "cacheType": "default"
+}
+2025-09-27 12:17:47.900 [ERROR] Application error 传感器不存在
+Error: 传感器不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:34:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async CacheService.cacheQuery (/Users/xujing/Workspace/cloned-website/backend/src/services/cache.js:175:22)
+    at async SensorData.getSensors (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:25:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:25:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors?sensorId=SENSOR001&dtuId=DTU001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "99e18cc5-50d1-408b-b7be-5aaea541570d",
+  "query": {
+    "sensorId": "SENSOR001",
+    "dtuId": "DTU001"
+  },
+  "params": {}
+}
+2025-09-27 12:25:43.208 [ERROR] Application error MB-RTU协议不存在
+Error: MB-RTU协议不存在
+    at MbRtuData.getMBRTUConfigs (/Users/xujing/Workspace/cloned-website/backend/src/models/mbRtuData.js:166:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/mbRtuController.js:65:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/mb-rtu?dtuId=DTU001&sensorId=SENSOR001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "4a6ae3f9-222b-4a27-a7dd-a60dab3d8243",
+  "query": {
+    "dtuId": "DTU001",
+    "sensorId": "SENSOR001"
+  },
+  "params": {}
+}
+2025-09-27 12:27:23.007 [ERROR] Application error MB-RTU协议不存在
+Error: MB-RTU协议不存在
+    at MbRtuData.getMBRTUConfigs (/Users/xujing/Workspace/cloned-website/backend/src/models/mbRtuData.js:166:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/mbRtuController.js:65:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/mb-rtu?dtuId=DTU001&sensorId=SENSOR001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "e7a7c9f6-7c32-42b5-ad9d-0245e6ca7af3",
+  "query": {
+    "dtuId": "DTU001",
+    "sensorId": "SENSOR001"
+  },
+  "params": {}
+}
+2025-09-27 18:49:32.170 [ERROR] Cache query failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "key": "sensors:dtuId:|sensorId:SENSOR001",
+  "error": "传感器不存在",
+  "cacheType": "default"
+}
+2025-09-27 18:49:32.171 [ERROR] Application error 传感器不存在
+Error: 传感器不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:34:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async CacheService.cacheQuery (/Users/xujing/Workspace/cloned-website/backend/src/services/cache.js:175:22)
+    at async SensorData.get (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:25:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:25:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors?sensorId=SENSOR001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "989cac7c-9b2a-4cb4-942a-a0af47f9557b",
+  "query": {
+    "sensorId": "SENSOR001"
+  },
+  "params": {}
+}
+2025-09-27 20:17:48.262 [ERROR] Application error Cannot read properties of undefined (reading 'trim')
+TypeError: Cannot read properties of undefined (reading 'trim')
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:66:68
+    at /Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:144:19
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at handleValidationErrors (/Users/xujing/Workspace/cloned-website/backend/src/middleware/groupValidation.js:15:3)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at middleware (/Users/xujing/Workspace/cloned-website/backend/node_modules/express-validator/lib/middlewares/check.js:16:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "eb8ab5d9-f32c-40fc-a05f-3f74dfe00554",
+  "body": {
+    "description": "缺少group_name"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-27 20:18:47.916 [ERROR] Query error recorded
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Data too long for column 'group_name' at row 1",
+  "code": "ER_DATA_TOO_LONG",
+  "query": "INSERT INTO dtu_groups (group_name, description) VALUES (?, ?)"
+}
+2025-09-27 20:18:47.916 [ERROR] Application error Data too long for column 'group_name' at row 1
+Error: Data too long for column 'group_name' at row 1
+    at PromisePool.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at pool.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/database.js:65:26)
+    at GroupData.create (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:88:41)
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:71:36
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "96afea0e-406a-4112-84f4-43a0559553c2",
+  "body": {
+    "group_name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "description": "分组名超过100字符"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-27 20:18:50.042 [ERROR] Query error recorded
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Truncated incorrect INTEGER value: 'abc'",
+  "code": "ER_TRUNCATED_WRONG_VALUE",
+  "query": "\n      UPDATE dtu_groups \n      SET group_name = ?, description = ?, updated_at = NOW()\n      WHERE id = ? AND is_default = FALSE\n    "
+}
+2025-09-27 20:18:50.042 [ERROR] Application error Truncated incorrect INTEGER value: 'abc'
+Error: Truncated incorrect INTEGER value: 'abc'
+    at PromisePool.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at pool.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/database.js:65:26)
+    at GroupData.update (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:105:41)
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:101:36
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/abc",
+  "method": "PUT",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a12fcda9-1148-4be4-8726-1160a22cfc29",
+  "body": {
+    "group_name": "更新测试"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-27 20:19:00.753 [ERROR] Cache query failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "key": "sensors:dtuId:|sensorId:SENSOR001",
+  "error": "传感器不存在",
+  "cacheType": "default"
+}
+2025-09-27 20:19:00.754 [ERROR] Application error 传感器不存在
+Error: 传感器不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:34:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async CacheService.cacheQuery (/Users/xujing/Workspace/cloned-website/backend/src/services/cache.js:175:22)
+    at async SensorData.get (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:25:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:23:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors?sensorId=SENSOR001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "7a3582f2-1687-4d64-9413-fa7e20925287",
+  "query": {
+    "sensorId": "SENSOR001"
+  },
+  "params": {}
+}
+2025-09-27 20:19:02.748 [ERROR] Cache query failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "key": "sensors:dtuId:|sensorId:SENSOR001",
+  "error": "传感器不存在",
+  "cacheType": "default"
+}
+2025-09-27 20:19:02.748 [ERROR] Application error 传感器不存在
+Error: 传感器不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:34:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async CacheService.cacheQuery (/Users/xujing/Workspace/cloned-website/backend/src/services/cache.js:175:22)
+    at async SensorData.get (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:25:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:23:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors?sensorId=SENSOR001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "252bf033-b080-43ad-8c46-2d962dc4865d",
+  "query": {
+    "sensorId": "SENSOR001"
+  },
+  "params": {}
+}
+2025-09-27 20:19:11.337 [ERROR] Application error 路径 /api/dtu 不存在
+Error: 路径 /api/dtu 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at healthCheckLogger (/Users/xujing/Workspace/cloned-website/backend/src/middleware/logging.js:155:3)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d2a0b0ea-b5a8-4a03-a6fc-48bdbf33109e",
+  "body": {
+    "dtu_id": "DTU001",
+    "dtu_name": "测试DTU设备",
+    "dtu_group": "默认分组",
+    "dtu_image": "device.png"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-27 20:19:13.559 [ERROR] Application error 路径 /api/devices 不存在
+Error: 路径 /api/devices 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at healthCheckLogger (/Users/xujing/Workspace/cloned-website/backend/src/middleware/logging.js:155:3)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/devices",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1d077d4e-c58d-4a00-8128-01d48a734441",
+  "body": {
+    "dtu_id": "DTU001",
+    "dtu_name": "测试DTU设备",
+    "dtu_group": "默认分组",
+    "dtu_image": "device.png"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-27 20:20:56.149 [ERROR] Application error Cannot read properties of undefined (reading 'trim')
+TypeError: Cannot read properties of undefined (reading 'trim')
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:66:68
+    at /Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:144:19
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at handleValidationErrors (/Users/xujing/Workspace/cloned-website/backend/src/middleware/groupValidation.js:15:3)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at middleware (/Users/xujing/Workspace/cloned-website/backend/node_modules/express-validator/lib/middlewares/check.js:16:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "8ac9b0f2-466a-41d5-a092-92a37b580efd",
+  "body": {
+    "description": "缺少group_name"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-27 20:26:13.524 [ERROR] Application error 路径 /favicon.ico 不存在
+Error: 路径 /favicon.ico 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at healthCheckLogger (/Users/xujing/Workspace/cloned-website/backend/src/middleware/logging.js:155:3)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/favicon.ico",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15",
+  "requestId": "fe86bf6b-5e06-424f-b81a-7b8d3e77fe97",
+  "query": {},
+  "params": {}
+}

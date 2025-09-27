@@ -24,7 +24,7 @@ const handleValidationErrors = (req, res, next) => {
  * DTU设备验证规则
  */
 const validateDTUDevice = [
-  body('device_id')
+  body('dtu_id')
     .notEmpty()
     .withMessage('设备ID不能为空')
     .isLength({ min: 1, max: 50 })
@@ -161,7 +161,7 @@ const validatePagination = [
  * 批量操作验证规则
  */
 const validateBatchOperation = [
-  body('device_ids')
+  body('dtu_ids')
     .isArray({ min: 1 })
     .withMessage('设备ID列表不能为空')
     .custom((deviceIds) => {
@@ -178,7 +178,7 @@ const validateBatchOperation = [
  * 移动设备到分组验证规则
  */
 const validateMoveToGroup = [
-  body('device_ids')
+  body('dtu_ids')
     .isArray({ min: 1 })
     .withMessage('设备ID列表不能为空'),
   

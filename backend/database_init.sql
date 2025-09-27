@@ -10,12 +10,12 @@ USE dam_monitoring_system;
 -- DTU设备表
 CREATE TABLE IF NOT EXISTS dtu_devices (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    device_id VARCHAR(50) UNIQUE NOT NULL COMMENT '设备ID',
+    dtu_id VARCHAR(50) UNIQUE NOT NULL COMMENT 'DTU设备ID',
     serial_number VARCHAR(100) COMMENT '序列号',
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建日期',
-    device_group VARCHAR(100) COMMENT '设备分组',
-    device_name VARCHAR(100) NOT NULL COMMENT '设备名称',
-    device_image VARCHAR(255) DEFAULT 'https://webplus-cn-shenzhen-s-5decf7913c3f2876a5adc591.oss-cn-shenzhen.aliyuncs.com/fileUpload/productImg/20210407/20210407120039_997.jpg' COMMENT '设备图片路径',
+    dtu_group VARCHAR(100) COMMENT 'DTU设备分组',
+    dtu_name VARCHAR(100) NOT NULL COMMENT 'DTU设备名称',
+    dtu_image VARCHAR(255) DEFAULT 'https://webplus-cn-shenzhen-s-5decf7913c3f2876a5adc591.oss-cn-shenzhen.aliyuncs.com/fileUpload/productImg/20210407/20210407120039_997.jpg' COMMENT 'DTU设备图片路径',
     link_protocol VARCHAR(50) DEFAULT 'MB RTU' COMMENT '链接协议',
     offline_delay INT DEFAULT 300 COMMENT '掉线延时（秒）',
     timezone_setting VARCHAR(50) DEFAULT '+08:00' COMMENT '时区设置',
@@ -24,9 +24,9 @@ CREATE TABLE IF NOT EXISTS dtu_devices (
     status ENUM('已连接', '未连接', '已删除', '已禁用') DEFAULT '未连接' COMMENT '设备状态',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    INDEX idx_device_id (device_id),
-    INDEX idx_device_name (device_name),
-    INDEX idx_device_group (device_group),
+    INDEX idx_dtu_id (dtu_id),
+    INDEX idx_dtu_name (dtu_name),
+    INDEX idx_dtu_group (dtu_group),
     INDEX idx_status (status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='DTU设备信息表';
 
@@ -51,13 +51,13 @@ CREATE TABLE IF NOT EXISTS sensors (
     lower_mapping_y2 DECIMAL(10,4) COMMENT '下行映射原始值上限',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    FOREIGN KEY (dtu_id) REFERENCES dtu_devices(device_id) ON DELETE CASCADE,
+    FOREIGN KEY (dtu_id) REFERENCES dtu_devices(dtu_id) ON DELETE CASCADE,
     INDEX idx_sensor_id (sensor_id),
     INDEX idx_dtu_id (dtu_id),
     INDEX idx_sensor_name (sensor_name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='传感器信息表';
 
--- 传感器数据表 (通用数据存储)
+-- 传感器数据表 (温度数据存储)
 CREATE TABLE IF NOT EXISTS sensor_data (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     sensor_id VARCHAR(50) NOT NULL COMMENT '传感器唯一标识',
@@ -83,22 +83,24 @@ CREATE TABLE IF NOT EXISTS mb_rtu (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     UNIQUE KEY (dtu_id, sensor_id), -- 确保每个DTU下的传感器只有一条配置
-    FOREIGN KEY (dtu_id) REFERENCES dtu_devices(device_id) ON DELETE CASCADE,
+    FOREIGN KEY (dtu_id) REFERENCES dtu_devices(dtu_id) ON DELETE CASCADE,
     FOREIGN KEY (sensor_id) REFERENCES sensors(sensor_id) ON DELETE CASCADE,
     INDEX idx_dtu_sensor (dtu_id, sensor_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Modbus RTU协议配置表';
 
--- 设备分组表
-CREATE TABLE IF NOT EXISTS device_groups (
+-- DTU设备分组表
+CREATE TABLE IF NOT EXISTS dtu_groups (
     id INT AUTO_INCREMENT PRIMARY KEY,
     group_name VARCHAR(100) UNIQUE NOT NULL COMMENT '分组名称',
     description VARCHAR(255) COMMENT '分组描述',
     parent_group_id INT COMMENT '父分组ID (自引用)',
+    is_default BOOLEAN DEFAULT FALSE COMMENT '是否为默认分组',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     INDEX idx_group_name (group_name),
-    INDEX idx_parent_group_id (parent_group_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='设备分组表';
+    INDEX idx_parent_group_id (parent_group_id),
+    INDEX idx_is_default (is_default)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='DTU设备分组表';
 
 -- DTU注册记录表
 CREATE TABLE IF NOT EXISTS dtu_registrations (
@@ -109,15 +111,9 @@ CREATE TABLE IF NOT EXISTS dtu_registrations (
     port INT COMMENT '注册时的端口',
     firmware_version VARCHAR(50) COMMENT '固件版本',
     software_version VARCHAR(50) COMMENT '软件版本',
-    FOREIGN KEY (dtu_id) REFERENCES dtu_devices(device_id) ON DELETE CASCADE,
+    FOREIGN KEY (dtu_id) REFERENCES dtu_devices(dtu_id) ON DELETE CASCADE,
     INDEX idx_dtu_id_reg_time (dtu_id, registration_time)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='DTU设备注册记录表';
-
--- 插入一些示例分组数据
-INSERT IGNORE INTO device_groups (group_name, description) VALUES
-('默认分组', '系统默认分组'),
-('测试分组', '用于测试的设备分组'),
-('生产分组', '生产环境设备分组');
 
 -- 视图：传感器实时状态
 CREATE OR REPLACE VIEW sensor_status_view AS
@@ -135,13 +131,13 @@ SELECT
     sd.data_value AS latest_value,
     sd.timestamp AS latest_timestamp,
     sd.data_quality,
-    dd.device_id AS dtu_device_id,
-    dd.device_name AS dtu_device_name,
+    dd.dtu_id AS dtu_id,
+    dd.dtu_name AS dtu_name,
     dd.status AS dtu_status
 FROM
     sensors s
 JOIN
-    dtu_devices dd ON s.dtu_id = dd.device_id
+    dtu_devices dd ON s.dtu_id = dd.dtu_id
 LEFT JOIN (
     SELECT
         sensor_id,
@@ -156,10 +152,10 @@ LEFT JOIN (
 -- 视图：DTU设备统计信息
 CREATE OR REPLACE VIEW dtu_statistics_view AS
 SELECT
-    dd.device_id,
-    dd.device_name,
+    dd.dtu_id,
+    dd.dtu_name,
     dd.status,
-    dd.device_group,
+    dd.dtu_group,
     dd.longitude,
     dd.latitude,
     COUNT(s.sensor_id) AS total_sensors,
@@ -168,17 +164,17 @@ SELECT
 FROM
     dtu_devices dd
 LEFT JOIN
-    sensors s ON dd.device_id = s.dtu_id
+    sensors s ON dd.dtu_id = s.dtu_id
 LEFT JOIN
     sensor_status_view sd ON s.sensor_id = sd.sensor_id
 GROUP BY
-    dd.device_id, dd.device_name, dd.status, dd.device_group, dd.longitude, dd.latitude;
+    dd.dtu_id, dd.dtu_name, dd.status, dd.dtu_group, dd.longitude, dd.latitude;
 
 -- 视图：Modbus RTU配置概览
 CREATE OR REPLACE VIEW mb_rtu_overview AS
 SELECT
     mb.dtu_id,
-    dd.device_name AS dtu_name,
+    dd.dtu_name AS dtu_name,
     mb.sensor_id,
     s.sensor_name,
     mb.slave_address,
@@ -191,7 +187,7 @@ SELECT
 FROM
     mb_rtu mb
 JOIN
-    dtu_devices dd ON mb.dtu_id = dd.device_id
+    dtu_devices dd ON mb.dtu_id = dd.dtu_id
 JOIN
     sensors s ON mb.sensor_id = s.sensor_id;
 

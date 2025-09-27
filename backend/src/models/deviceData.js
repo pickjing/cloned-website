@@ -47,7 +47,7 @@ class DeviceData {
       
       // 添加搜索过滤
       if (params.search && params.search !== 'undefined' && params.search !== 'null' && params.search.trim() !== '') {
-        whereClause += ' AND (device_name LIKE ? OR device_id LIKE ? OR serial_number LIKE ?)';
+        whereClause += ' AND (dtu_name LIKE ? OR dtu_id LIKE ? OR serial_number LIKE ?)';
         const searchPattern = `%${params.search.trim()}%`;
         queryParams.push(searchPattern, searchPattern, searchPattern);
       }
@@ -165,11 +165,11 @@ class DeviceData {
   // 创建DTU设备
   static async createDTUDevice(data) {
     const { 
-      device_id, 
+      dtu_id, 
       serial_number, 
-      device_group, 
-      device_name, 
-      device_image, 
+      dtu_group, 
+      dtu_name, 
+      dtu_image, 
       link_protocol, 
       offline_delay, 
       timezone_setting, 
@@ -180,10 +180,10 @@ class DeviceData {
     
     const [result] = await db.execute(
       `INSERT INTO dtu_devices (
-        device_id, serial_number, device_group, device_name, device_image, 
+        dtu_id, serial_number, dtu_group, dtu_name, dtu_image, 
         link_protocol, offline_delay, timezone_setting, longitude, latitude, status
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [device_id, serial_number, device_group, device_name, device_image, 
+      [dtu_id, serial_number, dtu_group, dtu_name, dtu_image, 
        link_protocol, offline_delay, timezone_setting, longitude, latitude, status]
     );
     return result;
@@ -264,9 +264,9 @@ class DeviceData {
       // 1. 获取所有设备的当前分组信息
       const placeholders = deviceIds.map(() => '?').join(',');
       const [devices] = await db.execute(`
-        SELECT device_id, device_name, device_group 
+        SELECT dtu_id, dtu_name, dtu_group 
         FROM dtu_devices 
-        WHERE device_id IN (${placeholders})
+        WHERE dtu_id IN (${placeholders})
       `, deviceIds);
       
       logger.debug('Found devices for group move', { deviceCount: devices.length });
@@ -288,12 +288,12 @@ class DeviceData {
       }
       
       // 4. 批量更新需要移动的设备
-      const deviceIdsToMove = devicesToMove.map(device => device.device_id);
+      const deviceIdsToMove = devicesToMove.map(device => device.dtu_id);
       const updatePlaceholders = deviceIdsToMove.map(() => '?').join(',');
       const updateParams = [targetGroup, ...deviceIdsToMove];
       
       const [result] = await db.execute(
-        `UPDATE dtu_devices SET device_group = ? WHERE device_id IN (${updatePlaceholders})`,
+        `UPDATE dtu_devices SET dtu_group = ? WHERE dtu_id IN (${updatePlaceholders})`,
         updateParams
       );
       
@@ -301,7 +301,7 @@ class DeviceData {
       
       // 清除相关缓存，确保前端能立即看到更新
       cache.deletePattern('dtu_devices:.*', 'short');
-      cache.deletePattern('device_groups_names:.*', 'long');
+      cache.deletePattern('dtu_groups_names:.*', 'long');
       
       return {
         moved_count: result.affectedRows,
@@ -322,7 +322,7 @@ class DeviceData {
       
       const placeholders = deviceIds.map(() => '?').join(',');
       const [result] = await db.execute(
-        `UPDATE dtu_devices SET status = '已删除', updated_at = NOW() WHERE device_id IN (${placeholders})`,
+        `UPDATE dtu_devices SET status = '已删除', updated_at = NOW() WHERE dtu_id IN (${placeholders})`,
         deviceIds
       );
       
@@ -342,7 +342,7 @@ class DeviceData {
       
       const placeholders = deviceIds.map(() => '?').join(',');
       const [result] = await db.execute(
-        `UPDATE dtu_devices SET status = '未连接', updated_at = NOW() WHERE device_id IN (${placeholders}) AND status = '已删除'`,
+        `UPDATE dtu_devices SET status = '未连接', updated_at = NOW() WHERE dtu_id IN (${placeholders}) AND status = '已删除'`,
         deviceIds
       );
       
@@ -364,7 +364,7 @@ class DeviceData {
 
     return await TransactionService.cascadeDelete(
       'dtu_devices',
-      'device_id',
+      'dtu_id',
       deviceIds,
       cascadeTables,
       {
@@ -392,7 +392,7 @@ class DeviceData {
         try {
           // 1. 获取原设备信息
           const [deviceRows] = await connection.execute(
-            'SELECT * FROM dtu_devices WHERE device_id = ? AND status != "已删除"',
+            'SELECT * FROM dtu_devices WHERE dtu_id = ? AND status != "已删除"',
             [deviceId]
           );
           
@@ -411,7 +411,7 @@ class DeviceData {
           // 3. 复制设备
           await connection.execute(
             `INSERT INTO dtu_devices (
-              device_id, serial_number, device_group, device_name, device_image,
+              dtu_id, serial_number, dtu_group, dtu_name, dtu_image,
               link_protocol, offline_delay, timezone_setting, longitude, latitude, status
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
             [
@@ -550,7 +550,7 @@ class DeviceData {
   static async createDeviceWithSensors(deviceData, sensors, mbRtuConfigs) {
     return await TransactionService.execute(async (connection) => {
       logger.info('Starting device creation with sensors', {
-        deviceId: deviceData.device_id,
+        deviceId: deviceData.dtu_id,
         sensorsCount: sensors.length,
         mbRtuConfigsCount: mbRtuConfigs.length
       });
@@ -558,18 +558,18 @@ class DeviceData {
       // 1. 创建设备
       const [deviceResult] = await connection.execute(
         `INSERT INTO dtu_devices (
-          device_id, serial_number, device_group, device_name, device_image, 
+          dtu_id, serial_number, dtu_group, dtu_name, dtu_image, 
           link_protocol, offline_delay, timezone_setting, longitude, latitude, status
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
-          deviceData.device_id, deviceData.serial_number, deviceData.device_group, 
-          deviceData.device_name, deviceData.device_image, deviceData.link_protocol, 
+              deviceData.dtu_id, deviceData.serial_number, deviceData.dtu_group, 
+              deviceData.dtu_name, deviceData.dtu_image, deviceData.link_protocol, 
           deviceData.offline_delay, deviceData.timezone_setting, deviceData.longitude, 
           deviceData.latitude, deviceData.status
         ]
       );
 
-      logger.debug('Device created', { deviceId: deviceData.device_id, insertId: deviceResult.insertId });
+      logger.debug('Device created', { deviceId: deviceData.dtu_id, insertId: deviceResult.insertId });
 
       // 2. 创建传感器
       const sensorResults = [];
@@ -617,7 +617,7 @@ class DeviceData {
 
       const result = {
         device: {
-          deviceId: deviceData.device_id,
+          deviceId: deviceData.dtu_id,
           insertId: deviceResult.insertId
         },
         sensors: sensorResults,

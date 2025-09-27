@@ -1,8 +1,8 @@
 const express = require('express');
 const GroupController = require('../controllers/groupController');
 const {
-  validateGroup,
-  validateGroupId
+  validateData,
+  validateId
 } = require('../middleware/groupValidation');
 
 const router = express.Router();
@@ -11,26 +11,26 @@ const router = express.Router();
 // 设备分组相关路由
 // ========================================
 
-// 获取分组名称列表（前端下拉列表）
-router.get('/names', GroupController.getGroupNames);
+// 查询所有分组的名称
+router.get('/names', GroupController.getNames);
 
-// 获取所有分组详细信息
-router.get('/', GroupController.getGroups);
+// 查询所有分组
+router.get('/', GroupController.getAll);
 
-// 获取默认分组
-router.get('/default', GroupController.getDefaultGroup);
+// 查询默认分组
+router.get('/default', GroupController.getDefault);
 
 // 检查分组名是否存在
 router.get('/check', GroupController.checkGroupNameExists);
 
 // 创建分组
-router.post('/', validateGroup, GroupController.createGroup);
+router.post('/', validateData, GroupController.create);
 
 // 更新分组
-router.put('/:id', validateGroupId, validateGroup, GroupController.updateGroup);
+router.put('/:id', validateId, validateData, GroupController.update);
 
 // 删除分组
-router.delete('/:id', validateGroupId, GroupController.deleteGroup);
+router.delete('/:id', validateId, GroupController.delete);
 
 
 module.exports = router;
