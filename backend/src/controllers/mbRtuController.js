@@ -1,6 +1,5 @@
 const MbRtuData = require('../models/mbRtuData');
 const { asyncHandler } = require('../middleware/errorHandler');
-const logger = require('../utils/logger');
 
 class MbRtuController {
   // ========================================
@@ -28,7 +27,7 @@ class MbRtuController {
 
   // 2. 更新MB-RTU协议
   static update = asyncHandler(async (req, res) => {
-    const data = req.body;
+    const data = req.body['mb-rtu'];
     
     const result = await MbRtuData.update(data);
     

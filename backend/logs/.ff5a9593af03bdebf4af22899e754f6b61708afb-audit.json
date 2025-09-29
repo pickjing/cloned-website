@@ -6,11 +6,6 @@
     "auditLog": "/Users/xujing/Workspace/cloned-website/backend/logs/.ff5a9593af03bdebf4af22899e754f6b61708afb-audit.json",
     "files": [
         {
-            "date": 1758386779822,
-            "name": "/Users/xujing/Workspace/cloned-website/backend/logs/debug-2025-09-21.log",
-            "hash": "30b2cb85c67a311aa2c32e2a96ae647d710725d9d81c81e750cf29409c2701e5"
-        },
-        {
             "date": 1758889009203,
             "name": "/Users/xujing/Workspace/cloned-website/backend/logs/debug-2025-09-26.log",
             "hash": "56a9e268a9d2332525408ed31c634b4d0b6d21e5b01f6646ebd57af0c3c73468"
@@ -19,6 +14,16 @@
             "date": 1758945310604,
             "name": "/Users/xujing/Workspace/cloned-website/backend/logs/debug-2025-09-27.log",
             "hash": "dd8666502a78a8dfc423e66a92b5dbb052c038997861e0fae97ff2db87da3be0"
+        },
+        {
+            "date": 1759067433713,
+            "name": "/Users/xujing/Workspace/cloned-website/backend/logs/debug-2025-09-28.log",
+            "hash": "51dfa086e187efa9c9e331c5155e783ff2d278126f154f215b74fd8c6f7dd363"
+        },
+        {
+            "date": 1759165391260,
+            "name": "/Users/xujing/Workspace/cloned-website/backend/logs/debug-2025-09-30.log",
+            "hash": "c08af8187297020ed12e1cffa8102b306292f4d8399a38b63f6842a227344241"
         }
     ],
     "hashType": "sha256"

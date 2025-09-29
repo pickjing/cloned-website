@@ -1,4 +1,4 @@
-const { body, param, validationResult } = require('express-validator');
+const { body, validationResult } = require('express-validator');
 
 /**
  * 处理验证错误
@@ -16,7 +16,7 @@ const handleValidationErrors = (req, res, next) => {
 };
 
 /**
- * 设备分组验证规则
+ * 设备分组数据验证规则
  */
 const validateData = [
   body('group_name')
@@ -34,10 +34,10 @@ const validateData = [
 ];
 
 /**
- * 分组ID参数验证
+ * 设备分组id验证规则
  */
 const validateId = [
-  param('id')
+  body('id')
     .isInt({ min: 1 })
     .withMessage('分组ID必须是正整数'),
   

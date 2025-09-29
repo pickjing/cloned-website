@@ -1,0 +1,185 @@
+2025-09-28 22:05:34.787 [ERROR] Application error 分组不存在或为默认分组，无法修改
+Error: 分组不存在或为默认分组，无法修改
+    at GroupData.update (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:112:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:104:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/update",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f0625f9a-d78e-4fc7-a4cc-8ae25c3d5c51",
+  "body": {
+    "id": 1,
+    "group_name": "测试更新分组",
+    "description": "更新后的描述"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-28 22:14:18.167 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Unknown column 'device_group' in 'where clause'",
+  "code": "ER_BAD_FIELD_ERROR",
+  "errno": 1054,
+  "sqlState": "42S22",
+  "attempt": 1,
+  "threadId": 410
+}
+2025-09-28 22:14:18.168 [ERROR] Application error Unknown column 'device_group' in 'where clause'
+Error: Unknown column 'device_group' in 'where clause'
+    at PromisePoolConnection.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/connection.js:47:22)
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:159:45
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async GroupData.delete (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:127:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:119:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/delete",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "04136f7e-445a-45c7-b98f-a37b23788d24",
+  "body": {
+    "id": 28
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-28 22:27:53.176 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "分组不存在",
+  "attempt": 1,
+  "threadId": 435
+}
+2025-09-28 22:27:53.177 [ERROR] Application error 分组不存在
+Error: 分组不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:136:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async GroupData.delete (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:127:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:119:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/delete",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "8b14e684-8c27-40d1-acd8-c0b8f25568d1",
+  "body": {
+    "id": 1
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-28 22:30:17.864 [ERROR] Application error 分组不存在或为默认分组，无法修改
+Error: 分组不存在或为默认分组，无法修改
+    at GroupData.update (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:112:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:104:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/update",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "3cac0ccd-4a75-42b2-af62-cb9d73bd2ed7",
+  "body": {
+    "id": 1,
+    "group_name": "测试更新分组",
+    "description": "更新后的描述"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-28 23:26:17.084 [ERROR] Application error 路径 /api/dtu/get?page=1&limit=5 不存在
+Error: 路径 /api/dtu/get?page=1&limit=5 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at healthCheckLogger (/Users/xujing/Workspace/cloned-website/backend/src/middleware/logging.js:155:3)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu/get?page=1&limit=5",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "63069e34-bf71-46ed-8db3-24cdb7d1ee35",
+  "query": {
+    "page": "1",
+    "limit": "5"
+  },
+  "params": {}
+}
+2025-09-28 23:29:30.958 [ERROR] Query error recorded
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Incorrect arguments to mysqld_stmt_execute",
+  "code": "ER_WRONG_ARGUMENTS",
+  "query": "\n      SELECT \n        id,\n        dtu_id,\n        serial_number,\n        created_date,\n        dtu_group,\n        dtu_name,\n        dtu_image,\n        link_protocol,\n        offline_delay,\n        ti"
+}
+2025-09-28 23:29:30.959 [ERROR] Application error Incorrect arguments to mysqld_stmt_execute
+Error: Incorrect arguments to mysqld_stmt_execute
+    at PromisePool.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at pool.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/database.js:65:26)
+    at DtuData.get (/Users/xujing/Workspace/cloned-website/backend/src/models/dtuData.js:97:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:59:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu/get?page=1&limit=5",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "10c5a263-62c9-42fa-ac6b-fae702b6cbef",
+  "query": {
+    "page": "1",
+    "limit": "5"
+  },
+  "params": {}
+}
+2025-09-28 23:29:37.299 [ERROR] Query error recorded
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Incorrect arguments to mysqld_stmt_execute",
+  "code": "ER_WRONG_ARGUMENTS",
+  "query": "\n      SELECT \n        id,\n        dtu_id,\n        serial_number,\n        created_date,\n        dtu_group,\n        dtu_name,\n        dtu_image,\n        link_protocol,\n        offline_delay,\n        ti"
+}
+2025-09-28 23:29:37.300 [ERROR] Application error Incorrect arguments to mysqld_stmt_execute
+Error: Incorrect arguments to mysqld_stmt_execute
+    at PromisePool.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at pool.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/database.js:65:26)
+    at DtuData.get (/Users/xujing/Workspace/cloned-website/backend/src/models/dtuData.js:97:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:59:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu/get",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "9ab94275-f9f8-422a-9d63-0d3d61b4201c",
+  "query": {},
+  "params": {}
+}

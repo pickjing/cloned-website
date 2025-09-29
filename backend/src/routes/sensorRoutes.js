@@ -1,8 +1,10 @@
 const express = require('express');
 const SensorController = require('../controllers/sensorController');
 const {
-  validateData,
-  validateQuery
+  validateCreate,
+  validateUpdate,
+  validateQuery,
+  validateDelete
 } = require('../middleware/sensorValidation');
 
 const router = express.Router();
@@ -12,15 +14,15 @@ const router = express.Router();
 // ========================================
 
 // 查询传感器
-router.get('/', validateQuery, SensorController.get);
+router.get('/get', validateQuery, SensorController.get);
 
 // 创建传感器
-router.post('/', validateData, SensorController.create);
+router.post('/create', validateCreate, SensorController.create);
 
 // 更新传感器
-router.put('/', validateData, SensorController.update);
+router.put('/update', validateUpdate, SensorController.update);
 
 // 删除传感器
-router.delete('/', validateQuery, SensorController.delete);
+router.delete('/delete', validateDelete, SensorController.delete);
 
 module.exports = router;

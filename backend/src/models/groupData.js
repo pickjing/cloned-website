@@ -158,8 +158,8 @@ class GroupData {
       // 3. 将该分组下的所有设备移到默认分组
       const [moveResult] = await connection.execute(`
         UPDATE dtu_devices 
-        SET device_group = ?, updated_at = NOW()
-        WHERE device_group = ?
+        SET dtu_group = ?, updated_at = NOW()
+        WHERE dtu_group = ?
       `, [defaultGroup.group_name, group.group_name]);
       
       // 4. 删除分组

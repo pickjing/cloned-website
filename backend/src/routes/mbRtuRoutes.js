@@ -12,9 +12,9 @@ const router = express.Router();
 // ========================================
 
 // 查询MB-RTU协议
-router.get('/', validateQuery, MbRtuController.get);
+router.get('/get', validateQuery, MbRtuController.get);
 
 // 更新MB-RTU协议
-router.put('/', validateData, MbRtuController.update);
+router.put('/update', validateData, MbRtuController.update);
 
 module.exports = router;

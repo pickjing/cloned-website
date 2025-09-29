@@ -1,0 +1,510 @@
+2025-09-30 01:04:25.885 [ERROR] Application error DTU设备ID已存在
+Error: DTU设备ID已存在
+    at DtuData.create (/Users/xujing/Workspace/cloned-website/backend/src/models/dtuData.js:158:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:17:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu/create",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1dda286b-525e-4f77-bfd4-74ca6f89e839",
+  "body": {
+    "dtu_id": "DTU_TEST_001",
+    "dtu_name": "测试DTU设备",
+    "dtu_group": "默认分组",
+    "serial_number": "SN123456",
+    "longitude": "120.1234567",
+    "latitude": "30.1234567"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 01:51:45.309 [ERROR] Application error 路径 /api/sensors/get?dtuId=DTU_TEST_001 不存在
+Error: 路径 /api/sensors/get?dtuId=DTU_TEST_001 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:688:15
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:276:14)
+    at Function.handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:186:3)
+    at router (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:60:12)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "252abeed-89af-48da-a099-9baa2aed7fd7",
+  "query": {
+    "dtuId": "DTU_TEST_001"
+  },
+  "params": {}
+}
+2025-09-30 01:51:52.470 [ERROR] Application error 路径 /api/sensors/get?dtuId=DTU_TEST_001 不存在
+Error: 路径 /api/sensors/get?dtuId=DTU_TEST_001 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:688:15
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:276:14)
+    at Function.handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:186:3)
+    at router (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:60:12)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "63e6e5f9-3dfe-46d4-a9d4-9a007fbf8381",
+  "query": {
+    "dtuId": "DTU_TEST_001"
+  },
+  "params": {}
+}
+2025-09-30 01:52:03.419 [ERROR] Application error 路径 /api/sensors/delete?sensorId=SENSOR_TEST_002 不存在
+Error: 路径 /api/sensors/delete?sensorId=SENSOR_TEST_002 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:688:15
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:276:14)
+    at Function.handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:186:3)
+    at router (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:60:12)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1df68141-500f-40b3-9f92-e849331cce23",
+  "query": {
+    "sensorId": "SENSOR_TEST_002"
+  },
+  "params": {}
+}
+2025-09-30 01:52:42.433 [ERROR] Application error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+TypeError: Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:71:13
+    at /Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:144:19
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at validateQuery (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:133:5)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "c7c660c9-721f-4ab8-bb70-8f880e9f97de",
+  "query": {
+    "sensorId": "SENSOR_TEST_002"
+  },
+  "params": {}
+}
+2025-09-30 01:52:45.097 [ERROR] Application error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+TypeError: Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:71:13
+    at /Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:144:19
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at validateQuery (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:133:5)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d2c2a73e-3c6f-4f68-bddc-a09993316673",
+  "query": {
+    "sensorId": "SENSOR_TEST_002"
+  },
+  "params": {}
+}
+2025-09-30 01:52:56.299 [ERROR] Application error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+TypeError: Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:71:13
+    at /Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:144:19
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at validateQuery (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:133:5)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a416a487-e628-49c3-b2a1-a5608e51ea7c",
+  "query": {
+    "sensorId": "SENSOR_TEST_002"
+  },
+  "params": {}
+}
+2025-09-30 01:53:02.652 [ERROR] Application error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+TypeError: Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:71:13
+    at /Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:144:19
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at validateQuery (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:133:5)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "daa7a1a4-9fc7-48be-b32e-dd27f4cdbf79",
+  "query": {
+    "sensorId": "SENSOR_TEST_002"
+  },
+  "params": {}
+}
+2025-09-30 02:10:17.386 [ERROR] Application error 路径 /api/groups/get?dtuId=DTU_TEST_001 不存在
+Error: 路径 /api/groups/get?dtuId=DTU_TEST_001 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:688:15
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:276:14)
+    at Function.handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:186:3)
+    at router (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:60:12)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/get?dtuId=DTU_TEST_001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2cfa1807-8338-4da4-9b1d-ed207c836dec",
+  "query": {
+    "dtuId": "DTU_TEST_001"
+  },
+  "params": {}
+}
+2025-09-30 02:10:20.258 [ERROR] Application error 路径 /api/groups/get?dtuId=DTU_TEST_001 不存在
+Error: 路径 /api/groups/get?dtuId=DTU_TEST_001 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:688:15
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:276:14)
+    at Function.handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:186:3)
+    at router (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:60:12)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/get?dtuId=DTU_TEST_001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "30cb17e6-a1fc-403f-98c4-588fcb3b0fd4",
+  "query": {
+    "dtuId": "DTU_TEST_001"
+  },
+  "params": {}
+}
+2025-09-30 02:15:16.608 [ERROR] Cache query failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "key": "sensors:dtuId:|sensorId:NONEXISTENT_SENSOR",
+  "error": "传感器不存在",
+  "cacheType": "default"
+}
+2025-09-30 02:15:16.609 [ERROR] Application error 传感器不存在
+Error: 传感器不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:34:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async CacheService.cacheQuery (/Users/xujing/Workspace/cloned-website/backend/src/services/cache.js:175:22)
+    at async SensorData.get (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:25:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:23:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/get?sensorId=NONEXISTENT_SENSOR",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2a3791be-e4b6-4742-afd1-ad74a044212d",
+  "query": {
+    "sensorId": "NONEXISTENT_SENSOR"
+  },
+  "params": {}
+}
+2025-09-30 02:19:06.838 [ERROR] Application error 分组不存在或为默认分组，无法修改
+Error: 分组不存在或为默认分组，无法修改
+    at GroupData.update (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:112:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:93:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/update",
+  "method": "PUT",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "4446a515-0d2d-40b6-99a0-7466fc05fe2c",
+  "body": {
+    "id": 99999,
+    "group_name": "不存在的分组"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 02:19:11.760 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "分组不存在",
+  "attempt": 1,
+  "threadId": 85
+}
+2025-09-30 02:19:11.760 [ERROR] Application error 分组不存在
+Error: 分组不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:136:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async GroupData.delete (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:127:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:108:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/delete",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "e5729b2a-12d0-490c-b57d-56b47b81a6ab",
+  "body": {
+    "id": 99999
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 02:20:29.052 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "分组不存在",
+  "attempt": 1,
+  "threadId": 87
+}
+2025-09-30 02:20:29.053 [ERROR] Application error 分组不存在
+Error: 分组不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:136:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async GroupData.delete (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:127:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:108:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/delete",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f0092f63-657e-446c-8840-ddd661f02bd6",
+  "body": {
+    "id": 1
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 02:20:35.701 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "默认分组不能删除",
+  "attempt": 1,
+  "threadId": 87
+}
+2025-09-30 02:20:35.701 [ERROR] Application error 默认分组不能删除
+Error: 默认分组不能删除
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:141:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async GroupData.delete (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:127:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:108:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/delete",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "89d595d0-fd43-459e-9513-3a44e79a6bdf",
+  "body": {
+    "id": 24
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 02:21:11.547 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "默认分组不能删除",
+  "attempt": 1,
+  "threadId": 87
+}
+2025-09-30 02:21:11.548 [ERROR] Application error 默认分组不能删除
+Error: 默认分组不能删除
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:141:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async GroupData.delete (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:127:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:108:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/delete",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "dcc95d6b-b9a1-4c54-b27b-fb4b7f4a5054",
+  "body": {
+    "id": 24
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 02:21:14.457 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "默认分组不能删除",
+  "attempt": 1,
+  "threadId": 87
+}
+2025-09-30 02:21:14.457 [ERROR] Application error 默认分组不能删除
+Error: 默认分组不能删除
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:141:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async GroupData.delete (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:127:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:108:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/delete",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "5062e8b2-a1b3-4a23-a8c5-7bb96d76e8ef",
+  "body": {
+    "id": 24
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 02:32:48.285 [ERROR] Application error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+TypeError: Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+    at validateDelete (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:225:13)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at middleware (/Users/xujing/Workspace/cloned-website/backend/node_modules/express-validator/lib/middlewares/check.js:16:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/delete?sensorId=TEST_SENSOR",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "6402dee1-e3b9-4332-be84-88bd46b053d3",
+  "query": {
+    "sensorId": "TEST_SENSOR"
+  },
+  "params": {}
+}
+2025-09-30 02:32:52.884 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "分组不存在",
+  "attempt": 1,
+  "threadId": 101
+}
+2025-09-30 02:32:52.884 [ERROR] Application error 分组不存在
+Error: 分组不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:136:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async GroupData.delete (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:127:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:108:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/delete",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a9a5dc41-0c77-4773-a108-df19153ae4f2",
+  "body": {
+    "id": 1
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 02:38:56.624 [ERROR] Application error MB-RTU协议不存在
+Error: MB-RTU协议不存在
+    at MbRtuData.get (/Users/xujing/Workspace/cloned-website/backend/src/models/mbRtuData.js:174:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/mbRtuController.js:20:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/mb-rtu/get?dtuId=DTU_TEST_001&sensorId=SENSOR_TEST_001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1e48d753-7d29-4e53-b7f5-5cf573cea225",
+  "query": {
+    "dtuId": "DTU_TEST_001",
+    "sensorId": "SENSOR_TEST_001"
+  },
+  "params": {}
+}

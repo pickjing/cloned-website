@@ -20,8 +20,8 @@ class MbRtuData {
       function_code = '04只读', 
       offset_value = 0, 
       data_format = '16位有符号数', 
-      data_bits = null, 
-      byte_order_value = null, 
+      data_bits, 
+      byte_order_value, 
       collection_cycle = 2 
     } = data;
     
@@ -33,7 +33,7 @@ class MbRtuData {
         data_format, data_bits, byte_order_value, collection_cycle
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [dtu_id, sensor_id, slave_address, function_code, offset_value, 
-       data_format, data_bits, byte_order_value, collection_cycle]
+       data_format, data_bits || null, byte_order_value || null, collection_cycle]
     );
     return result;
   }

@@ -15,7 +15,7 @@ const router = express.Router();
 router.get('/names', GroupController.getNames);
 
 // 查询所有分组
-router.get('/', GroupController.getAll);
+router.get('/all', GroupController.getAll);
 
 // 查询默认分组
 router.get('/default', GroupController.getDefault);
@@ -24,13 +24,13 @@ router.get('/default', GroupController.getDefault);
 router.get('/check', GroupController.checkGroupNameExists);
 
 // 创建分组
-router.post('/', validateData, GroupController.create);
+router.post('/create', validateData, GroupController.create);
 
 // 更新分组
-router.put('/:id', validateId, validateData, GroupController.update);
+router.put('/update', validateId, validateData, GroupController.update);
 
 // 删除分组
-router.delete('/:id', validateId, GroupController.delete);
+router.delete('/delete', validateId, GroupController.delete);
 
 
 module.exports = router;

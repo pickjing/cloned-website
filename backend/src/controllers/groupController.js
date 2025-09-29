@@ -1,7 +1,6 @@
 const GroupData = require('../models/groupData');
 const { asyncHandler } = require('../middleware/errorHandler');
-const { NotFoundError, ConflictError, DatabaseError } = require('../utils/errors');
-const logger = require('../utils/logger');
+const { NotFoundError, ConflictError } = require('../utils/errors');
 
 class GroupController {
   // ========================================
@@ -16,14 +15,10 @@ class GroupController {
   // 7. 删除分组
 
   // 1. 查询所有分组的名称
-  static async getNames(req, res) {
-    try {
-      const groups = await GroupData.getNames();
-      res.json({ success: true, data: groups });
-    } catch (error) {
-      res.status(500).json({ success: false, message: error.message });
-    }
-  }
+  static getNames = asyncHandler(async (req, res) => {
+    const groups = await GroupData.getNames();
+    res.json({ success: true, data: groups });
+  });
 
   // 2. 查询所有分组
   static getAll = asyncHandler(async (req, res) => {
@@ -35,10 +30,7 @@ class GroupController {
   static getDefault = asyncHandler(async (req, res) => {
     const defaultGroup = await GroupData.getDefault();
     if (!defaultGroup) {
-      return res.status(404).json({ 
-        success: false, 
-        message: '默认分组不存在' 
-      });
+      throw new NotFoundError('默认分组不存在');
     }
     res.json({ success: true, data: defaultGroup });
   });
@@ -47,7 +39,7 @@ class GroupController {
   static checkGroupNameExists = asyncHandler(async (req, res) => {
     const { group_name } = req.query;
     if (!group_name) {
-      return res.status(400).json({ success: false, message: '分组名不能为空' });
+      throw new Error('分组名不能为空');
     }
     
     // 解码URL编码的分组名，如果解码失败则使用原始值
@@ -86,8 +78,7 @@ class GroupController {
 
   // 6. 更新分组
   static update = asyncHandler(async (req, res) => {
-    const { id } = req.params;
-    const { group_name, description } = req.body;
+    const { id, group_name, description } = req.body;
     
     // 检查新名称是否与其他分组重复
     const exists = await GroupData.checkGroupNameExists(group_name.trim());
@@ -95,10 +86,7 @@ class GroupController {
       // 检查是否是当前分组自己的名称
       const currentGroup = await GroupData.getById(id);
       if (!currentGroup || currentGroup.group_name !== group_name.trim()) {
-        return res.status(400).json({ 
-          success: false, 
-          message: '分组名已存在' 
-        });
+        throw new ConflictError('分组名已存在');
       }
     }
     
@@ -116,7 +104,7 @@ class GroupController {
 
   // 7. 删除分组
   static delete = asyncHandler(async (req, res) => {
-    const { id } = req.params;
+    const { id } = req.body;
     const result = await GroupData.delete(id);
     
     res.json({ 

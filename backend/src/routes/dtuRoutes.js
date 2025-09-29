@@ -1,15 +1,10 @@
 const express = require('express');
-const DeviceController = require('../controllers/dtuController');
+const DtuController = require('../controllers/dtuController');
 const {
-  validateDTUDevice,
-  validateSensorData,
-  validatePagination,
-  validateDeviceId,
-  validateBatchOperation,
-  validateMoveToGroup
-} = require('../middleware/commonValidation');
-const {
-  
+  validateId,
+  validateIds,
+  validateData,
+  validateQuery
 } = require('../middleware/dtuValidation');
 const router = express.Router();
 
@@ -18,17 +13,19 @@ const router = express.Router();
 // ========================================
 
 // 创建DTU设备
+router.post('/create', validateData, DtuController.create);
 
 // 复制DTU设备
+router.post('/copy', validateIds, DtuController.copy);
 
-// 获取所有DTU设备
+// 获取DTU设备
+router.get('/get', validateQuery, DtuController.get);
 
-// 根据ID获取DTU设备
+// 更新DTU设备
+router.put('/update', validateData, DtuController.update);
 
-// 软删除DTU设备
+// 删除DTU设备
+router.delete('/delete', validateId, DtuController.delete);
 
-// 硬删除DTU设备
-
-// 恢复DTU设备
 
 module.exports = router;

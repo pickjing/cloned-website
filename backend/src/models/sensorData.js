@@ -31,7 +31,7 @@ class SensorData {
         );
         
         if (rows.length === 0) {
-          throw new Error('传感器不存在');
+          return null; // 返回null而不是抛出异常
         }
         
         return rows[0];
@@ -57,7 +57,6 @@ class SensorData {
     
     logger.debug('Creating sensor(s)', { data });
     
-    // 统一处理：将单个对象转换为数组
     const sensors = Array.isArray(data) ? data : [data];
     const results = [];
     
@@ -73,7 +72,7 @@ class SensorData {
         const mbRtuData = {
           dtu_id: sensorInfo.dtu_id,
           sensor_id: sensorInfo.sensor_id,
-          ...mbRtuConfig  // 如果提供了配置就使用，否则使用 createMBRTU 中的默认值
+          ...(mbRtuConfig || {})  // 如果提供了配置就使用，否则使用空对象
         };
         
         await MbRtuData.create(mbRtuData, dbConnection);
@@ -107,9 +106,9 @@ class SensorData {
     const dbConnection = connection || db;
     const { 
       sensor_id, dtu_id, icon = '/image/传感器图片.png', sensor_name, 
-      sensor_type = null, decimal_places = null, unit = null, sort_order = null,
-      upper_mapping_x1 = null, upper_mapping_y1 = null, upper_mapping_x2 = null, upper_mapping_y2 = null,
-      lower_mapping_x1 = null, lower_mapping_y1 = null, lower_mapping_x2 = null, lower_mapping_y2 = null
+      sensor_type, decimal_places, unit, sort_order,
+      upper_mapping_x1, upper_mapping_y1, upper_mapping_x2, upper_mapping_y2,
+      lower_mapping_x1, lower_mapping_y1, lower_mapping_x2, lower_mapping_y2
     } = data;
     
     const [result] = await dbConnection.execute(
@@ -118,9 +117,24 @@ class SensorData {
         upper_mapping_x1, upper_mapping_y1, upper_mapping_x2, upper_mapping_y2,
         lower_mapping_x1, lower_mapping_y1, lower_mapping_x2, lower_mapping_y2
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [sensor_id, dtu_id, icon, sensor_name, sensor_type, decimal_places, unit, sort_order,
-       upper_mapping_x1, upper_mapping_y1, upper_mapping_x2, upper_mapping_y2,
-       lower_mapping_x1, lower_mapping_y1, lower_mapping_x2, lower_mapping_y2]
+      [
+        sensor_id, 
+        dtu_id, 
+        icon, 
+        sensor_name, 
+        sensor_type || null, 
+        decimal_places || null, 
+        unit || null, 
+        sort_order || null,
+        upper_mapping_x1 || null, 
+        upper_mapping_y1 || null, 
+        upper_mapping_x2 || null, 
+        upper_mapping_y2 || null,
+        lower_mapping_x1 || null, 
+        lower_mapping_y1 || null, 
+        lower_mapping_x2 || null, 
+        lower_mapping_y2 || null
+      ]
     );
     
     return result;

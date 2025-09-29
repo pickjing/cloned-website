@@ -1,0 +1,6823 @@
+2025-09-30 01:03:11.295 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 10
+}
+2025-09-30 01:04:15.399 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:04:15.411 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 12
+}
+2025-09-30 01:04:25.866 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1dda286b-525e-4f77-bfd4-74ca6f89e839"
+}
+2025-09-30 01:04:25.885 [ERROR] Application error DTU设备ID已存在
+Error: DTU设备ID已存在
+    at DtuData.create (/Users/xujing/Workspace/cloned-website/backend/src/models/dtuData.js:158:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:17:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu/create",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1dda286b-525e-4f77-bfd4-74ca6f89e839",
+  "body": {
+    "dtu_id": "DTU_TEST_001",
+    "dtu_name": "测试DTU设备",
+    "dtu_group": "默认分组",
+    "serial_number": "SN123456",
+    "longitude": "120.1234567",
+    "latitude": "30.1234567"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 01:04:25.887 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/create",
+  "statusCode": 500,
+  "responseTime": 22,
+  "requestId": "1dda286b-525e-4f77-bfd4-74ca6f89e839"
+}
+2025-09-30 01:04:29.400 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "263006d0-779f-4674-81dc-5b3d1734b9a5"
+}
+2025-09-30 01:04:29.401 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/create",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "263006d0-779f-4674-81dc-5b3d1734b9a5"
+}
+2025-09-30 01:04:33.214 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "4fff9dbc-1637-49bf-85e0-23ff9ac5558b"
+}
+2025-09-30 01:04:33.215 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "4fff9dbc-1637-49bf-85e0-23ff9ac5558b"
+}
+2025-09-30 01:04:36.378 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "661697fb-ed19-4e06-a1ef-679848a5ce68"
+}
+2025-09-30 01:04:36.378 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "661697fb-ed19-4e06-a1ef-679848a5ce68"
+}
+2025-09-30 01:04:46.316 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2ed24628-4df6-42c1-a3ab-3a0b3bfa4b63"
+}
+2025-09-30 01:04:46.318 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/create",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "2ed24628-4df6-42c1-a3ab-3a0b3bfa4b63"
+}
+2025-09-30 01:04:49.261 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d3cad286-e557-48e7-8dd7-a6d50e9ad7fb"
+}
+2025-09-30 01:04:49.261 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/create",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "d3cad286-e557-48e7-8dd7-a6d50e9ad7fb"
+}
+2025-09-30 01:04:59.206 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "76604108-4081-4179-850e-b9a23804d43d"
+}
+2025-09-30 01:04:59.207 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "76604108-4081-4179-850e-b9a23804d43d"
+}
+2025-09-30 01:10:10.867 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/copy",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "4bba38cb-83e9-4a53-8ce2-aaaa978a32c6"
+}
+2025-09-30 01:10:10.867 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/copy",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "4bba38cb-83e9-4a53-8ce2-aaaa978a32c6"
+}
+2025-09-30 01:10:17.560 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/copy",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "14e13aab-bd6b-48b3-a205-6a3959011db2"
+}
+2025-09-30 01:10:17.561 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/copy",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "14e13aab-bd6b-48b3-a205-6a3959011db2"
+}
+2025-09-30 01:10:55.015 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/copy",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "cb6e1d93-f4f1-411e-a724-9ddeb46e600a"
+}
+2025-09-30 01:10:55.015 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/dtu/copy",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "cb6e1d93-f4f1-411e-a724-9ddeb46e600a"
+}
+2025-09-30 01:14:22.664 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 14
+}
+2025-09-30 01:16:42.781 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "e62c11bf-9ae6-4e8a-a003-efc5c41445e6"
+}
+2025-09-30 01:16:42.791 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 10,
+  "requestId": "e62c11bf-9ae6-4e8a-a003-efc5c41445e6"
+}
+2025-09-30 01:16:47.383 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "37db3940-757c-4df8-bace-b1c3e893b94a"
+}
+2025-09-30 01:16:47.388 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "37db3940-757c-4df8-bace-b1c3e893b94a"
+}
+2025-09-30 01:16:52.211 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "675065a7-f62e-467b-8246-c9ca15e36564"
+}
+2025-09-30 01:16:52.211 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "675065a7-f62e-467b-8246-c9ca15e36564"
+}
+2025-09-30 01:26:45.199 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "6163022e-1768-4d61-9608-9942bfd8f65d"
+}
+2025-09-30 01:26:45.202 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "6163022e-1768-4d61-9608-9942bfd8f65d"
+}
+2025-09-30 01:29:32.419 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "988ea8fb-49a7-4285-a371-4458d47085fe"
+}
+2025-09-30 01:29:32.419 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "988ea8fb-49a7-4285-a371-4458d47085fe"
+}
+2025-09-30 01:29:38.058 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "8dcb5c22-ee7d-4fb5-b402-b96e24a1c00f"
+}
+2025-09-30 01:29:38.058 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "8dcb5c22-ee7d-4fb5-b402-b96e24a1c00f"
+}
+2025-09-30 01:29:48.819 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "036f22f3-3bde-4718-b29f-22ce42a7975f"
+}
+2025-09-30 01:29:48.819 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "036f22f3-3bde-4718-b29f-22ce42a7975f"
+}
+2025-09-30 01:29:53.205 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "de8babea-9fda-4bbb-88ac-843edc513c84"
+}
+2025-09-30 01:29:53.206 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "de8babea-9fda-4bbb-88ac-843edc513c84"
+}
+2025-09-30 01:30:05.098 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "82e8f286-9b23-4241-a141-f21b19d1ac86"
+}
+2025-09-30 01:30:05.098 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "82e8f286-9b23-4241-a141-f21b19d1ac86"
+}
+2025-09-30 01:30:14.895 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "9e460540-6497-43c7-8f61-4e31e2a65890"
+}
+2025-09-30 01:30:14.895 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "9e460540-6497-43c7-8f61-4e31e2a65890"
+}
+2025-09-30 01:33:46.481 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "30f9b75c-0c45-442a-bc86-11631debbec6"
+}
+2025-09-30 01:33:46.482 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "30f9b75c-0c45-442a-bc86-11631debbec6"
+}
+2025-09-30 01:33:59.780 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "46939f4a-7be0-490b-ad3b-fb8e21229b9c"
+}
+2025-09-30 01:33:59.780 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "46939f4a-7be0-490b-ad3b-fb8e21229b9c"
+}
+2025-09-30 01:34:05.429 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "0d208c9a-0d7e-4bf0-bc8e-47a8146edc85"
+}
+2025-09-30 01:34:05.429 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "0d208c9a-0d7e-4bf0-bc8e-47a8146edc85"
+}
+2025-09-30 01:34:16.284 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "baba41ab-560c-4420-a195-b15bb1e88aec"
+}
+2025-09-30 01:34:16.284 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "baba41ab-560c-4420-a195-b15bb1e88aec"
+}
+2025-09-30 01:36:02.380 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "733a52a5-639a-4646-b930-eeba015b180e"
+}
+2025-09-30 01:36:02.380 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "733a52a5-639a-4646-b930-eeba015b180e"
+}
+2025-09-30 01:36:08.713 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "75870934-c701-419e-8f5b-242ce670448e"
+}
+2025-09-30 01:36:08.713 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "75870934-c701-419e-8f5b-242ce670448e"
+}
+2025-09-30 01:36:15.930 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "c34f3027-a8f2-4ff4-892e-556010a109e6"
+}
+2025-09-30 01:36:15.930 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "c34f3027-a8f2-4ff4-892e-556010a109e6"
+}
+2025-09-30 01:36:24.741 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f9de6f43-29b3-415d-a8f8-4a7de61825f0"
+}
+2025-09-30 01:36:24.741 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "f9de6f43-29b3-415d-a8f8-4a7de61825f0"
+}
+2025-09-30 01:37:08.617 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "14ec97bc-b3b4-4ffc-a26a-147a56e5e9c5"
+}
+2025-09-30 01:37:08.617 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "14ec97bc-b3b4-4ffc-a26a-147a56e5e9c5"
+}
+2025-09-30 01:37:11.948 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "cd6d358b-05d4-48c0-87d0-339006ffb79c"
+}
+2025-09-30 01:37:11.948 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "cd6d358b-05d4-48c0-87d0-339006ffb79c"
+}
+2025-09-30 01:37:18.556 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "5c08d352-78ce-47a6-8bef-4f9aeb41c311"
+}
+2025-09-30 01:37:18.556 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "5c08d352-78ce-47a6-8bef-4f9aeb41c311"
+}
+2025-09-30 01:38:01.672 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "9d25c7b5-73f5-4b1e-82cf-01daaf92c843"
+}
+2025-09-30 01:38:01.672 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "9d25c7b5-73f5-4b1e-82cf-01daaf92c843"
+}
+2025-09-30 01:38:05.973 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "305c87fa-ac75-4ca6-bf52-0d3b8c9a106f"
+}
+2025-09-30 01:38:05.973 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "305c87fa-ac75-4ca6-bf52-0d3b8c9a106f"
+}
+2025-09-30 01:38:18.783 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "bcd47ec6-a6c2-4482-8a42-02fffc476bc8"
+}
+2025-09-30 01:38:18.783 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "bcd47ec6-a6c2-4482-8a42-02fffc476bc8"
+}
+2025-09-30 01:38:29.223 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2200a197-cb62-4554-9262-293b74f5eee7"
+}
+2025-09-30 01:38:29.223 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "2200a197-cb62-4554-9262-293b74f5eee7"
+}
+2025-09-30 01:39:06.399 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f519129d-97af-4069-9347-c5ca2b14c44b"
+}
+2025-09-30 01:39:06.400 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "f519129d-97af-4069-9347-c5ca2b14c44b"
+}
+2025-09-30 01:39:09.627 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "b8ac6625-794c-488c-934a-0fac40ffca19"
+}
+2025-09-30 01:39:09.627 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "b8ac6625-794c-488c-934a-0fac40ffca19"
+}
+2025-09-30 01:39:17.624 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2ca27adb-c362-4cd1-9c50-0acce8737d1b"
+}
+2025-09-30 01:39:17.625 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "2ca27adb-c362-4cd1-9c50-0acce8737d1b"
+}
+2025-09-30 01:42:03.430 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1640687f-c53b-4468-89c2-0c8b0375a158"
+}
+2025-09-30 01:42:03.432 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": 4,
+  "requestId": "1640687f-c53b-4468-89c2-0c8b0375a158"
+}
+2025-09-30 01:42:41.473 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:42:41.485 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 15
+}
+2025-09-30 01:42:53.701 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:42:53.713 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 16
+}
+2025-09-30 01:43:10.646 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "e04654fb-e3b1-4ca4-a013-d03038be88d9"
+}
+2025-09-30 01:43:10.654 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "e04654fb-e3b1-4ca4-a013-d03038be88d9"
+}
+2025-09-30 01:43:17.184 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "671e12e8-677f-45b0-a00f-8ebe1ae66dc8"
+}
+2025-09-30 01:43:17.187 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "671e12e8-677f-45b0-a00f-8ebe1ae66dc8"
+}
+2025-09-30 01:43:24.542 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d6ff5bdd-4898-407d-819b-414405aecc3d"
+}
+2025-09-30 01:43:24.544 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "d6ff5bdd-4898-407d-819b-414405aecc3d"
+}
+2025-09-30 01:43:59.487 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:43:59.497 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 17
+}
+2025-09-30 01:44:03.300 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "7235d657-bf7e-40ac-affa-ce71c9136aa5"
+}
+2025-09-30 01:44:03.307 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "7235d657-bf7e-40ac-affa-ce71c9136aa5"
+}
+2025-09-30 01:44:07.859 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a8303260-ddee-447b-a52f-0fe7a105a406"
+}
+2025-09-30 01:44:07.862 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "a8303260-ddee-447b-a52f-0fe7a105a406"
+}
+2025-09-30 01:44:16.936 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:44:16.946 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 18
+}
+2025-09-30 01:44:17.797 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:44:17.808 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 19
+}
+2025-09-30 01:44:21.804 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f92f68ff-db16-4e38-b04f-af4c0a830cb3"
+}
+2025-09-30 01:44:21.812 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "f92f68ff-db16-4e38-b04f-af4c0a830cb3"
+}
+2025-09-30 01:44:25.565 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "7bdedf3f-63ee-49df-bba4-c0e9fdb0d8ba"
+}
+2025-09-30 01:44:25.568 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "7bdedf3f-63ee-49df-bba4-c0e9fdb0d8ba"
+}
+2025-09-30 01:44:32.635 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:44:32.646 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 20
+}
+2025-09-30 01:44:36.659 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "0b119104-f220-47f3-9ddf-ec90207e1921"
+}
+2025-09-30 01:44:36.665 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "0b119104-f220-47f3-9ddf-ec90207e1921"
+}
+2025-09-30 01:44:42.612 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1f983f0e-0d54-4239-a367-70d10484c555"
+}
+2025-09-30 01:44:42.615 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "1f983f0e-0d54-4239-a367-70d10484c555"
+}
+2025-09-30 01:44:54.963 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1cea7a1f-4afa-4a5f-8fcd-0a95acddddf3"
+}
+2025-09-30 01:44:54.966 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "1cea7a1f-4afa-4a5f-8fcd-0a95acddddf3"
+}
+2025-09-30 01:44:56.489 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:44:56.499 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 21
+}
+2025-09-30 01:44:58.524 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "eb894cb6-9a55-4e1a-9e6c-b19adf68bdde"
+}
+2025-09-30 01:44:58.532 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "eb894cb6-9a55-4e1a-9e6c-b19adf68bdde"
+}
+2025-09-30 01:45:10.534 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1de10fd8-154f-473a-88a4-225fac2b5fbe"
+}
+2025-09-30 01:45:10.537 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "1de10fd8-154f-473a-88a4-225fac2b5fbe"
+}
+2025-09-30 01:45:14.032 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "03e8a464-090b-4858-baf9-2e8f6929b5ad"
+}
+2025-09-30 01:45:14.034 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "03e8a464-090b-4858-baf9-2e8f6929b5ad"
+}
+2025-09-30 01:45:28.190 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "b44c96dd-ba0e-4634-9f2f-b1e3eb35a55d"
+}
+2025-09-30 01:45:28.192 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "b44c96dd-ba0e-4634-9f2f-b1e3eb35a55d"
+}
+2025-09-30 01:45:31.812 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "4441fd46-5b59-4cea-9e71-18674ed52492"
+}
+2025-09-30 01:45:31.814 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "4441fd46-5b59-4cea-9e71-18674ed52492"
+}
+2025-09-30 01:45:43.025 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "5fceaa7c-0e43-4f6b-969e-54b29b3c54ac"
+}
+2025-09-30 01:45:43.027 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "5fceaa7c-0e43-4f6b-969e-54b29b3c54ac"
+}
+2025-09-30 01:45:46.888 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "68f16393-cddc-4de2-a407-f60ae79c361e"
+}
+2025-09-30 01:45:46.890 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "68f16393-cddc-4de2-a407-f60ae79c361e"
+}
+2025-09-30 01:46:45.793 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:46:45.803 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 22
+}
+2025-09-30 01:46:49.858 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:46:49.867 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 23
+}
+2025-09-30 01:47:00.990 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:47:01.000 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 24
+}
+2025-09-30 01:47:53.459 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:47:53.469 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 25
+}
+2025-09-30 01:47:58.257 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:47:58.267 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 26
+}
+2025-09-30 01:48:09.342 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:48:09.354 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 27
+}
+2025-09-30 01:48:13.464 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:48:13.474 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 28
+}
+2025-09-30 01:48:14.198 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:48:14.210 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 29
+}
+2025-09-30 01:48:16.502 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/get",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "cccff536-38d7-4970-88fa-ae3117651c03"
+}
+2025-09-30 01:48:16.511 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/get",
+  "statusCode": 200,
+  "responseTime": 9,
+  "requestId": "cccff536-38d7-4970-88fa-ae3117651c03"
+}
+2025-09-30 01:48:19.766 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/get",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "33bfad31-8c5b-4667-a364-843a95fb4bbe"
+}
+2025-09-30 01:48:19.767 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/get",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "33bfad31-8c5b-4667-a364-843a95fb4bbe"
+}
+2025-09-30 01:48:22.897 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "ef0ef5c1-d63a-4186-adab-f9b130b02b91"
+}
+2025-09-30 01:48:22.910 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/delete",
+  "statusCode": 200,
+  "responseTime": 13,
+  "requestId": "ef0ef5c1-d63a-4186-adab-f9b130b02b91"
+}
+2025-09-30 01:48:29.994 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/get",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "932d2a66-1b8a-493c-a943-745838f3bc50"
+}
+2025-09-30 01:48:29.995 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/get",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "932d2a66-1b8a-493c-a943-745838f3bc50"
+}
+2025-09-30 01:48:33.596 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/get",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "577f1dbf-e801-405d-b28f-4b9d78ba12f2"
+}
+2025-09-30 01:48:33.596 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/get",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "577f1dbf-e801-405d-b28f-4b9d78ba12f2"
+}
+2025-09-30 01:48:36.447 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/get",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "3516b074-49b3-4e4a-9be9-9b8a11dd56bd"
+}
+2025-09-30 01:48:36.447 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/get",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "3516b074-49b3-4e4a-9be9-9b8a11dd56bd"
+}
+2025-09-30 01:48:51.723 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:48:51.734 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 30
+}
+2025-09-30 01:51:29.005 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:51:29.017 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 31
+}
+2025-09-30 01:51:37.784 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:51:37.800 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 32
+}
+2025-09-30 01:51:41.479 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:51:41.491 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 33
+}
+2025-09-30 01:51:45.308 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "252abeed-89af-48da-a099-9baa2aed7fd7"
+}
+2025-09-30 01:51:45.309 [ERROR] Application error 路径 /api/sensors/get?dtuId=DTU_TEST_001 不存在
+Error: 路径 /api/sensors/get?dtuId=DTU_TEST_001 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:688:15
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:276:14)
+    at Function.handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:186:3)
+    at router (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:60:12)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "252abeed-89af-48da-a099-9baa2aed7fd7",
+  "query": {
+    "dtuId": "DTU_TEST_001"
+  },
+  "params": {}
+}
+2025-09-30 01:51:45.311 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 404,
+  "responseTime": 3,
+  "requestId": "252abeed-89af-48da-a099-9baa2aed7fd7"
+}
+2025-09-30 01:51:52.469 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "63e6e5f9-3dfe-46d4-a9d4-9a007fbf8381"
+}
+2025-09-30 01:51:52.470 [ERROR] Application error 路径 /api/sensors/get?dtuId=DTU_TEST_001 不存在
+Error: 路径 /api/sensors/get?dtuId=DTU_TEST_001 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:688:15
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:276:14)
+    at Function.handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:186:3)
+    at router (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:60:12)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "63e6e5f9-3dfe-46d4-a9d4-9a007fbf8381",
+  "query": {
+    "dtuId": "DTU_TEST_001"
+  },
+  "params": {}
+}
+2025-09-30 01:51:52.470 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 404,
+  "responseTime": 1,
+  "requestId": "63e6e5f9-3dfe-46d4-a9d4-9a007fbf8381"
+}
+2025-09-30 01:52:03.419 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1df68141-500f-40b3-9f92-e849331cce23"
+}
+2025-09-30 01:52:03.419 [ERROR] Application error 路径 /api/sensors/delete?sensorId=SENSOR_TEST_002 不存在
+Error: 路径 /api/sensors/delete?sensorId=SENSOR_TEST_002 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:688:15
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:276:14)
+    at Function.handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:186:3)
+    at router (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:60:12)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1df68141-500f-40b3-9f92-e849331cce23",
+  "query": {
+    "sensorId": "SENSOR_TEST_002"
+  },
+  "params": {}
+}
+2025-09-30 01:52:03.420 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "statusCode": 404,
+  "responseTime": 2,
+  "requestId": "1df68141-500f-40b3-9f92-e849331cce23"
+}
+2025-09-30 01:52:13.673 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "ff496daf-0eb4-49e3-8978-8870e8dd98dd"
+}
+2025-09-30 01:52:13.674 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/",
+  "statusCode": 200,
+  "responseTime": 1,
+  "requestId": "ff496daf-0eb4-49e3-8978-8870e8dd98dd"
+}
+2025-09-30 01:52:17.865 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "6f0c0790-a62f-4dd8-b64f-a84a758a3598"
+}
+2025-09-30 01:52:17.869 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "6f0c0790-a62f-4dd8-b64f-a84a758a3598"
+}
+2025-09-30 01:52:35.601 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:52:35.612 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 34
+}
+2025-09-30 01:52:35.672 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "bc6ce4de-c6ab-47f2-8ca4-32638d173ee7"
+}
+2025-09-30 01:52:35.679 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "bc6ce4de-c6ab-47f2-8ca4-32638d173ee7"
+}
+2025-09-30 01:52:39.054 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a6500788-64a0-4f14-9181-19bc422d3c5f"
+}
+2025-09-30 01:52:39.055 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 1,
+  "requestId": "a6500788-64a0-4f14-9181-19bc422d3c5f"
+}
+2025-09-30 01:52:42.432 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "c7c660c9-721f-4ab8-bb70-8f880e9f97de"
+}
+2025-09-30 01:52:42.433 [ERROR] Application error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+TypeError: Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:71:13
+    at /Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:144:19
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at validateQuery (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:133:5)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "c7c660c9-721f-4ab8-bb70-8f880e9f97de",
+  "query": {
+    "sensorId": "SENSOR_TEST_002"
+  },
+  "params": {}
+}
+2025-09-30 01:52:42.433 [WARN] Type error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "name": "TypeError",
+  "requestId": "c7c660c9-721f-4ab8-bb70-8f880e9f97de"
+}
+2025-09-30 01:52:42.434 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "statusCode": 400,
+  "responseTime": 2,
+  "requestId": "c7c660c9-721f-4ab8-bb70-8f880e9f97de"
+}
+2025-09-30 01:52:45.097 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d2c2a73e-3c6f-4f68-bddc-a09993316673"
+}
+2025-09-30 01:52:45.097 [ERROR] Application error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+TypeError: Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:71:13
+    at /Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:144:19
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at validateQuery (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:133:5)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d2c2a73e-3c6f-4f68-bddc-a09993316673",
+  "query": {
+    "sensorId": "SENSOR_TEST_002"
+  },
+  "params": {}
+}
+2025-09-30 01:52:45.097 [WARN] Type error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "name": "TypeError",
+  "requestId": "d2c2a73e-3c6f-4f68-bddc-a09993316673"
+}
+2025-09-30 01:52:45.098 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "statusCode": 400,
+  "responseTime": 2,
+  "requestId": "d2c2a73e-3c6f-4f68-bddc-a09993316673"
+}
+2025-09-30 01:52:50.533 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "39dcf592-8dbb-4053-a856-fc6e3afa1575"
+}
+2025-09-30 01:52:50.534 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "39dcf592-8dbb-4053-a856-fc6e3afa1575"
+}
+2025-09-30 01:52:53.543 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "445307e8-3683-46ae-b5b2-c44af3759230"
+}
+2025-09-30 01:52:53.543 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "445307e8-3683-46ae-b5b2-c44af3759230"
+}
+2025-09-30 01:52:56.298 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a416a487-e628-49c3-b2a1-a5608e51ea7c"
+}
+2025-09-30 01:52:56.299 [ERROR] Application error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+TypeError: Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:71:13
+    at /Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:144:19
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at validateQuery (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:133:5)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a416a487-e628-49c3-b2a1-a5608e51ea7c",
+  "query": {
+    "sensorId": "SENSOR_TEST_002"
+  },
+  "params": {}
+}
+2025-09-30 01:52:56.299 [WARN] Type error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "name": "TypeError",
+  "requestId": "a416a487-e628-49c3-b2a1-a5608e51ea7c"
+}
+2025-09-30 01:52:56.299 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "a416a487-e628-49c3-b2a1-a5608e51ea7c"
+}
+2025-09-30 01:53:02.652 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "daa7a1a4-9fc7-48be-b32e-dd27f4cdbf79"
+}
+2025-09-30 01:53:02.652 [ERROR] Application error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+TypeError: Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:71:13
+    at /Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:144:19
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at validateQuery (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:133:5)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "daa7a1a4-9fc7-48be-b32e-dd27f4cdbf79",
+  "query": {
+    "sensorId": "SENSOR_TEST_002"
+  },
+  "params": {}
+}
+2025-09-30 01:53:02.653 [WARN] Type error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "name": "TypeError",
+  "requestId": "daa7a1a4-9fc7-48be-b32e-dd27f4cdbf79"
+}
+2025-09-30 01:53:02.653 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "daa7a1a4-9fc7-48be-b32e-dd27f4cdbf79"
+}
+2025-09-30 01:53:11.015 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:53:11.026 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 35
+}
+2025-09-30 01:53:28.026 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "e52ba691-6108-42d5-aaa5-62d8d3e66f23"
+}
+2025-09-30 01:53:28.033 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "e52ba691-6108-42d5-aaa5-62d8d3e66f23"
+}
+2025-09-30 01:53:56.993 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:53:57.003 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 36
+}
+2025-09-30 01:54:18.663 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "89000ee6-c531-43bb-9f33-d30342a2e79f"
+}
+2025-09-30 01:54:18.670 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "89000ee6-c531-43bb-9f33-d30342a2e79f"
+}
+2025-09-30 01:54:22.591 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "ade5deea-e85b-44c3-b1c6-8b0ee0d22143"
+}
+2025-09-30 01:54:22.601 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_002",
+  "statusCode": 200,
+  "responseTime": 10,
+  "requestId": "ade5deea-e85b-44c3-b1c6-8b0ee0d22143"
+}
+2025-09-30 01:54:26.069 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "ec6de5ef-c147-468b-a0b4-07cfe20deb4d"
+}
+2025-09-30 01:54:26.070 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "ec6de5ef-c147-468b-a0b4-07cfe20deb4d"
+}
+2025-09-30 01:54:29.344 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "dddb1770-7f3c-4c54-990d-8e3c7e5238fe"
+}
+2025-09-30 01:54:29.344 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "dddb1770-7f3c-4c54-990d-8e3c7e5238fe"
+}
+2025-09-30 01:54:32.556 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "189195a6-e403-403f-9030-079bc02b62b0"
+}
+2025-09-30 01:54:32.557 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "189195a6-e403-403f-9030-079bc02b62b0"
+}
+2025-09-30 01:54:37.322 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "39344d2d-39d7-4054-bd90-562889ed085e"
+}
+2025-09-30 01:54:37.326 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "39344d2d-39d7-4054-bd90-562889ed085e"
+}
+2025-09-30 01:54:41.833 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "e45d5c6e-a530-4446-897a-87a0567dba3a"
+}
+2025-09-30 01:54:41.836 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "e45d5c6e-a530-4446-897a-87a0567dba3a"
+}
+2025-09-30 01:55:00.615 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:55:00.624 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 37
+}
+2025-09-30 01:55:04.062 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "15c68b7b-adaa-4f70-a118-70ae9692c7e6"
+}
+2025-09-30 01:55:04.069 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "15c68b7b-adaa-4f70-a118-70ae9692c7e6"
+}
+2025-09-30 01:55:21.721 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "ad378bef-e401-4526-98b0-c161e3cb97b0"
+}
+2025-09-30 01:55:21.724 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "ad378bef-e401-4526-98b0-c161e3cb97b0"
+}
+2025-09-30 01:55:29.047 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "0e61eb11-e6d9-42f8-a413-94d6532d4924"
+}
+2025-09-30 01:55:29.049 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "0e61eb11-e6d9-42f8-a413-94d6532d4924"
+}
+2025-09-30 01:55:39.753 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:55:39.764 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 38
+}
+2025-09-30 01:55:43.757 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "cd98fbe1-a8a0-4fd5-8a78-e847cf8e62ec"
+}
+2025-09-30 01:55:43.763 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "cd98fbe1-a8a0-4fd5-8a78-e847cf8e62ec"
+}
+2025-09-30 01:55:57.714 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:55:57.724 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 39
+}
+2025-09-30 01:55:57.759 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d9e3a560-1d50-4f4f-9398-f10da036d90b"
+}
+2025-09-30 01:55:57.766 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "d9e3a560-1d50-4f4f-9398-f10da036d90b"
+}
+2025-09-30 01:55:59.729 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:55:59.739 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 40
+}
+2025-09-30 01:56:02.311 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "5fcbd7a0-8be9-4c3f-a056-3eba6fafb6f3"
+}
+2025-09-30 01:56:02.318 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "5fcbd7a0-8be9-4c3f-a056-3eba6fafb6f3"
+}
+2025-09-30 01:56:14.170 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:56:14.181 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 41
+}
+2025-09-30 01:56:19.027 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "bae35988-a9ff-406b-af1f-14e17ae185bd"
+}
+2025-09-30 01:56:19.034 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "bae35988-a9ff-406b-af1f-14e17ae185bd"
+}
+2025-09-30 01:56:23.925 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "6a66640e-e7ac-4a61-a405-9adf3841ac8b"
+}
+2025-09-30 01:56:23.928 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "6a66640e-e7ac-4a61-a405-9adf3841ac8b"
+}
+2025-09-30 01:56:27.042 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:56:27.052 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 42
+}
+2025-09-30 01:56:51.843 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:56:51.854 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 43
+}
+2025-09-30 01:56:57.154 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:56:57.175 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 44
+}
+2025-09-30 01:58:41.690 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:58:41.701 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 45
+}
+2025-09-30 01:59:18.649 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:59:18.659 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 46
+}
+2025-09-30 01:59:21.921 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "fbf54b26-6f93-443f-8c41-556c4b2ce9cc"
+}
+2025-09-30 01:59:21.924 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get",
+  "statusCode": 400,
+  "responseTime": 3,
+  "requestId": "fbf54b26-6f93-443f-8c41-556c4b2ce9cc"
+}
+2025-09-30 01:59:25.525 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:59:25.537 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 47
+}
+2025-09-30 01:59:26.283 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "3df14b1f-09a2-4d43-b284-10e508cb382f"
+}
+2025-09-30 01:59:26.287 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "statusCode": 400,
+  "responseTime": 4,
+  "requestId": "3df14b1f-09a2-4d43-b284-10e508cb382f"
+}
+2025-09-30 01:59:30.941 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "7d75aca2-d010-4259-a50a-16f63df74729"
+}
+2025-09-30 01:59:30.942 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "7d75aca2-d010-4259-a50a-16f63df74729"
+}
+2025-09-30 01:59:35.949 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "c78b27c9-4164-4cd6-bf13-619a1d701677"
+}
+2025-09-30 01:59:35.955 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 6,
+  "requestId": "c78b27c9-4164-4cd6-bf13-619a1d701677"
+}
+2025-09-30 01:59:39.561 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_003",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "16428689-52f3-428c-9eba-5d53c7ab44d3"
+}
+2025-09-30 01:59:39.570 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_003",
+  "statusCode": 200,
+  "responseTime": 9,
+  "requestId": "16428689-52f3-428c-9eba-5d53c7ab44d3"
+}
+2025-09-30 01:59:44.131 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "63b3aa53-d85e-42dd-83fb-b0e1954ebc49"
+}
+2025-09-30 01:59:44.134 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "63b3aa53-d85e-42dd-83fb-b0e1954ebc49"
+}
+2025-09-30 01:59:48.220 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "216d7eaf-b630-4b69-a1d5-a7d0a96199e2"
+}
+2025-09-30 01:59:48.222 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "216d7eaf-b630-4b69-a1d5-a7d0a96199e2"
+}
+2025-09-30 01:59:58.477 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 01:59:58.487 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 48
+}
+2025-09-30 02:01:00.261 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:01:00.272 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 49
+}
+2025-09-30 02:01:05.965 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "84bf1072-60c9-4116-8050-8e62c1390cfd"
+}
+2025-09-30 02:01:05.972 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "84bf1072-60c9-4116-8050-8e62c1390cfd"
+}
+2025-09-30 02:01:16.558 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d9730278-95e9-4ecd-a0a0-6a947b028663"
+}
+2025-09-30 02:01:16.561 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "d9730278-95e9-4ecd-a0a0-6a947b028663"
+}
+2025-09-30 02:01:21.027 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "b21659a1-63a2-436a-91df-7eede5434dcf"
+}
+2025-09-30 02:01:21.029 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "b21659a1-63a2-436a-91df-7eede5434dcf"
+}
+2025-09-30 02:01:28.999 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:01:29.010 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 50
+}
+2025-09-30 02:01:32.156 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "997bad6f-8f25-472e-bd0f-257f5c3ff6de"
+}
+2025-09-30 02:01:32.163 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "997bad6f-8f25-472e-bd0f-257f5c3ff6de"
+}
+2025-09-30 02:01:38.294 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:01:38.305 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 51
+}
+2025-09-30 02:02:11.061 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:02:11.073 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 52
+}
+2025-09-30 02:02:12.167 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:02:12.177 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 53
+}
+2025-09-30 02:02:14.405 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "c71f7b0e-6014-4a84-b516-da54a18f35da"
+}
+2025-09-30 02:02:14.412 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "c71f7b0e-6014-4a84-b516-da54a18f35da"
+}
+2025-09-30 02:02:18.653 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "4f775734-5ae9-4486-b375-6632f09ef779"
+}
+2025-09-30 02:02:18.656 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "4f775734-5ae9-4486-b375-6632f09ef779"
+}
+2025-09-30 02:02:23.061 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "afcf688f-3dd0-4105-ac15-953cb681c5e1"
+}
+2025-09-30 02:02:23.064 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "afcf688f-3dd0-4105-ac15-953cb681c5e1"
+}
+2025-09-30 02:02:27.255 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "da6e65df-c009-4c43-aa95-513606266add"
+}
+2025-09-30 02:02:27.258 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "da6e65df-c009-4c43-aa95-513606266add"
+}
+2025-09-30 02:02:31.761 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f1d71d99-702d-40f9-97a8-a0741e5f2805"
+}
+2025-09-30 02:02:31.763 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "f1d71d99-702d-40f9-97a8-a0741e5f2805"
+}
+2025-09-30 02:02:37.178 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "72cef309-af7c-4e6b-90ab-c533060ad1bd"
+}
+2025-09-30 02:02:37.180 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "72cef309-af7c-4e6b-90ab-c533060ad1bd"
+}
+2025-09-30 02:02:43.438 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "03d18be8-c94d-4081-b698-9e5d397697dd"
+}
+2025-09-30 02:02:43.440 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "03d18be8-c94d-4081-b698-9e5d397697dd"
+}
+2025-09-30 02:03:13.663 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:03:13.681 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 54
+}
+2025-09-30 02:03:17.734 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "fa7ec7e3-6223-45d9-9e3f-6640dfe7c03a"
+}
+2025-09-30 02:03:17.744 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 10,
+  "requestId": "fa7ec7e3-6223-45d9-9e3f-6640dfe7c03a"
+}
+2025-09-30 02:03:23.856 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d7ce42f4-689a-496f-a574-d33c64ed7560"
+}
+2025-09-30 02:03:23.861 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "d7ce42f4-689a-496f-a574-d33c64ed7560"
+}
+2025-09-30 02:03:28.515 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "bc243f89-2f9c-4390-8f9d-249a9b593325"
+}
+2025-09-30 02:03:28.520 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "bc243f89-2f9c-4390-8f9d-249a9b593325"
+}
+2025-09-30 02:03:35.154 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:03:35.165 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 55
+}
+2025-09-30 02:03:35.921 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "6bb57c7b-7b31-4ca8-98f2-05ac34211a61"
+}
+2025-09-30 02:03:35.931 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 10,
+  "requestId": "6bb57c7b-7b31-4ca8-98f2-05ac34211a61"
+}
+2025-09-30 02:03:44.182 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:03:44.194 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 56
+}
+2025-09-30 02:03:48.549 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "250930af-7f33-41ca-82fe-72e387128d3f"
+}
+2025-09-30 02:03:48.558 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 10,
+  "requestId": "250930af-7f33-41ca-82fe-72e387128d3f"
+}
+2025-09-30 02:04:01.246 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:04:01.259 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 57
+}
+2025-09-30 02:04:13.533 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:04:13.544 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 58
+}
+2025-09-30 02:04:50.678 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:04:50.689 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 59
+}
+2025-09-30 02:04:54.626 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:04:54.636 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 60
+}
+2025-09-30 02:04:58.732 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "94755ef6-4a8e-4eac-ad69-02c161c6a1cd"
+}
+2025-09-30 02:04:58.743 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 11,
+  "requestId": "94755ef6-4a8e-4eac-ad69-02c161c6a1cd"
+}
+2025-09-30 02:05:06.585 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:05:06.601 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 61
+}
+2025-09-30 02:05:09.594 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:05:09.604 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 62
+}
+2025-09-30 02:05:44.758 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f4bd2502-7a99-4b63-8232-408444b97cb8"
+}
+2025-09-30 02:05:44.767 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 10,
+  "requestId": "f4bd2502-7a99-4b63-8232-408444b97cb8"
+}
+2025-09-30 02:05:49.367 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a76abbe2-07c7-4870-91b1-5139757dccb9"
+}
+2025-09-30 02:05:49.371 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "a76abbe2-07c7-4870-91b1-5139757dccb9"
+}
+2025-09-30 02:05:53.806 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "4cbd48b9-b19e-405c-81a9-7b351080a626"
+}
+2025-09-30 02:05:53.810 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "4cbd48b9-b19e-405c-81a9-7b351080a626"
+}
+2025-09-30 02:05:58.505 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "25367dec-f2f2-4b8e-b4d2-c5ca2022e176"
+}
+2025-09-30 02:05:58.509 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "25367dec-f2f2-4b8e-b4d2-c5ca2022e176"
+}
+2025-09-30 02:09:01.630 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:09:01.644 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 63
+}
+2025-09-30 02:09:12.205 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:09:12.216 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 64
+}
+2025-09-30 02:09:15.468 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:09:15.479 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 65
+}
+2025-09-30 02:09:19.741 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "da9a7b92-e0dd-4ff3-a42a-1241d8265aee"
+}
+2025-09-30 02:09:19.744 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": 3,
+  "requestId": "da9a7b92-e0dd-4ff3-a42a-1241d8265aee"
+}
+2025-09-30 02:09:22.560 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "b47aa4bd-18d6-48bc-86f8-7f6b467da641"
+}
+2025-09-30 02:09:22.568 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "b47aa4bd-18d6-48bc-86f8-7f6b467da641"
+}
+2025-09-30 02:09:26.309 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "3dd78e58-9e50-4883-8c53-ece56945386c"
+}
+2025-09-30 02:09:26.313 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "3dd78e58-9e50-4883-8c53-ece56945386c"
+}
+2025-09-30 02:09:30.377 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "9e8d73d8-d04c-4c84-943c-806c01e486ef"
+}
+2025-09-30 02:09:30.381 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "9e8d73d8-d04c-4c84-943c-806c01e486ef"
+}
+2025-09-30 02:09:33.657 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "0abb93c6-e79a-47ec-b8e7-98de4843fcab"
+}
+2025-09-30 02:09:33.657 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "0abb93c6-e79a-47ec-b8e7-98de4843fcab"
+}
+2025-09-30 02:09:40.011 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "c9d93db5-be58-4652-ac8f-e97a2b7400b7"
+}
+2025-09-30 02:09:40.016 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "c9d93db5-be58-4652-ac8f-e97a2b7400b7"
+}
+2025-09-30 02:09:42.026 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "19e3484d-0e5e-4d79-ae3a-1a2865bd1b42"
+}
+2025-09-30 02:09:42.027 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 1,
+  "requestId": "19e3484d-0e5e-4d79-ae3a-1a2865bd1b42"
+}
+2025-09-30 02:09:45.026 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/sensors/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "6d1566af-534d-4044-9a8d-492bf737d4ce"
+}
+2025-09-30 02:09:45.030 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/sensors/update",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "6d1566af-534d-4044-9a8d-492bf737d4ce"
+}
+2025-09-30 02:09:48.739 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_085",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "cb1b1e02-949c-4ed7-8cca-d2762c05a065"
+}
+2025-09-30 02:09:48.747 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_TEST_085",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "cb1b1e02-949c-4ed7-8cca-d2762c05a065"
+}
+2025-09-30 02:09:51.559 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "cc01d50c-7b0c-4b32-ae0b-97d69edc99d4"
+}
+2025-09-30 02:09:51.562 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "cc01d50c-7b0c-4b32-ae0b-97d69edc99d4"
+}
+2025-09-30 02:09:54.535 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "83de1961-fd36-453d-82a6-ff444f39c806"
+}
+2025-09-30 02:09:54.535 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "83de1961-fd36-453d-82a6-ff444f39c806"
+}
+2025-09-30 02:09:57.821 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "8901c511-1c59-4b29-b4eb-561a8a08cc18"
+}
+2025-09-30 02:09:57.822 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "8901c511-1c59-4b29-b4eb-561a8a08cc18"
+}
+2025-09-30 02:10:12.778 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a37c1746-e121-423f-b5f2-eb2c78bcc22c"
+}
+2025-09-30 02:10:12.782 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "a37c1746-e121-423f-b5f2-eb2c78bcc22c"
+}
+2025-09-30 02:10:17.385 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2cfa1807-8338-4da4-9b1d-ed207c836dec"
+}
+2025-09-30 02:10:17.386 [ERROR] Application error 路径 /api/groups/get?dtuId=DTU_TEST_001 不存在
+Error: 路径 /api/groups/get?dtuId=DTU_TEST_001 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:688:15
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:276:14)
+    at Function.handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:186:3)
+    at router (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:60:12)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/get?dtuId=DTU_TEST_001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2cfa1807-8338-4da4-9b1d-ed207c836dec",
+  "query": {
+    "dtuId": "DTU_TEST_001"
+  },
+  "params": {}
+}
+2025-09-30 02:10:17.386 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/get?dtuId=DTU_TEST_001",
+  "statusCode": 404,
+  "responseTime": 1,
+  "requestId": "2cfa1807-8338-4da4-9b1d-ed207c836dec"
+}
+2025-09-30 02:10:20.258 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "30cb17e6-a1fc-403f-98c4-588fcb3b0fd4"
+}
+2025-09-30 02:10:20.258 [ERROR] Application error 路径 /api/groups/get?dtuId=DTU_TEST_001 不存在
+Error: 路径 /api/groups/get?dtuId=DTU_TEST_001 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:688:15
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:276:14)
+    at Function.handle (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:186:3)
+    at router (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:60:12)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/get?dtuId=DTU_TEST_001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "30cb17e6-a1fc-403f-98c4-588fcb3b0fd4",
+  "query": {
+    "dtuId": "DTU_TEST_001"
+  },
+  "params": {}
+}
+2025-09-30 02:10:20.259 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/get?dtuId=DTU_TEST_001",
+  "statusCode": 404,
+  "responseTime": 1,
+  "requestId": "30cb17e6-a1fc-403f-98c4-588fcb3b0fd4"
+}
+2025-09-30 02:10:27.731 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/all?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "417175fa-e2eb-4fe8-9480-89fddf08010a"
+}
+2025-09-30 02:10:27.737 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/all?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 6,
+  "requestId": "417175fa-e2eb-4fe8-9480-89fddf08010a"
+}
+2025-09-30 02:10:29.152 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:10:29.167 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 66
+}
+2025-09-30 02:10:30.858 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a7e9ed1c-6439-47a8-b2ef-f3158927a6d5"
+}
+2025-09-30 02:10:30.865 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/dtu/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "a7e9ed1c-6439-47a8-b2ef-f3158927a6d5"
+}
+2025-09-30 02:12:14.075 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "151dc486-b7c1-4736-97fe-201fdd0e4fa5"
+}
+2025-09-30 02:12:14.085 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 10,
+  "requestId": "151dc486-b7c1-4736-97fe-201fdd0e4fa5"
+}
+2025-09-30 02:12:18.228 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/sensors/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "34cef2b8-6078-40d7-a285-a3647254ad5e"
+}
+2025-09-30 02:12:18.229 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/sensors/update",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "34cef2b8-6078-40d7-a285-a3647254ad5e"
+}
+2025-09-30 02:12:59.628 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 67
+}
+2025-09-30 02:13:02.664 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 68
+}
+2025-09-30 02:13:06.251 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 69
+}
+2025-09-30 02:13:10.477 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:13:10.491 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 70
+}
+2025-09-30 02:13:15.479 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/sensors/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f7fc1157-0dad-4516-b607-4b198bc135f0"
+}
+2025-09-30 02:13:15.492 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/sensors/update",
+  "statusCode": 200,
+  "responseTime": 14,
+  "requestId": "f7fc1157-0dad-4516-b607-4b198bc135f0"
+}
+2025-09-30 02:13:18.747 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2958b165-db9c-4fca-a890-cd373ee11016"
+}
+2025-09-30 02:13:18.751 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "2958b165-db9c-4fca-a890-cd373ee11016"
+}
+2025-09-30 02:13:22.232 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_BATCH_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "6e784fb3-9451-4a8b-8099-2e75f4ef0644"
+}
+2025-09-30 02:13:22.241 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_BATCH_001",
+  "statusCode": 200,
+  "responseTime": 9,
+  "requestId": "6e784fb3-9451-4a8b-8099-2e75f4ef0644"
+}
+2025-09-30 02:13:22.249 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_BATCH_002",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "dafe7a8b-b77d-406e-9b23-56b4bc2a0ba1"
+}
+2025-09-30 02:13:22.254 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_BATCH_002",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "dafe7a8b-b77d-406e-9b23-56b4bc2a0ba1"
+}
+2025-09-30 02:13:22.262 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_BATCH_003",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "0f10312b-4c2f-453f-a11e-53f438ee736b"
+}
+2025-09-30 02:13:22.267 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=SENSOR_BATCH_003",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "0f10312b-4c2f-453f-a11e-53f438ee736b"
+}
+2025-09-30 02:13:25.105 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "daac5e62-cb07-4bef-8e58-5f36e081e7f4"
+}
+2025-09-30 02:13:25.128 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 23,
+  "requestId": "daac5e62-cb07-4bef-8e58-5f36e081e7f4"
+}
+2025-09-30 02:13:27.655 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "e6086bde-1815-4813-ba48-9b7c3b27ee35"
+}
+2025-09-30 02:13:27.661 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 6,
+  "requestId": "e6086bde-1815-4813-ba48-9b7c3b27ee35"
+}
+2025-09-30 02:13:30.714 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "36b22e72-9969-4962-8f1c-2721da41c9dc"
+}
+2025-09-30 02:13:30.715 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 1,
+  "requestId": "36b22e72-9969-4962-8f1c-2721da41c9dc"
+}
+2025-09-30 02:13:38.997 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:13:39.010 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 71
+}
+2025-09-30 02:14:09.788 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:14:09.800 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 72
+}
+2025-09-30 02:14:23.945 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:14:23.955 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 73
+}
+2025-09-30 02:14:36.757 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:14:36.776 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 74
+}
+2025-09-30 02:14:47.935 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:14:47.945 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 75
+}
+2025-09-30 02:14:50.569 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:14:50.579 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 76
+}
+2025-09-30 02:15:10.676 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=NONEXISTENT_SENSOR",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "8e83281f-ea8f-4801-a383-a834a737f48f"
+}
+2025-09-30 02:15:10.685 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=NONEXISTENT_SENSOR",
+  "statusCode": 200,
+  "responseTime": 10,
+  "requestId": "8e83281f-ea8f-4801-a383-a834a737f48f"
+}
+2025-09-30 02:15:16.605 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=NONEXISTENT_SENSOR",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2a3791be-e4b6-4742-afd1-ad74a044212d"
+}
+2025-09-30 02:15:16.608 [ERROR] Cache query failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "key": "sensors:dtuId:|sensorId:NONEXISTENT_SENSOR",
+  "error": "传感器不存在",
+  "cacheType": "default"
+}
+2025-09-30 02:15:16.609 [ERROR] Application error 传感器不存在
+Error: 传感器不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:34:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async CacheService.cacheQuery (/Users/xujing/Workspace/cloned-website/backend/src/services/cache.js:175:22)
+    at async SensorData.get (/Users/xujing/Workspace/cloned-website/backend/src/models/sensorData.js:25:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:23:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/get?sensorId=NONEXISTENT_SENSOR",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2a3791be-e4b6-4742-afd1-ad74a044212d",
+  "query": {
+    "sensorId": "NONEXISTENT_SENSOR"
+  },
+  "params": {}
+}
+2025-09-30 02:15:16.609 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=NONEXISTENT_SENSOR",
+  "statusCode": 500,
+  "responseTime": 4,
+  "requestId": "2a3791be-e4b6-4742-afd1-ad74a044212d"
+}
+2025-09-30 02:15:19.788 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=NONEXISTENT_DTU",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "125aad50-529c-4ba5-bc72-12f54dabacd6"
+}
+2025-09-30 02:15:19.791 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=NONEXISTENT_DTU",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "125aad50-529c-4ba5-bc72-12f54dabacd6"
+}
+2025-09-30 02:15:22.497 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?dtuId=NONEXISTENT_DTU",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "3ed6a208-a1ad-42e1-999c-4393dcfe06a9"
+}
+2025-09-30 02:15:22.500 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?dtuId=NONEXISTENT_DTU",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "3ed6a208-a1ad-42e1-999c-4393dcfe06a9"
+}
+2025-09-30 02:15:26.095 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "03447275-48f0-468e-a2f0-b362ab2978dd"
+}
+2025-09-30 02:15:26.096 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "03447275-48f0-468e-a2f0-b362ab2978dd"
+}
+2025-09-30 02:15:29.937 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "cfca8147-5212-4a8f-8057-5b00783508b8"
+}
+2025-09-30 02:15:29.938 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "cfca8147-5212-4a8f-8057-5b00783508b8"
+}
+2025-09-30 02:15:32.984 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "698950f5-9689-41b9-acb1-e20b9532e0a5"
+}
+2025-09-30 02:15:32.984 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "698950f5-9689-41b9-acb1-e20b9532e0a5"
+}
+2025-09-30 02:15:36.279 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "262e0a0d-fd3d-46d8-bca8-94944492985e"
+}
+2025-09-30 02:15:36.280 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "statusCode": 400,
+  "responseTime": 2,
+  "requestId": "262e0a0d-fd3d-46d8-bca8-94944492985e"
+}
+2025-09-30 02:15:54.015 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:15:54.025 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 77
+}
+2025-09-30 02:15:58.544 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:15:58.563 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 78
+}
+2025-09-30 02:16:01.072 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=NONEXISTENT_SENSOR",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d384ca7c-136f-4878-9fa1-1dcc4df9a66d"
+}
+2025-09-30 02:16:01.080 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=NONEXISTENT_SENSOR",
+  "statusCode": 404,
+  "responseTime": 8,
+  "requestId": "d384ca7c-136f-4878-9fa1-1dcc4df9a66d"
+}
+2025-09-30 02:16:04.612 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "5f072371-5fd4-498f-9a98-d2e822bef24e"
+}
+2025-09-30 02:16:04.616 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "5f072371-5fd4-498f-9a98-d2e822bef24e"
+}
+2025-09-30 02:16:08.622 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "0342c0c2-2090-4987-87a6-2392550dd688"
+}
+2025-09-30 02:16:08.629 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "0342c0c2-2090-4987-87a6-2392550dd688"
+}
+2025-09-30 02:16:11.700 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=TEST_SENSOR_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2a73a88a-b0cb-4a0a-92ef-518c4413ef09"
+}
+2025-09-30 02:16:11.703 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=TEST_SENSOR_001",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "2a73a88a-b0cb-4a0a-92ef-518c4413ef09"
+}
+2025-09-30 02:16:16.602 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "20f96cb9-f160-465a-94b5-3408363ce302"
+}
+2025-09-30 02:16:16.603 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 1,
+  "requestId": "20f96cb9-f160-465a-94b5-3408363ce302"
+}
+2025-09-30 02:16:19.144 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:16:19.154 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 79
+}
+2025-09-30 02:16:22.490 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "464e2b25-11dc-460d-a75b-312981ed0d28"
+}
+2025-09-30 02:16:22.498 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 9,
+  "requestId": "464e2b25-11dc-460d-a75b-312981ed0d28"
+}
+2025-09-30 02:16:25.823 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f038b5da-8e1f-404e-950b-760b068ac323"
+}
+2025-09-30 02:16:25.824 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 1,
+  "requestId": "f038b5da-8e1f-404e-950b-760b068ac323"
+}
+2025-09-30 02:16:31.564 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=NONEXISTENT_SENSOR",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "27b0d868-8cc5-4535-ac1c-6dee6468bb7b"
+}
+2025-09-30 02:16:31.566 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=NONEXISTENT_SENSOR",
+  "statusCode": 404,
+  "responseTime": 2,
+  "requestId": "27b0d868-8cc5-4535-ac1c-6dee6468bb7b"
+}
+2025-09-30 02:16:31.574 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=TEST_SENSOR_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "eae20d17-a0cb-41d9-abbd-8a8a537cde41"
+}
+2025-09-30 02:16:31.575 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=TEST_SENSOR_001",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "eae20d17-a0cb-41d9-abbd-8a8a537cde41"
+}
+2025-09-30 02:16:31.583 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=NONEXISTENT_SENSOR",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "c0438ad1-4743-4312-9939-80f222e0caf3"
+}
+2025-09-30 02:16:31.588 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=NONEXISTENT_SENSOR",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "c0438ad1-4743-4312-9939-80f222e0caf3"
+}
+2025-09-30 02:16:31.596 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=TEST_SENSOR_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "38e0d700-cb00-4241-80fe-69208231d28f"
+}
+2025-09-30 02:16:31.603 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=TEST_SENSOR_001",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "38e0d700-cb00-4241-80fe-69208231d28f"
+}
+2025-09-30 02:16:36.153 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "cacc503f-35cb-47f3-adf1-339e71459931"
+}
+2025-09-30 02:16:36.153 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "cacc503f-35cb-47f3-adf1-339e71459931"
+}
+2025-09-30 02:16:36.161 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "ecc1578e-6288-4390-b858-244e6312560c"
+}
+2025-09-30 02:16:36.162 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?sensorId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "ecc1578e-6288-4390-b858-244e6312560c"
+}
+2025-09-30 02:16:36.171 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "522c6858-9093-4f43-9b1a-3d8a49f49f08"
+}
+2025-09-30 02:16:36.172 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get",
+  "statusCode": 400,
+  "responseTime": 2,
+  "requestId": "522c6858-9093-4f43-9b1a-3d8a49f49f08"
+}
+2025-09-30 02:16:36.180 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=NONEXISTENT_DTU",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "61a35870-f7ee-45cc-9fdd-3b22e3d80566"
+}
+2025-09-30 02:16:36.182 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=NONEXISTENT_DTU",
+  "statusCode": 200,
+  "responseTime": 1,
+  "requestId": "61a35870-f7ee-45cc-9fdd-3b22e3d80566"
+}
+2025-09-30 02:16:43.945 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:16:43.955 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 80
+}
+2025-09-30 02:16:44.896 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:16:44.907 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 81
+}
+2025-09-30 02:16:47.356 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:16:47.367 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 82
+}
+2025-09-30 02:16:53.671 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:16:53.681 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 83
+}
+2025-09-30 02:18:39.076 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:18:39.089 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 84
+}
+2025-09-30 02:18:41.278 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/all",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "884c1860-ad66-4ad8-aef0-ec3b85ee2c7e"
+}
+2025-09-30 02:18:41.284 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/all",
+  "statusCode": 200,
+  "responseTime": 6,
+  "requestId": "884c1860-ad66-4ad8-aef0-ec3b85ee2c7e"
+}
+2025-09-30 02:18:44.221 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:18:44.233 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 85
+}
+2025-09-30 02:18:44.705 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "7b74c783-86fc-470b-8f4c-176c252feea2"
+}
+2025-09-30 02:18:44.713 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups/create",
+  "statusCode": 200,
+  "responseTime": 9,
+  "requestId": "7b74c783-86fc-470b-8f4c-176c252feea2"
+}
+2025-09-30 02:18:48.489 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/all",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "ba822f14-80b8-4820-a3ee-60142ff5c04f"
+}
+2025-09-30 02:18:48.492 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/all",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "ba822f14-80b8-4820-a3ee-60142ff5c04f"
+}
+2025-09-30 02:18:52.567 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/groups/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "bd51137a-b30a-4e95-8b7f-e902362ae8b5"
+}
+2025-09-30 02:18:52.572 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/groups/update",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "bd51137a-b30a-4e95-8b7f-e902362ae8b5"
+}
+2025-09-30 02:18:59.541 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "77ee8737-162a-4de7-a28f-c8dbf0f5fb22"
+}
+2025-09-30 02:18:59.546 [INFO] Group deleted successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "deletedGroupId": 30,
+  "deletedGroupName": "测试分组RESTful-已更新",
+  "movedDevicesCount": 0,
+  "defaultGroupName": "默认分组"
+}
+2025-09-30 02:18:59.548 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "77ee8737-162a-4de7-a28f-c8dbf0f5fb22"
+}
+2025-09-30 02:19:02.733 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/all",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d901ba20-595b-4151-8c0e-b566cb908b85"
+}
+2025-09-30 02:19:02.735 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/all",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "d901ba20-595b-4151-8c0e-b566cb908b85"
+}
+2025-09-30 02:19:06.834 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/groups/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "4446a515-0d2d-40b6-99a0-7466fc05fe2c"
+}
+2025-09-30 02:19:06.838 [ERROR] Application error 分组不存在或为默认分组，无法修改
+Error: 分组不存在或为默认分组，无法修改
+    at GroupData.update (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:112:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:93:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/update",
+  "method": "PUT",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "4446a515-0d2d-40b6-99a0-7466fc05fe2c",
+  "body": {
+    "id": 99999,
+    "group_name": "不存在的分组"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 02:19:06.838 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/groups/update",
+  "statusCode": 500,
+  "responseTime": 4,
+  "requestId": "4446a515-0d2d-40b6-99a0-7466fc05fe2c"
+}
+2025-09-30 02:19:11.758 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "e5729b2a-12d0-490c-b57d-56b47b81a6ab"
+}
+2025-09-30 02:19:11.760 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "分组不存在",
+  "attempt": 1,
+  "threadId": 85
+}
+2025-09-30 02:19:11.760 [ERROR] Application error 分组不存在
+Error: 分组不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:136:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async GroupData.delete (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:127:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:108:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/delete",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "e5729b2a-12d0-490c-b57d-56b47b81a6ab",
+  "body": {
+    "id": 99999
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 02:19:11.761 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "statusCode": 500,
+  "responseTime": 3,
+  "requestId": "e5729b2a-12d0-490c-b57d-56b47b81a6ab"
+}
+2025-09-30 02:19:15.012 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/groups/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "d90fece6-6c33-448c-90fe-b01d9329991d"
+}
+2025-09-30 02:19:15.012 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/groups/update",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "d90fece6-6c33-448c-90fe-b01d9329991d"
+}
+2025-09-30 02:19:24.746 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:19:24.756 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 86
+}
+2025-09-30 02:19:34.262 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:19:34.273 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 87
+}
+2025-09-30 02:20:29.046 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f0092f63-657e-446c-8840-ddd661f02bd6"
+}
+2025-09-30 02:20:29.052 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "分组不存在",
+  "attempt": 1,
+  "threadId": 87
+}
+2025-09-30 02:20:29.053 [ERROR] Application error 分组不存在
+Error: 分组不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:136:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async GroupData.delete (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:127:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:108:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/delete",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f0092f63-657e-446c-8840-ddd661f02bd6",
+  "body": {
+    "id": 1
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 02:20:29.055 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "statusCode": 500,
+  "responseTime": 9,
+  "requestId": "f0092f63-657e-446c-8840-ddd661f02bd6"
+}
+2025-09-30 02:20:32.331 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/all",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "fd7075cb-1aa2-44d5-886b-970437949021"
+}
+2025-09-30 02:20:32.334 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/all",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "fd7075cb-1aa2-44d5-886b-970437949021"
+}
+2025-09-30 02:20:35.698 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "89d595d0-fd43-459e-9513-3a44e79a6bdf"
+}
+2025-09-30 02:20:35.701 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "默认分组不能删除",
+  "attempt": 1,
+  "threadId": 87
+}
+2025-09-30 02:20:35.701 [ERROR] Application error 默认分组不能删除
+Error: 默认分组不能删除
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:141:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async GroupData.delete (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:127:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:108:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/delete",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "89d595d0-fd43-459e-9513-3a44e79a6bdf",
+  "body": {
+    "id": 24
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 02:20:35.701 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "statusCode": 500,
+  "responseTime": 3,
+  "requestId": "89d595d0-fd43-459e-9513-3a44e79a6bdf"
+}
+2025-09-30 02:20:44.613 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "5c56c10b-02d6-4ed7-90c5-65c0f508a258"
+}
+2025-09-30 02:20:44.613 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "5c56c10b-02d6-4ed7-90c5-65c0f508a258"
+}
+2025-09-30 02:20:47.874 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "9677c5af-4f0a-4d0f-b6c9-42e3f757278f"
+}
+2025-09-30 02:20:47.874 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "9677c5af-4f0a-4d0f-b6c9-42e3f757278f"
+}
+2025-09-30 02:21:02.159 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/all",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "b15be32d-cb9e-460b-8068-aca71b894959"
+}
+2025-09-30 02:21:02.159 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/groups/all",
+  "statusCode": 200,
+  "responseTime": "unknown",
+  "requestId": "b15be32d-cb9e-460b-8068-aca71b894959"
+}
+2025-09-30 02:21:05.405 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "b41f1da9-6928-4b2b-9ba1-6a3962d88a80"
+}
+2025-09-30 02:21:05.409 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/groups/create",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "b41f1da9-6928-4b2b-9ba1-6a3962d88a80"
+}
+2025-09-30 02:21:08.576 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "13bfbd13-bb26-47dc-918b-503189f0e0be"
+}
+2025-09-30 02:21:08.581 [INFO] Group deleted successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "deletedGroupId": 31,
+  "deletedGroupName": "测试删除分组",
+  "movedDevicesCount": 0,
+  "defaultGroupName": "默认分组"
+}
+2025-09-30 02:21:08.582 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "statusCode": 200,
+  "responseTime": 6,
+  "requestId": "13bfbd13-bb26-47dc-918b-503189f0e0be"
+}
+2025-09-30 02:21:11.545 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "dcc95d6b-b9a1-4c54-b27b-fb4b7f4a5054"
+}
+2025-09-30 02:21:11.547 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "默认分组不能删除",
+  "attempt": 1,
+  "threadId": 87
+}
+2025-09-30 02:21:11.548 [ERROR] Application error 默认分组不能删除
+Error: 默认分组不能删除
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:141:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async GroupData.delete (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:127:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:108:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/delete",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "dcc95d6b-b9a1-4c54-b27b-fb4b7f4a5054",
+  "body": {
+    "id": 24
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 02:21:11.548 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "statusCode": 500,
+  "responseTime": 3,
+  "requestId": "dcc95d6b-b9a1-4c54-b27b-fb4b7f4a5054"
+}
+2025-09-30 02:21:14.455 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "5062e8b2-a1b3-4a23-a8c5-7bb96d76e8ef"
+}
+2025-09-30 02:21:14.457 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "默认分组不能删除",
+  "attempt": 1,
+  "threadId": 87
+}
+2025-09-30 02:21:14.457 [ERROR] Application error 默认分组不能删除
+Error: 默认分组不能删除
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:141:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async GroupData.delete (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:127:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:108:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/delete",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "5062e8b2-a1b3-4a23-a8c5-7bb96d76e8ef",
+  "body": {
+    "id": 24
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 02:21:14.458 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "statusCode": 500,
+  "responseTime": 3,
+  "requestId": "5062e8b2-a1b3-4a23-a8c5-7bb96d76e8ef"
+}
+2025-09-30 02:22:36.107 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001&sensorId=TEST_SENSOR_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a30c2d91-43cc-47c7-b641-135e3f16dd88"
+}
+2025-09-30 02:22:36.110 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001&sensorId=TEST_SENSOR_001",
+  "statusCode": 404,
+  "responseTime": 3,
+  "requestId": "a30c2d91-43cc-47c7-b641-135e3f16dd88"
+}
+2025-09-30 02:22:45.988 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "aec28865-f39a-4cbe-8cf6-bce924dbbe09"
+}
+2025-09-30 02:22:45.994 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 6,
+  "requestId": "aec28865-f39a-4cbe-8cf6-bce924dbbe09"
+}
+2025-09-30 02:22:51.859 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/sensors/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "13d1bbe6-a893-43ca-a8df-e44355dc1b99"
+}
+2025-09-30 02:22:51.863 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/sensors/update",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "13d1bbe6-a893-43ca-a8df-e44355dc1b99"
+}
+2025-09-30 02:23:00.495 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=DEMO_SENSOR",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "7594f0f6-e55f-41fb-b0dc-2ff3b280f1c3"
+}
+2025-09-30 02:23:00.502 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=DEMO_SENSOR",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "7594f0f6-e55f-41fb-b0dc-2ff3b280f1c3"
+}
+2025-09-30 02:26:49.361 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "b1d863aa-db70-45ba-8270-19f7827503e7"
+}
+2025-09-30 02:26:49.362 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "b1d863aa-db70-45ba-8270-19f7827503e7"
+}
+2025-09-30 02:26:52.521 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "8a778804-9351-4202-9f6e-9530ff1093e7"
+}
+2025-09-30 02:26:52.523 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/sensors/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 2,
+  "requestId": "8a778804-9351-4202-9f6e-9530ff1093e7"
+}
+2025-09-30 02:29:38.900 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:29:38.913 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 88
+}
+2025-09-30 02:29:44.358 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 89
+}
+2025-09-30 02:29:57.541 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 90
+}
+2025-09-30 02:30:06.957 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 91
+}
+2025-09-30 02:30:19.735 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 92
+}
+2025-09-30 02:30:45.042 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 93
+}
+2025-09-30 02:31:33.233 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 94
+}
+2025-09-30 02:31:36.361 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 95
+}
+2025-09-30 02:31:43.181 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 96
+}
+2025-09-30 02:32:02.871 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 97
+}
+2025-09-30 02:32:14.674 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 98
+}
+2025-09-30 02:32:16.231 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 99
+}
+2025-09-30 02:32:25.883 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 100
+}
+2025-09-30 02:32:29.845 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:32:29.855 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 101
+}
+2025-09-30 02:32:33.863 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "ef1f5791-4167-4b13-b686-4060501f3f3e"
+}
+2025-09-30 02:32:33.873 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 11,
+  "requestId": "ef1f5791-4167-4b13-b686-4060501f3f3e"
+}
+2025-09-30 02:32:37.705 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "376b996a-43f6-4e97-9c6a-a0cf7d6f990f"
+}
+2025-09-30 02:32:37.713 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "376b996a-43f6-4e97-9c6a-a0cf7d6f990f"
+}
+2025-09-30 02:32:41.202 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2e702f0f-b184-4398-a8a0-5700bc90cd4a"
+}
+2025-09-30 02:32:41.206 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "statusCode": 200,
+  "responseTime": 4,
+  "requestId": "2e702f0f-b184-4398-a8a0-5700bc90cd4a"
+}
+2025-09-30 02:32:44.610 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "225a757e-2d39-4786-baed-649e486b5c9d"
+}
+2025-09-30 02:32:44.611 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "225a757e-2d39-4786-baed-649e486b5c9d"
+}
+2025-09-30 02:32:48.284 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=TEST_SENSOR",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "6402dee1-e3b9-4332-be84-88bd46b053d3"
+}
+2025-09-30 02:32:48.286 [ERROR] Application error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+TypeError: Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+    at validateDelete (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:225:13)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:157:13)
+    at middleware (/Users/xujing/Workspace/cloned-website/backend/node_modules/express-validator/lib/middlewares/check.js:16:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/delete?sensorId=TEST_SENSOR",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "6402dee1-e3b9-4332-be84-88bd46b053d3",
+  "query": {
+    "sensorId": "TEST_SENSOR"
+  },
+  "params": {}
+}
+2025-09-30 02:32:48.286 [WARN] Type error Cannot destructure property 'sensorId' of 'req.body' as it is undefined.
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "name": "TypeError",
+  "requestId": "6402dee1-e3b9-4332-be84-88bd46b053d3"
+}
+2025-09-30 02:32:48.286 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete?sensorId=TEST_SENSOR",
+  "statusCode": 400,
+  "responseTime": 2,
+  "requestId": "6402dee1-e3b9-4332-be84-88bd46b053d3"
+}
+2025-09-30 02:32:52.881 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a9a5dc41-0c77-4773-a108-df19153ae4f2"
+}
+2025-09-30 02:32:52.884 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "分组不存在",
+  "attempt": 1,
+  "threadId": 101
+}
+2025-09-30 02:32:52.884 [ERROR] Application error 分组不存在
+Error: 分组不存在
+    at /Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:136:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async GroupData.delete (/Users/xujing/Workspace/cloned-website/backend/src/models/groupData.js:127:12)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/groupController.js:108:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/groups/delete",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a9a5dc41-0c77-4773-a108-df19153ae4f2",
+  "body": {
+    "id": 1
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 02:32:52.884 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/groups/delete",
+  "statusCode": 500,
+  "responseTime": 3,
+  "requestId": "a9a5dc41-0c77-4773-a108-df19153ae4f2"
+}
+2025-09-30 02:32:52.892 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "efdf39be-4c5f-489f-8201-f45ed753f8a4"
+}
+2025-09-30 02:32:52.895 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "statusCode": 200,
+  "responseTime": 3,
+  "requestId": "efdf39be-4c5f-489f-8201-f45ed753f8a4"
+}
+2025-09-30 02:32:58.026 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:32:58.036 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 102
+}
+2025-09-30 02:33:01.107 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:33:01.118 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 103
+}
+2025-09-30 02:33:02.987 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:33:02.999 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 104
+}
+2025-09-30 02:33:09.535 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:33:09.546 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 105
+}
+2025-09-30 02:35:43.555 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 106
+}
+2025-09-30 02:35:45.317 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 107
+}
+2025-09-30 02:35:46.846 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 108
+}
+2025-09-30 02:35:51.290 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 109
+}
+2025-09-30 02:35:55.347 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 110
+}
+2025-09-30 02:35:56.993 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 111
+}
+2025-09-30 02:36:00.211 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:36:00.222 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 112
+}
+2025-09-30 02:36:03.688 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "fd5977e9-63ee-4a56-b38c-5fe2e466f3ef"
+}
+2025-09-30 02:36:03.698 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 200,
+  "responseTime": 10,
+  "requestId": "fd5977e9-63ee-4a56-b38c-5fe2e466f3ef"
+}
+2025-09-30 02:36:07.173 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/sensors/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "0de94168-94d1-4c63-8604-1be14989eed3"
+}
+2025-09-30 02:36:07.178 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/sensors/update",
+  "statusCode": 200,
+  "responseTime": 5,
+  "requestId": "0de94168-94d1-4c63-8604-1be14989eed3"
+}
+2025-09-30 02:36:08.871 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:36:08.882 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 113
+}
+2025-09-30 02:36:10.623 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "9a705d26-6fc3-43e2-a8ae-d55e60a61bfc"
+}
+2025-09-30 02:36:10.635 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "DELETE",
+  "url": "/api/sensors/delete",
+  "statusCode": 200,
+  "responseTime": 12,
+  "requestId": "9a705d26-6fc3-43e2-a8ae-d55e60a61bfc"
+}
+2025-09-30 02:36:11.728 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:36:11.738 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 114
+}
+2025-09-30 02:36:13.781 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "9a218b98-a0df-430a-864b-7884f964eadf"
+}
+2025-09-30 02:36:13.784 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "POST",
+  "url": "/api/sensors/create",
+  "statusCode": 400,
+  "responseTime": 3,
+  "requestId": "9a218b98-a0df-430a-864b-7884f964eadf"
+}
+2025-09-30 02:38:07.582 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:38:07.592 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 115
+}
+2025-09-30 02:38:49.438 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:38:49.448 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 116
+}
+2025-09-30 02:38:52.183 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:38:52.194 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 117
+}
+2025-09-30 02:38:52.222 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get?dtuId=DTU_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "017ab570-dfa6-487a-abb9-0bd66ac1d5f8"
+}
+2025-09-30 02:38:52.229 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get?dtuId=DTU_TEST_001",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "017ab570-dfa6-487a-abb9-0bd66ac1d5f8"
+}
+2025-09-30 02:38:56.621 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get?dtuId=DTU_TEST_001&sensorId=SENSOR_TEST_001",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1e48d753-7d29-4e53-b7f5-5cf573cea225"
+}
+2025-09-30 02:38:56.624 [ERROR] Application error MB-RTU协议不存在
+Error: MB-RTU协议不存在
+    at MbRtuData.get (/Users/xujing/Workspace/cloned-website/backend/src/models/mbRtuData.js:174:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/mbRtuController.js:20:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/mb-rtu/get?dtuId=DTU_TEST_001&sensorId=SENSOR_TEST_001",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "1e48d753-7d29-4e53-b7f5-5cf573cea225",
+  "query": {
+    "dtuId": "DTU_TEST_001",
+    "sensorId": "SENSOR_TEST_001"
+  },
+  "params": {}
+}
+2025-09-30 02:38:56.624 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get?dtuId=DTU_TEST_001&sensorId=SENSOR_TEST_001",
+  "statusCode": 500,
+  "responseTime": 3,
+  "requestId": "1e48d753-7d29-4e53-b7f5-5cf573cea225"
+}
+2025-09-30 02:38:59.577 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f1110af4-be88-47d9-aa75-6765516a48dc"
+}
+2025-09-30 02:38:59.578 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "f1110af4-be88-47d9-aa75-6765516a48dc"
+}
+2025-09-30 02:39:02.753 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get?dtuId=",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "0c6dd4e1-9510-49dd-8ea0-e80b61d45906"
+}
+2025-09-30 02:39:02.754 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get?dtuId=",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "0c6dd4e1-9510-49dd-8ea0-e80b61d45906"
+}
+2025-09-30 02:39:06.434 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get?dtuId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "e38f28cf-9309-462a-91b6-65e88b4b74df"
+}
+2025-09-30 02:39:06.435 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get?dtuId=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "e38f28cf-9309-462a-91b6-65e88b4b74df"
+}
+2025-09-30 02:39:09.574 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get?dtuId=DTU_TEST_001&sensorId=",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2dd49e9e-d611-4412-ac07-0bd6358e2890"
+}
+2025-09-30 02:39:09.575 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get?dtuId=DTU_TEST_001&sensorId=",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "2dd49e9e-d611-4412-ac07-0bd6358e2890"
+}
+2025-09-30 02:39:13.805 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "65ab1bd6-2f6a-4862-bd9f-0370ff513bf9"
+}
+2025-09-30 02:39:13.805 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "GET",
+  "url": "/api/mb-rtu/get",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "65ab1bd6-2f6a-4862-bd9f-0370ff513bf9"
+}
+2025-09-30 02:39:15.334 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:39:15.344 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 118
+}
+2025-09-30 02:39:22.818 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "67efc507-f1a2-4908-bd7f-a56cefc27bee"
+}
+2025-09-30 02:39:22.825 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "67efc507-f1a2-4908-bd7f-a56cefc27bee"
+}
+2025-09-30 02:39:26.588 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:39:26.598 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 119
+}
+2025-09-30 02:39:29.275 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:39:29.286 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 120
+}
+2025-09-30 02:39:34.980 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:39:34.990 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 121
+}
+2025-09-30 02:40:35.491 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:40:35.503 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 122
+}
+2025-09-30 02:40:38.025 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:40:38.036 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 123
+}
+2025-09-30 02:40:40.345 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "77d0c16e-ae00-400c-a552-edee1119dc89"
+}
+2025-09-30 02:40:40.353 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 200,
+  "responseTime": 8,
+  "requestId": "77d0c16e-ae00-400c-a552-edee1119dc89"
+}
+2025-09-30 02:40:44.227 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "6c920994-ef89-40ce-9fc8-0d24b83b5b2b"
+}
+2025-09-30 02:40:44.228 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "6c920994-ef89-40ce-9fc8-0d24b83b5b2b"
+}
+2025-09-30 02:40:48.129 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "eb3df669-4b93-4e24-9af4-4253e7903f8d"
+}
+2025-09-30 02:40:48.130 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "eb3df669-4b93-4e24-9af4-4253e7903f8d"
+}
+2025-09-30 02:40:52.323 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "8b7b7b20-8dd4-4e24-8dee-95f8fd9c4455"
+}
+2025-09-30 02:40:52.324 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "8b7b7b20-8dd4-4e24-8dee-95f8fd9c4455"
+}
+2025-09-30 02:40:56.223 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "5b0063da-9533-4c7f-93e7-cc547c0fd771"
+}
+2025-09-30 02:40:56.224 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "5b0063da-9533-4c7f-93e7-cc547c0fd771"
+}
+2025-09-30 02:41:01.043 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "5d36daf4-0c66-4e8a-870d-b1183ec6d31f"
+}
+2025-09-30 02:41:01.044 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "5d36daf4-0c66-4e8a-870d-b1183ec6d31f"
+}
+2025-09-30 02:41:05.525 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "574b0b9e-33cb-4bb0-b07c-f14db5b34ddf"
+}
+2025-09-30 02:41:05.525 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "574b0b9e-33cb-4bb0-b07c-f14db5b34ddf"
+}
+2025-09-30 02:41:09.845 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "2daa15a4-0445-4a6e-ba83-5caf71af3869"
+}
+2025-09-30 02:41:09.846 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "2daa15a4-0445-4a6e-ba83-5caf71af3869"
+}
+2025-09-30 02:41:20.420 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:41:20.430 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 124
+}
+2025-09-30 02:43:32.097 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:43:32.107 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 125
+}
+2025-09-30 02:44:34.463 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:44:34.474 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 126
+}
+2025-09-30 02:44:39.926 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:44:39.937 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 127
+}
+2025-09-30 02:44:42.729 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:44:42.740 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 128
+}
+2025-09-30 02:44:47.671 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:44:47.681 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 129
+}
+2025-09-30 02:44:48.049 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "fce3281b-f4ec-4530-a4b0-b48c014ec084"
+}
+2025-09-30 02:44:48.056 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 200,
+  "responseTime": 7,
+  "requestId": "fce3281b-f4ec-4530-a4b0-b48c014ec084"
+}
+2025-09-30 02:44:56.817 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "a7b81eaf-e0b4-4666-a033-6e21ed6dc64f"
+}
+2025-09-30 02:44:56.818 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "a7b81eaf-e0b4-4666-a033-6e21ed6dc64f"
+}
+2025-09-30 02:45:00.940 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "b36f7a44-dcff-412b-9051-770071ff5b56"
+}
+2025-09-30 02:45:00.941 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "b36f7a44-dcff-412b-9051-770071ff5b56"
+}
+2025-09-30 02:45:05.071 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "c2215100-db4c-45ef-b0a4-5f66f2a50720"
+}
+2025-09-30 02:45:05.071 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "c2215100-db4c-45ef-b0a4-5f66f2a50720"
+}
+2025-09-30 02:45:09.156 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "59a745e7-49b3-4a20-9b1d-364637145da4"
+}
+2025-09-30 02:45:09.157 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 400,
+  "responseTime": "unknown",
+  "requestId": "59a745e7-49b3-4a20-9b1d-364637145da4"
+}
+2025-09-30 02:45:16.821 [INFO] Incoming request
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "90c64bda-0068-47d0-b665-dffa53acce20"
+}
+2025-09-30 02:45:16.822 [INFO] Request completed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "method": "PUT",
+  "url": "/api/mb-rtu/update",
+  "statusCode": 400,
+  "responseTime": 1,
+  "requestId": "90c64bda-0068-47d0-b665-dffa53acce20"
+}
+2025-09-30 02:45:33.906 [INFO] Server started
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "port": "3000",
+  "environment": "development",
+  "healthCheckUrl": "http://localhost:3000/health"
+}
+2025-09-30 02:45:33.916 [INFO] Database connected successfully
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "host": "localhost",
+  "database": "dam_monitoring_system",
+  "threadId": 130
+}

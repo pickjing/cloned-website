@@ -1,0 +1,3956 @@
+2025-09-28 22:25:06.567 [ERROR] uncaughtException: validateUpdate is not defined
+ReferenceError: validateUpdate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/groupValidation.js:82:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js:7:5)
+ReferenceError: validateUpdate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/groupValidation.js:82:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js:7:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Sun Sep 28 2025 22:25:06 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 8132,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 77774848,
+      "heapTotal": 32145408,
+      "heapUsed": 19664232,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.99462890625,
+      2.0009765625,
+      2.15234375
+    ],
+    "uptime": 181229
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/groupValidation.js",
+      "function": null,
+      "line": 82,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js",
+      "function": null,
+      "line": 7,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 22:27:29.137 [ERROR] uncaughtException: param is not defined
+ReferenceError: param is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/groupValidation.js:61:20)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js:7:5)
+ReferenceError: param is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/groupValidation.js:61:20)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js:7:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Sun Sep 28 2025 22:27:29 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 9712,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 77922304,
+      "heapTotal": 32145408,
+      "heapUsed": 19611352,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.775390625,
+      2.20166015625,
+      2.201171875
+    ],
+    "uptime": 181372
+  },
+  "trace": [
+    {
+      "column": 20,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/groupValidation.js",
+      "function": null,
+      "line": 61,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js",
+      "function": null,
+      "line": 7,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 22:27:31.786 [ERROR] uncaughtException: param is not defined
+ReferenceError: param is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/groupValidation.js:61:20)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js:7:5)
+ReferenceError: param is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/groupValidation.js:61:20)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js:7:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Sun Sep 28 2025 22:27:31 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 9779,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 77529088,
+      "heapTotal": 32145408,
+      "heapUsed": 19551216,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.775390625,
+      2.20166015625,
+      2.201171875
+    ],
+    "uptime": 181374
+  },
+  "trace": [
+    {
+      "column": 20,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/groupValidation.js",
+      "function": null,
+      "line": 61,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js",
+      "function": null,
+      "line": 7,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 22:27:36.704 [ERROR] uncaughtException: validateId is not defined
+ReferenceError: validateId is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/groupValidation.js:72:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js:7:5)
+ReferenceError: validateId is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/groupValidation.js:72:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js:7:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Sun Sep 28 2025 22:27:36 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 9838,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 77824000,
+      "heapTotal": 32145408,
+      "heapUsed": 19776736,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.79296875,
+      2.21484375,
+      2.20556640625
+    ],
+    "uptime": 181379
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/groupValidation.js",
+      "function": null,
+      "line": 72,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js",
+      "function": null,
+      "line": 7,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 22:28:38.878 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Route.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:228:15)
+    at Router.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:448:19)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js:34:8)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+TypeError: argument handler must be a function
+    at Route.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:228:15)
+    at Router.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:448:19)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js:34:8)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+{
+  "error": {},
+  "exception": true,
+  "date": "Sun Sep 28 2025 22:28:38 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 10661,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 77987840,
+      "heapTotal": 32145408,
+      "heapUsed": 19968920,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      3.39794921875,
+      2.55029296875,
+      2.33349609375
+    ],
+    "uptime": 181441
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js",
+      "function": "Route.<computed> [as post]",
+      "line": 228,
+      "method": "<computed> [as post]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js",
+      "function": "Router.<computed> [as post]",
+      "line": 448,
+      "method": "<computed> [as post]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/groupRoutes.js",
+      "function": null,
+      "line": 34,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:21:16.492 [ERROR] uncaughtException: dtuRoutes is not defined
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+{
+  "error": {},
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:21:16 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 28655,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79527936,
+      "heapTotal": 32407552,
+      "heapUsed": 21150944,
+      "external": 2364635,
+      "arrayBuffers": 27303
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.9248046875,
+      4.66650390625,
+      3.55712890625
+    ],
+    "uptime": 184599
+  },
+  "trace": [
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 68,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/modules/run_main",
+      "function": "Function.executeUserEntryPoint [as runMain]",
+      "line": 171,
+      "method": "executeUserEntryPoint [as runMain]",
+      "native": false
+    },
+    {
+      "column": 49,
+      "file": "node:internal/main/run_main_module",
+      "function": null,
+      "line": 36,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:21:16.913 [ERROR] uncaughtException: dtuRoutes is not defined
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+{
+  "error": {},
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:21:16 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 28687,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79790080,
+      "heapTotal": 32407552,
+      "heapUsed": 21281192,
+      "external": 2364635,
+      "arrayBuffers": 27303
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.9248046875,
+      4.66650390625,
+      3.55712890625
+    ],
+    "uptime": 184599
+  },
+  "trace": [
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 68,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/modules/run_main",
+      "function": "Function.executeUserEntryPoint [as runMain]",
+      "line": 171,
+      "method": "executeUserEntryPoint [as runMain]",
+      "native": false
+    },
+    {
+      "column": 49,
+      "file": "node:internal/main/run_main_module",
+      "function": null,
+      "line": 36,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:21:35.038 [ERROR] uncaughtException: dtuRoutes is not defined
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+{
+  "error": {},
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:21:35 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 28896,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79593472,
+      "heapTotal": 32145408,
+      "heapUsed": 21268152,
+      "external": 2364635,
+      "arrayBuffers": 27303
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.798828125,
+      4.5517578125,
+      3.53515625
+    ],
+    "uptime": 184618
+  },
+  "trace": [
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 68,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/modules/run_main",
+      "function": "Function.executeUserEntryPoint [as runMain]",
+      "line": 171,
+      "method": "executeUserEntryPoint [as runMain]",
+      "native": false
+    },
+    {
+      "column": 49,
+      "file": "node:internal/main/run_main_module",
+      "function": null,
+      "line": 36,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:21:41.326 [ERROR] uncaughtException: dtuRoutes is not defined
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+{
+  "error": {},
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:21:41 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 28966,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79708160,
+      "heapTotal": 32407552,
+      "heapUsed": 21279464,
+      "external": 2364635,
+      "arrayBuffers": 27303
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.6689453125,
+      4.46728515625,
+      3.5166015625
+    ],
+    "uptime": 184624
+  },
+  "trace": [
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 68,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/modules/run_main",
+      "function": "Function.executeUserEntryPoint [as runMain]",
+      "line": 171,
+      "method": "executeUserEntryPoint [as runMain]",
+      "native": false
+    },
+    {
+      "column": 49,
+      "file": "node:internal/main/run_main_module",
+      "function": null,
+      "line": 36,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:21:43.767 [ERROR] uncaughtException: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ]
+  },
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:21:43 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 29022,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 70991872,
+      "heapTotal": 21102592,
+      "heapUsed": 14150496,
+      "external": 2215804,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.6689453125,
+      4.46728515625,
+      3.5166015625
+    ],
+    "uptime": 184626
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._resolveFilename",
+      "line": 1401,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1057,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1062,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1211,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "function": null,
+      "line": 2,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:21:48.939 [ERROR] uncaughtException: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ]
+  },
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:21:48 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 29088,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 71106560,
+      "heapTotal": 21364736,
+      "heapUsed": 14161200,
+      "external": 2215804,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.775390625,
+      4.45947265625,
+      3.51904296875
+    ],
+    "uptime": 184631
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._resolveFilename",
+      "line": 1401,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1057,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1062,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1211,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "function": null,
+      "line": 2,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:21:49.060 [ERROR] uncaughtException: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ]
+  },
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:21:49 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 29119,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 71221248,
+      "heapTotal": 21364736,
+      "heapUsed": 13901520,
+      "external": 2215804,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.775390625,
+      4.45947265625,
+      3.51904296875
+    ],
+    "uptime": 184632
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._resolveFilename",
+      "line": 1401,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1057,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1062,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1211,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "function": null,
+      "line": 2,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:22:19.421 [ERROR] uncaughtException: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ]
+  },
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:22:19 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 29507,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 70926336,
+      "heapTotal": 20840448,
+      "heapUsed": 14016976,
+      "external": 2215804,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.640625,
+      4.26904296875,
+      3.48193359375
+    ],
+    "uptime": 184662
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._resolveFilename",
+      "line": 1401,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1057,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1062,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1211,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "function": null,
+      "line": 2,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:22:22.640 [ERROR] uncaughtException: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ]
+  },
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:22:22 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 29548,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 71041024,
+      "heapTotal": 21364736,
+      "heapUsed": 14161672,
+      "external": 2215804,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.6689453125,
+      4.24755859375,
+      3.47900390625
+    ],
+    "uptime": 184665
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._resolveFilename",
+      "line": 1401,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1057,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1062,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1211,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "function": null,
+      "line": 2,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:23:19.652 [ERROR] uncaughtException: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ]
+  },
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:23:19 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 30157,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 71024640,
+      "heapTotal": 21102592,
+      "heapUsed": 13903520,
+      "external": 2215804,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.150390625,
+      3.81201171875,
+      3.3623046875
+    ],
+    "uptime": 184722
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._resolveFilename",
+      "line": 1401,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1057,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1062,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1211,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "function": null,
+      "line": 2,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:23:42.941 [ERROR] uncaughtException: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ]
+  },
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:23:42 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 30424,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 71106560,
+      "heapTotal": 21102592,
+      "heapUsed": 14118624,
+      "external": 2215804,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.1220703125,
+      3.666015625,
+      3.32177734375
+    ],
+    "uptime": 184745
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._resolveFilename",
+      "line": 1401,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1057,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1062,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1211,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "function": null,
+      "line": 2,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:24:37.147 [ERROR] uncaughtException: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ]
+  },
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:24:37 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 31007,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 71008256,
+      "heapTotal": 21102592,
+      "heapUsed": 13904528,
+      "external": 2215804,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.11865234375,
+      3.41162109375,
+      3.24755859375
+    ],
+    "uptime": 184800
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._resolveFilename",
+      "line": 1401,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1057,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1062,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1211,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "function": null,
+      "line": 2,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:24:44.253 [ERROR] uncaughtException: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ]
+  },
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:24:44 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 31097,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 71090176,
+      "heapTotal": 21364736,
+      "heapUsed": 13904640,
+      "external": 2215804,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.10888671875,
+      3.38818359375,
+      3.240234375
+    ],
+    "uptime": 184807
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._resolveFilename",
+      "line": 1401,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1057,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1062,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1211,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "function": null,
+      "line": 2,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:26:22.865 [ERROR] uncaughtException: dtuRoutes is not defined
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+{
+  "error": {},
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:26:22 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 32188,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79380480,
+      "heapTotal": 32145408,
+      "heapUsed": 21059304,
+      "external": 2364635,
+      "arrayBuffers": 27303
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.83984375,
+      2.896484375,
+      3.0615234375
+    ],
+    "uptime": 184905
+  },
+  "trace": [
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 68,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/modules/run_main",
+      "function": "Function.executeUserEntryPoint [as runMain]",
+      "line": 171,
+      "method": "executeUserEntryPoint [as runMain]",
+      "native": false
+    },
+    {
+      "column": 49,
+      "file": "node:internal/main/run_main_module",
+      "function": null,
+      "line": 36,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:26:30.880 [ERROR] uncaughtException: dtuRoutes is not defined
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+{
+  "error": {},
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:26:30 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 32297,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79085568,
+      "heapTotal": 31932416,
+      "heapUsed": 20847696,
+      "external": 2245772,
+      "arrayBuffers": 27127
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.0126953125,
+      2.91455078125,
+      3.06689453125
+    ],
+    "uptime": 184913
+  },
+  "trace": [
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 68,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/modules/run_main",
+      "function": "Function.executeUserEntryPoint [as runMain]",
+      "line": 171,
+      "method": "executeUserEntryPoint [as runMain]",
+      "native": false
+    },
+    {
+      "column": 49,
+      "file": "node:internal/main/run_main_module",
+      "function": null,
+      "line": 36,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:26:36.266 [ERROR] uncaughtException: dtuRoutes is not defined
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+{
+  "error": {},
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:26:36 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 32403,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79069184,
+      "heapTotal": 32145408,
+      "heapUsed": 20853440,
+      "external": 2245772,
+      "arrayBuffers": 27127
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.09130859375,
+      2.91552734375,
+      3.06640625
+    ],
+    "uptime": 184919
+  },
+  "trace": [
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 68,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/modules/run_main",
+      "function": "Function.executeUserEntryPoint [as runMain]",
+      "line": 171,
+      "method": "executeUserEntryPoint [as runMain]",
+      "native": false
+    },
+    {
+      "column": 49,
+      "file": "node:internal/main/run_main_module",
+      "function": null,
+      "line": 36,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:26:38.293 [ERROR] uncaughtException: dtuRoutes is not defined
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+ReferenceError: dtuRoutes is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:68:21)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+{
+  "error": {},
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:26:38 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 32422,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79609856,
+      "heapTotal": 32407552,
+      "heapUsed": 21073992,
+      "external": 2364635,
+      "arrayBuffers": 27303
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.083984375,
+      2.89990234375,
+      3.06005859375
+    ],
+    "uptime": 184921
+  },
+  "trace": [
+    {
+      "column": 21,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 68,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/modules/run_main",
+      "function": "Function.executeUserEntryPoint [as runMain]",
+      "line": 171,
+      "method": "executeUserEntryPoint [as runMain]",
+      "native": false
+    },
+    {
+      "column": 49,
+      "file": "node:internal/main/run_main_module",
+      "function": null,
+      "line": 36,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:26:42.635 [ERROR] uncaughtException: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ]
+  },
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:26:42 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 32478,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 71057408,
+      "heapTotal": 21102592,
+      "heapUsed": 14032208,
+      "external": 2215804,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.083984375,
+      2.89990234375,
+      3.06005859375
+    ],
+    "uptime": 184925
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._resolveFilename",
+      "line": 1401,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1057,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1062,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1211,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "function": null,
+      "line": 2,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:26:45.053 [ERROR] uncaughtException: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/src/app.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ]
+  },
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:26:45 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 32538,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 71188480,
+      "heapTotal": 21364736,
+      "heapUsed": 14161096,
+      "external": 2215804,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.2373046875,
+      2.91796875,
+      3.0654296875
+    ],
+    "uptime": 184928
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._resolveFilename",
+      "line": 1401,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1057,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1062,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1211,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "function": null,
+      "line": 2,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:27:09.239 [ERROR] uncaughtException: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/[eval]
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js",
+      "/Users/xujing/Workspace/cloned-website/backend/[eval]"
+    ]
+  },
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:27:09 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 32797,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node"
+    ],
+    "memoryUsage": {
+      "rss": 70811648,
+      "heapTotal": 20840448,
+      "heapUsed": 13544448,
+      "external": 2170008,
+      "arrayBuffers": 18679
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.09228515625,
+      2.8271484375,
+      3.02783203125
+    ],
+    "uptime": 184952
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._resolveFilename",
+      "line": 1401,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1057,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1062,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1211,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "function": null,
+      "line": 2,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:27:15.321 [ERROR] uncaughtException: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/[eval]
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "/Users/xujing/Workspace/cloned-website/backend/[eval]"
+    ]
+  },
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:27:15 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 32877,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node"
+    ],
+    "memoryUsage": {
+      "rss": 63733760,
+      "heapTotal": 18530304,
+      "heapUsed": 12019712,
+      "external": 2018156,
+      "arrayBuffers": 18679
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.16455078125,
+      2.82958984375,
+      3.02734375
+    ],
+    "uptime": 184958
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._resolveFilename",
+      "line": 1401,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1057,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1062,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1211,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "function": null,
+      "line": 2,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-28 23:27:46.998 [ERROR] uncaughtException: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/[eval]
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '../middleware/asyncHandler'
+Require stack:
+- /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js
+- /Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js
+- /Users/xujing/Workspace/cloned-website/backend/[eval]
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "/Users/xujing/Workspace/cloned-website/backend/src/routes/dtuRoutes.js",
+      "/Users/xujing/Workspace/cloned-website/backend/[eval]"
+    ]
+  },
+  "exception": true,
+  "date": "Sun Sep 28 2025 23:27:46 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 33237,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node"
+    ],
+    "memoryUsage": {
+      "rss": 70959104,
+      "heapTotal": 21102592,
+      "heapUsed": 13621592,
+      "external": 2170008,
+      "arrayBuffers": 18679
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.064453125,
+      2.734375,
+      2.98486328125
+    ],
+    "uptime": 184989
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._resolveFilename",
+      "line": 1401,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1057,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1062,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1211,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js",
+      "function": null,
+      "line": 2,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}

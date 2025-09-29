@@ -22,12 +22,20 @@ class SensorController {
     
     const result = await SensorData.get(params);
     
+    // 如果查询单个传感器但返回null，说明传感器不存在
+    if (sensorId && result === null) {
+      return res.status(404).json({
+        success: false,
+        message: '传感器不存在'
+      });
+    }
+    
     res.json({ success: true, data: result });
   });
 
   // 2. 创建传感器
   static create = asyncHandler(async (req, res) => {
-    const data = req.body;
+    const data = req.body.sensors;
     
     // 使用事务确保传感器和MB-RTU协议的创建是原子性的
     const result = await TransactionService.execute(async (connection) => {
@@ -51,7 +59,7 @@ class SensorController {
 
   // 3. 更新传感器
   static update = asyncHandler(async (req, res) => {
-    const data = req.body;
+    const data = req.body.sensors;
     
     const result = await SensorData.update(data);
     
@@ -68,7 +76,7 @@ class SensorController {
 
   // 4. 删除传感器
   static delete = asyncHandler(async (req, res) => {
-    const { sensorId, dtuId } = req.query;
+    const { sensorId, dtuId } = req.body;
     
     // 使用事务确保传感器和MB-RTU协议的删除是原子性的
     const result = await TransactionService.execute(async (connection) => {

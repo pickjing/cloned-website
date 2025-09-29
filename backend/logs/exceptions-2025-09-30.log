@@ -1,0 +1,3213 @@
+2025-09-30 01:42:03.436 [ERROR] uncaughtException: write EPIPE
+Error: write EPIPE
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:966:11)
+    at Socket._write (node:net:978:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/xujing/Workspace/cloned-website/backend/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/xujing/Workspace/cloned-website/backend/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/xujing/Workspace/cloned-website/backend/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+Error: write EPIPE
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:966:11)
+    at Socket._write (node:net:978:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/xujing/Workspace/cloned-website/backend/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/xujing/Workspace/cloned-website/backend/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/xujing/Workspace/cloned-website/backend/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+{
+  "error": {
+    "errno": -32,
+    "code": "EPIPE",
+    "syscall": "write"
+  },
+  "exception": true,
+  "date": "Tue Sep 30 2025 01:42:03 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 10288,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 73613312,
+      "heapTotal": 21184512,
+      "heapUsed": 18190184,
+      "external": 2377333,
+      "arrayBuffers": 44793
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.09619140625,
+      2.30078125,
+      3.0654296875
+    ],
+    "uptime": 14485
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/stream_base_commons",
+      "function": "afterWriteDispatched",
+      "line": 159,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 3,
+      "file": "node:internal/stream_base_commons",
+      "function": "writeGeneric",
+      "line": 150,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 11,
+      "file": "node:net",
+      "function": "Socket._writeGeneric",
+      "line": 966,
+      "method": "_writeGeneric",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "node:net",
+      "function": "Socket._write",
+      "line": 978,
+      "method": "_write",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/streams/writable",
+      "function": "writeOrBuffer",
+      "line": 572,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/streams/writable",
+      "function": "_write",
+      "line": 501,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/streams/writable",
+      "function": "Writable.write",
+      "line": 510,
+      "method": "write",
+      "native": false
+    },
+    {
+      "column": 23,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/winston/lib/winston/transports/console.js",
+      "function": "Console.log",
+      "line": 87,
+      "method": "log",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/winston-transport/modern.js",
+      "function": "Console._write",
+      "line": 103,
+      "method": "_write",
+      "native": false
+    },
+    {
+      "column": 139,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/readable-stream/lib/_stream_writable.js",
+      "function": "doWrite",
+      "line": 390,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 01:42:03.437 [ERROR] uncaughtException: write EPIPE
+Error: write EPIPE
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:966:11)
+    at Socket._write (node:net:978:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/xujing/Workspace/cloned-website/backend/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/xujing/Workspace/cloned-website/backend/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/xujing/Workspace/cloned-website/backend/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+Error: write EPIPE
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:966:11)
+    at Socket._write (node:net:978:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/xujing/Workspace/cloned-website/backend/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/xujing/Workspace/cloned-website/backend/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/xujing/Workspace/cloned-website/backend/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+{
+  "error": {
+    "errno": -32,
+    "code": "EPIPE",
+    "syscall": "write"
+  },
+  "exception": true,
+  "date": "Tue Sep 30 2025 01:42:03 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 10288,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 73646080,
+      "heapTotal": 21184512,
+      "heapUsed": 18295256,
+      "external": 2381895,
+      "arrayBuffers": 49315
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.09619140625,
+      2.30078125,
+      3.0654296875
+    ],
+    "uptime": 14485
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/stream_base_commons",
+      "function": "afterWriteDispatched",
+      "line": 159,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 3,
+      "file": "node:internal/stream_base_commons",
+      "function": "writeGeneric",
+      "line": 150,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 11,
+      "file": "node:net",
+      "function": "Socket._writeGeneric",
+      "line": 966,
+      "method": "_writeGeneric",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "node:net",
+      "function": "Socket._write",
+      "line": 978,
+      "method": "_write",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/streams/writable",
+      "function": "writeOrBuffer",
+      "line": 572,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/streams/writable",
+      "function": "_write",
+      "line": 501,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/streams/writable",
+      "function": "Writable.write",
+      "line": 510,
+      "method": "write",
+      "native": false
+    },
+    {
+      "column": 23,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/winston/lib/winston/transports/console.js",
+      "function": "Console.log",
+      "line": 87,
+      "method": "log",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/winston-transport/modern.js",
+      "function": "Console._write",
+      "line": 103,
+      "method": "_write",
+      "native": false
+    },
+    {
+      "column": 139,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/readable-stream/lib/_stream_writable.js",
+      "function": "doWrite",
+      "line": 390,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:12:59.614 [ERROR] uncaughtException: validateData is not defined
+ReferenceError: validateData is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:210:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:6:5)
+ReferenceError: validateData is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:210:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:6:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:12:59 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 60956,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 78774272,
+      "heapTotal": 32145408,
+      "heapUsed": 20967928,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.89599609375,
+      2.4541015625,
+      2.27783203125
+    ],
+    "uptime": 16341
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js",
+      "function": null,
+      "line": 210,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 6,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:13:02.651 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Route.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:228:15)
+    at Router.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:448:19)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:18:8)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+TypeError: argument handler must be a function
+    at Route.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:228:15)
+    at Router.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:448:19)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:18:8)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:13:02 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 61023,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79134720,
+      "heapTotal": 32145408,
+      "heapUsed": 21071016,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.82421875,
+      2.4462890625,
+      2.27587890625
+    ],
+    "uptime": 16344
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js",
+      "function": "Route.<computed> [as post]",
+      "line": 228,
+      "method": "<computed> [as post]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js",
+      "function": "Router.<computed> [as post]",
+      "line": 448,
+      "method": "<computed> [as post]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 18,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:13:06.240 [ERROR] uncaughtException: validateData is not defined
+ReferenceError: validateData is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:19:24)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:7:22)
+ReferenceError: validateData is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:19:24)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:7:22)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:13:06 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 61073,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 78921728,
+      "heapTotal": 32145408,
+      "heapUsed": 21195104,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.677734375,
+      2.421875,
+      2.26806640625
+    ],
+    "uptime": 16348
+  },
+  "trace": [
+    {
+      "column": 24,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 19,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 7,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:29:44.348 [ERROR] uncaughtException: validateCreate is not defined
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:210:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:7:5)
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:210:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:7:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:29:44 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 73280,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 78774272,
+      "heapTotal": 32145408,
+      "heapUsed": 21003944,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.76806640625,
+      1.8818359375,
+      1.94970703125
+    ],
+    "uptime": 17346
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js",
+      "function": null,
+      "line": 210,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 7,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:29:57.531 [ERROR] uncaughtException: validateCreate is not defined
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:210:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:7:5)
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:210:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:7:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:29:57 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 73429,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 78905344,
+      "heapTotal": 32145408,
+      "heapUsed": 21074280,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.72314453125,
+      1.86865234375,
+      1.94384765625
+    ],
+    "uptime": 17359
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js",
+      "function": null,
+      "line": 210,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 7,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:30:06.946 [ERROR] uncaughtException: validateCreate is not defined
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:210:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:7:5)
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:210:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:7:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:30:06 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 73533,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 78921728,
+      "heapTotal": 32145408,
+      "heapUsed": 21226112,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.7783203125,
+      1.873046875,
+      1.94384765625
+    ],
+    "uptime": 17368
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js",
+      "function": null,
+      "line": 210,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 7,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:30:19.723 [ERROR] uncaughtException: validateCreate is not defined
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:210:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:210:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:30:19 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 73677,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 78856192,
+      "heapTotal": 32145408,
+      "heapUsed": 21157224,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.02392578125,
+      1.92626953125,
+      1.96142578125
+    ],
+    "uptime": 17381
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js",
+      "function": null,
+      "line": 210,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:30:45.027 [ERROR] uncaughtException: Identifier 'validateQuery' has already been declared
+/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:212
+const validateQuery = [
+      ^
+
+SyntaxError: Identifier 'validateQuery' has already been declared
+    at wrapSafe (node:internal/modules/cjs/loader:1662:18)
+    at Module._compile (node:internal/modules/cjs/loader:1704:20)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:212
+const validateQuery = [
+      ^
+
+SyntaxError: Identifier 'validateQuery' has already been declared
+    at wrapSafe (node:internal/modules/cjs/loader:1662:18)
+    at Module._compile (node:internal/modules/cjs/loader:1704:20)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:30:45 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 73971,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 78659584,
+      "heapTotal": 32145408,
+      "heapUsed": 20876752,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.11669921875,
+      1.94873046875,
+      1.96728515625
+    ],
+    "uptime": 17407
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1662,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1704,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:31:33.222 [ERROR] uncaughtException: validateCreate is not defined
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:222:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:222:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:31:33 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 74468,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 78741504,
+      "heapTotal": 32145408,
+      "heapUsed": 20986856,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.50390625,
+      1.79931640625,
+      1.90966796875
+    ],
+    "uptime": 17455
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:31:36.350 [ERROR] uncaughtException: validateCreate is not defined
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:222:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:222:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:31:36 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 74539,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79200256,
+      "heapTotal": 32145408,
+      "heapUsed": 21244216,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.46337890625,
+      1.78564453125,
+      1.904296875
+    ],
+    "uptime": 17458
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:31:43.170 [ERROR] uncaughtException: validateCreate is not defined
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:222:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:222:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:31:43 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 74613,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 78921728,
+      "heapTotal": 32145408,
+      "heapUsed": 21206112,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.34619140625,
+      1.755859375,
+      1.89306640625
+    ],
+    "uptime": 17465
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:32:02.854 [ERROR] uncaughtException: validateCreate is not defined
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:222:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:222:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:32:02 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 74841,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79200256,
+      "heapTotal": 32145408,
+      "heapUsed": 21202776,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.92822265625,
+      1.86669921875,
+      1.92919921875
+    ],
+    "uptime": 17484
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:32:14.660 [ERROR] uncaughtException: validateCreate is not defined
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:222:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:222:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:32:14 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 74980,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79233024,
+      "heapTotal": 32145408,
+      "heapUsed": 21211464,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.69287109375,
+      2.0361328125,
+      1.98779296875
+    ],
+    "uptime": 17496
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:32:16.216 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Route.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:228:15)
+    at Router.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:448:19)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:20:8)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+TypeError: argument handler must be a function
+    at Route.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:228:15)
+    at Router.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:448:19)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:20:8)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:32:16 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 75034,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 78970880,
+      "heapTotal": 32145408,
+      "heapUsed": 21263032,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.69287109375,
+      2.0361328125,
+      1.98779296875
+    ],
+    "uptime": 17498
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js",
+      "function": "Route.<computed> [as post]",
+      "line": 228,
+      "method": "<computed> [as post]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js",
+      "function": "Router.<computed> [as post]",
+      "line": 448,
+      "method": "<computed> [as post]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 20,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:32:25.869 [ERROR] uncaughtException: validateCreate is not defined
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:20:24)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:7:22)
+ReferenceError: validateCreate is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:20:24)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:7:22)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:32:25 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 75134,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79511552,
+      "heapTotal": 32145408,
+      "heapUsed": 21283792,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.666015625,
+      2.05078125,
+      1.99365234375
+    ],
+    "uptime": 17507
+  },
+  "trace": [
+    {
+      "column": 24,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 20,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 7,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:35:43.543 [ERROR] uncaughtException: validateCreateData is not defined
+ReferenceError: validateCreateData is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:241:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+ReferenceError: validateCreateData is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:241:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:35:43 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 77526,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 78987264,
+      "heapTotal": 32145408,
+      "heapUsed": 21380912,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      3.32861328125,
+      2.53759765625,
+      2.19775390625
+    ],
+    "uptime": 17705
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js",
+      "function": null,
+      "line": 241,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:35:45.306 [ERROR] uncaughtException: validateCreateData is not defined
+ReferenceError: validateCreateData is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:241:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+ReferenceError: validateCreateData is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:241:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:35:45 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 77591,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 78970880,
+      "heapTotal": 32145408,
+      "heapUsed": 21142160,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      3.32861328125,
+      2.53759765625,
+      2.19775390625
+    ],
+    "uptime": 17707
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js",
+      "function": null,
+      "line": 241,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:35:46.831 [ERROR] uncaughtException: validateCreateData is not defined
+ReferenceError: validateCreateData is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:241:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+ReferenceError: validateCreateData is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js:241:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:8:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:35:46 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 77633,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79347712,
+      "heapTotal": 32145408,
+      "heapUsed": 21258200,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      3.14208984375,
+      2.51171875,
+      2.1904296875
+    ],
+    "uptime": 17708
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/middleware/sensorValidation.js",
+      "function": null,
+      "line": 241,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:35:51.279 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Route.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:228:15)
+    at Router.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:448:19)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:20:8)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+TypeError: argument handler must be a function
+    at Route.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js:228:15)
+    at Router.<computed> [as post] (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:448:19)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:20:8)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:35:51 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 77691,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79265792,
+      "heapTotal": 32145408,
+      "heapUsed": 21136128,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.97021484375,
+      2.486328125,
+      2.18310546875
+    ],
+    "uptime": 17713
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/route.js",
+      "function": "Route.<computed> [as post]",
+      "line": 228,
+      "method": "<computed> [as post]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js",
+      "function": "Router.<computed> [as post]",
+      "line": 448,
+      "method": "<computed> [as post]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 20,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:35:55.336 [ERROR] uncaughtException: validateCreateData is not defined
+ReferenceError: validateCreateData is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:20:24)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:7:22)
+ReferenceError: validateCreateData is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:20:24)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:7:22)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:35:55 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 77739,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79167488,
+      "heapTotal": 32145408,
+      "heapUsed": 21289032,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.97021484375,
+      2.486328125,
+      2.18310546875
+    ],
+    "uptime": 17717
+  },
+  "trace": [
+    {
+      "column": 24,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 20,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 7,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
+2025-09-30 02:35:56.983 [ERROR] uncaughtException: validateCreateData is not defined
+ReferenceError: validateCreateData is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:20:24)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:7:22)
+ReferenceError: validateCreateData is not defined
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js:20:24)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/xujing/Workspace/cloned-website/backend/src/app.js:7:22)
+{
+  "error": {},
+  "exception": true,
+  "date": "Tue Sep 30 2025 02:35:56 GMT+0800 (China Standard Time)",
+  "process": {
+    "pid": 77787,
+    "uid": 501,
+    "gid": 20,
+    "cwd": "/Users/xujing/Workspace/cloned-website/backend",
+    "execPath": "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+    "version": "v22.17.1",
+    "argv": [
+      "/Users/xujing/.nvm/versions/node/v22.17.1/bin/node",
+      "/Users/xujing/Workspace/cloned-website/backend/src/app.js"
+    ],
+    "memoryUsage": {
+      "rss": 79101952,
+      "heapTotal": 32145408,
+      "heapUsed": 21160432,
+      "external": 2215805,
+      "arrayBuffers": 18855
+    }
+  },
+  "os": {
+    "loadavg": [
+      2.89208984375,
+      2.47802734375,
+      2.181640625
+    ],
+    "uptime": 17718
+  },
+  "trace": [
+    {
+      "column": 24,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/routes/sensorRoutes.js",
+      "function": null,
+      "line": 20,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1730,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1895,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1465,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1282,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 235,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1487,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 135,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/Users/xujing/Workspace/cloned-website/backend/src/app.js",
+      "function": null,
+      "line": 7,
+      "method": null,
+      "native": false
+    }
+  ],
+  "service": "iot-backend",
+  "version": "1.0.0"
+}
