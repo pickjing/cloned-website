@@ -13,17 +13,17 @@ class SensorController {
 
   // 1. 查询传感器
   static get = asyncHandler(async (req, res) => {
-    const { dtuId, sensorId } = req.query;
+    const { dtu_id, sensor_id } = req.query;
     
     const params = {
-      dtuId,
-      sensorId
+      dtu_id,
+      sensor_id
     };
     
     const result = await SensorData.get(params);
     
     // 如果查询单个传感器但返回null，说明传感器不存在
-    if (sensorId && result === null) {
+    if (sensor_id && result === null) {
       return res.status(404).json({
         success: false,
         message: '传感器不存在'
@@ -76,34 +76,22 @@ class SensorController {
 
   // 4. 删除传感器
   static delete = asyncHandler(async (req, res) => {
-    const { sensorId, dtuId } = req.body;
+    const { sensor_ids } = req.body;
     
-    // 使用事务确保传感器和MB-RTU协议的删除是原子性的
-    const result = await TransactionService.execute(async (connection) => {
-      if (sensorId) {
-        // 删除指定传感器
-        const sensorData = [{ sensor_id: sensorId }];
-        return await SensorData.delete(sensorData, connection);
-      } else if (dtuId) {
-        // 删除DTU连接的所有传感器
-        // 1. 先获取该DTU的所有传感器
-        const sensors = await SensorData.get({ dtuId }, connection);
-        
-        if (sensors.length === 0) {
-          return [{
-            success: true,
-            message: '该DTU没有连接的传感器',
-            deletedCount: 0
-          }];
+    // 如果sensor_ids为空数组，直接返回成功
+    if (!sensor_ids || sensor_ids.length === 0) {
+      return res.json({
+        success: true,
+        message: '传感器删除完成：没有需要删除的传感器',
+        data: {
+          deletedCount: 0,
+          results: []
         }
-        
-        // 2. 批量删除传感器
-        const sensorDataList = sensors.map(sensor => ({ sensor_id: sensor.sensor_id }));
-        return await SensorData.delete(sensorDataList, connection);
-      } else {
-        throw new Error('必须提供sensorId或dtuId参数');
-      }
-    });
+      });
+    }
+    
+    // 调用Data层进行批量删除（数据库级联删除确保原子性）
+    const result = await SensorData.delete(sensor_ids);
     
     // 清除相关缓存
     const cache = require('../services/cache');
@@ -114,22 +102,14 @@ class SensorController {
     const successCount = result.filter(r => r.success).length;
     const failCount = result.filter(r => !r.success).length;
     
-    if (sensorId) {
-      res.json({
-        success: true,
-        message: '传感器和MB-RTU协议删除成功',
-        data: result[0]
-      });
-    } else if (dtuId) {
-      res.json({
-        success: true,
-        message: `删除完成：成功${successCount}个，失败${failCount}个`,
-        data: {
-          deletedCount: successCount,
-          results: result
-        }
-      });
-    }
+    res.json({
+      success: true,
+      message: `传感器删除完成：成功${successCount}个，失败${failCount}个`,
+      data: {
+        deletedCount: successCount,
+        results: result
+      }
+    });
   });
 }
 

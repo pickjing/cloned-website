@@ -1,4 +1,4 @@
-const { body, validationResult } = require('express-validator');
+const { body, query, validationResult } = require('express-validator');
 
 /**
  * 处理验证错误
@@ -99,28 +99,20 @@ const validateData = [
 ];
 
 /**
- * DTU设备ID验证规则
- */
-const validateId = [
-  body('dtu_id')
-    .notEmpty()
-    .withMessage('DTU设备ID不能为空')
-    .isLength({ min: 1, max: 50 })
-    .withMessage('DTU设备ID长度必须在1-50个字符之间'),
-  
-  handleValidationErrors
-];
-
-/**
- * DTU设备复制验证规则
+ * DTU设备复制/删除验证规则
  */
 const validateIds = [
   body('dtu_ids')
-    .isArray({ min: 1 })
-    .withMessage('请提供要复制的DTU设备ID列表')
+    .isArray()
+    .withMessage('dtu_ids必须是数组格式')
     .custom((dtu_ids) => {
-      if (!Array.isArray(dtu_ids) || dtu_ids.length === 0) {
-        throw new Error('DTU设备ID列表不能为空');
+      if (!Array.isArray(dtu_ids)) {
+        throw new Error('dtu_ids必须是数组格式');
+      }
+      
+      // 如果数组为空，直接返回true，不进行后续验证
+      if (dtu_ids.length === 0) {
+        return true;
       }
       
       for (const dtu_id of dtu_ids) {
@@ -142,54 +134,41 @@ const validateIds = [
  * DTU设备查询参数验证规则
  */
 const validateQuery = [
-  (req, res, next) => {
-    const { dtuId, page, limit, group, status, search } = req.query;
-    const errors = [];
-    
-    // 验证dtuId（如果提供）
-    if (dtuId && (dtuId.length < 1 || dtuId.length > 50)) {
-      errors.push({ msg: 'DTU设备ID长度必须在1-50个字符之间' });
-    }
-    
-    // 验证分页参数
-    if (page && (isNaN(page) || parseInt(page) < 1)) {
-      errors.push({ msg: '页码必须是大于0的整数' });
-    }
-    
-    if (limit && (isNaN(limit) || parseInt(limit) < 1 || parseInt(limit) > 100)) {
-      errors.push({ msg: '每页数量必须在1-100之间' });
-    }
-    
-    // 验证分组（如果提供）
-    if (group && group.length > 100) {
-      errors.push({ msg: '分组名长度不能超过100个字符' });
-    }
-    
-    // 验证状态（如果提供）
-    if (status && !['已连接', '未连接', '已删除', '已禁用'].includes(status)) {
-      errors.push({ msg: '设备状态必须是：已连接、未连接、已删除、已禁用' });
-    }
-    
-    // 验证搜索关键词（如果提供）
-    if (search && search.length > 100) {
-      errors.push({ msg: '搜索关键词长度不能超过100个字符' });
-    }
-    
-    if (errors.length > 0) {
-      return res.status(400).json({
-        success: false,
-        message: '查询参数验证失败',
-        errors: errors.map(err => err.msg)
-      });
-    }
-    
-    next();
-  }
+  query('dtu_id')
+    .optional()
+    .isLength({ min: 1, max: 50 })
+    .withMessage('DTU设备ID长度必须在1-50个字符之间'),
+  
+  query('page')
+    .optional()
+    .isInt({ min: 1 })
+    .withMessage('页码必须是大于0的整数'),
+  
+  query('limit')
+    .optional()
+    .isInt({ min: 1, max: 100 })
+    .withMessage('每页数量必须在1-100之间'),
+  
+  query('group')
+    .optional()
+    .isLength({ max: 100 })
+    .withMessage('分组名长度不能超过100个字符'),
+  
+  query('status')
+    .optional()
+    .isIn(['已连接', '未连接', '已删除', '已禁用'])
+    .withMessage('设备状态必须是：已连接、未连接、已删除、已禁用'),
+  
+  query('search')
+    .optional()
+    .isLength({ max: 100 })
+    .withMessage('搜索关键词长度不能超过100个字符'),
+  
+  handleValidationErrors
 ];
 
 module.exports = {
   validateData,
-  validateId,
   validateIds,
   validateQuery
 };

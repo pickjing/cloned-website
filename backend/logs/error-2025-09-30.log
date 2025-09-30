@@ -508,3 +508,199 @@ Error: MB-RTU协议不存在
   },
   "params": {}
 }
+2025-09-30 15:56:24.057 [ERROR] Query error recorded
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Incorrect arguments to mysqld_stmt_execute",
+  "code": "ER_WRONG_ARGUMENTS",
+  "query": "\n      SELECT \n        id,\n        dtu_id,\n        serial_number,\n        created_date,\n        dtu_group,\n        dtu_name,\n        dtu_image,\n        link_protocol,\n        offline_delay,\n        ti"
+}
+2025-09-30 15:56:24.058 [ERROR] Application error Incorrect arguments to mysqld_stmt_execute
+Error: Incorrect arguments to mysqld_stmt_execute
+    at PromisePool.execute (/Users/xujing/Workspace/cloned-website/backend/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at pool.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/database.js:65:26)
+    at DtuData.get (/Users/xujing/Workspace/cloned-website/backend/src/models/dtuData.js:97:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:59:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu/get?page=1&limit=10",
+  "method": "GET",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f3091d1a-4c99-4387-ac7e-ffb037b14eb8",
+  "query": {
+    "page": "1",
+    "limit": "10"
+  },
+  "params": {}
+}
+2025-09-30 16:15:04.738 [ERROR] Application error DTU设备ID已存在
+Error: DTU设备ID已存在
+    at DtuData.create (/Users/xujing/Workspace/cloned-website/backend/src/models/dtuData.js:158:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:17:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu/create",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "140c55ae-37fe-43d5-87af-c219bd6c2882",
+  "body": {
+    "dtu_id": "DTU_TEST_001",
+    "dtu_name": "测试DTU",
+    "dtu_group": "默认分组"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 16:15:35.062 [ERROR] Application error DTU设备ID已存在
+Error: DTU设备ID已存在
+    at DtuData.create (/Users/xujing/Workspace/cloned-website/backend/src/models/dtuData.js:158:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:17:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu/create",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "174b2f43-6c79-47a1-b60c-f3c9811c7493",
+  "body": {
+    "dtu_id": "DTU_TEST_001",
+    "dtu_name": "测试DTU",
+    "dtu_group": "默认分组"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 16:15:38.309 [ERROR] Application error DTU设备ID已存在
+Error: DTU设备ID已存在
+    at DtuData.create (/Users/xujing/Workspace/cloned-website/backend/src/models/dtuData.js:158:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:17:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu/create",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "62eecf75-c4dd-468a-b557-d5875ad1688d",
+  "body": {
+    "dtu_id": "DTU_TEST_001",
+    "dtu_name": "测试DTU",
+    "dtu_group": "默认分组"
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 17:35:05.516 [ERROR] Application error 路径 /api/sensor/create 不存在
+Error: 路径 /api/sensor/create 不存在
+    at notFoundHandler (/Users/xujing/Workspace/cloned-website/backend/src/middleware/errorHandler.js:136:17)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+    at processParams (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:582:12)
+    at next (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:291:5)
+    at healthCheckLogger (/Users/xujing/Workspace/cloned-website/backend/src/middleware/logging.js:155:3)
+    at Layer.handleRequest (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:342:13)
+    at /Users/xujing/Workspace/cloned-website/backend/node_modules/router/index.js:297:9
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensor/create",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f4dc76be-57b2-4d46-b71a-5ea509a3c721",
+  "body": {
+    "sensors": []
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 20:32:46.727 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "DTU设备ID已存在",
+  "attempt": 1,
+  "threadId": 16
+}
+2025-09-30 20:32:46.728 [ERROR] Application error DTU设备ID已存在
+Error: DTU设备ID已存在
+    at DtuData.create (/Users/xujing/Workspace/cloned-website/backend/src/models/dtuData.js:40:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:24:25
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:22:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu/create",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f6bc58bb-f37f-441e-aded-bcbcb4f5cc0f",
+  "body": {
+    "dtu_id": "DTU_DEBUG_001",
+    "dtu_name": "调试DTU",
+    "dtu_group": "默认分组",
+    "sensors": [
+      {
+        "sensor_id": "S_DEBUG_001",
+        "dtu_id": "DTU_DEBUG_001",
+        "sensor_name": "温度传感器",
+        "sensor_type": "数值型"
+      }
+    ]
+  },
+  "query": {},
+  "params": {}
+}
+2025-09-30 20:33:45.211 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "DTU设备ID已存在",
+  "attempt": 1,
+  "threadId": 18
+}
+2025-09-30 20:33:45.212 [ERROR] Application error DTU设备ID已存在
+Error: DTU设备ID已存在
+    at DtuData.create (/Users/xujing/Workspace/cloned-website/backend/src/models/dtuData.js:40:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:24:25
+    at async TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:24)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/dtuController.js:22:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/dtu/create",
+  "method": "POST",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "f1c3dd20-a88a-47ad-a5a3-686d1e702979",
+  "body": {
+    "dtu_id": "DTU_DEBUG_002",
+    "dtu_name": "调试DTU2",
+    "dtu_group": "默认分组",
+    "sensors": [
+      {
+        "sensor_id": "S_DEBUG_002",
+        "dtu_id": "DTU_DEBUG_002",
+        "sensor_name": "温度传感器",
+        "sensor_type": "数值型"
+      }
+    ]
+  },
+  "query": {},
+  "params": {}
+}

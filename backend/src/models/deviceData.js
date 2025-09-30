@@ -137,20 +137,20 @@ class DeviceData {
 
 
   // 根据传感器ID获取传感器数据
-  static async getTemperatureDataBySensorId(sensorId, limit = 100) {
-    const cacheKey = cache.generateKey('sensor_data', { sensorId, limit });
+  static async getTemperatureDataBySensorId(sensor_id, limit = 100) {
+    const cacheKey = cache.generateKey('sensor_data', { sensor_id, limit });
     
     return await cache.cacheQuery(cacheKey, async () => {
       const [rows] = await db.execute(
         'SELECT * FROM sensor_data WHERE sensor_id = ? ORDER BY timestamp DESC LIMIT ?',
-        [sensorId, limit]
+        [sensor_id, limit]
       );
       return rows;
     }, 60, 'short'); // 1分钟缓存，因为传感器数据变化频繁
   }
 
   // 根据DTU设备ID获取所有传感器的数据
-  static async getTemperatureDataByDTUId(dtuId, limit = 100) {
+  static async getTemperatureDataByDTUId(dtu_id, limit = 100) {
     const [rows] = await db.execute(`
       SELECT td.*, s.sensor_name
       FROM sensor_data td
@@ -158,7 +158,7 @@ class DeviceData {
       WHERE s.dtu_id = ?
       ORDER BY td.timestamp DESC
       LIMIT ?
-    `, [dtuId, limit]);
+    `, [dtu_id, limit]);
     return rows;
   }
 
@@ -224,7 +224,7 @@ class DeviceData {
   }
 
   // 获取传感器数据趋势（最近24小时，每小时一个数据点）
-  static async getTemperatureTrend(sensorId, hours = 24) {
+  static async getTemperatureTrend(sensor_id, hours = 24) {
     const [rows] = await db.execute(`
       SELECT 
         DATE_FORMAT(timestamp, '%Y-%m-%d %H:00:00') as hour,
@@ -236,7 +236,7 @@ class DeviceData {
         AND timestamp >= DATE_SUB(NOW(), INTERVAL ? HOUR)
       GROUP BY hour
       ORDER BY hour
-    `, [sensorId, hours]);
+    `, [sensor_id, hours]);
     return rows;
   }
 
@@ -587,7 +587,7 @@ class DeviceData {
             sensor.lower_mapping_x1, sensor.lower_mapping_y1, sensor.lower_mapping_x2, sensor.lower_mapping_y2
           ]
         );
-        sensorResults.push({ sensorId: sensor.sensor_id, insertId: sensorResult.insertId });
+        sensorResults.push({ sensor_id: sensor.sensor_id, insertId: sensorResult.insertId });
       }
 
       logger.debug('Sensors created', { count: sensorResults.length });

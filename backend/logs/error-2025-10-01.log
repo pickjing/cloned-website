@@ -1,0 +1,59 @@
+2025-10-01 01:07:18.196 [ERROR] Query error recorded
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Incorrect integer value: '\\xE5\\xA4\\xA7\\xE7\\xAB\\xAF\\xE5\\xBA\\x8F' for column 'byte_order_value' at row 1",
+  "code": "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD",
+  "query": "INSERT INTO mb_rtu (\n        dtu_id, sensor_id, slave_address, function_code, offset_value, \n        data_format, data_bits, byte_order_value, collection_cycle\n      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, "
+}
+2025-10-01 01:07:18.199 [ERROR] Query error recorded
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Conversion from collation utf8mb4_general_ci into latin1_swedish_ci impossible for parameter",
+  "code": "ER_IMPOSSIBLE_STRING_CONVERSION",
+  "query": "INSERT INTO mb_rtu (\n        dtu_id, sensor_id, slave_address, function_code, offset_value, \n        data_format, data_bits, byte_order_value, collection_cycle\n      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, "
+}
+2025-10-01 01:07:30.050 [ERROR] Query error recorded
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "Data truncated for column 'function_code' at row 1",
+  "code": "WARN_DATA_TRUNCATED",
+  "query": "INSERT INTO mb_rtu (\n        dtu_id, sensor_id, slave_address, function_code, offset_value, \n        data_format, data_bits, byte_order_value, collection_cycle\n      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, "
+}
+2025-10-01 01:29:11.324 [ERROR] Transaction failed
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "error": "必须提供sensor_id或dtu_id参数",
+  "attempt": 1,
+  "threadId": 76
+}
+2025-10-01 01:29:11.324 [ERROR] Application error 必须提供sensor_id或dtu_id参数
+Error: 必须提供sensor_id或dtu_id参数
+    at /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:104:15
+    at TransactionService.execute (/Users/xujing/Workspace/cloned-website/backend/src/services/transaction.js:40:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/xujing/Workspace/cloned-website/backend/src/controllers/sensorController.js:82:20
+{
+  "service": "iot-backend",
+  "version": "1.0.0",
+  "url": "/api/sensors/delete",
+  "method": "DELETE",
+  "ip": "::1",
+  "userAgent": "curl/8.7.1",
+  "requestId": "b2606e17-1b40-43b8-a1ea-01188df66db5",
+  "body": {
+    "sensors": [
+      {
+        "sensor_id": "S1_1759253289_68576"
+      },
+      {
+        "sensor_id": "S2_1759253289_68576"
+      }
+    ]
+  },
+  "query": {},
+  "params": {}
+}

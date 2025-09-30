@@ -159,15 +159,15 @@ class MbRtuData {
   // 3. 查询MB-RTU协议
   static async get(params = {}, connection = null) {
     const dbConnection = connection || db;
-    const { dtuId, sensorId } = params;
+    const { dtu_id, sensor_id } = params;
     
-    logger.debug('Getting MB RTU configs', { dtuId, sensorId });
+    logger.debug('Getting MB RTU configs', { dtu_id, sensor_id });
     
-    // 如果传递了dtuId和sensorId，查询指定传感器的MB-RTU协议
-    if (dtuId && sensorId) {
+    // 如果传递了dtu_id和sensor_id，查询指定传感器的MB-RTU协议
+    if (dtu_id && sensor_id) {
       const [rows] = await dbConnection.execute(
         `SELECT * FROM mb_rtu WHERE dtu_id = ? AND sensor_id = ?`,
-        [dtuId, sensorId]
+        [dtu_id, sensor_id]
       );
       
       if (rows.length === 0) {
@@ -177,11 +177,11 @@ class MbRtuData {
       return rows[0];
     }
     
-    // 如果只传递了dtuId，查询该DTU下的所有MB-RTU协议
-    if (dtuId && !sensorId) {
+    // 如果只传递了dtu_id，查询该DTU下的所有MB-RTU协议
+    if (dtu_id && !sensor_id) {
       const [rows] = await dbConnection.execute(
         `SELECT * FROM mb_rtu WHERE dtu_id = ? ORDER BY sensor_id`,
-        [dtuId]
+        [dtu_id]
       );
       return rows;
     }
@@ -190,40 +190,6 @@ class MbRtuData {
     return [];
   }
 
-  // 4. 删除MB-RTU协议
-  static async delete(dtuId, sensorId, connection = null) {
-    const dbConnection = connection || db;
-    logger.debug('Deleting MB RTU', { dtuId, sensorId });
-    
-    // 检查DTU和传感器是否存在
-    const [dtuRows] = await dbConnection.execute('SELECT id FROM dtu_devices WHERE dtu_id = ?', [dtuId]);
-    if (dtuRows.length === 0) {
-      throw new Error('DTU设备不存在');
-    }
-    
-    const [sensorRows] = await dbConnection.execute('SELECT id FROM sensors WHERE sensor_id = ? AND dtu_id = ?', [sensorId, dtuId]);
-    if (sensorRows.length === 0) {
-      throw new Error('传感器不存在或不属于该DTU设备');
-    }
-    
-    // 检查协议是否存在
-    const [existingRows] = await dbConnection.execute(
-      'SELECT id FROM mb_rtu WHERE dtu_id = ? AND sensor_id = ?',
-      [dtuId, sensorId]
-    );
-    
-    if (existingRows.length === 0) {
-      throw new Error('MB-RTU协议不存在');
-    }
-    
-    // 删除协议
-    const [result] = await dbConnection.execute(
-      'DELETE FROM mb_rtu WHERE dtu_id = ? AND sensor_id = ?',
-      [dtuId, sensorId]
-    );
-    
-    return { action: 'deleted', affectedRows: result.affectedRows };
-  }
 }
 
 module.exports = MbRtuData;

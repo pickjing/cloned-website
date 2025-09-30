@@ -44,6 +44,11 @@
             "date": 1759165391261,
             "name": "/Users/xujing/Workspace/cloned-website/backend/logs/exceptions-2025-09-30.log",
             "hash": "803e323aa1d76d1a8b4eac36a1092bb17321f6505e6d8e1a8b609deee862e7e0"
+        },
+        {
+            "date": 1759250587663,
+            "name": "/Users/xujing/Workspace/cloned-website/backend/logs/exceptions-2025-10-01.log",
+            "hash": "ecfabca9ab59f2705a59c4e40f51ac668894697fb59c5e81015e865d3d17ce7e"
         }
     ],
     "hashType": "sha256"

@@ -10,11 +10,11 @@ class MbRtuController {
 
   // 1. 查询MB-RTU协议
   static get = asyncHandler(async (req, res) => {
-    const { dtuId, sensorId } = req.query;
+    const { dtu_id, sensor_id } = req.query;
     
     const params = {
-      dtuId,
-      sensorId
+      dtu_id,
+      sensor_id
     };
     
     const result = await MbRtuData.get(params);

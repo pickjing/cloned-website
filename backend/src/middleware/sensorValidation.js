@@ -20,11 +20,16 @@ const handleValidationErrors = (req, res, next) => {
  */
 const validateCreate = [
   body('sensors')
-  .isArray({ min: 1 })
-  .withMessage('请提供传感器数据')
+  .isArray()
+  .withMessage('sensors必须是数组格式')
   .custom((sensors) => {
-    if (!Array.isArray(sensors) || sensors.length === 0) {
-      throw new Error('传感器列表不能为空');
+    if (!Array.isArray(sensors)) {
+      throw new Error('sensors必须是数组格式');
+    }
+    
+    // 如果数组为空，直接返回true，不进行后续验证
+    if (sensors.length === 0) {
+      return true;
     }
     
     sensors.forEach((sensor, index) => {
@@ -104,11 +109,16 @@ const validateCreate = [
  */
 const validateUpdate = [
   body('sensors')
-  .isArray({ min: 1 })
-  .withMessage('请提供传感器数据')
+  .isArray()
+  .withMessage('sensors必须是数组格式')
   .custom((sensors) => {
-    if (!Array.isArray(sensors) || sensors.length === 0) {
-      throw new Error('传感器列表不能为空');
+    if (!Array.isArray(sensors)) {
+      throw new Error('sensors必须是数组格式');
+    }
+    
+    // 如果数组为空，直接返回true，不进行后续验证
+    if (sensors.length === 0) {
+      return true;
     }
     
     sensors.forEach((sensor, index) => {
@@ -179,24 +189,24 @@ const validateUpdate = [
  * 传感器查询参数验证规则
  */
 const validateQuery = [
-  query('sensorId')
+  query('sensor_id')
     .optional()
     .isLength({ min: 1, max: 50 })
     .withMessage('传感器ID长度必须在1-50个字符之间'),
   
-  query('dtuId')
+  query('dtu_id')
     .optional()
     .isLength({ min: 1, max: 50 })
     .withMessage('DTU设备ID长度必须在1-50个字符之间'),
   
-  // 自定义验证：至少需要提供sensorId或dtuId中的一种
+  // 自定义验证：至少需要提供sensor_id或dtu_id中的一种
   (req, res, next) => {
-    const { sensorId, dtuId } = req.query;
+    const { sensor_id, dtu_id } = req.query;
     
-    if (!sensorId && !dtuId) {
+    if (!sensor_id && !dtu_id) {
       return res.status(400).json({
         success: false,
-        message: '查询参数错误：必须提供sensorId或dtuId中的至少一种'
+        message: '查询参数错误：必须提供sensor_id或dtu_id中的至少一种'
       });
     }
     
@@ -210,29 +220,28 @@ const validateQuery = [
  * 传感器删除参数验证规则
  */
 const validateDelete = [
-  body('sensorId')
-    .optional()
-    .isLength({ min: 1, max: 50 })
-    .withMessage('传感器ID长度必须在1-50个字符之间'),
-  
-  body('dtuId')
-    .optional()
-    .isLength({ min: 1, max: 50 })
-    .withMessage('DTU设备ID长度必须在1-50个字符之间'),
-  
-  // 自定义验证：至少需要提供sensorId或dtuId中的一种
-  (req, res, next) => {
-    const { sensorId, dtuId } = req.body;
-    
-    if (!sensorId && !dtuId) {
-      return res.status(400).json({
-        success: false,
-        message: '删除参数错误：必须提供sensorId或dtuId中的至少一种'
+  body('sensor_ids')
+    .isArray()
+    .withMessage('sensor_ids必须是数组格式')
+    .custom((sensor_ids) => {
+      if (!Array.isArray(sensor_ids)) {
+        throw new Error('sensor_ids必须是数组格式');
+      }
+      
+      // 如果数组为空，直接返回true，不进行后续验证
+      if (sensor_ids.length === 0) {
+        return true;
+      }
+      
+      // 验证数组中的每个sensor_id
+      sensor_ids.forEach((sensorId, index) => {
+        if (typeof sensorId !== 'string' || sensorId.length < 1 || sensorId.length > 50) {
+          throw new Error(`sensor_ids[${index}]长度必须在1-50个字符之间`);
+        }
       });
-    }
-    
-    next();
-  },
+      
+      return true;
+    }),
   
   handleValidationErrors
 ];

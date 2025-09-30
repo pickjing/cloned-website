@@ -16,9 +16,9 @@ class DeviceController {
   // 根据传感器ID获取传感器数据
   static async getTemperatureDataBySensorId(req, res) {
     try {
-      const { sensorId } = req.params;
+      const { sensor_id } = req.params;
       const { limit = 100 } = req.query;
-      const data = await DeviceData.getTemperatureDataBySensorId(sensorId, parseInt(limit));
+      const data = await DeviceData.getTemperatureDataBySensorId(sensor_id, parseInt(limit));
       res.json({ success: true, data });
     } catch (error) {
       res.status(500).json({ success: false, message: error.message });
@@ -28,9 +28,9 @@ class DeviceController {
   // 根据DTU设备ID获取所有传感器的数据
   static async getTemperatureDataByDTUId(req, res) {
     try {
-      const { dtuId } = req.params;
+      const { dtu_id } = req.params;
       const { limit = 100 } = req.query;
-      const data = await DeviceData.getTemperatureDataByDTUId(dtuId, parseInt(limit));
+      const data = await DeviceData.getTemperatureDataByDTUId(dtu_id, parseInt(limit));
       res.json({ success: true, data });
     } catch (error) {
       res.status(500).json({ success: false, message: error.message });
@@ -77,9 +77,9 @@ class DeviceController {
   // 获取传感器数据趋势
   static async getTemperatureTrend(req, res) {
     try {
-      const { sensorId } = req.params;
+      const { sensor_id } = req.params;
       const { hours = 24 } = req.query;
-      const data = await DeviceData.getTemperatureTrend(sensorId, parseInt(hours));
+      const data = await DeviceData.getTemperatureTrend(sensor_id, parseInt(hours));
       res.json({ success: true, data });
     } catch (error) {
       res.status(500).json({ success: false, message: error.message });

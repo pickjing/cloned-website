@@ -1,11 +1,14 @@
 const express = require('express');
 const DtuController = require('../controllers/dtuController');
 const {
-  validateId,
   validateIds,
   validateData,
   validateQuery
 } = require('../middleware/dtuValidation');
+const {
+  validateCreate: validateSensorCreate
+} = require('../middleware/sensorValidation');
+
 const router = express.Router();
 
 // ========================================
@@ -13,7 +16,7 @@ const router = express.Router();
 // ========================================
 
 // 创建DTU设备
-router.post('/create', validateData, DtuController.create);
+router.post('/create', validateData, validateSensorCreate, DtuController.create);
 
 // 复制DTU设备
 router.post('/copy', validateIds, DtuController.copy);
@@ -25,7 +28,7 @@ router.get('/get', validateQuery, DtuController.get);
 router.put('/update', validateData, DtuController.update);
 
 // 删除DTU设备
-router.delete('/delete', validateId, DtuController.delete);
+router.delete('/delete', validateIds, DtuController.delete);
 
 
 module.exports = router;

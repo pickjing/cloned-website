@@ -195,7 +195,7 @@ const validateMoveToGroup = [
  * 设备ID参数验证规则
  */
 const validateDeviceId = [
-  param('dtuId')
+  param('dtu_id')
     .notEmpty()
     .withMessage('设备ID不能为空')
     .isLength({ min: 1, max: 50 })

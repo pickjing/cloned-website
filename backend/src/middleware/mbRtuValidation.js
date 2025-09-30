@@ -88,16 +88,16 @@ const validateData = [
 
 /**
  * MB-RTU查询参数验证规则
- * 至少需要提供dtuId，可选提供sensorId
+ * 至少需要提供dtu_id，可选提供sensor_id
  */
 const validateQuery = [
-  query('dtuId')
+  query('dtu_id')
     .notEmpty()
-    .withMessage('必须提供dtuId')
+    .withMessage('必须提供dtu_id')
     .isLength({ min: 1, max: 50 })
     .withMessage('DTU设备ID长度必须在1-50个字符之间'),
   
-  query('sensorId')
+  query('sensor_id')
     .optional()
     .isLength({ min: 1, max: 50 })
     .withMessage('传感器ID长度必须在1-50个字符之间'),
